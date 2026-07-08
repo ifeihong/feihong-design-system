@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>设计思维 · 品牌工作坊 | Feihong Design</title>
+  <meta name="description" content="飞鸿设计思维工作坊，帮助创业者和设计师建立有温度的品牌思维。2025年线下活动，上海站限时报名中。">
+  <meta name="keywords" content="设计工作坊,品牌设计,设计思维,飞鸿,Feihong Design">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,500;1,600;1,700;1,900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================
+       Feihong Design System — Landing Template v2.0 (Stable)
+       Brand: Royal Blue #0A2463 · Gold #F4D35E · Wine #D8315B
+       ============================================ */
+
+    :root {
+      --royal: #0A2463;
+      --royal-900: #040F2A;
+      --royal-800: #061842;
+      --royal-600: #0F3480;
+      --royal-500: #1E4DAA;
+      --royal-200: #B8C9EB;
+      --royal-100: #F0F4FA;
+      --royal-50: #EEF1FA;
+
+      --gold: #F4D35E;
+      --gold-600: #DDB835;
+      --gold-700: #B8951F;
+      --gold-200: #FBF2CC;
+      --gold-100: #FEFAED;
+
+      --wine: #D8315B;
+      --wine-700: #B02448;
+      --wine-100: #FDF0F4;
+
+      --cream: #FDFBF6;
+      --cream-100: #F8F4EB;
+      --cream-200: #F0EAD9;
+      --ink: #0D1225;
+      --ink-100: #2C3347;
+      --ink-200: #4C546A;
+      --ink-300: #6D7487;
+      --white: #FFFFFF;
+
+      --font-serif: 'Playfair Display', 'Noto Serif SC', Georgia, 'Songti SC', serif;
+      --font-display: 'Cormorant Garamond', 'Noto Serif SC', Georgia, 'Songti SC', serif;
+      --font-sans: 'Inter', 'Noto Sans SC', -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+      --sp-1: 4px;
+      --sp-2: 8px;
+      --sp-3: 12px;
+      --sp-4: 16px;
+      --sp-5: 24px;
+      --sp-6: 32px;
+      --sp-8: 48px;
+      --sp-12: 64px;
+      --sp-16: 96px;
+
+      --r-sm: 4px;
+      --r-md: 8px;
+      --r-lg: 12px;
+      --r-xl: 20px;
+      --r-pill: 999px;
+
+      --shadow-sm: 0 2px 8px rgba(10,36,99,0.06);
+      --shadow-md: 0 4px 16px rgba(10,36,99,0.08);
+      --shadow-lg: 0 8px 32px rgba(10,36,99,0.12);
+      --shadow-xl: 0 16px 48px rgba(10,36,99,0.15);
+      --shadow-gold: 0 8px 32px rgba(244,211,94,0.2), 0 4px 16px rgba(10,36,99,0.1);
+      --shadow-wine: 0 4px 20px rgba(216,49,91,0.25);
+
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --container-max: 1140px;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      font-weight: 400;
+      background: var(--cream);
+      color: var(--ink-100);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 15% 10%, rgba(10,36,99,0.035) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 40% at 85% 85%, rgba(244,211,94,0.04) 0%, transparent 65%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    ul, ol { list-style: none; }
+    a { color: inherit; text-decoration: none; transition: color 250ms var(--ease); }
+    button { font-family: inherit; font-size: inherit; border: none; background: none; cursor: pointer; color: inherit; }
+    img { display: block; max-width: 100%; height: auto; }
+
+    ::selection { background: var(--gold); color: var(--royal); }
+    :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: var(--r-sm); }
+
+    .container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 clamp(20px, 4vw, 48px);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ============================================
+       书卷气签名组件
+       ============================================ */
+    .wax-seal {
+      width: var(--size, 72px);
+      height: var(--size, 72px);
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #E8445A, var(--wine) 50%, #9e1f3e);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25), inset 0 2px 3px rgba(255,255,255,0.15), inset 0 -2px 3px rgba(0,0,0,0.2);
+      color: #fff;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: calc(var(--size, 72px) * 0.24);
+      text-align: center;
+      line-height: 1.1;
+      position: relative;
+    }
+    .wax-seal.gold {
+      background: radial-gradient(circle at 35% 35%, #FFE580, var(--gold) 50%, #B8860B);
+      color: var(--royal);
+    }
+
+    .fleuron {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--sp-4);
+      color: var(--gold-700);
+      font-size: 1.2rem;
+      opacity: 0.5;
+    }
+    .fleuron::before,
+    .fleuron::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-200), transparent);
+      max-width: 80px;
+    }
+
+    .photo-corner {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      border-style: solid;
+      border-color: var(--gold);
+      border-width: 0;
+      pointer-events: none;
+    }
+    .photo-corner.tl { top: 8px; left: 8px; border-top-width: 2px; border-left-width: 2px; }
+    .photo-corner.tr { top: 8px; right: 8px; border-top-width: 2px; border-right-width: 2px; }
+    .photo-corner.bl { bottom: 8px; left: 8px; border-bottom-width: 2px; border-left-width: 2px; }
+    .photo-corner.br { bottom: 8px; right: 8px; border-bottom-width: 2px; border-right-width: 2px; }
+
+    /* ============================================
+       NAVBAR
+       ============================================ */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--sp-3) clamp(20px, 4vw, 48px);
+      background: rgba(253,251,246,0.72);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      transition: all 350ms var(--ease);
+      border-bottom: 1px solid transparent;
+    }
+    .navbar.scrolled {
+      border-bottom-color: var(--cream-200);
+      box-shadow: 0 1px 12px rgba(10,36,99,0.06);
+      background: rgba(253,251,246,0.94);
+    }
+    .nav-logo {
+      font-family: var(--font-serif);
+      font-size: clamp(1.2rem, 2vw, 1.4rem);
+      font-weight: 700;
+      color: var(--royal);
+      letter-spacing: -0.01em;
+    }
+    .nav-logo .gold-dot { color: var(--gold); }
+    .nav-links { display: flex; align-items: center; gap: var(--sp-6); }
+    .nav-link {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--ink-200);
+      position: relative;
+      padding: var(--sp-2) 0;
+      transition: color 250ms var(--ease);
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      border-radius: 2px;
+      transition: width 300ms var(--ease);
+    }
+    .nav-link:hover { color: var(--royal); }
+    .nav-link:hover::after { width: 100%; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--sp-2);
+      font-family: var(--font-sans);
+      font-weight: 500;
+      border-radius: var(--r-md);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 300ms var(--ease);
+      white-space: nowrap;
+      line-height: 1;
+    }
+    .btn-primary {
+      background: var(--royal);
+      color: #fff;
+      padding: var(--sp-3) var(--sp-5);
+      font-size: 0.9375rem;
+      box-shadow: var(--shadow-md);
+    }
+    .btn-primary:hover { background: var(--royal-600); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--royal);
+      font-weight: 600;
+      padding: var(--sp-4) var(--sp-6);
+      font-size: 1.0625rem;
+      border-radius: var(--r-md);
+      box-shadow: var(--shadow-gold);
+    }
+    .btn-gold:hover { background: var(--gold-600); transform: translateY(-2px); box-shadow: 0 12px 36px rgba(244,211,94,0.35); }
+    .btn-outline-light {
+      background: transparent;
+      color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.4);
+      padding: calc(var(--sp-4) - 1.5px) calc(var(--sp-6) - 1.5px);
+      font-size: 1.0625rem;
+      border-radius: var(--r-md);
+    }
+    .btn-outline-light:hover { border-color: var(--gold); color: var(--gold); background: rgba(244,211,94,0.08); transform: translateY(-2px); }
+    .btn-lg { padding: var(--sp-4) var(--sp-6); font-size: 1.0625rem; }
+    .btn-sm { padding: var(--sp-2) var(--sp-4); font-size: 0.8125rem; }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: var(--sp-2) var(--sp-3);
+      border-radius: var(--r-sm);
+      margin-bottom: var(--sp-4);
+    }
+    .eyebrow-gold { color: var(--royal); background: var(--gold); }
+    .eyebrow-light { color: var(--gold); background: rgba(244,211,94,0.15); }
+    .eyebrow-royal { color: var(--royal); background: rgba(10,36,99,0.06); }
+
+    /* ============================================
+       HERO — Centered Title with Gold Ornament
+       ============================================ */
+    .hero {
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: clamp(100px, 14vh, 150px) 0 var(--sp-12);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 10%;
+      left: 5%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(244,211,94,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 10%;
+      right: 5%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(10,36,99,0.05) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero-inner {
+      max-width: 800px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--sp-4);
+      margin-bottom: var(--sp-5);
+      color: var(--gold);
+      opacity: 0.6;
+    }
+    .hero-ornament::before,
+    .hero-ornament::after {
+      content: '';
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .hero-ornament span {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-style: italic;
+    }
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      font-weight: 700;
+      line-height: 1.08;
+      color: var(--ink);
+      letter-spacing: -0.03em;
+      margin-bottom: var(--sp-5);
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--royal);
+      position: relative;
+    }
+    .hero-title em::after {
+      content: '';
+      position: absolute;
+      bottom: 0.08em;
+      left: 0;
+      width: 100%;
+      height: 0.1em;
+      background: var(--gold);
+      border-radius: 2px;
+      z-index: -1;
+    }
+    .hero-desc {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+      line-height: 1.7;
+      color: var(--ink-200);
+      max-width: 560px;
+      margin: 0 auto var(--sp-8);
+    }
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--sp-6);
+      flex-wrap: wrap;
+      margin-bottom: var(--sp-8);
+      font-size: 0.9375rem;
+      color: var(--ink-300);
+    }
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+    }
+    .hero-meta-item svg { width: 16px; height: 16px; color: var(--gold-700); }
+    .hero-actions {
+      display: flex;
+      gap: var(--sp-3);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .scroll-hint {
+      position: absolute;
+      bottom: var(--sp-6);
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-300);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--sp-2);
+      opacity: 0.6;
+    }
+    .scroll-hint::after {
+      content: '';
+      width: 1px;
+      height: 32px;
+      background: linear-gradient(180deg, var(--gold-700), transparent);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+    @keyframes scrollLine {
+      0%, 100% { opacity: 0.3; transform: scaleY(1); transform-origin: top; }
+      50% { opacity: 1; transform: scaleY(0.5); transform-origin: top; }
+    }
+
+    /* ============================================
+       STATS BAR
+       ============================================ */
+    .stats-bar {
+      padding: var(--sp-8) 0;
+      background: #fff;
+      border-top: 1px solid var(--cream-200);
+      border-bottom: 1px solid var(--cream-200);
+      position: relative;
+    }
+    .stats-bar::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 48px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--royal), var(--gold), var(--wine));
+      border-radius: 0 0 3px 3px;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--sp-4);
+      text-align: center;
+    }
+    .stat-item { position: relative; padding: var(--sp-2); }
+    .stat-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 15%;
+      height: 70%;
+      width: 1px;
+      background: linear-gradient(180deg, transparent, var(--gold-200), transparent);
+    }
+    .stat-number {
+      font-family: var(--font-serif);
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      font-weight: 700;
+      color: var(--royal);
+      line-height: 1;
+      margin-bottom: var(--sp-2);
+    }
+    .stat-label {
+      font-size: 0.875rem;
+      color: var(--ink-300);
+      font-weight: 500;
+    }
+
+    /* ============================================
+       SECTION HEADER
+       ============================================ */
+    .section { padding: var(--sp-16) 0; position: relative; }
+    .section-header { text-align: center; margin-bottom: clamp(40px, 6vw, 72px); }
+    .section-kicker {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--gold-700);
+      margin-bottom: var(--sp-2);
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.75rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--sp-3);
+    }
+    .section-desc {
+      font-size: 1rem;
+      color: var(--ink-300);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .section-divider {
+      width: 40px;
+      height: 3px;
+      background: var(--gold);
+      border-radius: 2px;
+      margin: var(--sp-4) auto 0;
+    }
+
+    /* ============================================
+       FEATURES
+       ============================================ */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(20px, 3vw, 32px);
+    }
+    .card-feature {
+      background: #fff;
+      border-radius: var(--r-lg);
+      padding: clamp(28px, 3.5vw, 40px);
+      border: 1px solid var(--cream-200);
+      transition: all 400ms var(--ease);
+      position: relative;
+      overflow: hidden;
+    }
+    .card-feature::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+    }
+    .card-feature:nth-child(1)::before { background: linear-gradient(90deg, var(--royal), var(--royal-500)); }
+    .card-feature:nth-child(2)::before { background: linear-gradient(90deg, var(--gold), var(--gold-600)); }
+    .card-feature:nth-child(3)::before { background: linear-gradient(90deg, var(--wine), var(--wine-700)); }
+    .card-feature:hover { transform: translateY(-8px); box-shadow: var(--shadow-xl); border-color: transparent; }
+    .feature-number {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 3rem;
+      font-weight: 400;
+      color: var(--gold);
+      opacity: 0.4;
+      line-height: 1;
+      margin-bottom: var(--sp-4);
+    }
+    .feature-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.3;
+      margin-bottom: var(--sp-3);
+    }
+    .feature-desc {
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: var(--ink-200);
+    }
+
+    /* ============================================
+       SPEAKER / HOST
+       ============================================ */
+    .speaker {
+      background: var(--cream-100);
+      position: relative;
+      overflow: hidden;
+    }
+    .speaker::before {
+      content: 'ABOUT';
+      position: absolute;
+      top: 1rem;
+      right: -1rem;
+      font-family: var(--font-serif);
+      font-size: clamp(5rem, 12vw, 10rem);
+      font-weight: 900;
+      color: var(--royal);
+      opacity: 0.03;
+      letter-spacing: 0.05em;
+      pointer-events: none;
+    }
+    .speaker-inner {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: clamp(32px, 5vw, 64px);
+      align-items: center;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .speaker-avatar-wrap {
+      position: relative;
+      flex-shrink: 0;
+    }
+    .speaker-avatar-frame {
+      position: relative;
+      padding: 10px;
+      background: var(--white);
+      border-radius: var(--r-lg);
+      box-shadow: var(--shadow-lg);
+      transform: rotate(-2deg);
+    }
+    .speaker-avatar {
+      width: clamp(180px, 22vw, 220px);
+      aspect-ratio: 1;
+      border-radius: var(--r-md);
+      overflow: hidden;
+      position: relative;
+    }
+    .speaker-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .speaker-avatar .photo-corner { width: 18px; height: 18px; }
+    .speaker-avatar .photo-corner.tl { top: 6px; left: 6px; }
+    .speaker-avatar .photo-corner.tr { top: 6px; right: 6px; }
+    .speaker-avatar .photo-corner.bl { bottom: 6px; left: 6px; }
+    .speaker-avatar .photo-corner.br { bottom: 6px; right: 6px; }
+    .speaker-badge {
+      position: absolute;
+      bottom: -12px;
+      right: -16px;
+      --size: 56px;
+      font-size: 0.6rem;
+      z-index: 2;
+    }
+    .speaker-name {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: var(--sp-1);
+    }
+    .speaker-role {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--gold-700);
+      margin-bottom: var(--sp-4);
+    }
+    .speaker-bio {
+      font-size: 0.9375rem;
+      line-height: 1.8;
+      color: var(--ink-200);
+      margin-bottom: var(--sp-5);
+    }
+    .speaker-tags {
+      display: flex;
+      gap: var(--sp-2);
+      flex-wrap: wrap;
+    }
+    .speaker-tag {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      padding: var(--sp-1) var(--sp-3);
+      border-radius: var(--r-pill);
+      background: rgba(10,36,99,0.06);
+      color: var(--royal);
+    }
+
+    /* ============================================
+       SCHEDULE TIMELINE
+       ============================================ */
+    .schedule-timeline {
+      max-width: 680px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .schedule-timeline::before {
+      content: '';
+      position: absolute;
+      left: 100px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(180deg, var(--gold), var(--gold-200) 30%, var(--gold-200) 70%, var(--gold));
+    }
+    .schedule-item {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: var(--sp-5);
+      padding: var(--sp-5) 0;
+      position: relative;
+    }
+    .schedule-time {
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--royal);
+      text-align: right;
+      padding-top: var(--sp-1);
+    }
+    .schedule-dot {
+      position: absolute;
+      left: 96px;
+      top: calc(var(--sp-5) + 8px);
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 2px solid var(--white);
+      box-shadow: 0 0 0 2px var(--gold);
+      z-index: 1;
+    }
+    .schedule-content {
+      padding-left: var(--sp-5);
+    }
+    .schedule-title {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: var(--sp-1);
+    }
+    .schedule-desc {
+      font-size: 0.875rem;
+      color: var(--ink-300);
+      line-height: 1.6;
+    }
+    .schedule-item.highlight .schedule-dot {
+      background: var(--wine);
+      box-shadow: 0 0 0 2px var(--wine), 0 0 12px rgba(216,49,91,0.3);
+    }
+    .schedule-item.highlight .schedule-title {
+      color: var(--wine);
+    }
+
+    /* ============================================
+       TOPICS — What You'll Learn
+       ============================================ */
+    .topics {
+      background: #fff;
+    }
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--sp-5);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .topic-item {
+      display: flex;
+      gap: var(--sp-4);
+      padding: var(--sp-4);
+      border-radius: var(--r-md);
+      transition: all 300ms var(--ease);
+    }
+    .topic-item:hover {
+      background: var(--cream);
+      transform: translateX(4px);
+    }
+    .topic-check {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--royal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .topic-check svg { width: 14px; height: 14px; }
+    .topic-text h4 {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: var(--sp-1);
+    }
+    .topic-text p {
+      font-size: 0.875rem;
+      color: var(--ink-300);
+      line-height: 1.6;
+    }
+
+    /* ============================================
+       TESTIMONIALS
+       ============================================ */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-5);
+    }
+    .testimonial-card {
+      background: #fff;
+      border-radius: var(--r-lg);
+      padding: var(--sp-6);
+      border: 1px solid var(--cream-200);
+      position: relative;
+      transition: all 350ms var(--ease);
+    }
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .testimonial-quote {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 3rem;
+      color: var(--gold);
+      opacity: 0.3;
+      line-height: 0.6;
+      display: block;
+      margin-bottom: -8px;
+    }
+    .testimonial-text {
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: var(--ink-100);
+      margin-bottom: var(--sp-5);
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+    }
+    .testimonial-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 0.9375rem;
+      flex-shrink: 0;
+    }
+    .testimonial-card:nth-child(1) .testimonial-avatar { background: var(--royal-100); color: var(--royal); }
+    .testimonial-card:nth-child(2) .testimonial-avatar { background: var(--gold-100); color: var(--gold-700); }
+    .testimonial-card:nth-child(3) .testimonial-avatar { background: var(--wine-100); color: var(--wine); }
+    .testimonial-info .name {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      font-size: 0.9375rem;
+      color: var(--ink);
+    }
+    .testimonial-info .role {
+      font-size: 0.75rem;
+      color: var(--ink-300);
+    }
+
+    /* ============================================
+       CTA DARK PANEL
+       ============================================ */
+    .cta-section {
+      padding: var(--sp-16) 0 var(--sp-12);
+    }
+    .dark-panel {
+      background:
+        radial-gradient(ellipse 70% 60% at 80% 20%, rgba(244,211,94,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 20% 80%, rgba(30,77,170,0.15) 0%, transparent 60%),
+        linear-gradient(135deg, var(--royal-900) 0%, var(--royal-800) 50%, var(--royal) 100%);
+      border-radius: var(--r-xl);
+      padding: clamp(48px, 7vw, 72px) clamp(32px, 5vw, 64px);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .dark-panel::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -15%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(244,211,94,0.06) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .dark-panel::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(216,49,91,0.06) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .panel-inner { position: relative; z-index: 1; }
+    .panel-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.15;
+      margin: var(--sp-4) 0;
+    }
+    .panel-desc {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+      max-width: 480px;
+      margin: 0 auto var(--sp-6);
+    }
+    .cta-form {
+      display: flex;
+      gap: var(--sp-3);
+      max-width: 480px;
+      margin: 0 auto var(--sp-5);
+      flex-wrap: wrap;
+    }
+    .form-group { flex: 1; min-width: 200px; }
+    .form-input {
+      width: 100%;
+      padding: var(--sp-4) var(--sp-5);
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      background: rgba(255,255,255,0.08);
+      border: 1.5px solid rgba(255,255,255,0.15);
+      border-radius: var(--r-md);
+      color: #fff;
+      transition: all 280ms var(--ease);
+      outline: none;
+    }
+    .form-input::placeholder { color: rgba(255,255,255,0.35); }
+    .form-input:focus {
+      border-color: var(--gold);
+      background: rgba(255,255,255,0.12);
+      box-shadow: 0 0 0 3px rgba(244,211,94,0.1);
+    }
+    .form-feedback {
+      font-size: 0.875rem;
+      margin-top: var(--sp-3);
+      min-height: 1.2em;
+    }
+    .form-feedback.success { color: var(--gold); }
+    .form-feedback.error { color: #ff8a9b; }
+    .cta-note {
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.35);
+      margin-top: var(--sp-4);
+    }
+    .cta-countdown {
+      display: flex;
+      gap: var(--sp-4);
+      justify-content: center;
+      margin-top: var(--sp-6);
+    }
+    .countdown-item {
+      text-align: center;
+    }
+    .countdown-num {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .countdown-label {
+      font-size: 0.6875rem;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: var(--sp-1);
+    }
+
+    /* ============================================
+       FOOTER
+       ============================================ */
+    .footer {
+      background: var(--ink);
+      padding: var(--sp-8) 0 var(--sp-6);
+      position: relative;
+      margin-top: var(--sp-6);
+    }
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0.3;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--sp-4);
+    }
+    .footer-brand {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .footer-brand .gold-dot { color: var(--gold); }
+    .footer-copy {
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.3);
+    }
+    .footer-links {
+      display: flex;
+      gap: var(--sp-5);
+    }
+    .footer-link {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.4);
+      transition: color 250ms var(--ease);
+    }
+    .footer-link:hover { color: var(--gold); }
+
+    /* ============================================
+       REVEAL ANIMATION
+       ============================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 700ms var(--ease), transform 700ms var(--ease);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 100ms; }
+    .reveal-delay-2 { transition-delay: 200ms; }
+    .reveal-delay-3 { transition-delay: 300ms; }
+
+    /* ============================================
+       RESPONSIVE
+       ============================================ */
+    @media (max-width: 960px) {
+      .features-grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
+      .testimonials-grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
+      .topics-grid { grid-template-columns: 1fr; }
+      .speaker-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        justify-items: center;
+      }
+      .speaker-tags { justify-content: center; }
+      .schedule-timeline::before { left: 80px; }
+      .schedule-item { grid-template-columns: 80px 1fr; }
+      .schedule-dot { left: 76px; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat-item:nth-child(2)::after { display: none; }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links .nav-link { display: none; }
+      .hero-meta { gap: var(--sp-4); }
+      .cta-form { flex-direction: column; }
+      .cta-form .btn { width: 100%; }
+      .speaker-avatar { width: 160px; }
+      .schedule-timeline::before { left: 12px; }
+      .schedule-item { grid-template-columns: 1fr; gap: var(--sp-2); padding-left: 36px; }
+      .schedule-time { text-align: left; }
+      .schedule-dot { left: 8px; top: 6px; }
+      .schedule-content { padding-left: 0; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: var(--sp-5) 0; }
+      .stat-item::after { display: none !important; }
+      .cta-countdown { gap: var(--sp-3); }
+      .countdown-num { font-size: 1.5rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+      .scroll-hint::after { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ====== NAVBAR ====== -->
+  <nav class="navbar" id="navbar">
+    <a href="#" class="nav-logo">Feihong<span class="gold-dot">.</span></a>
+    <div class="nav-links">
+      <a href="#features" class="nav-link">内容</a>
+      <a href="#speaker" class="nav-link">讲师</a>
+      <a href="#schedule" class="nav-link">日程</a>
+      <a href="#signup" class="btn btn-primary btn-sm">立即报名</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ====== HERO ====== -->
+    <section class="hero" id="hero">
+      <div class="hero-inner">
+        <div class="hero-ornament reveal">
+          <span>A Design Workshop</span>
+        </div>
+        <span class="eyebrow eyebrow-gold reveal reveal-delay-1">2025 · 上海站 · 限量席位</span>
+        <h1 class="hero-title reveal reveal-delay-1">
+          设计思维<br>
+          <em>品牌工作坊</em>
+        </h1>
+        <p class="hero-desc reveal reveal-delay-2">
+          用一天时间，建立你对品牌设计的系统认知。从审美直觉到决策框架，从理论到实战，让你的设计思考有迹可循。
+        </p>
+        <div class="hero-meta reveal reveal-delay-2">
+          <span class="hero-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            2025年11月15日（周六）
+          </span>
+          <span class="hero-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            上海 · 静安区
+          </span>
+          <span class="hero-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            一天 · 9:30-17:30
+          </span>
+        </div>
+        <div class="hero-actions reveal reveal-delay-3">
+          <a href="#signup" class="btn btn-gold btn-lg">立即报名 →</a>
+          <a href="#features" class="btn btn-outline-light btn-lg" style="border-color:var(--royal);color:var(--royal);">了解详情</a>
+        </div>
+      </div>
+      <div class="scroll-hint">Scroll</div>
+    </section>
+
+    <!-- ====== STATS BAR ====== -->
+    <section class="stats-bar">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item reveal">
+            <div class="stat-number">200</div>
+            <div class="stat-label">限量席位</div>
+          </div>
+          <div class="stat-item reveal reveal-delay-1">
+            <div class="stat-number">8h</div>
+            <div class="stat-label">沉浸式学习</div>
+          </div>
+          <div class="stat-item reveal reveal-delay-2">
+            <div class="stat-number">6</div>
+            <div class="stat-label">实战模块</div>
+          </div>
+          <div class="stat-item reveal reveal-delay-3">
+            <div class="stat-number">1v1</div>
+            <div class="stat-label">作品点评</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== FEATURES ====== -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-kicker">你将获得</p>
+          <h2 class="section-title">这不是一场"听课"</h2>
+          <p class="section-desc">我们相信最好的学习方式是动手。六个模块，从认知到实战，层层递进。</p>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="features-grid">
+          <article class="card-feature reveal">
+            <div class="feature-number">01</div>
+            <h3 class="feature-title">建立设计审美框架</h3>
+            <p class="feature-desc">不再凭感觉判断好坏。学会用层级、对比、节奏等设计语言分析作品，建立可复用的审美判断体系。</p>
+          </article>
+          <article class="card-feature reveal reveal-delay-1">
+            <div class="feature-number">02</div>
+            <h3 class="feature-title">品牌核心思维方法</h3>
+            <p class="feature-desc">从品牌定位到视觉表达，理解品牌设计背后的商业逻辑。好设计不只是好看，更是解决问题。</p>
+          </article>
+          <article class="card-feature reveal reveal-delay-2">
+            <div class="feature-number">03</div>
+            <h3 class="feature-title">配色与字体实战</h3>
+            <p class="feature-desc">不是给你一套色卡，而是教你怎么"调出"属于品牌的颜色。字体选择、排版节奏、空间留白的实操方法。</p>
+          </article>
+        </div>
+
+        <div class="fleuron" style="margin:var(--sp-12) auto 0;max-width:400px;">❦</div>
+      </div>
+    </section>
+
+    <!-- ====== SPEAKER ====== -->
+    <section class="section speaker" id="speaker">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-kicker">主讲人</p>
+          <h2 class="section-title">关于讲师</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="speaker-inner reveal">
+          <div class="speaker-avatar-wrap">
+            <div class="speaker-avatar-frame">
+              <div class="speaker-avatar">
+                <img src="avatar.jpg" alt="飞鸿">
+                <span class="photo-corner tl"></span>
+                <span class="photo-corner tr"></span>
+                <span class="photo-corner bl"></span>
+                <span class="photo-corner br"></span>
+              </div>
+            </div>
+            <div class="wax-seal gold speaker-badge">
+              主讲<br>飞鸿
+            </div>
+          </div>
+          <div>
+            <h3 class="speaker-name">飞鸿</h3>
+            <p class="speaker-role">品牌设计师 · Feihong Design 主理人</p>
+            <p class="speaker-bio">
+              八年品牌设计经验，曾服务过多家知名企业与初创品牌。相信好的设计是"有温度的秩序"，在AI工具普及的今天，更注重设计中的判断力与人文关怀。
+            </p>
+            <p class="speaker-bio" style="margin-bottom:var(--sp-5);">
+              设计作品曾获红点奖、iF设计奖等国际奖项。同时是一位设计写作爱好者，相信分享是最好的学习。
+            </p>
+            <div class="speaker-tags">
+              <span class="speaker-tag">品牌设计</span>
+              <span class="speaker-tag">设计系统</span>
+              <span class="speaker-tag">排版</span>
+              <span class="speaker-tag">设计教育</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SCHEDULE ====== -->
+    <section class="section" id="schedule">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-kicker">活动日程</p>
+          <h2 class="section-title">一天的安排</h2>
+          <p class="section-desc">理论与实战交替，确保每一个知识点都能落地。</p>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="schedule-timeline reveal">
+          <div class="schedule-item">
+            <span class="schedule-time">09:30</span>
+            <span class="schedule-dot"></span>
+            <div class="schedule-content">
+              <h4 class="schedule-title">签到 & 破冰</h4>
+              <p class="schedule-desc">领取工作坊资料包，认识身边的设计师同行</p>
+            </div>
+          </div>
+          <div class="schedule-item">
+            <span class="schedule-time">10:00</span>
+            <span class="schedule-dot"></span>
+            <div class="schedule-content">
+              <h4 class="schedule-title">模块一：设计审美框架</h4>
+              <p class="schedule-desc">重新理解"好看"——层级、对比、节奏、留白的系统认知</p>
+            </div>
+          </div>
+          <div class="schedule-item highlight">
+            <span class="schedule-time">11:30</span>
+            <span class="schedule-dot"></span>
+            <div class="schedule-content">
+              <h4 class="schedule-title">实战练习 ①</h4>
+              <p class="schedule-desc">用学到的框架分析三个真实案例，小组讨论分享</p>
+            </div>
+          </div>
+          <div class="schedule-item">
+            <span class="schedule-time">12:30</span>
+            <span class="schedule-dot"></span>
+            <div class="schedule-content">
+              <h4 class="schedule-title">午餐 & 自由交流</h4>
+              <p class="schedule-desc">精心准备的午餐，和飞鸿及其他参与者自由交流</p>
+            </div>
+          </div>
+          <div class="schedule-item">
+            <span class="schedule-time">14:00</span>
+            <span class="schedule-dot"></span>
+            <div class="schedule-content">
+              <h4 class="schedule-title">模块二：品牌思维方法</h4>
+              <p class="schedule-desc">从商业目标到设计决策——品牌设计的思考链路</p>
+            </div>
+          </div>
+          <div class="schedule-item">
+            <span class="schedule-time">15:00</span>
+            <span class="schedule-dot"></span>
+            <div class="schedule-content">
+              <h4 class="schedule-title">模块三：配色与字体</h4>
+              <p class="schedule-desc">不再抄配色！学会自己调出有品牌感的颜色方案</p>
+            </div>
+          </div>
+          <div class="schedule-item highlight">
+            <span class="schedule-time">16:00</span>
+            <span class="schedule-dot"></span>
+            <div class="schedule-content">
+              <h4 class="schedule-title">实战练习 ② + 1v1点评</h4>
+              <p class="schedule-desc">现场完成一个小型品牌视觉练习，飞鸿逐一点评</p>
+            </div>
+          </div>
+          <div class="schedule-item">
+            <span class="schedule-time">17:00</span>
+            <span class="schedule-dot"></span>
+            <div class="schedule-content">
+              <h4 class="schedule-title">Q&A & 总结</h4>
+              <p class="schedule-desc">自由提问，分享学习收获，合影留念</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== TOPICS ====== -->
+    <section class="section topics" id="topics">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-kicker">详细内容</p>
+          <h2 class="section-title">你会学到什么</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="topics-grid">
+          <div class="topic-item reveal">
+            <div class="topic-check">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="topic-text">
+              <h4>设计的六个基本原则</h4>
+              <p>层级、对比、对齐、重复、亲密性、留白——可落地的判断标准</p>
+            </div>
+          </div>
+          <div class="topic-item reveal reveal-delay-1">
+            <div class="topic-check">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="topic-text">
+              <h4>品牌定位到视觉的翻译</h4>
+              <p>如何将抽象的品牌关键词转化为具体的视觉语言</p>
+            </div>
+          </div>
+          <div class="topic-item reveal">
+            <div class="topic-check">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="topic-text">
+              <h4>配色的底层逻辑</h4>
+              <p>色相对比、饱和度控制、如何让颜色"高级"而非"艳俗"</p>
+            </div>
+          </div>
+          <div class="topic-item reveal reveal-delay-1">
+            <div class="topic-check">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="topic-text">
+              <h4>字体选择与排版节奏</h4>
+              <p>中英文字体搭配的黄金法则，字号行高的系统方法</p>
+            </div>
+          </div>
+          <div class="topic-item reveal">
+            <div class="topic-check">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="topic-text">
+              <h4>版式设计的网格系统</h4>
+              <p>如何用网格让版面有秩序感，而不是死板的对齐</p>
+            </div>
+          </div>
+          <div class="topic-item reveal reveal-delay-1">
+            <div class="topic-check">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="topic-text">
+              <h4>设计中的判断力</h4>
+              <p>AI时代设计师的核心竞争力——如何做"对"的设计决策</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== TESTIMONIALS ====== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-kicker">往期反馈</p>
+          <h2 class="section-title">参与者说</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card reveal">
+            <span class="testimonial-quote">&ldquo;</span>
+            <p class="testimonial-text">最大的收获是终于理解了"为什么"。以前做设计总觉得是凭感觉，现在有了框架可以解释自己的决策，也知道怎么改进了。</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">陈</div>
+              <div class="testimonial-info">
+                <div class="name">陈小北</div>
+                <div class="role">UI设计师 · 3年经验</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card reveal reveal-delay-1">
+            <span class="testimonial-quote">&ldquo;</span>
+            <p class="testimonial-text">飞鸿讲配色的那段让我茅塞顿开。不是给色卡，而是教你怎么"想"颜色。回去之后做的方案同事都说"高级了"。</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">林</div>
+              <div class="testimonial-info">
+                <div class="name">林夕</div>
+                <div class="role">平面设计师 · 5年经验</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card reveal reveal-delay-2">
+            <span class="testimonial-quote">&ldquo;</span>
+            <p class="testimonial-text">作为非设计背景的创业者，这个工作坊帮我建立了和设计师沟通的"共同语言"。现在看设计稿知道该怎么给反馈了。</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">张</div>
+              <div class="testimonial-info">
+                <div class="name">张明远</div>
+                <div class="role">创业者</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== CTA ====== -->
+    <section class="section cta-section" id="signup">
+      <div class="container">
+        <div class="dark-panel reveal">
+          <div class="panel-inner">
+            <span class="eyebrow eyebrow-light">限时报名</span>
+            <h2 class="panel-title">席位有限，立即锁定</h2>
+            <p class="panel-desc">200个线下席位，先到先得。填写信息即可完成报名，我们将在活动前一周发送确认邮件。</p>
+
+            <form class="cta-form" id="ctaForm" novalidate>
+              <div class="form-group">
+                <input type="text" class="form-input" id="formName" placeholder="您的姓名" required>
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-input" id="formEmail" placeholder="邮箱地址" required>
+              </div>
+              <button type="submit" class="btn btn-gold btn-lg">提交报名</button>
+            </form>
+            <div class="form-feedback" id="formFeedback"></div>
+            <p class="cta-note">报名费用：早鸟票 ¥699 / 标准票 ¥899（包含午餐、资料包、茶歇）</p>
+
+            <div class="fleuron" style="margin:var(--sp-6) auto;opacity:0.3;color:var(--gold);max-width:300px;">❦</div>
+
+            <div class="cta-countdown">
+              <div class="countdown-item">
+                <div class="countdown-num" id="cdDays">28</div>
+                <div class="countdown-label">天</div>
+              </div>
+              <div class="countdown-item">
+                <div class="countdown-num" id="cdHours">14</div>
+                <div class="countdown-label">时</div>
+              </div>
+              <div class="countdown-item">
+                <div class="countdown-num" id="cdMins">32</div>
+                <div class="countdown-label">分</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">Feihong<span class="gold-dot">.</span> Design</div>
+        <div class="footer-links">
+          <a href="mailto:hello@feihong.design" class="footer-link">联系我们</a>
+          <a href="#" class="footer-link">往期活动</a>
+          <a href="#" class="footer-link">隐私政策</a>
+        </div>
+        <p class="footer-copy">© 2025 Feihong Design. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      'use strict';
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Navbar scroll
+      var navbar = document.getElementById('navbar');
+      function updateNavbar() {
+        navbar.classList.toggle('scrolled', window.scrollY > 20);
+      }
+      window.addEventListener('scroll', function() {
+        requestAnimationFrame(updateNavbar);
+      }, { passive: true });
+      updateNavbar();
+
+      // Scroll Reveal
+      if (!reduceMotion && 'IntersectionObserver' in window) {
+        var revealEls = document.querySelectorAll('.reveal');
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(e) {
+            if (e.isIntersecting) {
+              e.target.classList.add('visible');
+              observer.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        revealEls.forEach(function(el) { observer.observe(el); });
+      } else {
+        document.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('visible'); });
+      }
+
+      // Smooth scroll
+      document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+          var target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            e.preventDefault();
+            window.scrollTo({
+              top: target.getBoundingClientRect().top + window.scrollY - 80,
+              behavior: reduceMotion ? 'auto' : 'smooth'
+            });
+          }
+        });
+      });
+
+      // Form handling
+      var form = document.getElementById('ctaForm');
+      var feedback = document.getElementById('formFeedback');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var name = document.getElementById('formName').value.trim();
+          var email = document.getElementById('formEmail').value.trim();
+          if (!name) {
+            feedback.textContent = '请输入您的姓名';
+            feedback.className = 'form-feedback error';
+            return;
+          }
+          if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            feedback.textContent = '请输入有效的邮箱地址';
+            feedback.className = 'form-feedback error';
+            return;
+          }
+          feedback.textContent = '报名成功！我们会尽快发送确认邮件到您的邮箱。';
+          feedback.className = 'form-feedback success';
+          form.reset();
+        });
+      }
+
+      // Simple countdown demo (target date)
+      function updateCountdown() {
+        var target = new Date('2025-11-15T09:30:00+08:00');
+        var now = new Date();
+        var diff = target - now;
+        if (diff < 0) {
+          document.getElementById('cdDays').textContent = '0';
+          document.getElementById('cdHours').textContent = '0';
+          document.getElementById('cdMins').textContent = '0';
+          return;
+        }
+        var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        document.getElementById('cdDays').textContent = days;
+        document.getElementById('cdHours').textContent = String(hours).padStart(2, '0');
+        document.getElementById('cdMins').textContent = String(mins).padStart(2, '0');
+      }
+      updateCountdown();
+      if (!reduceMotion) setInterval(updateCountdown, 60000);
+    })();
+  </script>
+</body>
+</html>

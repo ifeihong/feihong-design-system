@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>如何打造有辨识度的个人品牌 | Feihong Design</title>
+  <meta name="description" content="个人品牌不是一个Logo，而是一整套一致的体验。本文从定位、视觉、声音三个维度，教你系统打造有温度、有记忆点的个人品牌。">
+  <meta name="keywords" content="个人品牌,品牌设计,品牌定位,视觉识别,Feihong Design,飞鸿">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,500;1,600;1,700;1,900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================
+       Feihong Design System — Tutorial Template v2.0 (Stable)
+       Brand: Royal Blue #0A2463 · Gold #F4D35E · Wine #D8315B
+       ============================================ */
+
+    :root {
+      --royal: #0A2463;
+      --royal-900: #040F2A;
+      --royal-800: #061842;
+      --royal-600: #0F3480;
+      --royal-500: #1E4DAA;
+      --royal-200: #B8C9EB;
+      --royal-100: #F0F4FA;
+      --royal-50: #EEF1FA;
+
+      --gold: #F4D35E;
+      --gold-600: #DDB835;
+      --gold-700: #B8951F;
+      --gold-200: #FBF2CC;
+      --gold-100: #FEFAED;
+
+      --wine: #D8315B;
+      --wine-700: #B02448;
+      --wine-100: #FDF0F4;
+
+      --cream: #FDFBF6;
+      --cream-100: #F8F4EB;
+      --cream-200: #F0EAD9;
+      --ink: #0D1225;
+      --ink-100: #2C3347;
+      --ink-200: #4C546A;
+      --ink-300: #6D7487;
+      --white: #FFFFFF;
+
+      --font-serif: 'Playfair Display', 'Noto Serif SC', Georgia, 'Songti SC', serif;
+      --font-display: 'Cormorant Garamond', 'Noto Serif SC', Georgia, 'Songti SC', serif;
+      --font-sans: 'Inter', 'Noto Sans SC', -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+      --sp-1: 4px;
+      --sp-2: 8px;
+      --sp-3: 12px;
+      --sp-4: 16px;
+      --sp-5: 24px;
+      --sp-6: 32px;
+      --sp-8: 48px;
+      --sp-12: 64px;
+      --sp-16: 96px;
+
+      --r-sm: 4px;
+      --r-md: 8px;
+      --r-lg: 12px;
+      --r-xl: 20px;
+      --r-pill: 999px;
+
+      --shadow-sm: 0 2px 8px rgba(10,36,99,0.06);
+      --shadow-md: 0 4px 16px rgba(10,36,99,0.08);
+      --shadow-lg: 0 8px 32px rgba(10,36,99,0.12);
+      --shadow-xl: 0 16px 48px rgba(10,36,99,0.15);
+      --shadow-gold: 0 8px 32px rgba(244,211,94,0.2);
+
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+      /* Article-specific */
+      --article-max: 720px;
+      --article-wide: 1140px;
+      --reading-measure: 38em;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      font-size: 17px;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      font-weight: 400;
+      background: var(--cream);
+      color: var(--ink-100);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 50% 40% at 0% 0%, rgba(10,36,99,0.025) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 30% at 100% 100%, rgba(244,211,94,0.03) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    ul, ol { list-style: none; }
+    a { color: inherit; text-decoration: none; transition: color 250ms var(--ease); }
+    button { font-family: inherit; font-size: inherit; border: none; background: none; cursor: pointer; color: inherit; }
+    img { display: block; max-width: 100%; height: auto; }
+
+    ::selection { background: var(--gold); color: var(--royal); }
+    :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: var(--r-sm); }
+
+    /* ============================================
+       READING PROGRESS BAR
+       ============================================ */
+    .reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--royal), var(--gold), var(--wine));
+      z-index: 200;
+      transition: width 100ms linear;
+    }
+
+    /* ============================================
+       NAVBAR
+       ============================================ */
+    .navbar {
+      position: fixed;
+      top: 3px;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--sp-3) clamp(20px, 4vw, 48px);
+      background: rgba(253,251,246,0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      transition: all 350ms var(--ease);
+      border-bottom: 1px solid transparent;
+    }
+    .navbar.scrolled {
+      border-bottom-color: var(--cream-200);
+      background: rgba(253,251,246,0.95);
+    }
+    .nav-logo {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--royal);
+    }
+    .nav-logo .gold-dot { color: var(--gold); }
+    .nav-back {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--ink-200);
+      transition: color 250ms var(--ease);
+    }
+    .nav-back:hover { color: var(--royal); }
+    .nav-back svg { width: 16px; height: 16px; }
+
+    /* ============================================
+       ARTICLE LAYOUT
+       ============================================ */
+    .article-wrap {
+      position: relative;
+      z-index: 1;
+      padding-top: clamp(80px, 10vh, 100px);
+    }
+
+    /* Hero */
+    .article-hero {
+      text-align: center;
+      max-width: var(--article-max);
+      margin: 0 auto var(--sp-12);
+      padding: 0 clamp(20px, 4vw, 48px);
+    }
+    .article-category {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--royal);
+      background: rgba(10,36,99,0.06);
+      padding: var(--sp-1) var(--sp-3);
+      border-radius: var(--r-sm);
+      margin-bottom: var(--sp-5);
+    }
+    .article-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      margin-bottom: var(--sp-5);
+    }
+    .article-title em {
+      font-style: italic;
+      color: var(--royal);
+      position: relative;
+    }
+    .article-title em::after {
+      content: '';
+      position: absolute;
+      bottom: 0.08em;
+      left: 0;
+      width: 100%;
+      height: 0.1em;
+      background: var(--gold);
+      border-radius: 2px;
+      z-index: -1;
+    }
+    .article-ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--sp-4);
+      color: var(--gold);
+      opacity: 0.5;
+      margin-bottom: var(--sp-5);
+    }
+    .article-ornament::before,
+    .article-ornament::after {
+      content: '';
+      width: 48px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-200), transparent);
+    }
+    .article-ornament span {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-style: italic;
+    }
+    .article-meta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--sp-5);
+      flex-wrap: wrap;
+      font-size: 0.875rem;
+      color: var(--ink-300);
+    }
+    .author-mini {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+    }
+    .author-mini-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid var(--gold);
+    }
+    .author-mini-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .meta-sep {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: 0.5;
+    }
+
+    /* Hero Image */
+    .article-hero-image {
+      max-width: 900px;
+      margin: 0 auto var(--sp-12);
+      padding: 0 clamp(20px, 4vw, 48px);
+      position: relative;
+    }
+    .hero-image-frame {
+      position: relative;
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+      padding: 12px;
+      background: var(--white);
+    }
+    .hero-image-frame img {
+      width: 100%;
+      border-radius: var(--r-md);
+      display: block;
+    }
+
+    /* Photo corners */
+    .photo-corner {
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      border-style: solid;
+      border-color: var(--gold);
+      border-width: 0;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .photo-corner.tl { top: 20px; left: 20px; border-top-width: 3px; border-left-width: 3px; }
+    .photo-corner.tr { top: 20px; right: 20px; border-top-width: 3px; border-right-width: 3px; }
+    .photo-corner.bl { bottom: 20px; left: 20px; border-bottom-width: 3px; border-left-width: 3px; }
+    .photo-corner.br { bottom: 20px; right: 20px; border-bottom-width: 3px; border-right-width: 3px; }
+
+    /* Article Body with TOC */
+    .article-body-wrap {
+      max-width: var(--article-wide);
+      margin: 0 auto;
+      padding: 0 clamp(20px, 4vw, 48px);
+      position: relative;
+    }
+
+    /* TOC Sidebar */
+    .toc-sidebar {
+      position: absolute;
+      left: clamp(20px, 4vw, 48px);
+      top: 0;
+      width: 200px;
+      font-size: 0.8125rem;
+    }
+    .toc-title {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink-300);
+      margin-bottom: var(--sp-4);
+      padding-bottom: var(--sp-2);
+      border-bottom: 1px solid var(--cream-200);
+    }
+    .toc-list { display: flex; flex-direction: column; gap: var(--sp-1); }
+    .toc-list li a {
+      display: block;
+      padding: var(--sp-1) 0;
+      color: var(--ink-300);
+      border-left: 2px solid transparent;
+      padding-left: var(--sp-3);
+      margin-left: -1px;
+      transition: all 250ms var(--ease);
+      line-height: 1.4;
+    }
+    .toc-list li a:hover,
+    .toc-list li a.active {
+      color: var(--royal);
+      border-left-color: var(--gold);
+    }
+    .toc-h3 a {
+      padding-left: var(--sp-6) !important;
+      font-size: 0.75rem;
+      color: var(--ink-300) !important;
+      opacity: 0.8;
+    }
+
+    /* Article Content */
+    .article-content {
+      max-width: var(--article-max);
+      margin: 0 auto;
+      font-size: 1.05rem;
+      line-height: 1.85;
+    }
+
+    /* Drop Cap — 首字下沉 */
+    .article-content > p:first-of-type::first-letter {
+      font-family: var(--font-serif);
+      font-size: 4.2rem;
+      font-weight: 700;
+      float: left;
+      line-height: 0.85;
+      margin: 0.1em 0.1em 0 0;
+      color: var(--royal);
+    }
+
+    /* Section headings */
+    .article-content h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      margin: var(--sp-12) 0 var(--sp-5);
+      padding-top: var(--sp-2);
+      display: flex;
+      align-items: baseline;
+      gap: var(--sp-4);
+    }
+    .article-content h2 .section-num {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.2em;
+      color: var(--gold);
+      opacity: 0.6;
+      font-weight: 400;
+      flex-shrink: 0;
+    }
+    .article-content h2::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold-200), transparent);
+      margin-left: var(--sp-2);
+    }
+
+    .article-content h3 {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--royal);
+      margin: var(--sp-8) 0 var(--sp-3);
+      line-height: 1.35;
+    }
+
+    .article-content p {
+      margin-bottom: var(--sp-5);
+      color: var(--ink-100);
+    }
+
+    /* 引言/Lead */
+    .article-lead {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.25rem;
+      line-height: 1.7;
+      color: var(--royal);
+      margin: var(--sp-6) 0 var(--sp-8);
+      padding-left: var(--sp-5);
+      border-left: 3px solid var(--gold);
+    }
+
+    /* Pull Quote — 金句引述 */
+    .pull-quote {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.4rem;
+      line-height: 1.6;
+      color: var(--royal);
+      text-align: center;
+      margin: var(--sp-10) auto;
+      max-width: 560px;
+      position: relative;
+      padding: var(--sp-6) var(--sp-6);
+    }
+    .pull-quote::before {
+      content: '\201C';
+      font-family: var(--font-serif);
+      font-size: 5rem;
+      color: var(--gold);
+      opacity: 0.3;
+      position: absolute;
+      top: -10px;
+      left: 0;
+      line-height: 1;
+    }
+    .pull-quote::after {
+      content: '\201D';
+      font-family: var(--font-serif);
+      font-size: 5rem;
+      color: var(--gold);
+      opacity: 0.3;
+      position: absolute;
+      bottom: -40px;
+      right: 0;
+      line-height: 1;
+    }
+    .pull-quote cite {
+      display: block;
+      font-family: var(--font-sans);
+      font-style: normal;
+      font-size: 0.875rem;
+      color: var(--ink-300);
+      margin-top: var(--sp-4);
+      letter-spacing: 0.02em;
+    }
+
+    /* Fleuron 章节分隔 */
+    .fleuron {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--sp-4);
+      color: var(--gold-700);
+      font-size: 1.2rem;
+      opacity: 0.4;
+      margin: var(--sp-10) 0;
+    }
+    .fleuron::before,
+    .fleuron::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--cream-200), transparent);
+      max-width: 120px;
+    }
+
+    /* Inline Image */
+    .article-image {
+      margin: var(--sp-8) calc(50% - 50vw + clamp(20px, 4vw, 48px));
+      width: calc(100vw - 2 * clamp(20px, 4vw, 48px));
+      max-width: 900px;
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+    .article-image img {
+      width: 100%;
+      display: block;
+    }
+    .article-image figcaption {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 0.875rem;
+      color: var(--ink-300);
+      text-align: center;
+      padding: var(--sp-3) var(--sp-4);
+      background: var(--white);
+    }
+    @media (min-width: 960px) {
+      .article-image {
+        margin-left: calc(-1 * (900px - var(--article-max)) / 2);
+        width: 900px;
+      }
+    }
+
+    /* Lists */
+    .article-content ul,
+    .article-content ol {
+      margin-bottom: var(--sp-5);
+      padding-left: var(--sp-5);
+    }
+    .article-content ul li,
+    .article-content ol li {
+      position: relative;
+      padding-left: var(--sp-5);
+      margin-bottom: var(--sp-3);
+      color: var(--ink-100);
+    }
+    .article-content ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.7em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+    .article-content ol {
+      counter-reset: ol-counter;
+    }
+    .article-content ol li {
+      counter-increment: ol-counter;
+    }
+    .article-content ol li::before {
+      content: counter(ol-counter);
+      position: absolute;
+      left: 0;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 600;
+      color: var(--royal);
+      font-size: 1.1em;
+    }
+
+    /* Emphasis */
+    .article-content strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+    .article-content em {
+      font-style: italic;
+      color: var(--royal);
+    }
+
+    /* Blockquote */
+    .article-content blockquote {
+      border-left: 3px solid var(--gold);
+      padding: var(--sp-4) var(--sp-5);
+      margin: var(--sp-6) 0;
+      background: var(--gold-100);
+      border-radius: 0 var(--r-md) var(--r-md) 0;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--royal);
+      line-height: 1.7;
+    }
+
+    /* Inline code */
+    .article-content code {
+      font-family: var(--font-mono);
+      font-size: 0.9em;
+      background: var(--royal-50);
+      color: var(--royal);
+      padding: 2px 6px;
+      border-radius: var(--r-sm);
+    }
+
+    /* Side note / Marginalia */
+    .side-note {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 0.9rem;
+      color: var(--ink-300);
+      border-top: 1px solid var(--gold-200);
+      border-bottom: 1px solid var(--gold-200);
+      padding: var(--sp-3) 0;
+      margin: var(--sp-6) 0;
+    }
+
+    /* Callout Box */
+    .callout {
+      background: var(--white);
+      border: 1px solid var(--cream-200);
+      border-radius: var(--r-lg);
+      padding: var(--sp-6);
+      margin: var(--sp-8) 0;
+      position: relative;
+    }
+    .callout::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--royal), var(--gold));
+      border-radius: var(--r-lg) var(--r-lg) 0 0;
+    }
+    .callout-title {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--royal);
+      margin-bottom: var(--sp-3);
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+    }
+    .callout p:last-child { margin-bottom: 0; }
+
+    /* ============================================
+       AUTHOR CARD
+       ============================================ */
+    .author-card {
+      max-width: var(--article-max);
+      margin: var(--sp-16) auto var(--sp-12);
+      padding: var(--sp-8);
+      background: var(--white);
+      border-radius: var(--r-lg);
+      border: 1px solid var(--cream-200);
+      box-shadow: var(--shadow-md);
+      display: flex;
+      gap: var(--sp-5);
+      align-items: flex-start;
+      position: relative;
+      overflow: hidden;
+    }
+    .author-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--royal), var(--gold));
+    }
+    .author-card-avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 3px solid var(--gold);
+      box-shadow: var(--shadow-gold);
+    }
+    .author-card-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .author-card-info { flex: 1; }
+    .author-card-name {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: var(--sp-1);
+    }
+    .author-card-role {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 0.9375rem;
+      color: var(--gold-700);
+      margin-bottom: var(--sp-3);
+    }
+    .author-card-bio {
+      font-size: 0.9375rem;
+      color: var(--ink-200);
+      line-height: 1.7;
+      margin-bottom: var(--sp-4);
+    }
+    .author-card-social {
+      display: flex;
+      gap: var(--sp-2);
+    }
+    .author-card-social a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink-300);
+      transition: all 280ms var(--ease);
+    }
+    .author-card-social a:hover {
+      background: var(--gold);
+      color: var(--royal);
+      transform: translateY(-2px);
+    }
+    .author-card-social svg { width: 16px; height: 16px; }
+
+    /* ============================================
+       RELATED ARTICLES
+       ============================================ */
+    .related {
+      max-width: var(--article-wide);
+      margin: 0 auto var(--sp-16);
+      padding: 0 clamp(20px, 4vw, 48px);
+    }
+    .related-header {
+      text-align: center;
+      margin-bottom: var(--sp-8);
+    }
+    .related-header h2 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-5);
+    }
+    .related-card {
+      background: var(--white);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      border: 1px solid var(--cream-200);
+      transition: all 350ms var(--ease);
+    }
+    .related-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--royal-200);
+    }
+    .related-card-image {
+      aspect-ratio: 16/10;
+      background: var(--cream-100);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .related-card-image span {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--royal);
+      opacity: 0.15;
+      text-align: center;
+    }
+    .related-card:nth-child(1) .related-card-image { background: linear-gradient(135deg, var(--royal-100), var(--cream-100)); }
+    .related-card:nth-child(2) .related-card-image { background: linear-gradient(135deg, var(--gold-100), var(--cream-100)); }
+    .related-card:nth-child(3) .related-card-image { background: linear-gradient(135deg, var(--wine-100), var(--cream-100)); }
+    .related-card-content { padding: var(--sp-5); }
+    .related-card-cat {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-700);
+      margin-bottom: var(--sp-2);
+    }
+    .related-card-title {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.4;
+      margin-bottom: var(--sp-2);
+    }
+    .related-card-date {
+      font-size: 0.8125rem;
+      color: var(--ink-300);
+    }
+
+    /* ============================================
+       NEWSLETTER CTA
+       ============================================ */
+    .newsletter {
+      max-width: var(--article-max);
+      margin: 0 auto var(--sp-16);
+      padding: var(--sp-10) var(--sp-8);
+      background:
+        radial-gradient(ellipse at 80% 20%, rgba(244,211,94,0.1) 0%, transparent 60%),
+        linear-gradient(135deg, var(--royal-900), var(--royal-800));
+      border-radius: var(--r-xl);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .newsletter::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(244,211,94,0.06) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .newsletter-inner { position: relative; z-index: 1; }
+    .newsletter h2 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: var(--sp-3);
+    }
+    .newsletter p {
+      font-size: 0.9375rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: var(--sp-5);
+    }
+    .newsletter-form {
+      display: flex;
+      gap: var(--sp-2);
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .newsletter-input {
+      flex: 1;
+      padding: var(--sp-3) var(--sp-4);
+      font-family: var(--font-sans);
+      font-size: 0.9375rem;
+      background: rgba(255,255,255,0.08);
+      border: 1.5px solid rgba(255,255,255,0.15);
+      border-radius: var(--r-md);
+      color: #fff;
+      outline: none;
+      transition: all 280ms var(--ease);
+    }
+    .newsletter-input::placeholder { color: rgba(255,255,255,0.35); }
+    .newsletter-input:focus {
+      border-color: var(--gold);
+      background: rgba(255,255,255,0.12);
+    }
+    .newsletter-btn {
+      padding: var(--sp-3) var(--sp-5);
+      background: var(--gold);
+      color: var(--royal);
+      font-weight: 600;
+      border-radius: var(--r-md);
+      transition: all 280ms var(--ease);
+    }
+    .newsletter-btn:hover {
+      background: var(--gold-600);
+      transform: translateY(-2px);
+    }
+
+    /* ============================================
+       FOOTER
+       ============================================ */
+    .footer {
+      background: var(--ink);
+      padding: var(--sp-8) 0 var(--sp-6);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-inner {
+      max-width: var(--article-wide);
+      margin: 0 auto;
+      padding: 0 clamp(20px, 4vw, 48px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--sp-4);
+    }
+    .footer-brand {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .footer-brand .gold-dot { color: var(--gold); }
+    .footer-copy { font-size: 0.8125rem; color: rgba(255,255,255,0.3); }
+
+    /* ============================================
+       REVEAL
+       ============================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 600ms var(--ease), transform 600ms var(--ease);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ============================================
+       RESPONSIVE
+       ============================================ */
+    @media (max-width: 1100px) {
+      .toc-sidebar { display: none; }
+    }
+
+    @media (max-width: 960px) {
+      html { font-size: 16px; }
+      .related-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+      .author-card { flex-direction: column; text-align: center; align-items: center; }
+      .author-card::before {
+        width: 100%;
+        height: 4px;
+        top: 0;
+        left: 0;
+        background: linear-gradient(90deg, var(--royal), var(--gold));
+      }
+      .author-card-social { justify-content: center; }
+      .newsletter-form { flex-direction: column; }
+      .pull-quote { font-size: 1.2rem; padding: var(--sp-4); }
+    }
+
+    @media (max-width: 640px) {
+      .article-title { font-size: 1.75rem; }
+      .article-content h2 { font-size: 1.35rem; }
+      .article-meta { gap: var(--sp-3); font-size: 0.8125rem; }
+      .meta-sep { display: none; }
+      .newsletter { padding: var(--sp-8) var(--sp-5); border-radius: var(--r-lg); }
+      .author-card { padding: var(--sp-6) var(--sp-5); }
+      .callout { padding: var(--sp-5) var(--sp-4); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+      .reading-progress { transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Reading Progress -->
+  <div class="reading-progress" id="progressBar" role="progressbar" aria-label="阅读进度"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <a href="#" class="nav-back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      返回首页
+    </a>
+    <a href="#" class="nav-logo">Feihong<span class="gold-dot">.</span></a>
+  </nav>
+
+  <main class="article-wrap">
+    <!-- Hero -->
+    <header class="article-hero reveal">
+      <span class="article-category">品牌思考</span>
+      <h1 class="article-title">如何打造<em>有辨识度</em>的个人品牌</h1>
+      <div class="article-ornament"><span>Thoughts on Brand</span></div>
+      <div class="article-meta">
+        <span class="author-mini">
+          <span class="author-mini-avatar"><img src="avatar.jpg" alt="飞鸿"></span>
+          飞鸿
+        </span>
+        <span class="meta-sep"></span>
+        <span>2025年10月</span>
+        <span class="meta-sep"></span>
+        <span>阅读 12 分钟</span>
+      </div>
+    </header>
+
+    <!-- Hero Image -->
+    <div class="article-hero-image reveal">
+      <div class="hero-image-frame">
+        <span class="photo-corner tl"></span>
+        <span class="photo-corner tr"></span>
+        <span class="photo-corner bl"></span>
+        <span class="photo-corner br"></span>
+        <img src="character.png" alt="品牌不是一个Logo，而是一整套一致的体验">
+      </div>
+    </div>
+
+    <!-- Article Body -->
+    <div class="article-body-wrap">
+      <!-- TOC Sidebar (desktop only) -->
+      <aside class="toc-sidebar" id="tocSidebar">
+        <div class="toc-title">目录</div>
+        <ul class="toc-list">
+          <li><a href="#intro" class="active">引言</a></li>
+          <li><a href="#why-brand">为什么需要个人品牌</a></li>
+          <li><a href="#three-pillars">品牌三支柱</a></li>
+          <li class="toc-h3"><a href="#pillar-1">定位：找到你的关键词</a></li>
+          <li class="toc-h3"><a href="#pillar-2">视觉：建立一致的符号</a></li>
+          <li class="toc-h3"><a href="#pillar-3">声音：说什么比怎么说更重要</a></li>
+          <li><a href="#process">落地的四个步骤</a></li>
+          <li><a href="#mistakes">常见的三个误区</a></li>
+          <li><a href="#conclusion">结语</a></li>
+        </ul>
+      </aside>
+
+      <article class="article-content">
+        <p id="intro">
+          这几年，"个人品牌"这个词被说得越来越多。有人觉得它就是做一个好看的Logo，有人觉得是在社交媒体上发精修的照片，还有人觉得那是"网红"才需要考虑的事。但在我看来，个人品牌是一件更本质的事——它是你在他人心中留下的印象，是你传递价值的方式，是别人想到某个领域时第一个想到你的理由。
+        </p>
+
+        <p class="article-lead">
+          品牌不是一个Logo，而是一整套一致的体验。每一次你出现在别人面前，都是在构建你的品牌。
+        </p>
+
+        <div class="fleuron">❦</div>
+
+        <h2 id="why-brand"><span class="section-num">01</span>为什么需要个人品牌</h2>
+
+        <p>
+          在信息过载的时代，注意力是最稀缺的资源。当人们每天接触上百条信息，如果你没有一个清晰的辨识度，就会被淹没在噪音里。个人品牌不是虚荣，而是<strong>让别人快速理解你是谁、你能提供什么价值</strong>的一种方式。
+        </p>
+
+        <p>
+          我见过很多能力很强的人，因为不重视个人品牌，机会总是流向那些"看起来"更专业的人。不是能力不够，而是别人没有机会了解你的能力。好的个人品牌能帮你：
+        </p>
+
+        <ul>
+          <li>在竞争中脱颖而出，建立差异化认知</li>
+          <li>吸引同频的客户、合作伙伴和机会</li>
+          <li>降低沟通成本，让别人快速理解你的价值</li>
+          <li>建立信任，这是任何商业关系的基础</li>
+        </ul>
+
+        <blockquote>
+          你的个人品牌就是当你不在房间里时，别人怎么谈论你。
+        </blockquote>
+
+        <h2 id="three-pillars"><span class="section-num">02</span>品牌三支柱</h2>
+
+        <p>
+          一个完整的个人品牌包含三个核心维度：<strong>定位</strong>回答"你是谁"，<strong>视觉</strong>回答"你长什么样"，<strong>声音</strong>回答"你怎么说话"。三者缺一不可，共同构成了别人对你的整体印象。
+        </p>
+
+        <h3 id="pillar-1">定位：找到你的关键词</h3>
+
+        <p>
+          定位是品牌的起点。你需要用一两句话说清楚：你是谁？你为谁解决什么问题？你和别人有什么不同？很多人卡在这一步，因为我们太容易想"什么都做"，但什么都做等于什么都不做。
+        </p>
+
+        <div class="callout">
+          <div class="callout-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            定位练习
+          </div>
+          <p>试着用三个关键词描述自己。不是你想成为的样子，而是别人真实会用来形容你的词。然后问三个信任的朋友，让他们也用三个词形容你。两者的交集，就是你品牌的种子。</p>
+        </div>
+
+        <h3 id="pillar-2">视觉：建立一致的符号</h3>
+
+        <p>
+          视觉是品牌最直接的表达。这包括你的配色、字体、头像、排版风格，以及所有视觉物料的统一感。<em>一致性比"好看"更重要</em>。一个持续使用三年的简单头像，比每个季度换一次的精美头像更有品牌价值。
+        </p>
+
+        <p>
+          视觉不需要复杂。一套主色、一种字体、一个固定的排版风格，就足够建立起基本的辨识度。关键是：<strong>在所有平台保持一致</strong>。
+        </p>
+
+        <figure class="article-image">
+          <img src="character.png" alt="品牌视觉系统示意">
+          <figcaption>品牌视觉一致性：配色、字体、风格在所有触点保持统一</figcaption>
+        </figure>
+
+        <h3 id="pillar-3">声音：说什么比怎么说更重要</h3>
+
+        <p>
+          声音是你表达观点的方式——你写什么样的文字，分享什么样的内容，用什么样的语气和人交流。如果说视觉是品牌的"脸"，声音就是品牌的"性格"。
+        </p>
+
+        <p>
+          你是严肃专业的，还是轻松幽默的？是深度长文，还是碎片思考？是分享方法论，还是记录过程？这些选择共同构成了你品牌的声音。<strong>不要试图讨好所有人</strong>，有态度的声音才能吸引真正认同你的人。
+        </p>
+
+        <p class="pull-quote">
+          人们不会记住你说了什么，但会记住你给他们的感觉。<br>而感觉，来自每一次一致的体验。
+          <cite>— 关于品牌的一点思考</cite>
+        </p>
+
+        <div class="fleuron">❦</div>
+
+        <h2 id="process"><span class="section-num">03</span>落地的四个步骤</h2>
+
+        <p>
+          理论说得再多，不落地都是空谈。根据我的经验，打造个人品牌可以从四个实际步骤开始。不需要一步到位，可以边做边调整。
+        </p>
+
+        <ol>
+          <li><strong>梳理定位</strong>：回答"我是谁、为谁、解决什么问题"，写出你的三个关键词</li>
+          <li><strong>建立视觉基础</strong>：确定主色调、选择字体、设计/选择头像，建立视觉规范</li>
+          <li><strong>开始输出</strong>：选择1-2个平台，持续分享你的思考和作品，保持节奏</li>
+          <li><strong>迭代优化</strong>：根据反馈调整方向，品牌是生长出来的，不是规划出来的</li>
+        </ol>
+
+        <p class="side-note">
+          注意：个人品牌不是"打造"出来的，而是"生长"出来的。它基于你真实的特质，而不是你扮演的角色。伪装的品牌无法持续，真诚才是最长效的策略。
+        </p>
+
+        <h2 id="mistakes"><span class="section-num">04</span>常见的三个误区</h2>
+
+        <p>
+          在帮助他人梳理个人品牌的过程中，我发现有几个误区反复出现。提前知道这些，可以少走很多弯路。
+        </p>
+
+        <h3>误区一：追求完美再开始</h3>
+        <p>
+          很多人觉得要等"准备好了"再开始——等Logo做好，等网站搭完，等文章写得足够好。但真相是，<strong>完成比完美重要</strong>。你的品牌会在实践中逐渐清晰，而不是在规划中。
+        </p>
+
+        <h3>误区二：模仿别人的风格</h3>
+        <p>
+          看到别人的品牌做得好，就去模仿配色、字体、内容形式。但模仿只能做到"像"，做不到"是"。你的品牌应该基于你独特的经历、观点和性格，这些是无法复制的。
+        </p>
+
+        <h3>误区三：只关注视觉</h3>
+        <p>
+          花很多时间调整Logo、做精美的头像和封面，但内容空洞。视觉是入口，但留存靠的是内容和价值。一个视觉朴素但内容扎实的品牌，远比视觉华丽但内容空洞的品牌走得远。
+        </p>
+
+        <div class="fleuron">❦</div>
+
+        <h2 id="conclusion"><span class="section-num">05</span>结语</h2>
+
+        <p>
+          个人品牌这件事，说到底是一件关于"真诚"的事。它不是包装，不是表演，而是把你真实相信的东西，通过一致的方式持续传递出去。当你的定位、视觉、声音都指向同一个方向时，品牌的力量自然会显现。
+        </p>
+
+        <p>
+          不必焦虑，不必比较。每个人都有自己的节奏和特质。找到你真正在意的东西，持续地表达它，时间会给你答案。
+        </p>
+
+        <p style="margin-top:var(--sp-8);font-family:var(--font-display);font-style:italic;font-size:1.2rem;color:var(--royal);text-align:center;">
+          慢慢来，比较快。
+        </p>
+      </article>
+    </div>
+
+    <!-- Author Card -->
+    <div class="author-card reveal">
+      <div class="author-card-avatar">
+        <img src="avatar.jpg" alt="飞鸿">
+      </div>
+      <div class="author-card-info">
+        <div class="author-card-name">飞鸿</div>
+        <div class="author-card-role">品牌设计师 · Feihong Design 主理人</div>
+        <p class="author-card-bio">
+          八年品牌设计经验，相信好的设计是"有温度的秩序"。在这里分享关于设计、品牌和创造的思考。
+        </p>
+        <div class="author-card-social">
+          <a href="mailto:hello@feihong.design" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+          <a href="#" aria-label="Twitter">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+          </a>
+          <a href="#" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related Articles -->
+    <section class="related reveal">
+      <div class="related-header">
+        <h2>继续阅读</h2>
+      </div>
+      <div class="related-grid">
+        <a href="#" class="related-card">
+          <div class="related-card-image"><span>排版的秩序</span></div>
+          <div class="related-card-content">
+            <div class="related-card-cat">设计技法</div>
+            <h3 class="related-card-title">排版的秩序：为什么你的设计总觉得"乱"</h3>
+            <span class="related-card-date">2025年9月</span>
+          </div>
+        </a>
+        <a href="#" class="related-card">
+          <div class="related-card-image"><span>配色的艺术</span></div>
+          <div class="related-card-content">
+            <div class="related-card-cat">设计思考</div>
+            <h3 class="related-card-title">配色的底层逻辑：从抄色卡到创造色彩</h3>
+            <span class="related-card-date">2025年8月</span>
+          </div>
+        </a>
+        <a href="#" class="related-card">
+          <div class="related-card-image"><span>设计师成长</span></div>
+          <div class="related-card-content">
+            <div class="related-card-cat">职业思考</div>
+            <h3 class="related-card-title">AI时代，设计师的核心竞争力是什么</h3>
+            <span class="related-card-date">2025年7月</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Newsletter CTA -->
+    <section class="newsletter reveal">
+      <div class="newsletter-inner">
+        <span class="eyebrow" style="display:inline-block;font-size:0.75rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);background:rgba(244,211,94,0.15);padding:var(--sp-1) var(--sp-3);border-radius:var(--r-sm);margin-bottom:var(--sp-4);">订阅更新</span>
+        <h2>每周一封设计思考</h2>
+        <p>不追热点，不灌鸡汤。只分享关于设计、品牌和创造的深度思考。</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault();this.querySelector('button').textContent='已订阅 ✓';">
+          <input type="email" class="newsletter-input" placeholder="your@email.com" required>
+          <button type="submit" class="newsletter-btn">订阅</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">Feihong<span class="gold-dot">.</span> Design</div>
+      <p class="footer-copy">© 2025 飞鸿 · 用设计传递温度</p>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      'use strict';
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Navbar
+      var navbar = document.getElementById('navbar');
+      function updateNavbar() {
+        navbar.classList.toggle('scrolled', window.scrollY > 20);
+      }
+
+      // Reading progress
+      var progressBar = document.getElementById('progressBar');
+      function updateProgress() {
+        var scrollTop = window.scrollY;
+        var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        progressBar.style.width = Math.min(100, Math.max(0, progress)) + '%';
+      }
+
+      // TOC active state
+      var tocLinks = document.querySelectorAll('.toc-list a');
+      var articleSections = [];
+      tocLinks.forEach(function(link) {
+        var href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          var el = document.querySelector(href);
+          if (el) articleSections.push({ el: el, link: link });
+        }
+      });
+
+      function updateTOC() {
+        var scrollY = window.scrollY + 120;
+        var active = articleSections[0];
+        articleSections.forEach(function(s) {
+          if (scrollY >= s.el.offsetTop) active = s;
+        });
+        tocLinks.forEach(function(l) { l.classList.remove('active'); });
+        if (active) active.link.classList.add('active');
+      }
+
+      var ticking = false;
+      function onScroll() {
+        if (!ticking) {
+          requestAnimationFrame(function() {
+            updateNavbar();
+            updateProgress();
+            updateTOC();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      updateNavbar();
+      updateProgress();
+
+      // Reveal
+      if (!reduceMotion && 'IntersectionObserver' in window) {
+        document.querySelectorAll('.reveal').forEach(function(el) {
+          new IntersectionObserver(function(entries) {
+            entries.forEach(function(e) {
+              if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                e.target._obs.unobserve(e.target);
+              }
+            });
+          }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }).observe(el);
+          el._obs = {};
+        });
+        // Fix: create observer properly
+        var obs = new IntersectionObserver(function(entries) {
+          entries.forEach(function(e) {
+            if (e.isIntersecting) {
+              e.target.classList.add('visible');
+              obs.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
+      } else {
+        document.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('visible'); });
+      }
+
+      // Smooth scroll for TOC
+      document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+          var target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            e.preventDefault();
+            window.scrollTo({
+              top: target.getBoundingClientRect().top + window.scrollY - 80,
+              behavior: reduceMotion ? 'auto' : 'smooth'
+            });
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

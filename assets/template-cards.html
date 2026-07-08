@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>飞鸿品牌设计系统 · 小红书图文卡片模板</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<style>
+  :root {
+    /* Brand Colors */
+    --royal: #0A2463;
+    --royal-blue: #0A2463;
+    --royal-600: #0F3480;
+    --royal-700: #081C4F;
+    --gold: #F4D35E;
+    --vintage-gold: #F4D35E;
+    --gold-600: #DDB52E;
+    --wine: #D8315B;
+    --wine-red: #D8315B;
+    --wine-600: #AD2749;
+    --cream: #FDFBF6;
+    --cream-deep: #f5efe2;
+    --warm-white: #FDFBF6;
+    --soft-white: #FAFAF8;
+    --ink: #0D1225;
+    --ink-black: #0D1225;
+    --ink-200: #4C546A;
+    --shadow-blue: rgba(10, 36, 99, 0.12);
+    --shadow-blue-strong: rgba(10, 36, 99, 0.22);
+
+    /* Typography */
+    --font-serif: 'Playfair Display', 'Noto Serif SC', Georgia, 'Songti SC', serif;
+    --font-display: 'Cormorant Garamond', 'Noto Serif SC', Georgia, serif;
+    --font-sans: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    --font-mono: 'JetBrains Mono', Consolas, 'Courier New', monospace;
+
+    /* Spacing */
+    --sp-1: 4px;
+    --sp-2: 8px;
+    --sp-3: 12px;
+    --sp-4: 16px;
+    --sp-5: 24px;
+    --sp-6: 32px;
+    --sp-8: 48px;
+
+    /* Radius */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 28px;
+    --radius-xl: 48px;
+
+    /* Easing */
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--cream-deep);
+    color: var(--ink-black);
+    min-height: 100vh;
+    padding-bottom: 80px;
+    overflow-x: auto;
+  }
+
+  /* ========== 顶部控制面板 ========== */
+  .control-panel {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(253, 251, 246, 0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(10, 36, 99, 0.08);
+    padding: 14px clamp(16px, 3vw, 40px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(10px, 2vw, 24px);
+    flex-wrap: wrap;
+    box-shadow: 0 2px 20px var(--shadow-blue);
+  }
+  .control-panel .brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--royal-blue);
+    letter-spacing: 1px;
+    margin-right: auto;
+  }
+  .control-panel .brand span {
+    color: var(--vintage-gold);
+    font-style: italic;
+  }
+  .nav-btn, .export-btn {
+    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 9px 18px;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    letter-spacing: 0.5px;
+  }
+  .nav-btn {
+    background: white;
+    color: var(--royal-blue);
+    border: 1.5px solid var(--royal-blue);
+  }
+  .nav-btn:hover { background: var(--royal-blue); color: white; }
+  .nav-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .page-indicator {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--royal-blue);
+    min-width: 60px;
+    text-align: center;
+  }
+  .export-btn {
+    background: var(--vintage-gold);
+    color: var(--royal-blue);
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(244, 211, 94, 0.35);
+  }
+  .export-btn:hover { background: #f0c93d; transform: translateY(-1px); }
+  .export-btn.all {
+    background: var(--royal-blue);
+    color: var(--vintage-gold);
+  }
+  .export-btn.all:hover { background: #081c4f; }
+
+  /* ========== 页面容器 ========== */
+  .pages-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+    padding: 40px 20px;
+  }
+
+  /* ========== 单页基础 ========== */
+  .page {
+    width: 1080px;
+    height: 1440px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow:
+      0 20px 60px var(--shadow-blue-strong),
+      0 4px 12px var(--shadow-blue);
+    border-radius: var(--radius-lg);
+  }
+
+  /* 页码 */
+  .page-number {
+    position: absolute;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--vintage-gold);
+    letter-spacing: 2px;
+    z-index: 10;
+  }
+  .page-number.bottom-right { bottom: 40px; right: 50px; }
+  .page-number.bottom-left { bottom: 40px; left: 50px; }
+  .page-number.top-right { top: 50px; right: 50px; }
+  .page-number.top-left { top: 50px; left: 50px; }
+
+  /* 每页独立导出按钮 */
+  .page-export-fab {
+    position: absolute;
+    top: 36px;
+    right: 36px;
+    z-index: 20;
+    background: var(--vintage-gold);
+    color: var(--royal-blue);
+    border: none;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(10,36,99,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    transition: transform 0.15s ease;
+    letter-spacing: 0;
+  }
+  .page-export-fab:hover { transform: scale(1.08); }
+  .page-export-fab svg { width: 24px; height: 24px; }
+  .page-export-fab .fab-label {
+    display: none;
+  }
+  .dark-page .page-export-fab {
+    background: var(--vintage-gold);
+    color: var(--royal-blue);
+  }
+
+  /* ====================================================== */
+  /* 第1页 · 封面                                           */
+  /* ====================================================== */
+  .page-1 {
+    background: var(--warm-white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 90px;
+  }
+  .page-1 .watermark {
+    position: absolute;
+    bottom: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Playfair Display', serif;
+    font-size: 280px;
+    font-weight: 700;
+    color: rgba(10, 36, 99, 0.03);
+    letter-spacing: 20px;
+    user-select: none;
+    white-space: nowrap;
+  }
+  .page-1 .badge {
+    display: inline-block;
+    background: var(--vintage-gold);
+    color: var(--royal-blue);
+    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    padding: 12px 36px;
+    border-radius: 100px;
+    letter-spacing: 6px;
+    margin-bottom: 70px;
+    text-transform: uppercase;
+  }
+  .page-1 .title {
+    font-family: 'Playfair Display', 'Noto Sans SC', serif;
+    font-size: 86px;
+    font-weight: 700;
+    color: var(--ink-black);
+    text-align: center;
+    line-height: 1.3;
+    letter-spacing: 2px;
+    margin-bottom: 80px;
+    z-index: 2;
+  }
+  .page-1 .title .highlight {
+    color: var(--vintage-gold);
+    font-style: italic;
+    font-weight: 600;
+    position: relative;
+  }
+  .page-1 .divider {
+    width: 80px;
+    height: 3px;
+    background: var(--vintage-gold);
+    margin-bottom: 40px;
+    border-radius: 2px;
+  }
+  .page-1 .author {
+    font-family: 'Playfair Display', 'Noto Sans SC', serif;
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--royal-blue);
+    letter-spacing: 8px;
+    z-index: 2;
+  }
+  .page-1 .author .dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--wine-red);
+    border-radius: 50%;
+    margin: 0 16px 4px;
+    vertical-align: middle;
+  }
+  .page-1 .corner-decor {
+    position: absolute;
+    top: 70px;
+    left: 70px;
+    width: 60px;
+    height: 60px;
+    border-top: 3px solid var(--vintage-gold);
+    border-left: 3px solid var(--vintage-gold);
+  }
+  .page-1 .corner-decor-br {
+    position: absolute;
+    bottom: 70px;
+    right: 70px;
+    width: 60px;
+    height: 60px;
+    border-bottom: 3px solid var(--vintage-gold);
+    border-right: 3px solid var(--vintage-gold);
+  }
+
+  /* ====================================================== */
+  /* 第2页 · 要点列表                                        */
+  /* ====================================================== */
+  .page-2 {
+    background: var(--soft-white);
+    padding: 110px 90px 100px;
+    display: flex;
+    flex-direction: column;
+  }
+  .page-2 .header {
+    margin-bottom: 70px;
+  }
+  .page-2 .tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--wine-red);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .page-2 .tag::before {
+    content: '— ';
+    color: var(--vintage-gold);
+    font-weight: 700;
+  }
+  .page-2 .title {
+    font-family: 'Playfair Display', 'Noto Sans SC', serif;
+    font-size: 64px;
+    font-weight: 700;
+    color: var(--royal-blue);
+    line-height: 1.25;
+    letter-spacing: 1px;
+  }
+  .page-2 .title-accent {
+    display: block;
+    width: 100px;
+    height: 5px;
+    background: var(--vintage-gold);
+    border-radius: 3px;
+    margin-top: 28px;
+  }
+  .page-2 .list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+    margin-top: 10px;
+  }
+  .page-2 .list-item {
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+  }
+  .page-2 .dot {
+    width: 22px;
+    height: 22px;
+    background: var(--vintage-gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 10px;
+    box-shadow: 0 0 0 6px rgba(244, 211, 94, 0.2);
+  }
+  .page-2 .item-content { flex: 1; }
+  .page-2 .item-title {
+    font-family: 'Playfair Display', 'Noto Sans SC', serif;
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--ink-black);
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+  .page-2 .item-desc {
+    font-size: 22px;
+    font-weight: 400;
+    color: #3a3f55;
+    line-height: 1.7;
+    letter-spacing: 0.3px;
+  }
+
+  /* ====================================================== */
+  /* 第3页 · 品牌三要素（图文混排风格）                        */
+  /* ====================================================== */
+  .page-3 {
+    background: var(--warm-white);
+    padding: 100px 80px;
+    display: flex;
+    flex-direction: column;
+  }
+  .page-3 .top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 80px;
+  }
+  .page-3 .tag-line {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-style: italic;
+    color: var(--wine-red);
+    letter-spacing: 2px;
+  }
+  .page-3 .title {
+    font-family: 'Playfair Display', 'Noto Sans SC', serif;
+    font-size: 72px;
+    font-weight: 700;
+    color: var(--royal-blue);
+    line-height: 1.15;
+  }
+  .page-3 .title small {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--vintage-gold);
+    margin-top: 10px;
+    letter-spacing: 3px;
+  }
+  .page-3 .elements {
+    flex: 1;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0;
+    position: relative;
+  }
+  .page-3 .element {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 30px 40px;
+    border-radius: var(--radius-md);
+    position: relative;
+  }
+  .page-3 .element:nth-child(1) {
+    background: linear-gradient(135deg, rgba(244, 211, 94, 0.12), rgba(244, 211, 94, 0.03));
+    border-left: 5px solid var(--vintage-gold);
+  }
+  .page-3 .element:nth-child(2) {
+    background: linear-gradient(135deg, rgba(10, 36, 99, 0.08), rgba(10, 36, 99, 0.02));
+    border-left: 5px solid var(--royal-blue);
+  }
+  .page-3 .element:nth-child(3) {
+    background: linear-gradient(135deg, rgba(216, 49, 91, 0.1), rgba(216, 49, 91, 0.02));
+    border-left: 5px solid var(--wine-red);
+  }
+  .page-3 .el-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: white;
+  }
+  .page-3 .element:nth-child(1) .el-circle { background: var(--vintage-gold); color: var(--royal-blue); }
+  .page-3 .element:nth-child(2) .el-circle { background: var(--royal-blue); color: var(--vintage-gold); }
+  .page-3 .element:nth-child(3) .el-circle { background: var(--wine-red); color: white; }
+  .page-3 .el-text { flex: 1; }
+  .page-3 .el-name {
+    font-family: 'Playfair Display', 'Noto Sans SC', serif;
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .page-3 .element:nth-child(1) .el-name { color: #b8941f; }
+  .page-3 .element:nth-child(2) .el-name { color: var(--royal-blue); }
+  .page-3 .element:nth-child(3) .el-name { color: var(--wine-red); }
+  .page-3 .el-en {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: #888;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+  }
+  .page-3 .el-desc {
+    font-size: 21px;
+    color: #3a3f55;
+    line-height: 1.65;
+  }
+
+  /* ====================================================== */
+  /* 第4页 · 步骤                                            */
+  /* ====================================================== */
+  .page-4 {
+    background: var(--soft-white);
+    padding: 110px 80px 100px;
+    display: flex;
+    flex-direction: column;
+  }
+  .page-4 .header {
+    text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+  }
+  .page-4 .header::before,
+  .page-4 .header::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 120px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--vintage-gold));
+  }
+  .page-4 .header::before {
+    left: 60px;
+    background: linear-gradient(90deg, transparent, var(--vintage-gold));
+  }
+  .page-4 .header::after {
+    right: 60px;
+    background: linear-gradient(-90deg, transparent, var(--vintage-gold));
+  }
+  .page-4 .step-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-style: italic;
+    color: var(--wine-red);
+    letter-spacing: 4px;
+    margin-bottom: 16px;
+  }
+  .page-4 .title {
+    font-family: 'Playfair Display', 'Noto Sans SC', serif;
+    font-size: 68px;
+    font-weight: 700;
+    color: var(--royal-blue);
+    letter-spacing: 4px;
+  }
+  .page-4 .title-en {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-style: italic;
+    color: var(--vintage-gold);
+    margin-top: 12px;
+    letter-spacing: 6px;
+  }
+  .page-4 .steps {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0;
+    position: relative;
+  }
+  .page-4 .step {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    position: relative;
+    padding: 28px 0;
+  }
+  .page-4 .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 96px;
+    font-weight: 700;
+    color: var(--vintage-gold);
+    line-height: 1;
+    width: 140px;
+    text-align: center;
+    flex-shrink: 0;
+    font-style: italic;
+    text-shadow: 2px 2px 0 rgba(244,211,94,0.2);
+  }
+  .page-4 .step-connector {
+    position: absolute;
+    left: 66px;
+    top: 100%;
+    width: 3px;
+    height: 40px;
+    background: repeating-linear-gradient(
+      to bottom,
+      var(--vintage-gold) 0,
+      var(--vintage-gold) 8px,
+      transparent 8px,
+      transparent 16px
+    );
+  }
+  .page-4 .step:last-child .step-connector { display: none; }
+  .page-4 .step-body {
+    flex: 1;
+    background: white;
+    padding: 30px 40px;
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 20px var(--shadow-blue);
+    border-top: 4px solid var(--vintage-gold);
+  }
+  .page-4 .step-title {
+    font-family: 'Playfair Display', 'Noto Sans SC', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--ink-black);
+    margin-bottom: 10px;
+  }
+  .page-4 .step-desc {
+    font-size: 21px;
+    color: #4a4f65;
+    line-height: 1.7;
+  }
+
+  /* ====================================================== */
+  /* 第5页 · 金句页                                          */
+  /* ====================================================== */
+  .page-5 {
+    background: var(--royal-blue);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 100px;
+    position: relative;
+  }
+  .page-5::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 20%, rgba(244, 211, 94, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(216, 49, 91, 0.06) 0%, transparent 50%);
+  }
+  .page-5 .quote-mark {
+    font-family: 'Playfair Display', serif;
+    font-size: 260px;
+    color: var(--vintage-gold);
+    line-height: 0.6;
+    margin-bottom: 40px;
+    opacity: 0.9;
+    z-index: 2;
+    text-shadow: 0 4px 20px rgba(244,211,94,0.2);
+  }
+  .page-5 .quote {
+    font-family: 'Cormorant Garamond', 'Noto Sans SC', serif;
+    font-size: 56px;
+    font-weight: 400;
+    font-style: italic;
+    color: white;
+    text-align: center;
+    line-height: 1.6;
+    letter-spacing: 1px;
+    z-index: 2;
+    margin-bottom: 70px;
+    max-width: 860px;
+  }
+  .page-5 .quote .gold { color: var(--vintage-gold); font-weight: 500; }
+  .page-5 .signature-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+  }
+  .page-5 .sig-line {
+    width: 60px;
+    height: 2px;
+    background: var(--vintage-gold);
+    margin-bottom: 24px;
+  }
+  .page-5 .sig-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--vintage-gold);
+    letter-spacing: 6px;
+    font-style: italic;
+  }
+  .page-5 .sig-title {
+    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    font-size: 18px;
+    color: rgba(255,255,255,0.6);
+    margin-top: 10px;
+    letter-spacing: 4px;
+  }
+  .page-5 .page-number { color: rgba(244,211,94,0.7); }
+
+  /* ====================================================== */
+  /* 第6页 · 结尾CTA                                         */
+  /* ====================================================== */
+  .page-6 {
+    background: radial-gradient(ellipse at 30% 20%, #1a3a8a 0%, var(--royal-blue) 50%, #050f30 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 80px;
+    position: relative;
+    text-align: center;
+  }
+  .page-6::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(244,211,94,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .page-6::after {
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    left: -150px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(216,49,91,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .page-6 .brand-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 120px;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--vintage-gold);
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    z-index: 2;
+    text-shadow: 0 6px 30px rgba(244,211,94,0.25);
+  }
+  .page-6 .brand-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-style: italic;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 8px;
+    margin-bottom: 80px;
+    z-index: 2;
+  }
+  .page-6 .cta-main {
+    font-family: 'Playfair Display', 'Noto Sans SC', serif;
+    font-size: 72px;
+    font-weight: 700;
+    color: white;
+    line-height: 1.3;
+    z-index: 2;
+    margin-bottom: 50px;
+    letter-spacing: 2px;
+  }
+  .page-6 .cta-main .em { color: var(--vintage-gold); font-style: italic; }
+  .page-6 .cta-sub {
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--wine-red);
+    background: rgba(216, 49, 91, 0.12);
+    padding: 18px 50px;
+    border-radius: 100px;
+    border: 2px solid var(--wine-red);
+    z-index: 2;
+    margin-bottom: 90px;
+    letter-spacing: 3px;
+    font-weight: 500;
+  }
+  .page-6 .divider-gold {
+    width: 80px;
+    height: 3px;
+    background: var(--vintage-gold);
+    margin-bottom: 40px;
+    z-index: 2;
+    border-radius: 2px;
+  }
+  .page-6 .socials {
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: center;
+  }
+  .page-6 .social-item {
+    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    font-size: 20px;
+    color: rgba(255,255,255,0.75);
+    letter-spacing: 2px;
+  }
+  .page-6 .social-item .label {
+    color: var(--vintage-gold);
+    font-weight: 500;
+    margin-right: 12px;
+  }
+  .page-6 .page-number { color: rgba(244,211,94,0.6); }
+
+  /* ========== 导出状态提示 ========== */
+  .toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--royal-blue);
+    color: var(--vintage-gold);
+    padding: 14px 32px;
+    border-radius: 100px;
+    font-size: 16px;
+    font-weight: 500;
+    box-shadow: 0 8px 30px rgba(10,36,99,0.3);
+    z-index: 1000;
+    transition: transform 0.4s cubic-bezier(.2,.9,.3,1.2);
+    pointer-events: none;
+    letter-spacing: 1px;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  /* ========== 小屏适配（不使用transform，避免影响html2canvas）========== */
+  .pages-viewport {
+    overflow-x: auto;
+    overflow-y: visible;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    min-width: 1120px;
+  }
+  @media (max-width: 1160px) {
+    .control-panel {
+      padding: 12px 16px;
+    }
+    .nav-btn, .export-btn {
+      font-size: 13px;
+      padding: 8px 14px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- 顶部控制面板 -->
+<div class="control-panel">
+  <div class="brand">Feihong<span>.</span> 设计系统</div>
+  <button class="nav-btn" onclick="prevPage()">← 上一页</button>
+  <div class="page-indicator"><span id="currentPage">1</span> / <span id="totalPages">6</span></div>
+  <button class="nav-btn" onclick="nextPage()">下一页 →</button>
+  <button class="export-btn" onclick="exportCurrentPage()">导出此页 PNG</button>
+  <button class="export-btn all" onclick="exportAllPages()">导出全部 (6张)</button>
+</div>
+
+<!-- 页面容器 -->
+<div class="pages-viewport">
+<div class="pages-wrapper" id="pagesWrapper">
+
+  <!-- ========== 第1页 · 封面 ========== -->
+  <div class="page page-1" data-title="01-封面">
+    <button class="page-export-fab" onclick="exportOnePage(0)" title="导出此页">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    </button>
+    <div class="corner-decor"></div>
+    <div class="corner-decor-br"></div>
+    <div class="watermark">BRAND</div>
+    <div class="badge">个人品牌设计</div>
+    <h1 class="title">
+      如何建立<br>
+      有<span class="highlight">辨识度</span>的<br>
+      个人品牌
+    </h1>
+    <div class="divider"></div>
+    <div class="author">飞鸿<span class="dot"></span>设计师</div>
+    <div class="page-number bottom-right">01</div>
+  </div>
+
+  <!-- ========== 第2页 · 要点列表 ========== -->
+  <div class="page page-2" data-title="02-为什么做个人品牌">
+    <button class="page-export-fab" onclick="exportOnePage(1)" title="导出此页">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    </button>
+    <div class="header">
+      <div class="tag">WHY PERSONAL BRAND</div>
+      <h2 class="title">为什么要做<br>个人品牌？</h2>
+      <div class="title-accent"></div>
+    </div>
+    <div class="list">
+      <div class="list-item">
+        <div class="dot"></div>
+        <div class="item-content">
+          <div class="item-title">降低被记住的成本</div>
+          <div class="item-desc">清晰的个人品牌让别人在3秒内知道你是谁、擅长什么，从"某个设计师"变成"那个做高级感品牌的设计师"。</div>
+        </div>
+      </div>
+      <div class="list-item">
+        <div class="dot"></div>
+        <div class="item-content">
+          <div class="item-title">获得溢价话语权</div>
+          <div class="item-desc">当你的名字等同于某种风格或品质，客户买的不再是时间，而是"你"这个人——价格由你定。</div>
+        </div>
+      </div>
+      <div class="list-item">
+        <div class="dot"></div>
+        <div class="item-content">
+          <div class="item-title">吸引同频机会</div>
+          <div class="item-desc">品牌是过滤器，帮你筛掉不合适的甲方，吸引真正认可你审美的客户与合作者，合作更顺畅。</div>
+        </div>
+      </div>
+      <div class="list-item">
+        <div class="dot"></div>
+        <div class="item-content">
+          <div class="item-title">构建长期资产</div>
+          <div class="item-desc">作品会过时，但品牌认知会累积。每一次输出都在为你未来十年的职业信用添砖加瓦。</div>
+        </div>
+      </div>
+    </div>
+    <div class="page-number bottom-right">02</div>
+  </div>
+
+  <!-- ========== 第3页 · 品牌三要素 ========== -->
+  <div class="page page-3" data-title="03-品牌三要素">
+    <button class="page-export-fab" onclick="exportOnePage(2)" title="导出此页">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    </button>
+    <div class="top-row">
+      <h2 class="title">
+        品牌三要素
+        <small>Three Pillars of a Brand</small>
+      </h2>
+      <div class="tag-line">— 缺一不可 —</div>
+    </div>
+    <div class="elements">
+      <div class="element">
+        <div class="el-circle">视</div>
+        <div class="el-text">
+          <div class="el-name">视觉识别</div>
+          <div class="el-en">Visual Identity</div>
+          <div class="el-desc">色彩、字体、排版、图形语言——让人一眼认出你。统一的视觉系统是品牌最直接的外衣。</div>
+        </div>
+      </div>
+      <div class="element">
+        <div class="el-circle">言</div>
+        <div class="el-text">
+          <div class="el-name">语言体系</div>
+          <div class="el-en">Verbal System</div>
+          <div class="el-desc">你怎么说话、用什么词、发什么内容——语气和观点共同构成了你的"声音"，决定谁愿意听你说。</div>
+        </div>
+      </div>
+      <div class="element">
+        <div class="el-circle">行</div>
+        <div class="el-text">
+          <div class="el-name">行为体验</div>
+          <div class="el-en">Behavioral Experience</div>
+          <div class="el-desc">交付方式、沟通节奏、细节处理——每一次互动都是品牌的兑现，承诺过的必须做到。</div>
+        </div>
+      </div>
+    </div>
+    <div class="page-number bottom-right">03</div>
+  </div>
+
+  <!-- ========== 第4页 · 落地四步法 ========== -->
+  <div class="page page-4" data-title="04-落地四步法">
+    <button class="page-export-fab" onclick="exportOnePage(3)" title="导出此页">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    </button>
+    <div class="header">
+      <div class="step-label">Action Framework</div>
+      <h2 class="title">落地四步法</h2>
+      <div class="title-en">From Zero to Signature</div>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-connector"></div>
+        <div class="step-body">
+          <div class="step-title">自我审视 · 找到差异化</div>
+          <div class="step-desc">列出你擅长的、热爱的、市场需要的三件事，交集就是你的独特定位——不要做"更好的别人"，要做"唯一的自己"。</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-connector"></div>
+        <div class="step-body">
+          <div class="step-title">定义视觉 · 建立识别</div>
+          <div class="step-desc">选定2-3个品牌色、1-2组字体、一套图形语言，从头像到封面到作品集全部统一，让人形成条件反射。</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-connector"></div>
+        <div class="step-body">
+          <div class="step-title">持续输出 · 形成认知</div>
+          <div class="step-desc">选定一个主阵地，围绕你的定位每周至少输出2次内容。重复不是冗余，是在别人大脑里"注册"你的品牌。</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-body">
+          <div class="step-title">迭代进化 · 保持鲜活</div>
+          <div class="step-desc">每季度复盘一次品牌表现，根据成长更新表达。品牌不是一锤定音，而是与你一起生长的活系统。</div>
+        </div>
+      </div>
+    </div>
+    <div class="page-number bottom-right">04</div>
+  </div>
+
+  <!-- ========== 第5页 · 金句页 ========== -->
+  <div class="page page-5 dark-page" data-title="05-金句">
+    <button class="page-export-fab" onclick="exportOnePage(4)" title="导出此页" style="top:40px;right:40px;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    </button>
+    <div class="quote-mark">"</div>
+    <div class="quote">
+      品牌不是logo，<br>是别人提到你时<br>的<span class="gold">第一印象</span>。
+    </div>
+    <div class="signature-block">
+      <div class="sig-line"></div>
+      <div class="sig-name">Feihong</div>
+      <div class="sig-title">飞鸿 · 品牌设计师</div>
+    </div>
+    <div class="page-number bottom-right" style="color: rgba(244,211,94,0.6);">05</div>
+  </div>
+
+  <!-- ========== 第6页 · CTA结尾 ========== -->
+  <div class="page page-6 dark-page" data-title="06-关注CTA">
+    <button class="page-export-fab" onclick="exportOnePage(5)" title="导出此页" style="top:40px;right:40px;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    </button>
+    <div class="brand-name">Feihong.</div>
+    <div class="brand-tagline">DESIGN · BRAND · AESTHETICS</div>
+    <div class="cta-main">
+      关注我，<br>
+      一起做<span class="em">好设计</span>
+    </div>
+    <div class="cta-sub">让审美成为你的竞争力</div>
+    <div class="divider-gold"></div>
+    <div class="socials">
+      <div class="social-item"><span class="label">小红书</span>飞鸿设计笔记</div>
+      <div class="social-item"><span class="label">公众号</span>飞鸿的设计星球</div>
+      <div class="social-item"><span class="label">合作邮箱</span>hello@feihong.design</div>
+    </div>
+    <div class="page-number bottom-right" style="color: rgba(244,211,94,0.6);">06</div>
+  </div>
+
+</div>
+</div>
+
+<!-- Toast提示 -->
+<div class="toast" id="toast"></div>
+
+<script>
+  const pages = document.querySelectorAll('.page');
+  const totalPages = pages.length;
+  let currentIdx = 0;
+
+  document.getElementById('totalPages').textContent = totalPages;
+
+  function updateIndicator() {
+    document.getElementById('currentPage').textContent = currentIdx + 1;
+    pages[currentIdx].scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function prevPage() {
+    if (currentIdx > 0) {
+      currentIdx--;
+      updateIndicator();
+    }
+  }
+
+  function nextPage() {
+    if (currentIdx < totalPages - 1) {
+      currentIdx++;
+      updateIndicator();
+    }
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2200);
+  }
+
+  // 等待字体加载完成
+  async function ensureFontsReady() {
+    if (document.fonts && document.fonts.ready) {
+      await document.fonts.ready;
+    }
+    await new Promise(r => setTimeout(r, 500));
+  }
+
+  // 导出单页（内部实现）
+  async function exportPage(pageEl, filename) {
+    await ensureFontsReady();
+    // 临时隐藏页面内的导出按钮，避免被截入图片
+    const fab = pageEl.querySelector('.page-export-fab');
+    const fabOriginalDisplay = fab ? fab.style.display : '';
+    if (fab) fab.style.display = 'none';
+
+    try {
+      const canvas = await html2canvas(pageEl, {
+        scale: 2,
+        useCORS: true,
+        backgroundColor: null,
+        width: 1080,
+        height: 1440,
+        logging: false,
+      });
+      const link = document.createElement('a');
+      link.download = filename + '.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+      return true;
+    } catch (err) {
+      console.error('导出失败:', err);
+      showToast('导出失败，请重试');
+      return false;
+    } finally {
+      if (fab) fab.style.display = fabOriginalDisplay || '';
+    }
+  }
+
+  // 每页按钮直接调用
+  async function exportOnePage(index) {
+    const page = pages[index];
+    const title = page.dataset.title || ('page-' + (index + 1));
+    currentIdx = index;
+    document.getElementById('currentPage').textContent = index + 1;
+    showToast('正在导出 ' + title + ' ...');
+    const ok = await exportPage(page, '飞鸿卡片_' + title);
+    if (ok) showToast('已导出 ' + title + '.png');
+  }
+
+  function exportCurrentPage() {
+    exportOnePage(currentIdx);
+  }
+
+  async function exportAllPages() {
+    if (typeof JSZip === 'undefined') {
+      // JSZip 未加载时降级为逐张下载
+      showToast('开始批量导出 6 张卡片...');
+      await ensureFontsReady();
+      for (let i = 0; i < pages.length; i++) {
+        const page = pages[i];
+        const title = page.dataset.title || ('page-' + (i + 1));
+        const ok = await exportPage(page, '飞鸿卡片_' + title);
+        if (!ok) break;
+        await new Promise(r => setTimeout(r, 450));
+      }
+      showToast('全部导出完成！共 6 张');
+      return;
+    }
+
+    showToast('正在打包 6 张卡片为 ZIP...');
+    await ensureFontsReady();
+    const zip = new JSZip();
+    const folder = zip.folder('飞鸿卡片');
+
+    for (let i = 0; i < pages.length; i++) {
+      const page = pages[i];
+      const title = page.dataset.title || ('page-' + (i + 1));
+      const fab = page.querySelector('.page-export-fab');
+      const fabOriginalDisplay = fab ? fab.style.display : '';
+      if (fab) fab.style.display = 'none';
+
+      try {
+        const canvas = await html2canvas(page, {
+          scale: 2,
+          useCORS: true,
+          backgroundColor: null,
+          width: 1080,
+          height: 1440,
+          logging: false,
+        });
+        const dataUrl = canvas.toDataURL('image/png');
+        const base64 = dataUrl.split(',')[1];
+        folder.file('飞鸿卡片_' + title + '.png', base64, { base64: true });
+      } catch (err) {
+        console.error('导出失败:', err);
+        showToast('导出失败，请重试');
+        if (fab) fab.style.display = fabOriginalDisplay || '';
+        return;
+      } finally {
+        if (fab) fab.style.display = fabOriginalDisplay || '';
+      }
+      await new Promise(r => setTimeout(r, 300));
+    }
+
+    try {
+      const blob = await zip.generateAsync({ type: 'blob' });
+      const link = document.createElement('a');
+      link.download = '飞鸿卡片合集.zip';
+      link.href = URL.createObjectURL(blob);
+      link.click();
+      setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+      showToast('ZIP 打包完成！共 6 张');
+    } catch (err) {
+      console.error('ZIP 生成失败:', err);
+      showToast('ZIP 生成失败，请重试');
+    }
+  }
+
+  window.addEventListener('load', () => {
+    updateIndicator();
+  });
+
+  pages.forEach((p, i) => {
+    p.addEventListener('click', (e) => {
+      // 点击按钮时不切换
+      if (e.target.closest('.page-export-fab')) return;
+      currentIdx = i;
+      document.getElementById('currentPage').textContent = i + 1;
+    });
+  });
+</script>
+
+</body>
+</html>

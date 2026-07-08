@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>设计思维与品牌实践 | Feihong Design</title>
+  <meta name="description" content="设计思维与品牌实践 — 飞鸿分享演示文稿">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,500;1,600;1,700;1,900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================
+       Feihong Design System — Deck Template v2.0 (Stable)
+       Brand: Royal Blue #0A2463 · Gold #F4D35E · Wine #D8315B
+       Fullscreen 16:9 slides · Keyboard navigation · Print-ready
+       ============================================ */
+
+    :root {
+      --royal: #0A2463;
+      --royal-900: #040F2A;
+      --royal-800: #061842;
+      --royal-600: #0F3480;
+      --royal-500: #1E4DAA;
+      --royal-200: #B8C9EB;
+      --royal-100: #F0F4FA;
+
+      --gold: #F4D35E;
+      --gold-600: #DDB835;
+      --gold-700: #B8951F;
+      --gold-200: #FBF2CC;
+      --gold-100: #FEFAED;
+
+      --wine: #D8315B;
+      --wine-700: #B02448;
+      --wine-100: #FDF0F4;
+
+      --cream: #FDFBF6;
+      --cream-100: #F8F4EB;
+      --ink: #0D1225;
+      --ink-100: #2C3347;
+      --ink-200: #4C546A;
+      --ink-300: #6D7487;
+      --white: #FFFFFF;
+
+      --font-serif: 'Playfair Display', 'Noto Serif SC', Georgia, 'Songti SC', serif;
+      --font-display: 'Cormorant Garamond', 'Noto Serif SC', Georgia, 'Songti SC', serif;
+      --font-sans: 'Inter', 'Noto Sans SC', -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: var(--font-sans);
+      background: var(--ink);
+      color: var(--ink-100);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection { background: var(--gold); color: var(--royal); }
+
+    /* ============================================
+       DECK CONTAINER
+       ============================================ */
+    .deck {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 500ms var(--ease), visibility 500ms var(--ease);
+      overflow: hidden;
+      padding: clamp(40px, 6vw, 80px);
+    }
+
+    .slide.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Slide backgrounds */
+    .slide.light {
+      background: var(--cream);
+      color: var(--ink-100);
+    }
+    .slide.dark {
+      background:
+        radial-gradient(ellipse 70% 60% at 80% 20%, rgba(244,211,94,0.06) 0%, transparent 60%),
+        linear-gradient(135deg, var(--royal-900) 0%, var(--royal-800) 50%, var(--royal) 100%);
+      color: #fff;
+    }
+    .slide.cream {
+      background: var(--cream-100);
+      color: var(--ink-100);
+    }
+
+    /* ============================================
+       SLIDE INNER CONTENT
+       ============================================ */
+    .slide-inner {
+      width: 100%;
+      max-width: 1100px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ============================================
+       BRAND ELEMENTS ON EVERY SLIDE
+       ============================================ */
+    .slide-brand {
+      position: absolute;
+      bottom: clamp(24px, 3vw, 40px);
+      left: clamp(40px, 6vw, 80px);
+      font-family: var(--font-serif);
+      font-size: 0.875rem;
+      font-weight: 600;
+      opacity: 0.4;
+      z-index: 2;
+    }
+    .slide.dark .slide-brand { color: rgba(255,255,255,0.4); }
+    .slide.light .slide-brand,
+    .slide.cream .slide-brand { color: var(--royal); }
+
+    .slide-page-num {
+      position: absolute;
+      bottom: clamp(24px, 3vw, 40px);
+      right: clamp(40px, 6vw, 80px);
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      opacity: 0.4;
+      z-index: 2;
+    }
+    .slide.dark .slide-page-num { color: rgba(255,255,255,0.4); }
+    .slide.light .slide-page-num,
+    .slide.cream .slide-page-num { color: var(--ink-300); }
+
+    .deck-progress-track {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: rgba(0,0,0,0.06);
+      z-index: 2;
+    }
+    .slide.dark .deck-progress-track { background: rgba(255,255,255,0.08); }
+
+    .deck-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--royal), var(--gold), var(--wine));
+      width: 0%;
+      transition: width 500ms var(--ease);
+      border-radius: 0 3px 3px 0;
+    }
+
+    /* Big decorative quote marks */
+    .quote-mark-big {
+      font-family: var(--font-serif);
+      font-size: clamp(8rem, 20vw, 18rem);
+      font-weight: 900;
+      opacity: 0.04;
+      position: absolute;
+      line-height: 1;
+      z-index: 0;
+      user-select: none;
+    }
+    .quote-mark-tl { top: clamp(20px, 3vw, 40px); left: clamp(40px, 6vw, 80px); }
+    .quote-mark-br { bottom: clamp(40px, 6vw, 80px); right: clamp(40px, 6vw, 80px); }
+    .slide.dark .quote-mark-big { color: var(--gold); }
+    .slide.light .quote-mark-big,
+    .slide.cream .quote-mark-big { color: var(--royal); }
+
+    /* Gold decorative line */
+    .gold-line {
+      width: 60px;
+      height: 3px;
+      background: var(--gold);
+      border-radius: 2px;
+      margin: var(--sp, 24px) 0;
+    }
+    .gold-line.center { margin-left: auto; margin-right: auto; }
+
+    /* Eyebrow */
+    .slide-eyebrow {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border-radius: 4px;
+      margin-bottom: 24px;
+    }
+    .slide.light .slide-eyebrow,
+    .slide.cream .slide-eyebrow {
+      color: var(--royal);
+      background: rgba(10,36,99,0.06);
+    }
+    .slide.dark .slide-eyebrow {
+      color: var(--gold);
+      background: rgba(244,211,94,0.12);
+    }
+
+    /* ============================================
+       SLIDE 1: COVER / TITLE
+       ============================================ */
+    .slide-cover {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .cover-ornament {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 32px;
+      color: var(--gold);
+      opacity: 0.6;
+    }
+    .cover-ornament::before,
+    .cover-ornament::after {
+      content: '';
+      width: 80px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-200), transparent);
+    }
+    .cover-ornament span {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-style: italic;
+    }
+    .slide.dark .cover-ornament::before,
+    .slide.dark .cover-ornament::after {
+      background: linear-gradient(90deg, transparent, rgba(244,211,94,0.3), transparent);
+    }
+    .cover-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 7vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+    .cover-title em {
+      font-style: italic;
+      position: relative;
+    }
+    .slide.dark .cover-title em { color: var(--gold); }
+    .slide.light .cover-title em { color: var(--royal); }
+    .slide.light .cover-title em::after,
+    .slide.cream .cover-title em::after {
+      content: '';
+      position: absolute;
+      bottom: 0.08em;
+      left: 0;
+      width: 100%;
+      height: 0.1em;
+      background: var(--gold);
+      border-radius: 2px;
+      z-index: -1;
+    }
+    .cover-subtitle {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      line-height: 1.6;
+      opacity: 0.7;
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+    .cover-meta {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      font-size: 0.9375rem;
+      opacity: 0.5;
+      flex-wrap: wrap;
+    }
+    .cover-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ============================================
+       SLIDE: SECTION DIVIDER
+       ============================================ */
+    .slide-divider {
+      text-align: center;
+    }
+    .divider-number {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(5rem, 12vw, 10rem);
+      font-weight: 400;
+      line-height: 1;
+      opacity: 0.15;
+      margin-bottom: -20px;
+    }
+    .slide.dark .divider-number { color: var(--gold); }
+    .slide.light .divider-number,
+    .slide.cream .divider-number { color: var(--royal); }
+    .divider-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 5vw, 4rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+    .divider-fleuron {
+      font-size: 1.5rem;
+      color: var(--gold);
+      opacity: 0.5;
+      margin: 24px 0;
+    }
+
+    /* ============================================
+       SLIDE: CONTENT (Title + Bullets)
+       ============================================ */
+    .slide-content {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .content-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    .slide.dark .content-title { color: #fff; }
+    .slide.light .content-title,
+    .slide.cream .content-title { color: var(--ink); }
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px 48px;
+      margin-top: 16px;
+    }
+    .content-point {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .point-num {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.5rem;
+      font-weight: 600;
+      flex-shrink: 0;
+      width: 32px;
+      color: var(--gold);
+    }
+    .slide.light .point-num,
+    .slide.cream .point-num { color: var(--gold-700); }
+    .point-text h4 {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+    .slide.dark .point-text h4 { color: #fff; }
+    .slide.light .point-text h4,
+    .slide.cream .point-text h4 { color: var(--ink); }
+    .point-text p {
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      opacity: 0.7;
+    }
+
+    /* Bullet list (simple) */
+    .bullet-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .bullet-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    .bullet-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+      margin-top: 10px;
+    }
+    .slide.light .bullet-dot,
+    .slide.cream .bullet-dot { background: var(--gold-700); }
+
+    /* ============================================
+       SLIDE: BIG NUMBER / STATS
+       ============================================ */
+    .slide-stats {
+      text-align: center;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+      margin-top: 48px;
+    }
+    .stat-big {
+      text-align: center;
+    }
+    .stat-big-num {
+      font-family: var(--font-serif);
+      font-size: clamp(3rem, 7vw, 6rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+    .slide.dark .stat-big-num { color: var(--gold); }
+    .slide.light .stat-big-num,
+    .slide.cream .stat-big-num { color: var(--royal); }
+    .stat-big-label {
+      font-size: 1rem;
+      opacity: 0.6;
+      line-height: 1.5;
+    }
+
+    /* ============================================
+       SLIDE: QUOTE
+       ============================================ */
+    .slide-quote {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .quote-text {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(1.5rem, 3.5vw, 2.8rem);
+      font-weight: 400;
+      line-height: 1.5;
+      margin-bottom: 32px;
+    }
+    .quote-text em {
+      font-weight: 600;
+    }
+    .slide.dark .quote-text em { color: var(--gold); }
+    .slide.light .quote-text em,
+    .slide.cream .quote-text em { color: var(--royal); }
+    .quote-cite {
+      font-family: var(--font-sans);
+      font-style: normal;
+      font-size: 1rem;
+      opacity: 0.5;
+      display: block;
+    }
+    .quote-cite::before {
+      content: '— ';
+    }
+
+    /* ============================================
+       SLIDE: TWO COLUMN (Image + Text)
+       ============================================ */
+    .slide-twocol {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(32px, 5vw, 64px);
+      align-items: center;
+    }
+    .twocol-visual {
+      position: relative;
+      aspect-ratio: 4/3;
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--white);
+      padding: 12px;
+      box-shadow: 0 16px 48px rgba(10,36,99,0.15);
+    }
+    .slide.dark .twocol-visual {
+      background: rgba(255,255,255,0.05);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+    }
+    .twocol-visual-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--royal-100), var(--cream-100));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--royal);
+      opacity: 0.2;
+      position: relative;
+    }
+    /* Photo corners */
+    .photo-corner-sm {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-style: solid;
+      border-color: var(--gold);
+      border-width: 0;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .photo-corner-sm.tl { top: 20px; left: 20px; border-top-width: 2px; border-left-width: 2px; }
+    .photo-corner-sm.tr { top: 20px; right: 20px; border-top-width: 2px; border-right-width: 2px; }
+    .photo-corner-sm.bl { bottom: 20px; left: 20px; border-bottom-width: 2px; border-left-width: 2px; }
+    .photo-corner-sm.br { bottom: 20px; right: 20px; border-bottom-width: 2px; border-right-width: 2px; }
+
+    .twocol-text h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 20px;
+    }
+    .twocol-text p {
+      font-size: 1rem;
+      line-height: 1.8;
+      opacity: 0.75;
+      margin-bottom: 16px;
+    }
+    /* Wax seal mini */
+    .wax-seal-mini {
+      position: absolute;
+      bottom: -16px;
+      right: -16px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #E8445A, var(--wine) 50%, #9e1f3e);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25), inset 0 2px 3px rgba(255,255,255,0.15);
+      color: #fff;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 0.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      line-height: 1.2;
+      z-index: 3;
+    }
+    .wax-seal-mini.gold {
+      background: radial-gradient(circle at 35% 35%, #FFE580, var(--gold) 50%, #B8860B);
+      color: var(--royal);
+    }
+
+    /* ============================================
+       SLIDE: CLOSING / THANK YOU
+       ============================================ */
+    .slide-closing {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .closing-fleuron {
+      font-size: 2rem;
+      color: var(--gold);
+      opacity: 0.5;
+      margin-bottom: 32px;
+    }
+    .closing-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+    .closing-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .slide.light .closing-title em { color: var(--royal); }
+    .closing-sub {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      opacity: 0.6;
+      margin-bottom: 48px;
+    }
+    .closing-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 1rem;
+      opacity: 0.5;
+    }
+    .closing-qr {
+      width: 120px;
+      height: 120px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      margin: 32px auto 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      opacity: 0.3;
+    }
+    .slide.light .closing-qr { background: var(--cream-100); }
+
+    /* ============================================
+       NAVIGATION HINT
+       ============================================ */
+    .nav-hint {
+      position: fixed;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      opacity: 0;
+      transition: opacity 500ms var(--ease);
+      z-index: 100;
+      pointer-events: none;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .nav-hint.visible { opacity: 0.3; }
+    .slide.dark ~ .nav-hint,
+    body.dark-mode .nav-hint { color: rgba(255,255,255,0.4); }
+    .nav-hint { color: var(--ink-300); }
+
+    /* ============================================
+       NAVIGATION ARROWS (desktop)
+       ============================================ */
+    .nav-arrow {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 100;
+      background: rgba(0,0,0,0.06);
+      color: var(--ink-200);
+      transition: all 280ms var(--ease);
+      opacity: 0;
+    }
+    .deck:hover .nav-arrow { opacity: 1; }
+    .nav-arrow:hover { background: var(--gold); color: var(--royal); }
+    .nav-arrow.prev { left: 16px; }
+    .nav-arrow.next { right: 16px; }
+    .nav-arrow svg { width: 20px; height: 20px; }
+
+    /* ============================================
+       SLIDE SPECIFIC DECORATIONS
+       ============================================ */
+    .deco-number {
+      position: absolute;
+      font-family: var(--font-serif);
+      font-size: clamp(12rem, 30vw, 24rem);
+      font-weight: 900;
+      opacity: 0.03;
+      line-height: 1;
+      user-select: none;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .deco-number.tl { top: -2rem; left: -1rem; }
+    .deco-number.br { bottom: -4rem; right: -1rem; }
+    .slide.dark .deco-number { color: var(--gold); }
+    .slide.light .deco-number,
+    .slide.cream .deco-number { color: var(--royal); }
+
+    /* ============================================
+       RESPONSIVE & PRINT
+       ============================================ */
+    @media (max-width: 768px) {
+      .slide { padding: 32px 28px; }
+      .slide-brand, .slide-page-num { bottom: 20px; }
+      .slide-brand { left: 28px; }
+      .slide-page-num { right: 28px; }
+      .content-grid { grid-template-columns: 1fr; gap: 20px; }
+      .slide-twocol { grid-template-columns: 1fr; gap: 32px; }
+      .twocol-visual { max-width: 400px; margin: 0 auto; }
+      .stats-grid { grid-template-columns: 1fr; gap: 32px; }
+      .cover-meta { gap: 16px; font-size: 0.8125rem; }
+      .nav-arrow { display: none; }
+    }
+
+    @media print {
+      html, body { overflow: visible; background: #fff; }
+      .slide {
+        position: relative;
+        page-break-after: always;
+        opacity: 1 !important;
+        visibility: visible !important;
+        min-height: 100vh;
+      }
+      .nav-arrow, .nav-hint, .deck-progress-track { display: none !important; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .slide { transition: none; }
+      .deck-progress-fill { transition: none; }
+      .nav-hint { transition: none; }
+    }
+  </style>
+</head>
+<body class="dark-mode">
+
+  <div class="deck" id="deck">
+
+    <!-- ==================== SLIDE 1: COVER ==================== -->
+    <section class="slide dark active" data-index="0">
+      <span class="quote-mark-big quote-mark-tl">&ldquo;</span>
+      <div class="slide-inner slide-cover">
+        <div class="cover-ornament"><span>A Talk on Design</span></div>
+        <span class="slide-eyebrow">Feihong Design · 2025</span>
+        <h1 class="cover-title">
+          设计思维<br>与<em>品牌实践</em>
+        </h1>
+        <p class="cover-subtitle">
+          从审美直觉到决策框架，探讨好设计背后的思考方式
+        </p>
+        <div class="gold-line center"></div>
+        <div class="cover-meta">
+          <span class="cover-meta-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            40 分钟
+          </span>
+          <span class="cover-meta-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            飞鸿
+          </span>
+        </div>
+      </div>
+      <span class="slide-brand">Feihong.</span>
+      <span class="slide-page-num">1 / 9</span>
+      <div class="deck-progress-track"><div class="deck-progress-fill" style="width:11%"></div></div>
+    </section>
+
+    <!-- ==================== SLIDE 2: AGENDA / TOC ==================== -->
+    <section class="slide light" data-index="1">
+      <div class="slide-inner slide-content">
+        <span class="slide-eyebrow">目录</span>
+        <h2 class="content-title">今天聊什么</h2>
+        <div class="gold-line"></div>
+        <div class="content-grid" style="margin-top:32px;">
+          <div class="content-point">
+            <span class="point-num">01</span>
+            <div class="point-text">
+              <h4>重新理解设计</h4>
+              <p>设计不只是好看，更是解决问题的思维方式</p>
+            </div>
+          </div>
+          <div class="content-point">
+            <span class="point-num">02</span>
+            <div class="point-text">
+              <h4>品牌的本质</h4>
+              <p>品牌不是Logo，而是一整套一致的体验</p>
+            </div>
+          </div>
+          <div class="content-point">
+            <span class="point-num">03</span>
+            <div class="point-text">
+              <h4>审美框架</h4>
+              <p>从直觉到方法——建立可复用的审美判断体系</p>
+            </div>
+          </div>
+          <div class="content-point">
+            <span class="point-num">04</span>
+            <div class="point-text">
+              <h4>AI时代的设计</h4>
+              <p>当人人都能生成设计，设计师的价值在哪里</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span class="deco-number tl">02</span>
+      <span class="slide-brand">Feihong.</span>
+      <span class="slide-page-num">2 / 9</span>
+      <div class="deck-progress-track"><div class="deck-progress-fill" style="width:22%"></div></div>
+    </section>
+
+    <!-- ==================== SLIDE 3: SECTION DIVIDER ==================== -->
+    <section class="slide dark" data-index="2">
+      <span class="quote-mark-big quote-mark-br">&rdquo;</span>
+      <div class="slide-inner slide-divider">
+        <div class="divider-number">01</div>
+        <h2 class="divider-title">重新理解设计</h2>
+        <div class="divider-fleuron">❦</div>
+        <p style="font-family:var(--font-display);font-style:italic;font-size:1.2rem;opacity:0.5;">Design is how it works.</p>
+      </div>
+      <span class="slide-brand">Feihong.</span>
+      <span class="slide-page-num">3 / 9</span>
+      <div class="deck-progress-track"><div class="deck-progress-fill" style="width:33%"></div></div>
+    </section>
+
+    <!-- ==================== SLIDE 4: CONTENT - WHAT IS DESIGN ==================== -->
+    <section class="slide cream" data-index="3">
+      <div class="slide-inner slide-content">
+        <span class="slide-eyebrow">01 · 重新理解设计</span>
+        <h2 class="content-title">设计是<em style="font-style:italic;color:var(--royal);">有目的</em>的创造</h2>
+        <div class="gold-line"></div>
+        <ul class="bullet-list" style="max-width:760px;">
+          <li class="bullet-item">
+            <span class="bullet-dot"></span>
+            <span>设计不是装饰，而是<em style="font-style:normal;font-weight:600;color:var(--royal);">解决问题</em>。每一个视觉决策背后，都应该有一个清晰的目的。</span>
+          </li>
+          <li class="bullet-item">
+            <span class="bullet-dot"></span>
+            <span>好的设计是<em style="font-style:normal;font-weight:600;color:var(--royal);">隐形的</em>。当用户不需要思考"这怎么用"时，设计就成功了。</span>
+          </li>
+          <li class="bullet-item">
+            <span class="bullet-dot"></span>
+            <span>设计是<em style="font-style:normal;font-weight:600;color:var(--royal);">决策</em>。在无限种可能性中，选择最适合当下情境的那一个。</span>
+          </li>
+          <li class="bullet-item">
+            <span class="bullet-dot"></span>
+            <span>好设计<em style="font-style:normal;font-weight:600;color:var(--royal);">让人感到被理解</em>。它考虑使用者的感受、场景和局限。</span>
+          </li>
+        </ul>
+      </div>
+      <span class="deco-number br" style="opacity:0.04;">01</span>
+      <span class="slide-brand">Feihong.</span>
+      <span class="slide-page-num">4 / 9</span>
+      <div class="deck-progress-track"><div class="deck-progress-fill" style="width:44%"></div></div>
+    </section>
+
+    <!-- ==================== SLIDE 5: QUOTE ==================== -->
+    <section class="slide light" data-index="4">
+      <span class="quote-mark-big quote-mark-tl">&ldquo;</span>
+      <div class="slide-inner slide-quote">
+        <p class="quote-text">
+          Design is not just what it looks like and feels like.<br>
+          <em>Design is how it works.</em>
+        </p>
+        <cite class="quote-cite">Steve Jobs · Wired, 1996</cite>
+      </div>
+      <span class="quote-mark-big quote-mark-br">&rdquo;</span>
+      <span class="slide-brand">Feihong.</span>
+      <span class="slide-page-num">5 / 9</span>
+      <div class="deck-progress-track"><div class="deck-progress-fill" style="width:55%"></div></div>
+    </section>
+
+    <!-- ==================== SLIDE 6: TWO COLUMN - BRAND ==================== -->
+    <section class="slide dark" data-index="5">
+      <div class="slide-inner">
+        <div class="slide-twocol">
+          <div class="twocol-visual">
+            <span class="photo-corner-sm tl"></span>
+            <span class="photo-corner-sm tr"></span>
+            <span class="photo-corner-sm bl"></span>
+            <span class="photo-corner-sm br"></span>
+            <div class="twocol-visual-inner">
+              Brand<br>Identity
+            </div>
+            <div class="wax-seal-mini gold">
+              品牌<br>核心
+            </div>
+          </div>
+          <div class="twocol-text">
+            <span class="slide-eyebrow">02 · 品牌的本质</span>
+            <h2>品牌是一整套<br><em style="font-style:italic;color:var(--gold);">一致的体验</em></h2>
+            <div class="gold-line"></div>
+            <p>Logo只是品牌的冰山一角。真正的品牌存在于每一个触点中：你的配色、你的文字、你的客服回复速度、你发朋友圈的语气。</p>
+            <p>一致性比"好看"更重要。一个持续三年的简单视觉，比每个季度更新一次的精美设计更有品牌力量。</p>
+          </div>
+        </div>
+      </div>
+      <span class="slide-brand">Feihong.</span>
+      <span class="slide-page-num">6 / 9</span>
+      <div class="deck-progress-track"><div class="deck-progress-fill" style="width:66%"></div></div>
+    </section>
+
+    <!-- ==================== SLIDE 7: BIG STATS ==================== -->
+    <section class="slide cream" data-index="6">
+      <div class="slide-inner slide-stats">
+        <span class="slide-eyebrow">03 · 审美框架</span>
+        <h2 class="content-title" style="text-align:center;">设计的<em style="font-style:italic;color:var(--royal);">六个基本原则</em></h2>
+        <div class="gold-line center"></div>
+        <div class="stats-grid">
+          <div class="stat-big">
+            <div class="stat-big-num">层</div>
+            <div class="stat-big-label"><strong style="font-weight:600;color:var(--ink);">层级</strong><br>信息有主次，不是所有内容都一样重要</div>
+          </div>
+          <div class="stat-big">
+            <div class="stat-big-num">比</div>
+            <div class="stat-big-label"><strong style="font-weight:600;color:var(--ink);">对比</strong><br>差异创造焦点，没有对比就没有视觉中心</div>
+          </div>
+          <div class="stat-big">
+            <div class="stat-big-num">齐</div>
+            <div class="stat-big-label"><strong style="font-weight:600;color:var(--ink);">对齐</strong><br>每个元素都应该和另一个元素有视觉联系</div>
+          </div>
+          <div class="stat-big">
+            <div class="stat-big-num">复</div>
+            <div class="stat-big-label"><strong style="font-weight:600;color:var(--ink);">重复</strong><br>一致性来自重复——字体、颜色、样式</div>
+          </div>
+          <div class="stat-big">
+            <div class="stat-big-num">近</div>
+            <div class="stat-big-label"><strong style="font-weight:600;color:var(--ink);">亲密</strong><br>相关的内容应该靠近，形成视觉单元</div>
+          </div>
+          <div class="stat-big">
+            <div class="stat-big-num">白</div>
+            <div class="stat-big-label"><strong style="font-weight:600;color:var(--ink);">留白</strong><br>留白不是空，而是呼吸，是让重要内容突出</div>
+          </div>
+        </div>
+      </div>
+      <span class="slide-brand">Feihong.</span>
+      <span class="slide-page-num">7 / 9</span>
+      <div class="deck-progress-track"><div class="deck-progress-fill" style="width:77%"></div></div>
+    </section>
+
+    <!-- ==================== SLIDE 8: AI ERA ==================== -->
+    <section class="slide dark" data-index="7">
+      <div class="slide-inner slide-content" style="max-width:800px;">
+        <span class="slide-eyebrow">04 · AI时代</span>
+        <h2 class="content-title">当人人都能"做设计"，<br><em style="font-style:italic;color:var(--gold);">设计师的价值</em>在哪里？</h2>
+        <div class="gold-line"></div>
+        <div class="content-grid" style="margin-top:32px;">
+          <div class="content-point">
+            <span class="point-num">判</span>
+            <div class="point-text">
+              <h4>判断力</h4>
+              <p>AI能生成100个方案，但选择哪个、为什么选，需要人的判断</p>
+            </div>
+          </div>
+          <div class="content-point">
+            <span class="point-num">问</span>
+            <div class="point-text">
+              <h4>提问能力</h4>
+              <p>好答案来自好问题。定义问题比解决问题更重要</p>
+            </div>
+          </div>
+          <div class="content-point">
+            <span class="point-num">情</span>
+            <div class="point-text">
+              <h4>共情能力</h4>
+              <p>理解用户的真实需求、情感和场景，这是AI做不到的</p>
+            </div>
+          </div>
+          <div class="content-point">
+            <span class="point-num">味</span>
+            <div class="point-text">
+              <h4>品味与审美</h4>
+              <p>品味来自大量的输入、思考和实践，它决定了你的上限</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span class="deco-number br" style="opacity:0.04;color:var(--gold);">AI</span>
+      <span class="slide-brand">Feihong.</span>
+      <span class="slide-page-num">8 / 9</span>
+      <div class="deck-progress-track"><div class="deck-progress-fill" style="width:88%"></div></div>
+    </section>
+
+    <!-- ==================== SLIDE 9: CLOSING ==================== -->
+    <section class="slide dark" data-index="8">
+      <div class="slide-inner slide-closing">
+        <div class="closing-fleuron">❦</div>
+        <h2 class="closing-title">谢谢<em>聆听</em></h2>
+        <p class="closing-sub">设计是一场没有终点的修行</p>
+        <div class="gold-line center"></div>
+        <div class="closing-contact">
+          <span>hello@feihong.design</span>
+          <span>Feihong Design · 飞鸿</span>
+        </div>
+      </div>
+      <span class="quote-mark-big quote-mark-tl" style="opacity:0.04;">&ldquo;</span>
+      <span class="slide-brand">Feihong.</span>
+      <span class="slide-page-num">9 / 9</span>
+      <div class="deck-progress-track"><div class="deck-progress-fill" style="width:100%"></div></div>
+    </section>
+
+  </div>
+
+  <!-- Navigation Arrows -->
+  <button class="nav-arrow prev" id="prevBtn" aria-label="上一页">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <button class="nav-arrow next" id="nextBtn" aria-label="下一页">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+  </button>
+
+  <!-- Navigation Hint -->
+  <div class="nav-hint" id="navHint">← → 或 空格 翻页</div>
+
+  <script>
+    (function() {
+      'use strict';
+
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var slides = document.querySelectorAll('.slide');
+      var current = 0;
+      var total = slides.length;
+      var prevBtn = document.getElementById('prevBtn');
+      var nextBtn = document.getElementById('nextBtn');
+      var navHint = document.getElementById('navHint');
+      var hintTimer;
+
+      function goTo(index) {
+        if (index < 0 || index >= total || index === current) return;
+        slides[current].classList.remove('active');
+        current = index;
+        slides[current].classList.add('active');
+        updateProgress();
+        showHint();
+      }
+
+      function next() { goTo(Math.min(current + 1, total - 1)); }
+      function prev() { goTo(Math.max(current - 1, 0)); }
+
+      function updateProgress() {
+        var fills = document.querySelectorAll('.deck-progress-fill');
+        var pct = ((current + 1) / total) * 100;
+        fills.forEach(function(fill) {
+          fill.style.width = pct + '%';
+        });
+      }
+
+      function showHint() {
+        navHint.classList.add('visible');
+        clearTimeout(hintTimer);
+        hintTimer = setTimeout(function() {
+          navHint.classList.remove('visible');
+        }, 2500);
+      }
+
+      // Keyboard navigation
+      document.addEventListener('keydown', function(e) {
+        switch(e.key) {
+          case 'ArrowRight':
+          case ' ':
+          case 'PageDown':
+            e.preventDefault();
+            next();
+            break;
+          case 'ArrowLeft':
+          case 'PageUp':
+            e.preventDefault();
+            prev();
+            break;
+          case 'Home':
+            e.preventDefault();
+            goTo(0);
+            break;
+          case 'End':
+            e.preventDefault();
+            goTo(total - 1);
+            break;
+          case 'f':
+            // F for fullscreen
+            if (!document.fullscreenElement) {
+              document.documentElement.requestFullscreen().catch(function(){});
+            } else {
+              document.exitFullscreen().catch(function(){});
+            }
+            break;
+        }
+      });
+
+      // Button clicks
+      prevBtn.addEventListener('click', prev);
+      nextBtn.addEventListener('click', next);
+
+      // Touch/swipe support
+      var touchStartX = 0;
+      var touchStartY = 0;
+      document.addEventListener('touchstart', function(e) {
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+      }, { passive: true });
+      document.addEventListener('touchend', function(e) {
+        var dx = e.changedTouches[0].screenX - touchStartX;
+        var dy = e.changedTouches[0].screenY - touchStartY;
+        if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy)) {
+          if (dx < 0) next();
+          else prev();
+        }
+      }, { passive: true });
+
+      // Mouse wheel (throttled)
+      var wheelLock = false;
+      document.addEventListener('wheel', function(e) {
+        if (wheelLock) return;
+        // Only handle significant vertical scrolls
+        if (Math.abs(e.deltaY) < 30) return;
+        wheelLock = true;
+        if (e.deltaY > 0) next();
+        else prev();
+        setTimeout(function() { wheelLock = false; }, 600);
+      }, { passive: true });
+
+      // Show hint briefly on load
+      setTimeout(showHint, 1000);
+
+      // Update body class based on current slide
+      function updateBodyClass() {
+        var isDark = slides[current].classList.contains('dark');
+        document.body.classList.toggle('dark-mode', isDark);
+      }
+      var origGoTo = goTo;
+      goTo = function(index) {
+        origGoTo(index);
+        updateBodyClass();
+      };
+      updateBodyClass();
+    })();
+  </script>
+</body>
+</html>

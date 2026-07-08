@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>飞鸿 - 个人简历</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Brand Colors */
+      --royal: #0A2463;
+      --royal-50: #EEF1FA;
+      --royal-100: #D6DDF0;
+      --royal-600: #0F3480;
+      --gold: #F4D35E;
+      --gold-light: #FAEBA3;
+      --gold-pale: #FEFCF0;
+      --gold-600: #DDB52E;
+      --wine: #D8315B;
+      --wine-600: #AD2749;
+      --cream: #FDFBF6;
+      --cream-100: #F8F4EB;
+      --cream-200: #F0EAD9;
+      --ink: #0D1225;
+      --ink-2: #1A1F36;
+      --ink-100: #2C3347;
+      --muted: #4A5066;
+      --faint: #8A90A5;
+      --line-warm: #E8E3D4;
+
+      /* Typography */
+      --font-serif: 'Playfair Display', 'Noto Serif SC', Georgia, 'Songti SC', serif;
+      --font-display: 'Cormorant Garamond', 'Noto Serif SC', Georgia, serif;
+      --font-sans: 'Inter', 'Noto Sans SC', -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      --font-mono: 'JetBrains Mono', Consolas, 'Courier New', monospace;
+
+      /* Spacing */
+      --sp-1: 4px;
+      --sp-2: 8px;
+      --sp-3: 12px;
+      --sp-4: 16px;
+      --sp-5: 24px;
+      --sp-6: 32px;
+
+      /* Radius */
+      --r-sm: 4px;
+      --r-md: 8px;
+
+      /* Shadows */
+      --shadow-sm: 0 2px 8px rgba(10,36,99,0.06);
+      --shadow-md: 0 4px 16px rgba(10,36,99,0.10);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      font-family: var(--font-sans);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background: var(--cream-200);
+      padding: 28px 0;
+      font-variant-numeric: tabular-nums;
+    }
+
+    ::selection { background: var(--gold); color: var(--royal); }
+
+    /* ---------- 打印按钮（屏幕可见，打印隐藏） ---------- */
+    .toolbar {
+      position: fixed;
+      top: 20px;
+      right: 24px;
+      z-index: 100;
+    }
+    .btn-print {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 20px;
+      background: var(--royal);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 13px;
+      font-family: inherit;
+      font-weight: 500;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      box-shadow: 0 2px 10px rgba(10,36,99,0.18);
+    }
+
+    /* ---------- 简历纸张 ---------- */
+    .resume {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      padding: 16mm 16mm 14mm;
+      background: #fff;
+      box-shadow: 0 2px 24px rgba(0,0,0,0.08);
+      font-size: 10.5px;
+      line-height: 1.5;
+      display: grid;
+      grid-template-columns: 62mm 1fr;
+      gap: 7mm;
+    }
+
+    /* ---------- 通用：章节标题 ---------- */
+    .section-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .gold-dot {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      background: var(--gold);
+      border-radius: 50%;
+      margin-right: 8px;
+      flex-shrink: 0;
+    }
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--royal);
+      margin-right: 10px;
+      white-space: nowrap;
+    }
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold) 0%, var(--line-warm) 60%, transparent 100%);
+    }
+
+    /* ---------- 金色分割细线 ---------- */
+    .divider-gold {
+      height: 1px;
+      background: var(--gold);
+      border: none;
+      margin: 0;
+    }
+
+    /* ================================================
+       左栏
+       ================================================ */
+    .sidebar {
+      padding-right: 4mm;
+      border-right: 1px solid var(--line-warm);
+    }
+
+    /* 头像 */
+    .avatar-wrap {
+      text-align: center;
+      margin-bottom: 14px;
+    }
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--gold);
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* 左栏 section 间距 */
+    .sidebar-section {
+      margin-bottom: 16px;
+    }
+    .sidebar-section:last-child { margin-bottom: 0; }
+
+    /* 联系方式 */
+    .contact-list {
+      list-style: none;
+      padding: 0;
+    }
+    .contact-list li {
+      font-size: 10px;
+      color: var(--muted);
+      margin-bottom: 5px;
+      line-height: 1.45;
+      word-break: break-all;
+    }
+    .contact-list li .contact-label {
+      display: block;
+      font-size: 9px;
+      font-weight: 600;
+      color: var(--royal);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1px;
+    }
+    .contact-list a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    /* 技能标签 */
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 5px;
+      margin-top: 2px;
+    }
+    .skill-tag {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 500;
+      padding: 2px 7px;
+      background: var(--gold-pale);
+      color: var(--royal);
+      border-radius: 3px;
+      letter-spacing: 0.02em;
+      line-height: 1.4;
+    }
+    .skill-tag.outline {
+      background: transparent;
+      border: 1px solid var(--gold-light);
+      color: var(--royal);
+    }
+
+    /* 语言能力 */
+    .lang-list { list-style: none; padding: 0; }
+    .lang-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 10px;
+      color: var(--ink);
+      margin-bottom: 5px;
+    }
+    .lang-name { font-weight: 500; }
+    .lang-level {
+      display: flex;
+      gap: 3px;
+    }
+    .lang-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--line-warm);
+    }
+    .lang-dot.filled { background: var(--gold); }
+
+    /* 教育（左栏） */
+    .edu-item-sb { margin-bottom: 10px; }
+    .edu-item-sb:last-child { margin-bottom: 0; }
+    .edu-degree-sb {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.35;
+    }
+    .edu-school-sb {
+      font-size: 10px;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+    .edu-date-sb {
+      font-size: 9.5px;
+      color: var(--faint);
+      margin-top: 1px;
+    }
+
+    /* ================================================
+       右栏（主内容）
+       ================================================ */
+    .main-col {
+      padding-left: 2mm;
+    }
+
+    /* 头部 */
+    .header {
+      margin-bottom: 12px;
+    }
+    .name-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .name {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--royal);
+      letter-spacing: 0.02em;
+      line-height: 1.15;
+    }
+    .availability-tag {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 600;
+      padding: 3px 9px;
+      background: var(--wine);
+      color: #fff;
+      border-radius: 3px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .title-line {
+      margin-top: 5px;
+    }
+    .title-tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--royal);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 3px 0;
+      border-bottom: 1.5px solid var(--gold);
+    }
+
+    /* 个人简介 */
+    .summary {
+      font-size: 10.5px;
+      line-height: 1.6;
+      color: var(--ink-2);
+      margin: 12px 0 0;
+    }
+
+    /* 主内容 section 间距 */
+    .main-section {
+      margin-top: 14px;
+    }
+    .main-section:first-of-type { margin-top: 12px; }
+
+    /* 经历条目 */
+    .exp-item { margin-bottom: 12px; page-break-inside: avoid; break-inside: avoid; }
+    .exp-item:last-child { margin-bottom: 0; }
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 3px;
+      gap: 10px;
+    }
+    .exp-role {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .exp-company {
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--muted);
+      margin-left: 5px;
+    }
+    .exp-date {
+      font-size: 0.8125rem;
+      color: var(--faint);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .exp-desc {
+      font-size: 10px;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 2px;
+      line-height: 1.4;
+    }
+    .exp-bullets {
+      list-style: none;
+      margin: 3px 0 0;
+      padding: 0;
+    }
+    .exp-bullets li {
+      font-size: 10.5px;
+      line-height: 1.48;
+      color: var(--ink);
+      padding-left: 12px;
+      position: relative;
+      margin-bottom: 2px;
+    }
+    .exp-bullets li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 5px;
+      height: 5px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+
+    /* 项目条目 */
+    .proj-item { margin-bottom: 10px; page-break-inside: avoid; break-inside: avoid; }
+    .proj-item:last-child { margin-bottom: 0; }
+    .proj-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+      gap: 10px;
+    }
+    .proj-name {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .proj-tag {
+      font-size: 9px;
+      font-weight: 500;
+      padding: 1px 6px;
+      background: var(--gold-pale);
+      color: var(--royal);
+      border-radius: 2px;
+      letter-spacing: 0.04em;
+    }
+    .proj-date {
+      font-size: 0.8125rem;
+      color: var(--faint);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .proj-bullets {
+      list-style: none;
+      margin: 2px 0 0;
+      padding: 0;
+    }
+    .proj-bullets li {
+      font-size: 10px;
+      line-height: 1.45;
+      color: var(--ink-2);
+      padding-left: 12px;
+      position: relative;
+      margin-bottom: 1px;
+    }
+    .proj-bullets li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 4px;
+      height: 4px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+
+    /* ================================================
+       打印样式
+       ================================================ */
+    @media print {
+      @page {
+        size: A4;
+        margin: 0;
+      }
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+        background: #fff !important;
+        font-size: 10.5pt;
+      }
+      .toolbar,
+      .no-print {
+        display: none !important;
+      }
+      .resume {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 0;
+        padding: 14mm 15mm;
+        box-shadow: none !important;
+        page-break-after: avoid;
+      }
+      a {
+        color: var(--ink) !important;
+        text-decoration: none !important;
+      }
+      .exp-item,
+      .proj-item,
+      .edu-item-sb,
+      .sidebar-section,
+      .main-section,
+      section {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+      .section-header,
+      .header {
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+      * {
+        box-shadow: none !important;
+        text-shadow: none !important;
+      }
+      .gold-dot,
+      .skill-tag,
+      .lang-dot.filled,
+      .exp-bullets li::before,
+      .proj-bullets li::before,
+      .availability-tag,
+      .avatar,
+      .divider-gold,
+      .section-line,
+      .title-tag {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+
+    /* ================================================
+       屏幕小尺寸适配
+       ================================================ */
+    @media (max-width: 850px) {
+      body { padding: 0; background: #fff; }
+      .toolbar {
+        position: sticky;
+        top: 0;
+        right: auto;
+        text-align: center;
+        padding: 10px;
+        background: var(--cream-200);
+      }
+      .resume {
+        width: 100%;
+        min-height: auto;
+        padding: 24px 18px;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        box-shadow: none;
+      }
+      .sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--gold);
+        padding-right: 0;
+        padding-bottom: 16px;
+      }
+      .main-col { padding-left: 0; }
+      .avatar-wrap { text-align: left; }
+      .avatar { margin: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 下载 PDF 按钮（打印时隐藏） -->
+  <div class="toolbar no-print">
+    <button class="btn-print" onclick="window.print()">下载 PDF</button>
+  </div>
+
+  <div class="resume">
+
+    <!-- ==================== 左栏 ==================== -->
+    <aside class="sidebar">
+
+      <!-- 头像 -->
+      <div class="avatar-wrap">
+        <img class="avatar" src="avatar.jpg" alt="飞鸿头像" onerror="this.style.display='none'">
+      </div>
+
+      <!-- 联系方式 -->
+      <div class="sidebar-section">
+        <div class="section-header">
+          <span class="gold-dot"></span>
+          <span class="section-title">Contact</span>
+          <span class="section-line"></span>
+        </div>
+        <ul class="contact-list">
+          <li>
+            <span class="contact-label">Email</span>
+            <a href="mailto:hong.fei@email.com">hong.fei@email.com</a>
+          </li>
+          <li>
+            <span class="contact-label">Phone</span>
+            <span>138-0000-0000</span>
+          </li>
+          <li>
+            <span class="contact-label">Website</span>
+            <a href="#">feihong.design</a>
+          </li>
+          <li>
+            <span class="contact-label">Location</span>
+            <span>上海 · 中国</span>
+          </li>
+          <li>
+            <span class="contact-label">LinkedIn</span>
+            <a href="#">linkedin.com/in/feihong</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 技能 -->
+      <div class="sidebar-section">
+        <div class="section-header">
+          <span class="gold-dot"></span>
+          <span class="section-title">Skills</span>
+          <span class="section-line"></span>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag">Figma</span>
+          <span class="skill-tag">Sketch</span>
+          <span class="skill-tag">设计系统</span>
+          <span class="skill-tag">B端设计</span>
+          <span class="skill-tag outline">数据可视化</span>
+          <span class="skill-tag outline">用户研究</span>
+          <span class="skill-tag">交互原型</span>
+          <span class="skill-tag outline">HTML / CSS</span>
+          <span class="skill-tag">品牌设计</span>
+          <span class="skill-tag outline">设计规范</span>
+          <span class="skill-tag">团队管理</span>
+          <span class="skill-tag outline">Motion</span>
+        </div>
+      </div>
+
+      <!-- 语言能力 -->
+      <div class="sidebar-section">
+        <div class="section-header">
+          <span class="gold-dot"></span>
+          <span class="section-title">Languages</span>
+          <span class="section-line"></span>
+        </div>
+        <ul class="lang-list">
+          <li class="lang-item">
+            <span class="lang-name">中文（普通话）</span>
+            <span class="lang-level">
+              <span class="lang-dot filled"></span>
+              <span class="lang-dot filled"></span>
+              <span class="lang-dot filled"></span>
+              <span class="lang-dot filled"></span>
+              <span class="lang-dot filled"></span>
+            </span>
+          </li>
+          <li class="lang-item">
+            <span class="lang-name">English</span>
+            <span class="lang-level">
+              <span class="lang-dot filled"></span>
+              <span class="lang-dot filled"></span>
+              <span class="lang-dot filled"></span>
+              <span class="lang-dot filled"></span>
+              <span class="lang-dot"></span>
+            </span>
+          </li>
+          <li class="lang-item">
+            <span class="lang-name">日本語</span>
+            <span class="lang-level">
+              <span class="lang-dot filled"></span>
+              <span class="lang-dot filled"></span>
+              <span class="lang-dot filled"></span>
+              <span class="lang-dot"></span>
+              <span class="lang-dot"></span>
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 教育背景 -->
+      <div class="sidebar-section">
+        <div class="section-header">
+          <span class="gold-dot"></span>
+          <span class="section-title">Education</span>
+          <span class="section-line"></span>
+        </div>
+        <div class="edu-item-sb">
+          <div class="edu-degree-sb">设计学 硕士</div>
+          <div class="edu-school-sb">同济大学 设计创意学院</div>
+          <div class="edu-date-sb">2016.09 — 2018.06</div>
+        </div>
+        <div class="edu-item-sb">
+          <div class="edu-degree-sb">视觉传达设计 学士</div>
+          <div class="edu-school-sb">中国美术学院</div>
+          <div class="edu-date-sb">2012.09 — 2016.06</div>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- ==================== 右栏 ==================== -->
+    <main class="main-col">
+
+      <!-- 头部：姓名 + 职位 -->
+      <header class="header">
+        <div class="name-row">
+          <h1 class="name">飞鸿</h1>
+          <span class="availability-tag">Open to Work</span>
+        </div>
+        <div class="title-line">
+          <span class="title-tag">Senior Product Designer</span>
+        </div>
+
+        <p class="summary">
+          7年B端产品设计经验，专注企业级SaaS设计系统与复杂数据可视化。主导过3个从0到1的产品设计，
+          擅长以系统化设计思维提升团队协作效率，优化核心流程转化率平均提升30%以上。
+          相信好的设计是克制的——在秩序与美感之间找到精准平衡。
+        </p>
+      </header>
+
+      <hr class="divider-gold">
+
+      <!-- 工作经历 -->
+      <section class="main-section">
+        <div class="section-header">
+          <span class="gold-dot"></span>
+          <span class="section-title">Experience</span>
+          <span class="section-line"></span>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <span class="exp-role">高级产品设计师</span>
+              <span class="exp-company">@ 云启科技 · 企业级SaaS</span>
+            </div>
+            <div class="exp-date">2023.06 — 至今</div>
+          </div>
+          <div class="exp-desc">领先的企业协同平台，服务500+中大型企业客户</div>
+          <ul class="exp-bullets">
+            <li>主导设计体系从0到1重构，建立含200+组件的跨端设计系统，设计交付效率提升40%，组件复用率达75%</li>
+            <li>优化核心转化漏斗，通过A/B测试将试用转付费率从2.1%提升至3.5%，ARR贡献增量超1200万</li>
+            <li>带领5人设计团队，建立设计评审机制与组件治理流程，推动设计-开发还原度从70%提升至95%</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <span class="exp-role">产品设计师</span>
+              <span class="exp-company">@ 数澜科技 · 数据中台</span>
+            </div>
+            <div class="exp-date">2020.03 — 2023.05</div>
+          </div>
+          <div class="exp-desc">B端数据看板与可视化分析产品，服务10万+活跃用户</div>
+          <ul class="exp-bullets">
+            <li>负责数据看板产品全链路设计，搭建企业级可视化组件库，被3条业务线采纳，NPS从32提升至58</li>
+            <li>设计低代码数据报表搭建器，将客户自定义报表交付周期从5天缩短至4小时</li>
+            <li>主导国际化版本设计（中英日三语），覆盖东南亚及日本市场，海外客户占比提升至22%</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <span class="exp-role">UI / UX 设计师</span>
+              <span class="exp-company">@ 本白设计 · 品牌与产品工作室</span>
+            </div>
+            <div class="exp-date">2018.07 — 2020.02</div>
+          </div>
+          <ul class="exp-bullets">
+            <li>参与10+企业客户的品牌视觉与数字产品设计，涵盖金融、教育、零售行业</li>
+            <li>独立完成某头部城商行App视觉升级项目，上线后用户满意度评分提升0.6分（5分制）</li>
+          </ul>
+        </div>
+      </section>
+
+      <hr class="divider-gold">
+
+      <!-- 项目经验 -->
+      <section class="main-section">
+        <div class="section-header">
+          <span class="gold-dot"></span>
+          <span class="section-title">Selected Projects</span>
+          <span class="section-line"></span>
+        </div>
+
+        <div class="proj-item">
+          <div class="proj-header">
+            <div>
+              <span class="proj-name">Feihong Design System</span>
+              <span class="proj-tag">个人开源</span>
+            </div>
+            <div class="proj-date">2025 — 至今</div>
+          </div>
+          <ul class="proj-bullets">
+            <li>开源个人品牌设计系统，涵盖品牌DNA、组件规范、8大场景模板，GitHub获1.2k+ Star</li>
+          </ul>
+        </div>
+
+        <div class="proj-item">
+          <div class="proj-header">
+            <div>
+              <span class="proj-name">企业级数据可视化主题包</span>
+              <span class="proj-tag">设计系统</span>
+            </div>
+            <div class="proj-date">2022</div>
+          </div>
+          <ul class="proj-bullets">
+            <li>设计并开发一套基于ECharts的品牌化图表主题，覆盖30+图表类型，统一全公司数据产品视觉语言</li>
+          </ul>
+        </div>
+
+        <div class="proj-item">
+          <div class="proj-header">
+            <div>
+              <span class="proj-name">「见字」中文排版工具</span>
+              <span class="proj-tag">Side Project</span>
+            </div>
+            <div class="proj-date">2021</div>
+          </div>
+          <ul class="proj-bullets">
+            <li>面向写作者的中文网页排版美化工具，提供6套精心调校的排版主题，累计用户3万+</li>
+          </ul>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+</body>
+</html>
