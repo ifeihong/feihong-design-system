@@ -26,7 +26,7 @@ description: 飞鸿的个人品牌设计系统。制作HTML网页、个人主页
 | 场景 | 规范 | 模板 | 状态 | 注意事项 |
 |------|------|------|------|----------|
 | 案例研究 / Case Study | `scene-case-study.md` | `template-case-study.html` | 🧪 Beta | 叙事结构完整，细节持续优化 |
-| App / 功能页 / 仪表盘 | `scene-app.md` | `template-app.html` | 🧪 Beta | 终端风格可用，组件待丰富 |
+| App / 功能页 / 仪表盘 | `scene-app.md` | `template-app.html` | 🧪 Beta | 终端绿风格+高奢艺术组件 |
 | 图文卡片 / 小红书 | `scene-cards.md` | `template-cards.html` | 🧪 Beta | 导出功能可用，样式变体待增加 |
 | 简历 / CV | `scene-resume.md` | `template-resume.html` | 🧪 Beta | A4打印可用，排版变体待增加 |
 | 公众号排版 | `scene-wechat.md` | 内联HTML | 🧪 Beta | 微信兼容，样式较基础 |

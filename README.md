@@ -10,7 +10,7 @@
 [![Version](https://img.shields.io/badge/version-v2.0-0A2463?style=for-the-badge&labelColor=0A2463&color=F4D35E)](https://github.com/feihong/feihong-design-system)
 [![License: MIT](https://img.shields.io/badge/License-MIT-D8315B.svg?style=for-the-badge&labelColor=D8315B&color=F4D35E)](https://opensource.org/licenses/MIT)
 [![Templates](https://img.shields.io/badge/Templates-10-0A2463?style=for-the-badge&labelColor=0A2463&color=F4D35E)](https://feihong.art/)
-[![Components](https://img.shields.io/badge/Components-43%2B-D8315B?style=for-the-badge&labelColor=D8315B&color=F4D35E)](https://feihong.art/assets/showcase-components.html)
+[![Components](https://img.shields.io/badge/Components-68%2B-D8315B?style=for-the-badge&labelColor=D8315B&color=F4D35E)](https://feihong.art/assets/showcase-components.html)
 [![Stable Scenes](https://img.shields.io/badge/Stable-4%20scenes-0A2463?style=for-the-badge&labelColor=0A2463&color=4ADE80)](https://feihong.art/)
 
 ---
@@ -60,7 +60,7 @@
 | 场景 | 模板 | 状态 | 说明 |
 |:---|:---|:---:|:---|
 | 案例研究 / Case Study | [`template-case-study.html`](assets/template-case-study.html) | 🧪 Beta | 叙事结构完整，视觉细节持续优化 |
-| App / 功能页 / 仪表盘 | [`template-app.html`](assets/template-app.html) | 🧪 Beta | 终端绿风格可用，组件待丰富 |
+| App / 功能页 / 仪表盘 | [`template-app.html`](assets/template-app.html) | 🧪 Beta | 终端绿风格+高奢组件 |
 | 图文卡片 / 小红书 | [`template-cards.html`](assets/template-cards.html) | 🧪 Beta | html2canvas导出PNG可用，样式变体待增加 |
 | 简历 / CV | [`template-resume.html`](assets/template-resume.html) | 🧪 Beta | A4打印可用，排版变体待增加 |
 | 公众号排版 | [`template-wechat.html`](assets/template-wechat.html) | 🧪 Beta | 微信内联样式兼容，样式较基础 |
@@ -70,9 +70,13 @@
 
 ## 🧩 组件库亮点
 
-### 基础 UI 组件（43+ 类 / 80+ 样式）
+### 基础 UI 组件（68+ 类 / 130+ 样式）
 
 按钮（6种样式×3尺寸）、徽章（含Stable/Beta/金色/酒红变体）、卡片（5+3变体）、表单、导航、页脚、表格、提示框、进度条、社交链接、标签组、时间线、统计数字栏、客户评价卡、作者卡、相关文章卡、Newsletter订阅框
+
+### 💎 高奢艺术组件（v3.0 新增 25个）
+
+Art Divider（5种变体）、Luxury Badge（4种）、Editorial Quote、Marquee、Asymmetric Gallery、Number Counter、Signature Block、Sticker Tag、Luxe Accordion、Art Deco Frame、Vintage Stamp、Magazine Headline、Ornamental Initial、Polaroid Frame、Gold Foil Text、Washi Tape、Exhibition Label、Constellation、Embossed Card、Ribbon Banner、Handwritten Note、Serial Number、Vertical Text、Ink Bleed、Luxe Pagination
 
 ### 📜 书卷气签名组件（核心特色）
 
@@ -162,7 +166,7 @@ feihong-design-system/
 │   └── template-email.html       🧪 Beta    # 邮件 / EDM（Table布局）
 │
 └── references/                           # 规范文档
-    ├── components.md                     # 组件库（43类/80+样式，含完整HTML+CSS）
+    ├── components.md                     # 组件库（68类/130+样式，含完整HTML+CSS）
     ├── layouts.md                        # 16种布局模式
     ├── checklist.md                      # P0/P1/P2三级质量门槛
     ├── scene-portfolio.md                # 作品集场景规范
