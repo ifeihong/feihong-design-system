@@ -1,4 +1,4 @@
-User-agent: *
+﻿User-agent: *
 Allow: /
 
-Sitemap: https://feihong.design/sitemap.xml
+Sitemap: https://feihong.art/sitemap.xml

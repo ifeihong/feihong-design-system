@@ -1,4 +1,4 @@
-# Feihong Design System · Layout Patterns
+﻿# Feihong Design System · Layout Patterns
 # 飞鸿品牌设计系统 · 16种布局模式
 
 > 每个 section 选择不同的布局模式，避免页面单调重复。
@@ -717,7 +717,7 @@
       <h2>准备好创造<br>有温度的设计了吗？</h2>
       <p>告诉我你的项目想法，我们一起把它变成现实。</p>
       <div class="flex gap-4 flex-wrap" style="margin-top:2rem;">
-        <a href="mailto:hello@feihong.design" class="btn btn-gold btn-lg">发送邮件</a>
+        <a href="mailto:hello@feihong.art" class="btn btn-gold btn-lg">发送邮件</a>
         <a href="#" class="btn btn-outline btn-lg" style="border-color:rgba(255,255,255,0.3);color:#fff;">预约咨询</a>
       </div>
     </div>

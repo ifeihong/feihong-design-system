@@ -1,67 +1,67 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://feihong.design/</loc>
+    <loc>https://feihong.art/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://feihong.design/assets/showcase-components.html</loc>
+    <loc>https://feihong.art/assets/showcase-components.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://feihong.design/assets/template-portfolio.html</loc>
+    <loc>https://feihong.art/assets/template-portfolio.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://feihong.design/assets/template-landing.html</loc>
+    <loc>https://feihong.art/assets/template-landing.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://feihong.design/assets/template-tutorial.html</loc>
+    <loc>https://feihong.art/assets/template-tutorial.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://feihong.design/assets/template-deck.html</loc>
+    <loc>https://feihong.art/assets/template-deck.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://feihong.design/assets/template-case-study.html</loc>
+    <loc>https://feihong.art/assets/template-case-study.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://feihong.design/assets/template-app.html</loc>
+    <loc>https://feihong.art/assets/template-app.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://feihong.design/assets/template-cards.html</loc>
+    <loc>https://feihong.art/assets/template-cards.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://feihong.design/assets/template-resume.html</loc>
+    <loc>https://feihong.art/assets/template-resume.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://feihong.design/assets/template-wechat.html</loc>
+    <loc>https://feihong.art/assets/template-wechat.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://feihong.design/assets/template-email.html</loc>
+    <loc>https://feihong.art/assets/template-email.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://feihong.design/README.md</loc>
+    <loc>https://feihong.art/README.md</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

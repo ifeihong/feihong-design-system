@@ -6,1151 +6,1638 @@
 <title>飞鸿品牌设计系统 · 小红书图文卡片模板</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Noto+Serif+SC:wght@300;400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <script src="html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <style>
+  /* =========================================================
+     CSS 变量体系
+     ========================================================= */
   :root {
-    /* Brand Colors */
+    /* ---- 品牌三色 ---- */
     --royal: #0A2463;
-    --royal-blue: #0A2463;
-    --royal-600: #0F3480;
-    --royal-700: #081C4F;
+    --royal-light: #1a3a8a;
+    --royal-dark: #061538;
+    --royal-soft: rgba(10, 36, 99, 0.06);
     --gold: #F4D35E;
-    --vintage-gold: #F4D35E;
-    --gold-600: #DDB52E;
+    --gold-deep: #DDB52E;
+    --gold-soft: rgba(244, 211, 94, 0.15);
+    --gold-line: rgba(244, 211, 94, 0.4);
     --wine: #D8315B;
-    --wine-red: #D8315B;
-    --wine-600: #AD2749;
+    --wine-soft: rgba(216, 49, 91, 0.1);
+
+    /* ---- 中性色 ---- */
     --cream: #FDFBF6;
-    --cream-deep: #f5efe2;
-    --warm-white: #FDFBF6;
-    --soft-white: #FAFAF8;
-    --ink: #0D1225;
-    --ink-black: #0D1225;
-    --ink-200: #4C546A;
-    --shadow-blue: rgba(10, 36, 99, 0.12);
-    --shadow-blue-strong: rgba(10, 36, 99, 0.22);
+    --cream-warm: #F8F3E8;
+    --cream-deep: #f0e9d8;
+    --paper: #FAF7F0;
+    --ink: #1A1A2E;
+    --ink-soft: #3D3D52;
+    --ink-muted: #6B6B80;
+    --white: #ffffff;
 
-    /* Typography */
-    --font-serif: 'Playfair Display', 'Noto Serif SC', Georgia, 'Songti SC', serif;
-    --font-display: 'Cormorant Garamond', 'Noto Serif SC', Georgia, serif;
-    --font-sans: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
-    --font-mono: 'JetBrains Mono', Consolas, 'Courier New', monospace;
+    /* ---- 阴影 ---- */
+    --shadow-sm: 0 2px 8px rgba(10, 36, 99, 0.08);
+    --shadow-md: 0 8px 32px rgba(10, 36, 99, 0.12);
+    --shadow-lg: 0 20px 60px rgba(10, 36, 99, 0.18);
+    --shadow-gold: 0 4px 20px rgba(244, 211, 94, 0.3);
 
-    /* Spacing */
-    --sp-1: 4px;
-    --sp-2: 8px;
-    --sp-3: 12px;
-    --sp-4: 16px;
-    --sp-5: 24px;
-    --sp-6: 32px;
-    --sp-8: 48px;
+    /* ---- 字体 ---- */
+    --font-cn: 'Noto Serif SC', 'Songti SC', 'SimSun', Georgia, serif;
+    --font-en: 'Cormorant Garamond', Georgia, serif;
+    --font-ui: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
 
-    /* Radius */
+    /* ---- 尺寸 ---- */
+    --card-w: 1080px;
+    --card-h: 1440px;
     --radius-sm: 8px;
     --radius-md: 16px;
-    --radius-lg: 28px;
-    --radius-xl: 48px;
+    --radius-lg: 24px;
+    --radius-xl: 40px;
 
-    /* Easing */
+    /* ---- 动画 ---- */
     --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
+  html { scroll-behavior: smooth; }
+
   body {
-    font-family: var(--font-sans);
+    font-family: var(--font-ui);
     background: var(--cream-deep);
-    color: var(--ink-black);
+    color: var(--ink);
     min-height: 100vh;
-    padding-bottom: 80px;
-    overflow-x: auto;
+    overflow-x: hidden;
   }
 
-  /* ========== 顶部控制面板 ========== */
-  .control-panel {
+  /* =========================================================
+     顶部控制面板
+     ========================================================= */
+  .app-header {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(253, 251, 246, 0.92);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    background: rgba(253, 251, 246, 0.94);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(10, 36, 99, 0.08);
-    padding: 14px clamp(16px, 3vw, 40px);
+    box-shadow: var(--shadow-sm);
+  }
+  .header-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 14px 28px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+  .brand-mark {
+    width: 40px;
+    height: 40px;
+    background: var(--royal);
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: clamp(10px, 2vw, 24px);
-    flex-wrap: wrap;
-    box-shadow: 0 2px 20px var(--shadow-blue);
-  }
-  .control-panel .brand {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-en);
+    font-size: 20px;
     font-weight: 700;
-    font-size: 18px;
-    color: var(--royal-blue);
-    letter-spacing: 1px;
-    margin-right: auto;
-  }
-  .control-panel .brand span {
-    color: var(--vintage-gold);
     font-style: italic;
+    color: var(--gold);
+    box-shadow: var(--shadow-gold);
+    letter-spacing: -1px;
   }
-  .nav-btn, .export-btn {
-    font-family: 'Inter', 'Noto Sans SC', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 9px 18px;
-    border: none;
-    border-radius: var(--radius-sm);
-    cursor: pointer;
-    transition: all 0.2s ease;
-    letter-spacing: 0.5px;
-  }
-  .nav-btn {
-    background: white;
-    color: var(--royal-blue);
-    border: 1.5px solid var(--royal-blue);
-  }
-  .nav-btn:hover { background: var(--royal-blue); color: white; }
-  .nav-btn:disabled { opacity: 0.4; cursor: not-allowed; }
-  .page-indicator {
-    font-family: 'Playfair Display', serif;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--royal-blue);
-    min-width: 60px;
-    text-align: center;
-  }
-  .export-btn {
-    background: var(--vintage-gold);
-    color: var(--royal-blue);
-    font-weight: 600;
-    box-shadow: 0 2px 8px rgba(244, 211, 94, 0.35);
-  }
-  .export-btn:hover { background: #f0c93d; transform: translateY(-1px); }
-  .export-btn.all {
-    background: var(--royal-blue);
-    color: var(--vintage-gold);
-  }
-  .export-btn.all:hover { background: #081c4f; }
-
-  /* ========== 页面容器 ========== */
-  .pages-wrapper {
+  .brand-text {
     display: flex;
     flex-direction: column;
+    line-height: 1.2;
+  }
+  .brand-text .cn {
+    font-family: var(--font-cn);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--royal);
+    letter-spacing: 1px;
+  }
+  .brand-text .en {
+    font-family: var(--font-en);
+    font-size: 11px;
+    font-style: italic;
+    color: var(--ink-muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .header-divider {
+    width: 1px;
+    height: 32px;
+    background: rgba(10, 36, 99, 0.12);
+    flex-shrink: 0;
+  }
+  .header-title {
+    font-family: var(--font-cn);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    letter-spacing: 1px;
+    flex-shrink: 0;
+  }
+  .header-title .badge-beta {
+    display: inline-block;
+    font-family: var(--font-en);
+    font-size: 10px;
+    font-style: italic;
+    font-weight: 600;
+    color: var(--wine);
+    background: var(--wine-soft);
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-left: 8px;
+    letter-spacing: 1px;
+    vertical-align: middle;
+  }
+  .header-actions {
+    margin-left: auto;
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  .btn {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 9px 20px;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.25s var(--ease);
+    letter-spacing: 0.5px;
+    display: inline-flex;
     align-items: center;
-    gap: 48px;
-    padding: 40px 20px;
+    gap: 6px;
+    white-space: nowrap;
+  }
+  .btn-ghost {
+    background: var(--white);
+    color: var(--royal);
+    border: 1.5px solid rgba(10, 36, 99, 0.15);
+  }
+  .btn-ghost:hover {
+    border-color: var(--royal);
+    background: var(--royal-soft);
+    transform: translateY(-1px);
+  }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--royal);
+    font-weight: 600;
+    box-shadow: var(--shadow-gold);
+  }
+  .btn-primary:hover {
+    background: var(--gold-deep);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 24px rgba(244, 211, 94, 0.4);
+  }
+  .btn-dark {
+    background: var(--royal);
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .btn-dark:hover {
+    background: var(--royal-dark);
+    transform: translateY(-1px);
   }
 
-  /* ========== 单页基础 ========== */
-  .page {
-    width: 1080px;
-    height: 1440px;
+  /* =========================================================
+     卡片类型选择器 (Tab Bar)
+     ========================================================= */
+  .card-tabs-bar {
+    background: var(--white);
+    border-bottom: 1px solid rgba(10, 36, 99, 0.06);
+    padding: 0 clamp(16px, 3vw, 40px);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .card-tabs-bar::-webkit-scrollbar { height: 0; }
+  .card-tabs {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    gap: 6px;
+    padding: 12px 0;
+  }
+  .card-tab {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 22px;
+    border-radius: 100px;
+    border: 1.5px solid transparent;
+    background: transparent;
+    cursor: pointer;
+    font-family: var(--font-ui);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-muted);
+    transition: all 0.3s var(--ease);
+    letter-spacing: 0.5px;
+    position: relative;
+  }
+  .card-tab .tab-icon {
+    font-size: 16px;
+    line-height: 1;
+  }
+  .card-tab:hover {
+    background: var(--royal-soft);
+    color: var(--royal);
+  }
+  .card-tab.active {
+    background: var(--royal);
+    color: var(--gold);
+    border-color: var(--royal);
+    box-shadow: 0 4px 16px rgba(10, 36, 99, 0.2);
+  }
+  .card-tab.active .tab-icon {
+    transform: scale(1.1);
+  }
+
+  /* =========================================================
+     主内容区
+     ========================================================= */
+  .main-area {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 36px 28px 80px;
+  }
+
+  /* ---- 编辑提示 ---- */
+  .edit-hint {
+    text-align: center;
+    margin-bottom: 28px;
+    font-size: 13px;
+    color: var(--ink-muted);
+    letter-spacing: 0.5px;
+  }
+  .edit-hint .hint-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    background: var(--gold);
+    color: var(--royal);
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  /* ---- 卡片预览容器 ---- */
+  .card-stage {
+    display: flex;
+    justify-content: center;
+    perspective: 2000px;
+  }
+  .card-viewport {
+    position: relative;
+    transform-origin: top center;
+    transition: transform 0.5s var(--ease);
+  }
+
+  /* =========================================================
+     卡片基础样式 (3:4 竖版 小红书风格)
+     ========================================================= */
+  .card {
+    width: var(--card-w);
+    height: var(--card-h);
     position: relative;
     overflow: hidden;
-    flex-shrink: 0;
-    box-shadow:
-      0 20px 60px var(--shadow-blue-strong),
-      0 4px 12px var(--shadow-blue);
     border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    display: none;
+    flex-direction: column;
+    background: var(--cream);
+    transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+  }
+  .card.active {
+    display: flex;
+  }
+  .card:hover {
+    box-shadow: 0 28px 80px rgba(10, 36, 99, 0.22);
   }
 
-  /* 页码 */
-  .page-number {
+  /* ---- 可编辑文字样式 ---- */
+  .card [contenteditable="true"] {
+    outline: none;
+    cursor: text;
+    transition: background 0.2s ease;
+    border-radius: 4px;
+    min-width: 1em;
+  }
+  .card [contenteditable="true"]:hover {
+    background: rgba(244, 211, 94, 0.12);
+  }
+  .card [contenteditable="true"]:focus {
+    background: rgba(244, 211, 94, 0.2);
+    box-shadow: 0 0 0 2px rgba(244, 211, 94, 0.4);
+  }
+
+  /* ---- 金色角贴 (品牌元素) ---- */
+  .corner-sticker {
     position: absolute;
-    font-family: 'Playfair Display', serif;
+    width: 72px;
+    height: 72px;
+    z-index: 5;
+    pointer-events: none;
+  }
+  .corner-sticker::before,
+  .corner-sticker::after {
+    content: '';
+    position: absolute;
+    background: var(--gold);
+    border-radius: 1px;
+  }
+  .corner-sticker.tl { top: 36px; left: 36px; }
+  .corner-sticker.tl::before { top: 0; left: 0; width: 40px; height: 2.5px; }
+  .corner-sticker.tl::after { top: 0; left: 0; width: 2.5px; height: 40px; }
+  .corner-sticker.tr { top: 36px; right: 36px; }
+  .corner-sticker.tr::before { top: 0; right: 0; width: 40px; height: 2.5px; }
+  .corner-sticker.tr::after { top: 0; right: 0; width: 2.5px; height: 40px; }
+  .corner-sticker.bl { bottom: 36px; left: 36px; }
+  .corner-sticker.bl::before { bottom: 0; left: 0; width: 40px; height: 2.5px; }
+  .corner-sticker.bl::after { bottom: 0; left: 0; width: 2.5px; height: 40px; }
+  .corner-sticker.br { bottom: 36px; right: 36px; }
+  .corner-sticker.br::before { bottom: 0; right: 0; width: 40px; height: 2.5px; }
+  .corner-sticker.br::after { bottom: 0; right: 0; width: 2.5px; height: 40px; }
+  /* 角贴花饰 */
+  .corner-sticker .fleuron {
+    position: absolute;
+    font-size: 20px;
+    color: var(--gold);
+    font-family: serif;
+    line-height: 1;
+  }
+  .corner-sticker.tl .fleuron { top: 6px; left: 6px; }
+  .corner-sticker.tr .fleuron { top: 6px; right: 6px; }
+  .corner-sticker.bl .fleuron { bottom: 6px; left: 6px; }
+  .corner-sticker.br .fleuron { bottom: 6px; right: 6px; }
+
+  /* ---- 花饰分隔符 ---- */
+  .fleuron-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    color: var(--gold);
     font-size: 22px;
-    font-weight: 500;
-    color: var(--vintage-gold);
-    letter-spacing: 2px;
-    z-index: 10;
   }
-  .page-number.bottom-right { bottom: 40px; right: 50px; }
-  .page-number.bottom-left { bottom: 40px; left: 50px; }
-  .page-number.top-right { top: 50px; right: 50px; }
-  .page-number.top-left { top: 50px; left: 50px; }
+  .fleuron-divider::before,
+  .fleuron-divider::after {
+    content: '';
+    width: 60px;
+    height: 1px;
+    background: var(--gold-line);
+  }
 
-  /* 每页独立导出按钮 */
-  .page-export-fab {
+  /* ---- 品牌水印 Fh ---- */
+  .brand-watermark {
     position: absolute;
-    top: 36px;
-    right: 36px;
+    font-family: var(--font-en);
+    font-size: 320px;
+    font-weight: 700;
+    font-style: italic;
+    color: rgba(10, 36, 99, 0.03);
+    letter-spacing: -8px;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+    line-height: 1;
+  }
+  .brand-watermark.dark {
+    color: rgba(244, 211, 94, 0.04);
+  }
+
+  /* ---- 页脚联系信息 ---- */
+  .card-footer {
+    position: absolute;
+    bottom: 48px;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    z-index: 5;
+    pointer-events: none;
+  }
+  .card-footer .foot-item {
+    font-family: var(--font-ui);
+    font-size: 18px;
+    color: var(--ink-muted);
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .card-footer .foot-item .foot-label {
+    color: var(--royal);
+    font-weight: 600;
+    font-size: 16px;
+  }
+  .card-footer .foot-sep {
+    width: 4px;
+    height: 4px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+  .card-footer.on-dark .foot-item {
+    color: rgba(255,255,255,0.55);
+  }
+  .card-footer.on-dark .foot-item .foot-label {
+    color: var(--gold);
+  }
+  .card-footer.on-dark .foot-sep {
+    background: var(--gold);
+  }
+
+  /* ---- 卡片编号 ---- */
+  .card-num {
+    position: absolute;
+    font-family: var(--font-en);
+    font-size: 20px;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--gold);
+    letter-spacing: 3px;
+    z-index: 5;
+    pointer-events: none;
+  }
+  .card-num.tl { top: 52px; left: 120px; }
+  .card-num.tr { top: 52px; right: 120px; }
+  .card-num.bl { bottom: 96px; left: 50%; transform: translateX(-50%); }
+
+  /* ---- 卡片内导出悬浮按钮 (编辑时隐藏) ---- */
+  .card-export-fab {
+    position: absolute;
+    top: 32px;
+    right: 32px;
     z-index: 20;
-    background: var(--vintage-gold);
-    color: var(--royal-blue);
+    background: var(--gold);
+    color: var(--royal);
     border: none;
     border-radius: 50%;
     width: 56px;
     height: 56px;
     cursor: pointer;
-    box-shadow: 0 4px 14px rgba(10,36,99,0.25);
+    box-shadow: 0 4px 16px rgba(10, 36, 99, 0.2);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 14px;
-    transition: transform 0.15s ease;
-    letter-spacing: 0;
+    transition: all 0.25s var(--ease-spring);
+    opacity: 0;
   }
-  .page-export-fab:hover { transform: scale(1.08); }
-  .page-export-fab svg { width: 24px; height: 24px; }
-  .page-export-fab .fab-label {
-    display: none;
+  .card.active .card-export-fab { opacity: 1; }
+  .card-export-fab:hover {
+    transform: scale(1.12);
+    box-shadow: 0 6px 24px rgba(244, 211, 94, 0.45);
   }
-  .dark-page .page-export-fab {
-    background: var(--vintage-gold);
-    color: var(--royal-blue);
-  }
+  .card-export-fab svg { width: 24px; height: 24px; }
 
-  /* ====================================================== */
-  /* 第1页 · 封面                                           */
-  /* ====================================================== */
-  .page-1 {
-    background: var(--warm-white);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  /* =========================================================
+     卡片变体 1: 金句卡 (Quote Card) — 皇家蓝底金字
+     ========================================================= */
+  .card-quote {
+    background: radial-gradient(ellipse at 30% 20%, #1a3a8a 0%, var(--royal) 55%, var(--royal-dark) 100%);
     justify-content: center;
-    padding: 100px 90px;
-  }
-  .page-1 .watermark {
-    position: absolute;
-    bottom: 120px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: 'Playfair Display', serif;
-    font-size: 280px;
-    font-weight: 700;
-    color: rgba(10, 36, 99, 0.03);
-    letter-spacing: 20px;
-    user-select: none;
-    white-space: nowrap;
-  }
-  .page-1 .badge {
-    display: inline-block;
-    background: var(--vintage-gold);
-    color: var(--royal-blue);
-    font-family: 'Inter', 'Noto Sans SC', sans-serif;
-    font-size: 22px;
-    font-weight: 600;
-    padding: 12px 36px;
-    border-radius: 100px;
-    letter-spacing: 6px;
-    margin-bottom: 70px;
-    text-transform: uppercase;
-  }
-  .page-1 .title {
-    font-family: 'Playfair Display', 'Noto Sans SC', serif;
-    font-size: 86px;
-    font-weight: 700;
-    color: var(--ink-black);
+    align-items: center;
+    padding: 120px 90px 160px;
     text-align: center;
-    line-height: 1.3;
-    letter-spacing: 2px;
-    margin-bottom: 80px;
-    z-index: 2;
   }
-  .page-1 .title .highlight {
-    color: var(--vintage-gold);
-    font-style: italic;
-    font-weight: 600;
-    position: relative;
-  }
-  .page-1 .divider {
-    width: 80px;
-    height: 3px;
-    background: var(--vintage-gold);
-    margin-bottom: 40px;
-    border-radius: 2px;
-  }
-  .page-1 .author {
-    font-family: 'Playfair Display', 'Noto Sans SC', serif;
-    font-size: 28px;
-    font-weight: 500;
-    color: var(--royal-blue);
-    letter-spacing: 8px;
-    z-index: 2;
-  }
-  .page-1 .author .dot {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    background: var(--wine-red);
-    border-radius: 50%;
-    margin: 0 16px 4px;
-    vertical-align: middle;
-  }
-  .page-1 .corner-decor {
-    position: absolute;
-    top: 70px;
-    left: 70px;
-    width: 60px;
-    height: 60px;
-    border-top: 3px solid var(--vintage-gold);
-    border-left: 3px solid var(--vintage-gold);
-  }
-  .page-1 .corner-decor-br {
-    position: absolute;
-    bottom: 70px;
-    right: 70px;
-    width: 60px;
-    height: 60px;
-    border-bottom: 3px solid var(--vintage-gold);
-    border-right: 3px solid var(--vintage-gold);
-  }
-
-  /* ====================================================== */
-  /* 第2页 · 要点列表                                        */
-  /* ====================================================== */
-  .page-2 {
-    background: var(--soft-white);
-    padding: 110px 90px 100px;
-    display: flex;
-    flex-direction: column;
-  }
-  .page-2 .header {
-    margin-bottom: 70px;
-  }
-  .page-2 .tag {
-    font-family: 'Inter', sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-    color: var(--wine-red);
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-  }
-  .page-2 .tag::before {
-    content: '— ';
-    color: var(--vintage-gold);
-    font-weight: 700;
-  }
-  .page-2 .title {
-    font-family: 'Playfair Display', 'Noto Sans SC', serif;
-    font-size: 64px;
-    font-weight: 700;
-    color: var(--royal-blue);
-    line-height: 1.25;
-    letter-spacing: 1px;
-  }
-  .page-2 .title-accent {
-    display: block;
-    width: 100px;
-    height: 5px;
-    background: var(--vintage-gold);
-    border-radius: 3px;
-    margin-top: 28px;
-  }
-  .page-2 .list {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 44px;
-    margin-top: 10px;
-  }
-  .page-2 .list-item {
-    display: flex;
-    gap: 28px;
-    align-items: flex-start;
-  }
-  .page-2 .dot {
-    width: 22px;
-    height: 22px;
-    background: var(--vintage-gold);
-    border-radius: 50%;
-    flex-shrink: 0;
-    margin-top: 10px;
-    box-shadow: 0 0 0 6px rgba(244, 211, 94, 0.2);
-  }
-  .page-2 .item-content { flex: 1; }
-  .page-2 .item-title {
-    font-family: 'Playfair Display', 'Noto Sans SC', serif;
-    font-size: 34px;
-    font-weight: 700;
-    color: var(--ink-black);
-    margin-bottom: 12px;
-    line-height: 1.3;
-  }
-  .page-2 .item-desc {
-    font-size: 22px;
-    font-weight: 400;
-    color: #3a3f55;
-    line-height: 1.7;
-    letter-spacing: 0.3px;
-  }
-
-  /* ====================================================== */
-  /* 第3页 · 品牌三要素（图文混排风格）                        */
-  /* ====================================================== */
-  .page-3 {
-    background: var(--warm-white);
-    padding: 100px 80px;
-    display: flex;
-    flex-direction: column;
-  }
-  .page-3 .top-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 80px;
-  }
-  .page-3 .tag-line {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 26px;
-    font-style: italic;
-    color: var(--wine-red);
-    letter-spacing: 2px;
-  }
-  .page-3 .title {
-    font-family: 'Playfair Display', 'Noto Sans SC', serif;
-    font-size: 72px;
-    font-weight: 700;
-    color: var(--royal-blue);
-    line-height: 1.15;
-  }
-  .page-3 .title small {
-    display: block;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 32px;
-    font-style: italic;
-    font-weight: 400;
-    color: var(--vintage-gold);
-    margin-top: 10px;
-    letter-spacing: 3px;
-  }
-  .page-3 .elements {
-    flex: 1;
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    gap: 0;
-    position: relative;
-  }
-  .page-3 .element {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    padding: 30px 40px;
-    border-radius: var(--radius-md);
-    position: relative;
-  }
-  .page-3 .element:nth-child(1) {
-    background: linear-gradient(135deg, rgba(244, 211, 94, 0.12), rgba(244, 211, 94, 0.03));
-    border-left: 5px solid var(--vintage-gold);
-  }
-  .page-3 .element:nth-child(2) {
-    background: linear-gradient(135deg, rgba(10, 36, 99, 0.08), rgba(10, 36, 99, 0.02));
-    border-left: 5px solid var(--royal-blue);
-  }
-  .page-3 .element:nth-child(3) {
-    background: linear-gradient(135deg, rgba(216, 49, 91, 0.1), rgba(216, 49, 91, 0.02));
-    border-left: 5px solid var(--wine-red);
-  }
-  .page-3 .el-circle {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Playfair Display', serif;
-    font-size: 48px;
-    font-weight: 700;
-    color: white;
-  }
-  .page-3 .element:nth-child(1) .el-circle { background: var(--vintage-gold); color: var(--royal-blue); }
-  .page-3 .element:nth-child(2) .el-circle { background: var(--royal-blue); color: var(--vintage-gold); }
-  .page-3 .element:nth-child(3) .el-circle { background: var(--wine-red); color: white; }
-  .page-3 .el-text { flex: 1; }
-  .page-3 .el-name {
-    font-family: 'Playfair Display', 'Noto Sans SC', serif;
-    font-size: 38px;
-    font-weight: 700;
-    margin-bottom: 8px;
-    line-height: 1.2;
-  }
-  .page-3 .element:nth-child(1) .el-name { color: #b8941f; }
-  .page-3 .element:nth-child(2) .el-name { color: var(--royal-blue); }
-  .page-3 .element:nth-child(3) .el-name { color: var(--wine-red); }
-  .page-3 .el-en {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
-    font-style: italic;
-    color: #888;
-    margin-bottom: 10px;
-    letter-spacing: 2px;
-  }
-  .page-3 .el-desc {
-    font-size: 21px;
-    color: #3a3f55;
-    line-height: 1.65;
-  }
-
-  /* ====================================================== */
-  /* 第4页 · 步骤                                            */
-  /* ====================================================== */
-  .page-4 {
-    background: var(--soft-white);
-    padding: 110px 80px 100px;
-    display: flex;
-    flex-direction: column;
-  }
-  .page-4 .header {
-    text-align: center;
-    margin-bottom: 80px;
-    position: relative;
-  }
-  .page-4 .header::before,
-  .page-4 .header::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    width: 120px;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--vintage-gold));
-  }
-  .page-4 .header::before {
-    left: 60px;
-    background: linear-gradient(90deg, transparent, var(--vintage-gold));
-  }
-  .page-4 .header::after {
-    right: 60px;
-    background: linear-gradient(-90deg, transparent, var(--vintage-gold));
-  }
-  .page-4 .step-label {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 28px;
-    font-style: italic;
-    color: var(--wine-red);
-    letter-spacing: 4px;
-    margin-bottom: 16px;
-  }
-  .page-4 .title {
-    font-family: 'Playfair Display', 'Noto Sans SC', serif;
-    font-size: 68px;
-    font-weight: 700;
-    color: var(--royal-blue);
-    letter-spacing: 4px;
-  }
-  .page-4 .title-en {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 26px;
-    font-style: italic;
-    color: var(--vintage-gold);
-    margin-top: 12px;
-    letter-spacing: 6px;
-  }
-  .page-4 .steps {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0;
-    position: relative;
-  }
-  .page-4 .step {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    position: relative;
-    padding: 28px 0;
-  }
-  .page-4 .step-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 96px;
-    font-weight: 700;
-    color: var(--vintage-gold);
-    line-height: 1;
-    width: 140px;
-    text-align: center;
-    flex-shrink: 0;
-    font-style: italic;
-    text-shadow: 2px 2px 0 rgba(244,211,94,0.2);
-  }
-  .page-4 .step-connector {
-    position: absolute;
-    left: 66px;
-    top: 100%;
-    width: 3px;
-    height: 40px;
-    background: repeating-linear-gradient(
-      to bottom,
-      var(--vintage-gold) 0,
-      var(--vintage-gold) 8px,
-      transparent 8px,
-      transparent 16px
-    );
-  }
-  .page-4 .step:last-child .step-connector { display: none; }
-  .page-4 .step-body {
-    flex: 1;
-    background: white;
-    padding: 30px 40px;
-    border-radius: var(--radius-md);
-    box-shadow: 0 4px 20px var(--shadow-blue);
-    border-top: 4px solid var(--vintage-gold);
-  }
-  .page-4 .step-title {
-    font-family: 'Playfair Display', 'Noto Sans SC', serif;
-    font-size: 36px;
-    font-weight: 700;
-    color: var(--ink-black);
-    margin-bottom: 10px;
-  }
-  .page-4 .step-desc {
-    font-size: 21px;
-    color: #4a4f65;
-    line-height: 1.7;
-  }
-
-  /* ====================================================== */
-  /* 第5页 · 金句页                                          */
-  /* ====================================================== */
-  .page-5 {
-    background: var(--royal-blue);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 120px 100px;
-    position: relative;
-  }
-  .page-5::before {
+  .card-quote::before {
     content: '';
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse at 20% 20%, rgba(244, 211, 94, 0.08) 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 80%, rgba(216, 49, 91, 0.06) 0%, transparent 50%);
+      radial-gradient(ellipse at 80% 80%, rgba(216, 49, 91, 0.07) 0%, transparent 50%),
+      radial-gradient(ellipse at 20% 80%, rgba(244, 211, 94, 0.05) 0%, transparent 50%);
+    pointer-events: none;
   }
-  .page-5 .quote-mark {
-    font-family: 'Playfair Display', serif;
-    font-size: 260px;
-    color: var(--vintage-gold);
-    line-height: 0.6;
-    margin-bottom: 40px;
-    opacity: 0.9;
+  .card-quote .quote-mark {
+    font-family: var(--font-en);
+    font-size: 240px;
+    color: var(--gold);
+    line-height: 0.55;
+    margin-bottom: 20px;
     z-index: 2;
-    text-shadow: 0 4px 20px rgba(244,211,94,0.2);
+    text-shadow: 0 4px 30px rgba(244, 211, 94, 0.2);
+    user-select: none;
   }
-  .page-5 .quote {
-    font-family: 'Cormorant Garamond', 'Noto Sans SC', serif;
-    font-size: 56px;
-    font-weight: 400;
-    font-style: italic;
-    color: white;
-    text-align: center;
-    line-height: 1.6;
-    letter-spacing: 1px;
+  .card-quote .quote-text {
+    font-family: var(--font-cn);
+    font-size: 58px;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.65;
+    letter-spacing: 2px;
     z-index: 2;
-    margin-bottom: 70px;
-    max-width: 860px;
+    margin-bottom: 60px;
+    max-width: 840px;
   }
-  .page-5 .quote .gold { color: var(--vintage-gold); font-weight: 500; }
-  .page-5 .signature-block {
+  .card-quote .quote-text em {
+    color: var(--gold);
+    font-style: normal;
+    font-weight: 700;
+    position: relative;
+  }
+  .card-quote .quote-author {
+    z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
-    z-index: 2;
+    gap: 16px;
   }
-  .page-5 .sig-line {
-    width: 60px;
+  .card-quote .author-line {
+    width: 50px;
     height: 2px;
-    background: var(--vintage-gold);
-    margin-bottom: 24px;
+    background: var(--gold);
+    border-radius: 1px;
   }
-  .page-5 .sig-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 32px;
-    font-weight: 600;
-    color: var(--vintage-gold);
-    letter-spacing: 6px;
+  .card-quote .author-name {
+    font-family: var(--font-en);
+    font-size: 36px;
     font-style: italic;
-  }
-  .page-5 .sig-title {
-    font-family: 'Inter', 'Noto Sans SC', sans-serif;
-    font-size: 18px;
-    color: rgba(255,255,255,0.6);
-    margin-top: 10px;
+    font-weight: 600;
+    color: var(--gold);
     letter-spacing: 4px;
   }
-  .page-5 .page-number { color: rgba(244,211,94,0.7); }
+  .card-quote .author-title {
+    font-family: var(--font-ui);
+    font-size: 18px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 4px;
+  }
+  .card-quote .fleuron-divider { margin-bottom: 50px; z-index: 2; }
+  .card-quote .fleuron-divider::before,
+  .card-quote .fleuron-divider::after { background: rgba(244, 211, 94, 0.3); }
 
-  /* ====================================================== */
-  /* 第6页 · 结尾CTA                                         */
-  /* ====================================================== */
-  .page-6 {
-    background: radial-gradient(ellipse at 30% 20%, #1a3a8a 0%, var(--royal-blue) 50%, #050f30 100%);
+  /* =========================================================
+     卡片变体 2: 知识卡 (Knowledge Card) — 白底结构化
+     ========================================================= */
+  .card-knowledge {
+    background: var(--paper);
+    padding: 100px 80px 160px;
+    justify-content: flex-start;
+  }
+  .card-knowledge .kn-header {
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 2;
+  }
+  .card-knowledge .kn-tag {
+    display: inline-block;
+    font-family: var(--font-ui);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--wine);
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    padding: 8px 24px;
+    background: var(--wine-soft);
+    border-radius: 100px;
+  }
+  .card-knowledge .kn-title {
+    font-family: var(--font-cn);
+    font-size: 72px;
+    font-weight: 900;
+    color: var(--royal);
+    line-height: 1.2;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+  .card-knowledge .kn-title-en {
+    font-family: var(--font-en);
+    font-size: 26px;
+    font-style: italic;
+    color: var(--gold-deep);
+    letter-spacing: 4px;
+  }
+  .card-knowledge .kn-accent {
+    width: 100px;
+    height: 5px;
+    background: var(--gold);
+    border-radius: 3px;
+    margin-top: 28px;
+  }
+  .card-knowledge .kn-list {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 100px 80px;
+    gap: 36px;
+    z-index: 2;
     position: relative;
+  }
+  .card-knowledge .kn-item {
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+    padding: 28px 32px;
+    background: var(--white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border-left: 5px solid var(--gold);
+    transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  }
+  .card-knowledge .kn-item:nth-child(2) { border-left-color: var(--royal); }
+  .card-knowledge .kn-item:nth-child(3) { border-left-color: var(--wine); }
+  .card-knowledge .kn-item:nth-child(4) { border-left-color: var(--gold-deep); }
+  .card-knowledge .kn-num {
+    font-family: var(--font-en);
+    font-size: 44px;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--gold);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 56px;
+  }
+  .card-knowledge .kn-item:nth-child(2) .kn-num { color: var(--royal); }
+  .card-knowledge .kn-item:nth-child(3) .kn-num { color: var(--wine); }
+  .card-knowledge .kn-item:nth-child(4) .kn-num { color: var(--gold-deep); }
+  .card-knowledge .kn-body { flex: 1; }
+  .card-knowledge .kn-item-title {
+    font-family: var(--font-cn);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  .card-knowledge .kn-item-desc {
+    font-family: var(--font-cn);
+    font-size: 21px;
+    font-weight: 400;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    letter-spacing: 0.3px;
+  }
+
+  /* =========================================================
+     卡片变体 3: 个人介绍卡 (Profile Card)
+     ========================================================= */
+  .card-profile {
+    background: var(--cream);
+    padding: 110px 80px 160px;
+    align-items: center;
     text-align: center;
   }
-  .page-6::before {
+  .card-profile .profile-avatar {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--royal) 0%, var(--royal-light) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 12px 40px rgba(10, 36, 99, 0.25);
+    border: 5px solid var(--gold);
+  }
+  .card-profile .profile-avatar .avatar-initial {
+    font-family: var(--font-en);
+    font-size: 80px;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--gold);
+    letter-spacing: -2px;
+  }
+  .card-profile .profile-name {
+    font-family: var(--font-cn);
+    font-size: 64px;
+    font-weight: 900;
+    color: var(--royal);
+    letter-spacing: 6px;
+    margin-bottom: 10px;
+    z-index: 2;
+  }
+  .card-profile .profile-name-en {
+    font-family: var(--font-en);
+    font-size: 30px;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--gold-deep);
+    letter-spacing: 6px;
+    margin-bottom: 30px;
+    z-index: 2;
+  }
+  .card-profile .profile-title {
+    display: inline-block;
+    font-family: var(--font-ui);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--wine);
+    background: var(--wine-soft);
+    padding: 12px 40px;
+    border-radius: 100px;
+    letter-spacing: 3px;
+    margin-bottom: 50px;
+    z-index: 2;
+    border: 1.5px solid rgba(216, 49, 91, 0.2);
+  }
+  .card-profile .profile-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 40px;
+    z-index: 2;
+    width: 100%;
+    max-width: 500px;
+  }
+  .card-profile .profile-divider::before,
+  .card-profile .profile-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--gold-line);
+  }
+  .card-profile .profile-divider .fl {
+    color: var(--gold);
+    font-size: 22px;
+  }
+  .card-profile .profile-bio {
+    font-family: var(--font-cn);
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--ink-soft);
+    line-height: 1.8;
+    letter-spacing: 1px;
+    max-width: 720px;
+    z-index: 2;
+    margin-bottom: 50px;
+  }
+  .card-profile .profile-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+    z-index: 2;
+  }
+  .card-profile .profile-tag {
+    font-family: var(--font-ui);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--royal);
+    background: var(--royal-soft);
+    padding: 10px 24px;
+    border-radius: 100px;
+    letter-spacing: 1px;
+    border: 1px solid rgba(10, 36, 99, 0.1);
+  }
+
+  /* =========================================================
+     卡片变体 4: 作品展示卡 (Portfolio Card)
+     ========================================================= */
+  .card-portfolio {
+    background: var(--paper);
+    padding: 0;
+  }
+  .card-portfolio .port-visual {
+    flex: 1;
+    background: linear-gradient(135deg, var(--royal) 0%, var(--royal-light) 60%, #2a4aa0 100%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    min-height: 60%;
+  }
+  .card-portfolio .port-visual::before {
     content: '';
     position: absolute;
-    top: -100px;
-    right: -100px;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(244,211,94,0.12) 0%, transparent 70%);
-    border-radius: 50%;
+    inset: 0;
+    background:
+      radial-gradient(circle at 30% 40%, rgba(244, 211, 94, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 70% 70%, rgba(216, 49, 91, 0.1) 0%, transparent 50%);
   }
-  .page-6::after {
-    content: '';
-    position: absolute;
-    bottom: -150px;
-    left: -150px;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(216,49,91,0.1) 0%, transparent 70%);
-    border-radius: 50%;
-  }
-  .page-6 .brand-name {
-    font-family: 'Playfair Display', serif;
+  .card-portfolio .port-visual-placeholder {
+    font-family: var(--font-en);
     font-size: 120px;
     font-weight: 700;
     font-style: italic;
-    color: var(--vintage-gold);
-    letter-spacing: 4px;
-    margin-bottom: 20px;
-    z-index: 2;
-    text-shadow: 0 6px 30px rgba(244,211,94,0.25);
+    color: rgba(244, 211, 94, 0.15);
+    letter-spacing: -4px;
+    z-index: 1;
+    user-select: none;
   }
-  .page-6 .brand-tagline {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 28px;
-    font-style: italic;
-    color: rgba(255,255,255,0.5);
-    letter-spacing: 8px;
-    margin-bottom: 80px;
-    z-index: 2;
-  }
-  .page-6 .cta-main {
-    font-family: 'Playfair Display', 'Noto Sans SC', serif;
-    font-size: 72px;
+  .card-portfolio .port-badge {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    background: var(--gold);
+    color: var(--royal);
+    font-family: var(--font-ui);
+    font-size: 18px;
     font-weight: 700;
-    color: white;
-    line-height: 1.3;
-    z-index: 2;
-    margin-bottom: 50px;
-    letter-spacing: 2px;
-  }
-  .page-6 .cta-main .em { color: var(--vintage-gold); font-style: italic; }
-  .page-6 .cta-sub {
-    font-size: 26px;
-    font-weight: 400;
-    color: var(--wine-red);
-    background: rgba(216, 49, 91, 0.12);
-    padding: 18px 50px;
+    padding: 10px 28px;
     border-radius: 100px;
-    border: 2px solid var(--wine-red);
-    z-index: 2;
-    margin-bottom: 90px;
     letter-spacing: 3px;
+    z-index: 3;
+    box-shadow: var(--shadow-gold);
+  }
+  .card-portfolio .port-number {
+    position: absolute;
+    bottom: 40px;
+    right: 50px;
+    font-family: var(--font-en);
+    font-size: 120px;
+    font-weight: 700;
+    font-style: italic;
+    color: rgba(244, 211, 94, 0.1);
+    line-height: 1;
+    z-index: 1;
+    user-select: none;
+  }
+  .card-portfolio .port-info {
+    padding: 60px 80px 140px;
+    background: var(--cream);
+    position: relative;
+    z-index: 2;
+  }
+  .card-portfolio .port-cat {
+    font-family: var(--font-en);
+    font-size: 20px;
+    font-style: italic;
+    color: var(--wine);
+    letter-spacing: 4px;
+    margin-bottom: 16px;
     font-weight: 500;
   }
-  .page-6 .divider-gold {
-    width: 80px;
-    height: 3px;
-    background: var(--vintage-gold);
-    margin-bottom: 40px;
-    z-index: 2;
-    border-radius: 2px;
+  .card-portfolio .port-title {
+    font-family: var(--font-cn);
+    font-size: 56px;
+    font-weight: 900;
+    color: var(--royal);
+    line-height: 1.25;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
   }
-  .page-6 .socials {
-    z-index: 2;
+  .card-portfolio .port-desc {
+    font-family: var(--font-cn);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    letter-spacing: 0.5px;
+    margin-bottom: 30px;
+  }
+  .card-portfolio .port-meta {
+    display: flex;
+    gap: 30px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(10, 36, 99, 0.08);
+  }
+  .card-portfolio .port-meta-item {
     display: flex;
     flex-direction: column;
-    gap: 14px;
-    align-items: center;
+    gap: 4px;
   }
-  .page-6 .social-item {
-    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+  .card-portfolio .port-meta-label {
+    font-family: var(--font-ui);
+    font-size: 14px;
+    color: var(--ink-muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .card-portfolio .port-meta-value {
+    font-family: var(--font-cn);
     font-size: 20px;
-    color: rgba(255,255,255,0.75);
+    font-weight: 600;
+    color: var(--royal);
+  }
+
+  /* =========================================================
+     卡片变体 5: 日常分享卡 (Daily Card) — 暖色轻松
+     ========================================================= */
+  .card-daily {
+    background: var(--cream-warm);
+    padding: 100px 80px 160px;
+  }
+  .card-daily .daily-date {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 50px;
+    z-index: 2;
+    position: relative;
+  }
+  .card-daily .daily-date .date-day {
+    font-family: var(--font-en);
+    font-size: 80px;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--royal);
+    line-height: 1;
+  }
+  .card-daily .daily-date .date-col {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-left: 16px;
+    border-left: 2px solid var(--gold);
+  }
+  .card-daily .daily-date .date-month {
+    font-family: var(--font-en);
+    font-size: 22px;
+    font-style: italic;
+    color: var(--gold-deep);
+    letter-spacing: 3px;
+  }
+  .card-daily .daily-date .date-week {
+    font-family: var(--font-ui);
+    font-size: 18px;
+    color: var(--ink-muted);
     letter-spacing: 2px;
   }
-  .page-6 .social-item .label {
-    color: var(--vintage-gold);
-    font-weight: 500;
-    margin-right: 12px;
+  .card-daily .daily-title {
+    font-family: var(--font-cn);
+    font-size: 56px;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.3;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    z-index: 2;
+    position: relative;
   }
-  .page-6 .page-number { color: rgba(244,211,94,0.6); }
+  .card-daily .daily-title .wine { color: var(--wine); }
+  .card-daily .daily-subtitle {
+    font-family: var(--font-en);
+    font-size: 24px;
+    font-style: italic;
+    color: var(--gold-deep);
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+    z-index: 2;
+    position: relative;
+  }
+  .card-daily .daily-content {
+    flex: 1;
+    z-index: 2;
+    position: relative;
+  }
+  .card-daily .daily-paragraph {
+    font-family: var(--font-cn);
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--ink-soft);
+    line-height: 1.85;
+    letter-spacing: 0.5px;
+    margin-bottom: 30px;
+    text-indent: 2em;
+  }
+  .card-daily .daily-highlight {
+    background: linear-gradient(to bottom, transparent 60%, rgba(244, 211, 94, 0.4) 60%);
+    font-weight: 600;
+    color: var(--royal);
+    padding: 0 2px;
+  }
+  .card-daily .daily-quote-inline {
+    font-family: var(--font-cn);
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--royal);
+    line-height: 1.6;
+    letter-spacing: 1px;
+    padding: 30px 40px;
+    margin: 30px 0;
+    border-left: 4px solid var(--wine);
+    background: var(--white);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    box-shadow: var(--shadow-sm);
+    font-style: italic;
+  }
+  .card-daily .daily-mood {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    font-family: var(--font-ui);
+    font-size: 18px;
+    color: var(--wine);
+    letter-spacing: 2px;
+  }
+  .card-daily .daily-mood .mood-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--wine);
+    border-radius: 50%;
+  }
 
-  /* ========== 导出状态提示 ========== */
+  /* =========================================================
+     底部信息栏 (卡片列表缩略图)
+     ========================================================= */
+  .thumbs-section {
+    margin-top: 48px;
+    padding-top: 36px;
+    border-top: 1px solid rgba(10, 36, 99, 0.08);
+  }
+  .thumbs-label {
+    text-align: center;
+    font-family: var(--font-en);
+    font-size: 14px;
+    font-style: italic;
+    color: var(--ink-muted);
+    letter-spacing: 3px;
+    margin-bottom: 24px;
+  }
+  .thumbs-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .thumb-card {
+    width: 120px;
+    cursor: pointer;
+    transition: all 0.3s var(--ease-spring);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 3px solid transparent;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+  }
+  .thumb-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+  }
+  .thumb-card.selected {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px var(--royal), var(--shadow-gold);
+    transform: translateY(-4px);
+  }
+  .thumb-card .thumb-preview {
+    width: 100%;
+    aspect-ratio: 3/4;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+  }
+  .thumb-card .thumb-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(10,36,99,0.85), transparent);
+    color: white;
+    font-family: var(--font-ui);
+    font-size: 11px;
+    font-weight: 500;
+    text-align: center;
+    padding: 16px 4px 8px;
+    letter-spacing: 1px;
+  }
+  /* thumb color variants */
+  .thumb-quote { background: linear-gradient(135deg, #1a3a8a, var(--royal-dark)); }
+  .thumb-knowledge { background: var(--paper); }
+  .thumb-knowledge::after { content: ''; position: absolute; top: 20%; left: 12px; right: 12px; height: 4px; background: var(--gold); border-radius: 2px; }
+  .thumb-profile { background: var(--cream); }
+  .thumb-profile::after { content: ''; position: absolute; top: 20%; left: 50%; transform: translateX(-50%); width: 30px; height: 30px; border-radius: 50%; background: var(--royal); border: 2px solid var(--gold); }
+  .thumb-portfolio { background: linear-gradient(to bottom, var(--royal) 55%, var(--cream) 55%); }
+  .thumb-daily { background: var(--cream-warm); }
+  .thumb-daily::after { content: ''; position: absolute; top: 12px; left: 12px; width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--gold); }
+
+  /* =========================================================
+     Toast 提示
+     ========================================================= */
   .toast {
     position: fixed;
-    bottom: 30px;
+    bottom: 40px;
     left: 50%;
-    transform: translateX(-50%) translateY(100px);
-    background: var(--royal-blue);
-    color: var(--vintage-gold);
-    padding: 14px 32px;
+    transform: translateX(-50%) translateY(120px);
+    background: var(--royal);
+    color: var(--gold);
+    padding: 14px 36px;
     border-radius: 100px;
-    font-size: 16px;
+    font-family: var(--font-ui);
+    font-size: 14px;
     font-weight: 500;
-    box-shadow: 0 8px 30px rgba(10,36,99,0.3);
+    box-shadow: 0 8px 32px rgba(10, 36, 99, 0.3);
     z-index: 1000;
-    transition: transform 0.4s cubic-bezier(.2,.9,.3,1.2);
+    transition: transform 0.45s var(--ease-spring);
     pointer-events: none;
     letter-spacing: 1px;
+    white-space: nowrap;
   }
   .toast.show { transform: translateX(-50%) translateY(0); }
 
-  /* ========== 小屏适配（不使用transform，避免影响html2canvas）========== */
-  .pages-viewport {
-    overflow-x: auto;
-    overflow-y: visible;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    min-width: 1120px;
-  }
-  @media (max-width: 1160px) {
-    .control-panel {
-      padding: 12px 16px;
+  /* =========================================================
+     响应式缩放 (使用transform: scale，导出时临时重置)
+     ========================================================= */
+  @media (max-width: 1200px) {
+    .card-viewport {
+      transform: scale(0.72);
+      transform-origin: top center;
+      margin-bottom: calc(var(--card-h) * -0.28);
     }
-    .nav-btn, .export-btn {
-      font-size: 13px;
-      padding: 8px 14px;
-    }
+    .main-area { padding: 28px 16px 60px; }
   }
+  @media (max-width: 900px) {
+    .card-viewport {
+      transform: scale(0.5);
+      margin-bottom: calc(var(--card-h) * -0.5);
+    }
+    .header-inner { padding: 12px 16px; flex-wrap: wrap; }
+    .brand-text .en { display: none; }
+    .header-divider { display: none; }
+    .header-title { display: none; }
+    .btn { padding: 8px 14px; font-size: 12px; }
+  }
+  @media (max-width: 600px) {
+    .card-viewport {
+      transform: scale(0.38);
+      margin-bottom: calc(var(--card-h) * -0.62);
+    }
+    .thumbs-grid { gap: 10px; }
+    .thumb-card { width: 80px; }
+  }
+
+  /* 导出时重置缩放和隐藏UI */
+  .exporting .card-viewport { transform: scale(1) !important; margin-bottom: 0 !important; }
+  .exporting .card-export-fab { display: none !important; }
+  .exporting .app-header,
+  .exporting .card-tabs-bar,
+  .exporting .thumbs-section,
+  .exporting .edit-hint,
+  .exporting .toast { display: none !important; }
+  .exporting .main-area { padding: 0 !important; }
+  .exporting .card-stage { padding: 0 !important; }
 </style>
 </head>
 <body>
 
-<!-- 顶部控制面板 -->
-<div class="control-panel">
-  <div class="brand">Feihong<span>.</span> 设计系统</div>
-  <button class="nav-btn" onclick="prevPage()">← 上一页</button>
-  <div class="page-indicator"><span id="currentPage">1</span> / <span id="totalPages">6</span></div>
-  <button class="nav-btn" onclick="nextPage()">下一页 →</button>
-  <button class="export-btn" onclick="exportCurrentPage()">导出此页 PNG</button>
-  <button class="export-btn all" onclick="exportAllPages()">导出全部 (6张)</button>
-</div>
-
-<!-- 页面容器 -->
-<div class="pages-viewport">
-<div class="pages-wrapper" id="pagesWrapper">
-
-  <!-- ========== 第1页 · 封面 ========== -->
-  <div class="page page-1" data-title="01-封面">
-    <button class="page-export-fab" onclick="exportOnePage(0)" title="导出此页">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-    </button>
-    <div class="corner-decor"></div>
-    <div class="corner-decor-br"></div>
-    <div class="watermark">BRAND</div>
-    <div class="badge">个人品牌设计</div>
-    <h1 class="title">
-      如何建立<br>
-      有<span class="highlight">辨识度</span>的<br>
-      个人品牌
-    </h1>
-    <div class="divider"></div>
-    <div class="author">飞鸿<span class="dot"></span>设计师</div>
-    <div class="page-number bottom-right">01</div>
+<!-- ===== 顶部控制面板 ===== -->
+<header class="app-header">
+  <div class="header-inner">
+    <div class="brand-logo">
+      <div class="brand-mark">Fh</div>
+      <div class="brand-text">
+        <span class="cn">飞鸿设计</span>
+        <span class="en">Feihong Design System</span>
+      </div>
+    </div>
+    <div class="header-divider"></div>
+    <div class="header-title">
+      小红书图文卡片模板
+      <span class="badge-beta">BETA</span>
+    </div>
+    <div class="header-actions">
+      <button class="btn btn-ghost" onclick="exportAllCards()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        导出全部 ZIP
+      </button>
+      <button class="btn btn-primary" onclick="exportCurrentCard()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        导出当前 PNG
+      </button>
+    </div>
   </div>
 
-  <!-- ========== 第2页 · 要点列表 ========== -->
-  <div class="page page-2" data-title="02-为什么做个人品牌">
-    <button class="page-export-fab" onclick="exportOnePage(1)" title="导出此页">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-    </button>
-    <div class="header">
-      <div class="tag">WHY PERSONAL BRAND</div>
-      <h2 class="title">为什么要做<br>个人品牌？</h2>
-      <div class="title-accent"></div>
+  <!-- 卡片类型 Tab 选择器 -->
+  <div class="card-tabs-bar">
+    <div class="card-tabs" id="cardTabs">
+      <button class="card-tab active" data-idx="0" onclick="switchCard(0)">
+        <span class="tab-icon">❦</span> 金句卡
+      </button>
+      <button class="card-tab" data-idx="1" onclick="switchCard(1)">
+        <span class="tab-icon">✦</span> 知识卡
+      </button>
+      <button class="card-tab" data-idx="2" onclick="switchCard(2)">
+        <span class="tab-icon">◉</span> 个人介绍卡
+      </button>
+      <button class="card-tab" data-idx="3" onclick="switchCard(3)">
+        <span class="tab-icon">❖</span> 作品展示卡
+      </button>
+      <button class="card-tab" data-idx="4" onclick="switchCard(4)">
+        <span class="tab-icon">✿</span> 日常分享卡
+      </button>
     </div>
-    <div class="list">
-      <div class="list-item">
-        <div class="dot"></div>
-        <div class="item-content">
-          <div class="item-title">降低被记住的成本</div>
-          <div class="item-desc">清晰的个人品牌让别人在3秒内知道你是谁、擅长什么，从"某个设计师"变成"那个做高级感品牌的设计师"。</div>
-        </div>
-      </div>
-      <div class="list-item">
-        <div class="dot"></div>
-        <div class="item-content">
-          <div class="item-title">获得溢价话语权</div>
-          <div class="item-desc">当你的名字等同于某种风格或品质，客户买的不再是时间，而是"你"这个人——价格由你定。</div>
-        </div>
-      </div>
-      <div class="list-item">
-        <div class="dot"></div>
-        <div class="item-content">
-          <div class="item-title">吸引同频机会</div>
-          <div class="item-desc">品牌是过滤器，帮你筛掉不合适的甲方，吸引真正认可你审美的客户与合作者，合作更顺畅。</div>
-        </div>
-      </div>
-      <div class="list-item">
-        <div class="dot"></div>
-        <div class="item-content">
-          <div class="item-title">构建长期资产</div>
-          <div class="item-desc">作品会过时，但品牌认知会累积。每一次输出都在为你未来十年的职业信用添砖加瓦。</div>
-        </div>
-      </div>
-    </div>
-    <div class="page-number bottom-right">02</div>
+  </div>
+</header>
+
+<!-- ===== 主区域 ===== -->
+<main class="main-area">
+  <div class="edit-hint">
+    <span class="hint-icon">i</span> 点击卡片上的任意文字即可直接编辑内容，编辑完成后点击"导出当前PNG"保存
   </div>
 
-  <!-- ========== 第3页 · 品牌三要素 ========== -->
-  <div class="page page-3" data-title="03-品牌三要素">
-    <button class="page-export-fab" onclick="exportOnePage(2)" title="导出此页">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-    </button>
-    <div class="top-row">
-      <h2 class="title">
-        品牌三要素
-        <small>Three Pillars of a Brand</small>
-      </h2>
-      <div class="tag-line">— 缺一不可 —</div>
+  <div class="card-stage">
+    <div class="card-viewport" id="cardViewport">
+
+      <!-- ============================================================
+           卡片 1: 金句卡
+           ============================================================ -->
+      <div class="card card-quote active" data-name="金句卡" id="card-0">
+        <!-- 金色角贴 -->
+        <div class="corner-sticker tl"><span class="fleuron">❦</span></div>
+        <div class="corner-sticker tr"><span class="fleuron">❦</span></div>
+        <div class="corner-sticker bl"><span class="fleuron">❦</span></div>
+        <div class="corner-sticker br"><span class="fleuron">❦</span></div>
+
+        <!-- 品牌水印 -->
+        <div class="brand-watermark dark" style="top:50%; left:50%; transform:translate(-50%,-50%);">Fh</div>
+
+        <!-- 导出按钮 -->
+        <button class="card-export-fab" onclick="exportCard(0)" title="导出此卡">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </button>
+
+        <!-- 内容 -->
+        <div class="quote-mark" contenteditable="false">"</div>
+        <div class="fleuron-divider" contenteditable="false">❦</div>
+        <div class="quote-text" contenteditable="true">
+          设计不是装饰，<br>是<em>解决问题</em>的<br>优雅方式。
+        </div>
+        <div class="quote-author">
+          <div class="author-line"></div>
+          <div class="author-name" contenteditable="true">Feihong</div>
+          <div class="author-title" contenteditable="true">飞鸿 · 品牌设计师</div>
+        </div>
+
+        <!-- 页脚联系 -->
+        <div class="card-footer on-dark">
+          <div class="foot-item"><span class="foot-label">小红书</span>@飞鸿设计</div>
+          <div class="foot-sep"></div>
+          <div class="foot-item">hello@feihong.art</div>
+        </div>
+        <div class="card-num br" style="right:52px; bottom:52px; color:rgba(244,211,94,0.5);">01</div>
+      </div>
+
+      <!-- ============================================================
+           卡片 2: 知识卡
+           ============================================================ -->
+      <div class="card card-knowledge" data-name="知识卡" id="card-1">
+        <div class="corner-sticker tl"><span class="fleuron">❦</span></div>
+        <div class="corner-sticker tr"><span class="fleuron">❦</span></div>
+        <div class="corner-sticker bl"><span class="fleuron">❦</span></div>
+        <div class="corner-sticker br"><span class="fleuron">❦</span></div>
+        <div class="brand-watermark" style="bottom:-60px; right:-40px; font-size:380px;">Fh</div>
+
+        <button class="card-export-fab" onclick="exportCard(1)" title="导出此卡">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </button>
+
+        <div class="kn-header">
+          <div class="kn-tag" contenteditable="true">DESIGN TIPS</div>
+          <h2 class="kn-title" contenteditable="true">好设计的<br>四个原则</h2>
+          <div class="kn-title-en" contenteditable="true">Four Principles of Good Design</div>
+          <div class="kn-accent"></div>
+        </div>
+        <div class="kn-list">
+          <div class="kn-item">
+            <div class="kn-num" contenteditable="false">01</div>
+            <div class="kn-body">
+              <div class="kn-item-title" contenteditable="true">对比 · Contrast</div>
+              <div class="kn-item-desc" contenteditable="true">通过大小、色彩、粗细的差异制造视觉层次，让重要信息一眼被看到。</div>
+            </div>
+          </div>
+          <div class="kn-item">
+            <div class="kn-num" contenteditable="false">02</div>
+            <div class="kn-body">
+              <div class="kn-item-title" contenteditable="true">对齐 · Alignment</div>
+              <div class="kn-item-desc" contenteditable="true">每个元素都应与另一个元素存在视觉联系，整齐的对齐让版面专业而有序。</div>
+            </div>
+          </div>
+          <div class="kn-item">
+            <div class="kn-num" contenteditable="false">03</div>
+            <div class="kn-body">
+              <div class="kn-item-title" contenteditable="true">重复 · Repetition</div>
+              <div class="kn-item-desc" contenteditable="true">统一的色彩、字体、图形元素重复出现，建立强烈的品牌识别感。</div>
+            </div>
+          </div>
+          <div class="kn-item">
+            <div class="kn-num" contenteditable="false">04</div>
+            <div class="kn-body">
+              <div class="kn-item-title" contenteditable="true">亲密 · Proximity</div>
+              <div class="kn-item-desc" contenteditable="true">相关的信息靠近排列，无关的信息保持距离，让逻辑关系一目了然。</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <div class="foot-item"><span class="foot-label">小红书</span>@飞鸿设计</div>
+          <div class="foot-sep"></div>
+          <div class="foot-item">hello@feihong.art</div>
+        </div>
+        <div class="card-num br" style="right:52px; bottom:52px;">02</div>
+      </div>
+
+      <!-- ============================================================
+           卡片 3: 个人介绍卡
+           ============================================================ -->
+      <div class="card card-profile" data-name="个人介绍卡" id="card-2">
+        <div class="corner-sticker tl"><span class="fleuron">❦</span></div>
+        <div class="corner-sticker tr"><span class="fleuron">❦</span></div>
+        <div class="corner-sticker bl"><span class="fleuron">❦</span></div>
+        <div class="corner-sticker br"><span class="fleuron">❦</span></div>
+        <div class="brand-watermark" style="top:50%; left:50%; transform:translate(-50%,-50%); font-size:420px; opacity:0.5;">Fh</div>
+
+        <button class="card-export-fab" onclick="exportCard(2)" title="导出此卡">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </button>
+
+        <div class="profile-avatar">
+          <span class="avatar-initial" contenteditable="true">Fh</span>
+        </div>
+        <div class="profile-name" contenteditable="true">飞鸿</div>
+        <div class="profile-name-en" contenteditable="true">Feihong</div>
+        <div class="profile-title" contenteditable="true">品牌设计师 · 视觉创作者</div>
+        <div class="profile-divider"><span class="fl">❦</span></div>
+        <div class="profile-bio" contenteditable="true">
+          专注品牌视觉设计八年，相信好的设计能让品牌说话。服务过50+新锐品牌，擅长用色彩与排版讲述有温度的品牌故事。
+        </div>
+        <div class="profile-tags">
+          <span class="profile-tag" contenteditable="true">品牌设计</span>
+          <span class="profile-tag" contenteditable="true">视觉系统</span>
+          <span class="profile-tag" contenteditable="true">排版美学</span>
+          <span class="profile-tag" contenteditable="true">创意指导</span>
+        </div>
+
+        <div class="card-footer">
+          <div class="foot-item"><span class="foot-label">小红书</span>@飞鸿设计</div>
+          <div class="foot-sep"></div>
+          <div class="foot-item">hello@feihong.art</div>
+        </div>
+        <div class="card-num bl">03</div>
+      </div>
+
+      <!-- ============================================================
+           卡片 4: 作品展示卡
+           ============================================================ -->
+      <div class="card card-portfolio" data-name="作品展示卡" id="card-3">
+        <div class="corner-sticker tl" style="top:36px; left:36px; z-index:6;"><span class="fleuron">❦</span></div>
+        <div class="corner-sticker tr" style="top:36px; right:36px; z-index:6;"><span class="fleuron">❦</span></div>
+        <div class="corner-sticker bl" style="z-index:6;"><span class="fleuron">❦</span></div>
+        <div class="corner-sticker br" style="z-index:6;"><span class="fleuron">❦</span></div>
+        <div class="brand-watermark" style="top:5%; right:-40px; font-size:300px; z-index:1;">Fh</div>
+
+        <button class="card-export-fab" onclick="exportCard(3)" title="导出此卡" style="top:32px; right:32px; z-index:20;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </button>
+
+        <div class="port-visual">
+          <div class="port-visual-placeholder" contenteditable="true">Work</div>
+          <div class="port-badge" contenteditable="true">SELECTED WORK</div>
+          <div class="port-number" contenteditable="false">04</div>
+        </div>
+        <div class="port-info">
+          <div class="port-cat" contenteditable="true">Brand Identity · 品牌视觉</div>
+          <div class="port-title" contenteditable="true">某茶饮品牌<br>全案视觉设计</div>
+          <div class="port-desc" contenteditable="true">从品牌命名到视觉识别系统，以东方茶韵融合现代极简美学，打造有辨识度的新中式茶饮形象。包含Logo、色彩体系、包装设计与门店导视。</div>
+          <div class="port-meta">
+            <div class="port-meta-item">
+              <div class="port-meta-label">Client</div>
+              <div class="port-meta-value" contenteditable="true">某茶饮品牌</div>
+            </div>
+            <div class="port-meta-item">
+              <div class="port-meta-label">Year</div>
+              <div class="port-meta-value" contenteditable="true">2025</div>
+            </div>
+            <div class="port-meta-item">
+              <div class="port-meta-label">Role</div>
+              <div class="port-meta-value" contenteditable="true">品牌设计</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <div class="foot-item"><span class="foot-label">小红书</span>@飞鸿设计</div>
+          <div class="foot-sep"></div>
+          <div class="foot-item">hello@feihong.art</div>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           卡片 5: 日常分享卡
+           ============================================================ -->
+      <div class="card card-daily" data-name="日常分享卡" id="card-4">
+        <div class="corner-sticker tl"><span class="fleuron">❦</span></div>
+        <div class="corner-sticker tr"><span class="fleuron">❦</span></div>
+        <div class="corner-sticker bl"><span class="fleuron">❦</span></div>
+        <div class="corner-sticker br"><span class="fleuron">❦</span></div>
+        <div class="brand-watermark" style="bottom:-40px; right:-20px; font-size:340px;">Fh</div>
+
+        <button class="card-export-fab" onclick="exportCard(4)" title="导出此卡">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </button>
+
+        <div class="daily-date">
+          <div class="date-day" contenteditable="true">08</div>
+          <div class="date-col">
+            <div class="date-month" contenteditable="true">JULY 2025</div>
+            <div class="date-week" contenteditable="true">星期二 · 晴</div>
+          </div>
+        </div>
+        <h2 class="daily-title" contenteditable="true">
+          做设计久了，<br>才明白<span class="wine">"少即是多"</span>
+        </h2>
+        <div class="daily-subtitle" contenteditable="true">Notes on Design & Life</div>
+        <div class="daily-content">
+          <div class="daily-paragraph" contenteditable="true">
+            刚开始做设计的时候，总喜欢往画面上堆很多元素——渐变、阴影、装饰线，生怕别人觉得我不够"用心"。
+          </div>
+          <div class="daily-paragraph" contenteditable="true">
+            直到有一次导师看完我的稿子，什么也没说，只是默默删掉了一半的元素，留下的部分反而<span class="daily-highlight">呼吸感十足</span>，信息层级清晰了好几倍。
+          </div>
+          <div class="daily-quote-inline" contenteditable="true">
+            "不是添加到无可添加，<br>而是删减到无可删减。"
+          </div>
+          <div class="daily-paragraph" contenteditable="true">
+            现在做品牌设计，我越来越克制。每一个色块、每一条线、每一个字，都要问自己：它必须存在吗？如果去掉会怎样？答案往往是——去掉更好。
+          </div>
+          <div class="daily-mood">
+            <span class="mood-dot"></span>
+            <span contenteditable="true">今日心情 · 沉淀中</span>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <div class="foot-item"><span class="foot-label">小红书</span>@飞鸿设计</div>
+          <div class="foot-sep"></div>
+          <div class="foot-item">hello@feihong.art</div>
+        </div>
+        <div class="card-num br" style="right:52px; bottom:52px;">05</div>
+      </div>
+
     </div>
-    <div class="elements">
-      <div class="element">
-        <div class="el-circle">视</div>
-        <div class="el-text">
-          <div class="el-name">视觉识别</div>
-          <div class="el-en">Visual Identity</div>
-          <div class="el-desc">色彩、字体、排版、图形语言——让人一眼认出你。统一的视觉系统是品牌最直接的外衣。</div>
-        </div>
-      </div>
-      <div class="element">
-        <div class="el-circle">言</div>
-        <div class="el-text">
-          <div class="el-name">语言体系</div>
-          <div class="el-en">Verbal System</div>
-          <div class="el-desc">你怎么说话、用什么词、发什么内容——语气和观点共同构成了你的"声音"，决定谁愿意听你说。</div>
-        </div>
-      </div>
-      <div class="element">
-        <div class="el-circle">行</div>
-        <div class="el-text">
-          <div class="el-name">行为体验</div>
-          <div class="el-en">Behavioral Experience</div>
-          <div class="el-desc">交付方式、沟通节奏、细节处理——每一次互动都是品牌的兑现，承诺过的必须做到。</div>
-        </div>
-      </div>
-    </div>
-    <div class="page-number bottom-right">03</div>
   </div>
 
-  <!-- ========== 第4页 · 落地四步法 ========== -->
-  <div class="page page-4" data-title="04-落地四步法">
-    <button class="page-export-fab" onclick="exportOnePage(3)" title="导出此页">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-    </button>
-    <div class="header">
-      <div class="step-label">Action Framework</div>
-      <h2 class="title">落地四步法</h2>
-      <div class="title-en">From Zero to Signature</div>
-    </div>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">01</div>
-        <div class="step-connector"></div>
-        <div class="step-body">
-          <div class="step-title">自我审视 · 找到差异化</div>
-          <div class="step-desc">列出你擅长的、热爱的、市场需要的三件事，交集就是你的独特定位——不要做"更好的别人"，要做"唯一的自己"。</div>
-        </div>
+  <!-- ===== 底部缩略图选择 ===== -->
+  <div class="thumbs-section">
+    <div class="thumbs-label">— Click to switch —</div>
+    <div class="thumbs-grid" id="thumbsGrid">
+      <div class="thumb-card selected" data-idx="0" onclick="switchCard(0)">
+        <div class="thumb-preview thumb-quote"></div>
+        <div class="thumb-label">金句卡</div>
       </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <div class="step-connector"></div>
-        <div class="step-body">
-          <div class="step-title">定义视觉 · 建立识别</div>
-          <div class="step-desc">选定2-3个品牌色、1-2组字体、一套图形语言，从头像到封面到作品集全部统一，让人形成条件反射。</div>
-        </div>
+      <div class="thumb-card" data-idx="1" onclick="switchCard(1)">
+        <div class="thumb-preview thumb-knowledge"></div>
+        <div class="thumb-label">知识卡</div>
       </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <div class="step-connector"></div>
-        <div class="step-body">
-          <div class="step-title">持续输出 · 形成认知</div>
-          <div class="step-desc">选定一个主阵地，围绕你的定位每周至少输出2次内容。重复不是冗余，是在别人大脑里"注册"你的品牌。</div>
-        </div>
+      <div class="thumb-card" data-idx="2" onclick="switchCard(2)">
+        <div class="thumb-preview thumb-profile"></div>
+        <div class="thumb-label">个人介绍</div>
       </div>
-      <div class="step">
-        <div class="step-num">04</div>
-        <div class="step-body">
-          <div class="step-title">迭代进化 · 保持鲜活</div>
-          <div class="step-desc">每季度复盘一次品牌表现，根据成长更新表达。品牌不是一锤定音，而是与你一起生长的活系统。</div>
-        </div>
+      <div class="thumb-card" data-idx="3" onclick="switchCard(3)">
+        <div class="thumb-preview thumb-portfolio"></div>
+        <div class="thumb-label">作品展示</div>
+      </div>
+      <div class="thumb-card" data-idx="4" onclick="switchCard(4)">
+        <div class="thumb-preview thumb-daily"></div>
+        <div class="thumb-label">日常分享</div>
       </div>
     </div>
-    <div class="page-number bottom-right">04</div>
   </div>
+</main>
 
-  <!-- ========== 第5页 · 金句页 ========== -->
-  <div class="page page-5 dark-page" data-title="05-金句">
-    <button class="page-export-fab" onclick="exportOnePage(4)" title="导出此页" style="top:40px;right:40px;">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-    </button>
-    <div class="quote-mark">"</div>
-    <div class="quote">
-      品牌不是logo，<br>是别人提到你时<br>的<span class="gold">第一印象</span>。
-    </div>
-    <div class="signature-block">
-      <div class="sig-line"></div>
-      <div class="sig-name">Feihong</div>
-      <div class="sig-title">飞鸿 · 品牌设计师</div>
-    </div>
-    <div class="page-number bottom-right" style="color: rgba(244,211,94,0.6);">05</div>
-  </div>
-
-  <!-- ========== 第6页 · CTA结尾 ========== -->
-  <div class="page page-6 dark-page" data-title="06-关注CTA">
-    <button class="page-export-fab" onclick="exportOnePage(5)" title="导出此页" style="top:40px;right:40px;">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-    </button>
-    <div class="brand-name">Feihong.</div>
-    <div class="brand-tagline">DESIGN · BRAND · AESTHETICS</div>
-    <div class="cta-main">
-      关注我，<br>
-      一起做<span class="em">好设计</span>
-    </div>
-    <div class="cta-sub">让审美成为你的竞争力</div>
-    <div class="divider-gold"></div>
-    <div class="socials">
-      <div class="social-item"><span class="label">小红书</span>飞鸿设计笔记</div>
-      <div class="social-item"><span class="label">公众号</span>飞鸿的设计星球</div>
-      <div class="social-item"><span class="label">合作邮箱</span>hello@feihong.design</div>
-    </div>
-    <div class="page-number bottom-right" style="color: rgba(244,211,94,0.6);">06</div>
-  </div>
-
-</div>
-</div>
-
-<!-- Toast提示 -->
+<!-- Toast -->
 <div class="toast" id="toast"></div>
 
 <script>
-  const pages = document.querySelectorAll('.page');
-  const totalPages = pages.length;
+  const cards = document.querySelectorAll('.card');
+  const tabs = document.querySelectorAll('.card-tab');
+  const thumbs = document.querySelectorAll('.thumb-card');
+  const totalCards = cards.length;
   let currentIdx = 0;
 
-  document.getElementById('totalPages').textContent = totalPages;
+  /* ===== 切换卡片 ===== */
+  function switchCard(idx) {
+    if (idx < 0 || idx >= totalCards) return;
+    currentIdx = idx;
 
-  function updateIndicator() {
-    document.getElementById('currentPage').textContent = currentIdx + 1;
-    pages[currentIdx].scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }
+    cards.forEach((c, i) => c.classList.toggle('active', i === idx));
+    tabs.forEach((t, i) => t.classList.toggle('active', i === idx));
+    thumbs.forEach((t, i) => t.classList.toggle('selected', i === idx));
 
-  function prevPage() {
-    if (currentIdx > 0) {
-      currentIdx--;
-      updateIndicator();
+    // 滚动到卡片区域
+    const stage = document.querySelector('.card-stage');
+    if (stage) {
+      stage.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
 
-  function nextPage() {
-    if (currentIdx < totalPages - 1) {
-      currentIdx++;
-      updateIndicator();
-    }
-  }
-
+  /* ===== Toast ===== */
   function showToast(msg) {
     const t = document.getElementById('toast');
     t.textContent = msg;
     t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 2200);
+    clearTimeout(t._timer);
+    t._timer = setTimeout(() => t.classList.remove('show'), 2500);
   }
 
-  // 等待字体加载完成
-  async function ensureFontsReady() {
+  /* ===== 等待字体 ===== */
+  async function ensureFonts() {
     if (document.fonts && document.fonts.ready) {
       await document.fonts.ready;
     }
-    await new Promise(r => setTimeout(r, 500));
+    await new Promise(r => setTimeout(r, 600));
   }
 
-  // 导出单页（内部实现）
-  async function exportPage(pageEl, filename) {
-    await ensureFontsReady();
-    // 临时隐藏页面内的导出按钮，避免被截入图片
-    const fab = pageEl.querySelector('.page-export-fab');
-    const fabOriginalDisplay = fab ? fab.style.display : '';
+  /* ===== 导出单张卡片 ===== */
+  async function exportCard(idx) {
+    const card = cards[idx];
+    const name = card.dataset.name || ('card-' + (idx + 1));
+    showToast('正在导出「' + name + '」...');
+
+    await ensureFonts();
+
+    // 临时隐藏导出按钮
+    const fab = card.querySelector('.card-export-fab');
+    const fabDisplay = fab ? fab.style.display : '';
     if (fab) fab.style.display = 'none';
 
+    // 临时移除缩放，确保导出原始尺寸
+    const viewport = document.getElementById('cardViewport');
+    const origTransform = viewport.style.transform;
+    const origMargin = viewport.style.marginBottom;
+    viewport.style.transform = 'scale(1)';
+    viewport.style.marginBottom = '0';
+
     try {
-      const canvas = await html2canvas(pageEl, {
+      const canvas = await html2canvas(card, {
         scale: 2,
         useCORS: true,
         backgroundColor: null,
         width: 1080,
         height: 1440,
         logging: false,
+        imageTimeout: 15000,
+        removeContainer: true,
       });
+
       const link = document.createElement('a');
-      link.download = filename + '.png';
-      link.href = canvas.toDataURL('image/png');
+      link.download = '飞鸿设计_' + name + '.png';
+      link.href = canvas.toDataURL('image/png', 1.0);
       link.click();
-      return true;
+      showToast('已导出「' + name + '」.png');
     } catch (err) {
       console.error('导出失败:', err);
       showToast('导出失败，请重试');
-      return false;
     } finally {
-      if (fab) fab.style.display = fabOriginalDisplay || '';
+      if (fab) fab.style.display = fabDisplay || '';
+      viewport.style.transform = origTransform;
+      viewport.style.marginBottom = origMargin;
     }
   }
 
-  // 每页按钮直接调用
-  async function exportOnePage(index) {
-    const page = pages[index];
-    const title = page.dataset.title || ('page-' + (index + 1));
-    currentIdx = index;
-    document.getElementById('currentPage').textContent = index + 1;
-    showToast('正在导出 ' + title + ' ...');
-    const ok = await exportPage(page, '飞鸿卡片_' + title);
-    if (ok) showToast('已导出 ' + title + '.png');
+  function exportCurrentCard() {
+    exportCard(currentIdx);
   }
 
-  function exportCurrentPage() {
-    exportOnePage(currentIdx);
-  }
-
-  async function exportAllPages() {
+  /* ===== 导出全部为ZIP ===== */
+  async function exportAllCards() {
     if (typeof JSZip === 'undefined') {
-      // JSZip 未加载时降级为逐张下载
-      showToast('开始批量导出 6 张卡片...');
-      await ensureFontsReady();
-      for (let i = 0; i < pages.length; i++) {
-        const page = pages[i];
-        const title = page.dataset.title || ('page-' + (i + 1));
-        const ok = await exportPage(page, '飞鸿卡片_' + title);
-        if (!ok) break;
-        await new Promise(r => setTimeout(r, 450));
+      showToast('JSZip 未加载，将逐张导出...');
+      await ensureFonts();
+      for (let i = 0; i < totalCards; i++) {
+        await exportCard(i);
+        await new Promise(r => setTimeout(r, 600));
       }
-      showToast('全部导出完成！共 6 张');
       return;
     }
 
-    showToast('正在打包 6 张卡片为 ZIP...');
-    await ensureFontsReady();
-    const zip = new JSZip();
-    const folder = zip.folder('飞鸿卡片');
+    showToast('正在打包全部卡片为 ZIP ...');
+    await ensureFonts();
 
-    for (let i = 0; i < pages.length; i++) {
-      const page = pages[i];
-      const title = page.dataset.title || ('page-' + (i + 1));
-      const fab = page.querySelector('.page-export-fab');
-      const fabOriginalDisplay = fab ? fab.style.display : '';
+    const viewport = document.getElementById('cardViewport');
+    const origTransform = viewport.style.transform;
+    const origMargin = viewport.style.marginBottom;
+    viewport.style.transform = 'scale(1)';
+    viewport.style.marginBottom = '0';
+
+    const zip = new JSZip();
+    const folder = zip.folder('飞鸿设计_小红书卡片');
+
+    for (let i = 0; i < totalCards; i++) {
+      const card = cards[i];
+      const name = card.dataset.name || ('card-' + (i + 1));
+      const fab = card.querySelector('.card-export-fab');
+      const fabDisplay = fab ? fab.style.display : '';
       if (fab) fab.style.display = 'none';
 
       try {
-        const canvas = await html2canvas(page, {
+        const canvas = await html2canvas(card, {
           scale: 2,
           useCORS: true,
           backgroundColor: null,
@@ -1158,47 +1645,59 @@
           height: 1440,
           logging: false,
         });
-        const dataUrl = canvas.toDataURL('image/png');
+        const dataUrl = canvas.toDataURL('image/png', 1.0);
         const base64 = dataUrl.split(',')[1];
-        folder.file('飞鸿卡片_' + title + '.png', base64, { base64: true });
+        folder.file('飞鸿设计_' + name + '.png', base64, { base64: true });
       } catch (err) {
         console.error('导出失败:', err);
-        showToast('导出失败，请重试');
-        if (fab) fab.style.display = fabOriginalDisplay || '';
+        showToast('第 ' + (i+1) + ' 张导出失败');
+        if (fab) fab.style.display = fabDisplay || '';
+        viewport.style.transform = origTransform;
+        viewport.style.marginBottom = origMargin;
         return;
       } finally {
-        if (fab) fab.style.display = fabOriginalDisplay || '';
+        if (fab) fab.style.display = fabDisplay || '';
       }
-      await new Promise(r => setTimeout(r, 300));
+      await new Promise(r => setTimeout(r, 400));
     }
+
+    viewport.style.transform = origTransform;
+    viewport.style.marginBottom = origMargin;
 
     try {
       const blob = await zip.generateAsync({ type: 'blob' });
       const link = document.createElement('a');
-      link.download = '飞鸿卡片合集.zip';
+      link.download = '飞鸿设计_小红书卡片合集.zip';
       link.href = URL.createObjectURL(blob);
       link.click();
-      setTimeout(() => URL.revokeObjectURL(link.href), 1000);
-      showToast('ZIP 打包完成！共 6 张');
+      setTimeout(() => URL.revokeObjectURL(link.href), 2000);
+      showToast('ZIP 打包完成！共 ' + totalCards + ' 张卡片');
     } catch (err) {
-      console.error('ZIP 生成失败:', err);
+      console.error('ZIP失败:', err);
       showToast('ZIP 生成失败，请重试');
     }
   }
 
-  window.addEventListener('load', () => {
-    updateIndicator();
+  /* ===== 键盘快捷键 ===== */
+  document.addEventListener('keydown', (e) => {
+    // 如果正在编辑文字，不触发切换
+    if (e.target.isContentEditable) return;
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      switchCard(Math.max(0, currentIdx - 1));
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      switchCard(Math.min(totalCards - 1, currentIdx + 1));
+    } else if (e.key === 's' && (e.ctrlKey || e.metaKey)) {
+      e.preventDefault();
+      exportCurrentCard();
+    }
   });
 
-  pages.forEach((p, i) => {
-    p.addEventListener('click', (e) => {
-      // 点击按钮时不切换
-      if (e.target.closest('.page-export-fab')) return;
-      currentIdx = i;
-      document.getElementById('currentPage').textContent = i + 1;
-    });
+  /* ===== 初始化 ===== */
+  window.addEventListener('load', () => {
+    switchCard(0);
   });
 </script>
-
 </body>
 </html>

@@ -1,4 +1,4 @@
-# Feihong Design System · Component Library
+﻿# Feihong Design System · Component Library
 # 飞鸿品牌设计系统 · 组件库
 
 > 所有组件的完整 HTML + CSS 代码。使用时直接复制代码，不使用浏览器默认样式。
@@ -1054,7 +1054,7 @@
       </div>
       <div class="footer-col">
         <h4>联系</h4>
-        <a href="#">hello@feihong.design</a><a href="#">微信</a><a href="#">小红书</a>
+        <a href="#">hello@feihong.art</a><a href="#">微信</a><a href="#">小红书</a>
       </div>
     </div>
   </div>

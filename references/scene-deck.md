@@ -1,4 +1,4 @@
-# Feihong Design System · Scene: Deck
+﻿# Feihong Design System · Scene: Deck
 # 飞鸿品牌设计系统 · 场景规范：演示文稿 / 分享页 / Deck
 
 > 本规范定义飞鸿品牌设计系统在「演讲 Slides / 分享 Deck / 在线演示文稿」中的具体应用方式。
@@ -1367,7 +1367,7 @@ body.speaker-mode .slide { height: calc(100vh - 200px); }
       <div class="deck-progress"><div class="deck-progress-fill" style="width:100%"></div></div>
       <div class="slide-inner" style="align-items:center;justify-content:center;text-align:center;">
         <h2 class="thanks-text">Thank <span style="color:var(--gold)">You</span></h2>
-        <p class="thanks-contact">hello@feihong.design · @feihong_design</p>
+        <p class="thanks-contact">hello@feihong.art · @feihong_design</p>
       </div>
     </div>
 
