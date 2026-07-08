@@ -304,7 +304,7 @@ delay(n) = min(n * --stagger-step, 600ms)
 
 ## 🎛️ CSS Custom Properties — CSS 变量定义
 
-以下变量必须在全局 `:root` 中定义，与 `brand-dna.md` 中的色彩、字体、间距变量保持同层级。
+以下变量必须在全局 `:root` 中定义，与 `DNA.md` 中的色彩、字体、间距变量保持同层级。
 
 ```css
 :root {
@@ -482,4 +482,4 @@ delay(n) = min(n * --stagger-step, 600ms)
 
 *本文件是 Feihong Design System 的动效基石。所有组件、模板、场景中的动画行为均在此规范之下。*
 *版本：v1.0 · 最后更新：2026-07-09*
-*与 `brand-dna.md`、`components.md`、`layouts.md` 共同构成 Feihong Design System 的核心规范体系。*
+*与 `DNA.md`、`components/`、`QUALITY.md` 共同构成 FEIHONG Design System 的核心规范体系。*
