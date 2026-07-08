@@ -2,7 +2,7 @@
 # 飞鸿品牌设计系统 · 场景规范：作品集 / 个人主页
 
 > 本规范定义飞鸿品牌设计系统在「个人主页 / Portfolio / 作品展示网站」中的具体应用方式。
-> 所有规则建立在 `brand-dna.md`、`layouts.md`、`components.md` 基础之上，场景专属规则以本文件为准。
+> 所有规则建立在 `DNA.md`、`components/14-layouts.md`、`components/` 基础之上，场景专属规则以本文件为准。
 > Portfolio 场景的核心使命是**展示作品 + 建立个人品牌认知 + 促成联系**——让访客记住"你是谁"，看到"你能做什么"，并主动找到你。
 
 ---
@@ -1318,4 +1318,4 @@ Portfolio可支持暗色模式作为加分项，但需注意：
 ---
 
 *Scene: Portfolio v1.0 · Feihong Design System*
-*基于 brand-dna.md v2.0 · 最后更新：2026-07-08*
+*基于 DNA.md v2.0 · 最后更新：2026-07-08*

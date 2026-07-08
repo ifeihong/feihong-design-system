@@ -845,4 +845,4 @@
 ---
 
 *Scene: WeChat Official Account (公众号排版) v1.0 · Feihong Design System*
-*基于 brand-dna.md v2.0 · 最后更新：2026-07-08*
+*基于 DNA.md v2.0 · 最后更新：2026-07-08*

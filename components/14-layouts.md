@@ -1,9 +1,213 @@
-﻿# Feihong Design System · Layout Patterns
-# 飞鸿品牌设计系统 · 16种布局模式
+# FEIHONG Design System — Layout Patterns
+# N°14 · 布局模式
+> Hero patterns, asymmetric grids, magazine spreads, masonry, split screens, zigzag narratives, and 16 editorial layout recipes.
+> 首屏布局、非对称网格、杂志双页、瀑布流、分屏、Z字叙事和16种编辑级布局方案。
+> Part of FEIHONG Design System v7.0 · 所有组件遵循 DNA.md 色彩字体规范
+---
 
-> 每个 section 选择不同的布局模式，避免页面单调重复。
-> 布局搭配原则：密→疏→密→疏，强→弱→强，形成呼吸节奏。
-> 所有布局使用 brand-dna 的 CSS 变量和 components.md 的组件。
+## 17. Hero Patterns（首屏布局组件）
+
+### 17.1 Asymmetric Hero（非对称Hero）
+
+```html
+<section class="hero-asymmetric">
+  <div class="hero-content">
+    <span class="eyebrow">设计师 · 品牌顾问</span>
+    <h1 class="hero-title">创造<span class="gold-accent">有温度</span>的设计</h1>
+    <p class="body-text">我是飞鸿，一名专注于个人品牌和数字体验的设计师。相信好的设计不仅美观，更能传递真实的情感与价值。</p>
+    <div style="display:flex;gap:var(--sp-3);flex-wrap:wrap;">
+      <a href="#work" class="btn btn-cta">查看作品</a>
+      <a href="#contact" class="btn btn-outline">联系我</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="avatar avatar-xl"><img src="assets/avatar.jpg" alt="飞鸿"></div>
+    <div class="decor-number" style="top:-2rem;right:-2rem;">07</div>
+  </div>
+</section>
+```
+```css
+.hero-asymmetric {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: clamp(var(--sp-8), 8vw, var(--sp-12));
+  align-items: center;
+  min-height: 85vh;
+  padding: clamp(var(--sp-8), 12vw, var(--sp-16)) var(--sp-6);
+  max-width: var(--container);
+  margin: 0 auto;
+  position: relative;
+}
+.hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+@media (max-width: 768px) {
+  .hero-asymmetric { grid-template-columns: 1fr; text-align: center; min-height: auto; padding-top: var(--sp-12); }
+  .hero-visual { order: -1; }
+}
+```
+
+---
+
+## 51. Layouts 布局类
+
+### 51.1 Asymmetric Grid 非对称网格
+
+非对称网格布局，主内容区占2/3宽度配侧边1/3栏，区块间有金色分隔线，模块有不同高度比例，编辑设计/杂志页面风格。
+
+```html
+<div class="asym-grid">
+  <div class="ag-hero"><span class="ag-tag">Feature</span><h2>主视觉区域</h2><p>大幅视觉展示，配衬线标题与简介文字。</p></div>
+  <div class="ag-side"><span class="ag-tag-sm">Note</span><p>侧边小栏，放置补充信息、引述或数据。</p></div>
+  <div class="ag-sub"><span class="ag-tag-sm">Story</span><h3>次级内容块</h3></div>
+  <div class="ag-wide"><span class="ag-tag-sm">Gallery</span><p>全宽横条，用于图片画廊或引用条。</p></div>
+</div>
+```
+```css
+.asym-grid { display:grid; grid-template-columns:2fr 1fr; grid-template-rows:auto auto auto; gap:1.5rem; font-family:var(--font-sans); max-width:1000px; }
+.ag-hero { grid-column:1/2; grid-row:1/3; background:var(--cream); border-radius:var(--r-lg); padding:3rem 2.5rem; border:1px solid var(--cream-200); position:relative; min-height:300px; display:flex; flex-direction:column; justify-content:flex-end; }
+.ag-side { grid-column:2/3; grid-row:1/2; background:var(--royal); border-radius:var(--r-lg); padding:2rem 1.5rem; color:var(--cream); }
+.ag-sub { grid-column:2/3; grid-row:2/3; background:var(--gold-50); border-radius:var(--r-lg); padding:1.5rem; border:1px solid var(--gold-200); }
+.ag-wide { grid-column:1/3; grid-row:3/4; background:var(--wine); border-radius:var(--r-lg); padding:2rem; color:var(--cream); text-align:center; }
+.ag-tag { font-family:var(--font-mono); font-size:0.65rem; text-transform:uppercase; letter-spacing:0.2em; color:var(--gold); background:var(--royal); display:inline-block; padding:0.3rem 0.7rem; border-radius:var(--r-sm); margin-bottom:1rem; }
+.ag-tag-sm { font-family:var(--font-mono); font-size:0.6rem; text-transform:uppercase; letter-spacing:0.15em; color:var(--gold-700); display:block; margin-bottom:0.75rem; }
+.ag-hero h2 { font-family:var(--font-serif); font-size:2rem; color:var(--royal); margin:0 0 0.75rem; }
+.ag-hero p { font-size:0.9rem; color:var(--ink-300); line-height:1.6; margin:0; }
+.ag-side p, .ag-wide p { font-family:var(--font-display); font-style:italic; font-size:1rem; line-height:1.6; margin:0; opacity:0.9; }
+.ag-sub h3 { font-family:var(--font-serif); font-size:1.1rem; color:var(--royal); margin:0; }
+@media(max-width:768px){ .asym-grid{grid-template-columns:1fr;} .ag-hero,.ag-side,.ag-sub,.ag-wide{grid-column:1;grid-row:auto;min-height:auto;} }
+```
+
+---
+
+### 51.2 Magazine Spread 杂志排版
+
+经典杂志双页排版，左页大标题+引言+首字下沉，右页多列正文配侧边图注，中间有金色装订线模拟，出版物风格。
+
+```html
+<div class="mag-spread">
+  <div class="ms-page ms-left">
+    <span class="ms-kicker">Volume XII · Autumn</span>
+    <h1 class="ms-headline">The Art of<br/><em>Quiet Luxury</em></h1>
+    <p class="ms-deck">A meditation on restraint, material, and the new language of understated elegance.</p>
+    <div class="ms-rule"></div>
+    <p class="ms-lede"><span class="ms-drop">I</span>n an age of excess, the most radical statement is often the one you do not make. The maisons of Paris and Milan have long understood this truth — that true luxury whispers rather than shouts.</p>
+  </div>
+  <div class="ms-spine"></div>
+  <div class="ms-page ms-right">
+    <p class="ms-body">The new vocabulary of luxury is written in texture rather than logos. It is the weight of a cashmere coat, the depth of a hand-dyed indigo, the precision of a seam that lies perfectly flat against the body.</p>
+    <div class="ms-pull"><span class="ms-pull-mark">"</span>Restraint is the ultimate form of confidence.<span class="ms-pull-mark">"</span></div>
+    <p class="ms-body">These are not details that announce themselves. They are details that reveal themselves — slowly, intimately, only to those who know how to look.</p>
+    <span class="ms-page-num">— 42 —</span>
+  </div>
+</div>
+```
+```css
+.mag-spread { display:grid; grid-template-columns:1fr 2px 1fr; gap:0; background:var(--cream); max-width:1000px; border-radius:var(--r-sm); box-shadow:var(--shadow-lg); overflow:hidden; font-family:var(--font-serif); }
+.ms-page { padding:3rem 2.5rem; }
+.ms-spine { background:linear-gradient(to bottom,transparent,var(--gold-300) 20%,var(--gold-300) 80%,transparent); }
+.ms-kicker { font-family:var(--font-mono); font-size:0.65rem; text-transform:uppercase; letter-spacing:0.25em; color:var(--wine); display:block; margin-bottom:1.5rem; }
+.ms-headline { font-size:clamp(2rem,4vw,3rem); color:var(--ink); line-height:1.1; margin:0 0 1rem; font-weight:700; }
+.ms-headline em { font-family:var(--font-display); font-weight:400; color:var(--royal); }
+.ms-deck { font-family:var(--font-display); font-style:italic; font-size:1.1rem; color:var(--ink-200); line-height:1.5; margin:0 0 1.5rem; }
+.ms-rule { width:60px; height:2px; background:var(--gold); margin-bottom:1.5rem; }
+.ms-lede { font-size:0.95rem; color:var(--ink); line-height:1.8; margin:0; }
+.ms-drop { float:left; font-family:var(--font-serif); font-size:3.5rem; line-height:0.8; padding-right:0.1em; padding-top:0.1em; color:var(--royal); font-weight:700; }
+.ms-body { font-size:0.88rem; color:var(--ink-200); line-height:1.8; margin:0 0 1rem; text-align:justify; }
+.ms-pull { font-family:var(--font-display); font-style:italic; font-size:1.1rem; color:var(--royal); text-align:center; padding:1.5rem 1rem; margin:1.5rem 0; position:relative; border-top:1px solid var(--gold-200); border-bottom:1px solid var(--gold-200); }
+.ms-pull-mark { font-size:2rem; color:var(--gold); opacity:0.5; line-height:0; vertical-align:-0.2em; }
+.ms-page-num { font-family:var(--font-mono); font-size:0.7rem; color:var(--ink-400); display:block; text-align:center; margin-top:2rem; letter-spacing:0.3em; }
+@media(max-width:768px){ .mag-spread{grid-template-columns:1fr;} .ms-spine{display:none;} }
+```
+
+---
+
+### 51.3 Masonry Flow 瀑布流
+
+瀑布流布局，使用CSS columns实现，卡片有不同高度，hover时卡片微微上浮并显示金色边框，画廊/作品集风格。
+
+```html
+<div class="masonry">
+  <div class="mf-item" style="height:180px;background:var(--royal);"><span>A</span></div>
+  <div class="mf-item" style="height:240px;background:var(--wine);"><span>B</span></div>
+  <div class="mf-item" style="height:160px;background:var(--gold);color:var(--ink);"><span>C</span></div>
+  <div class="mf-item" style="height:200px;background:var(--royal-700);"><span>D</span></div>
+  <div class="mf-item" style="height:220px;background:var(--cream);border:1px solid var(--cream-200);color:var(--royal);"><span>E</span></div>
+  <div class="mf-item" style="height:170px;background:var(--wine-700);"><span>F</span></div>
+</div>
+```
+```css
+.masonry { column-count:3; column-gap:1.25rem; max-width:900px; font-family:var(--font-display); font-style:italic; }
+.mf-item { break-inside:avoid; margin-bottom:1.25rem; border-radius:var(--r-md); display:flex; align-items:center; justify-content:center; font-size:2rem; color:var(--gold); transition:all var(--t-base); cursor:pointer; position:relative; overflow:hidden; }
+.mf-item::after { content:''; position:absolute; inset:0; border:2px solid var(--gold); opacity:0; border-radius:var(--r-md); transition:opacity var(--t-base); }
+.mf-item:hover { transform:scale(1.02); box-shadow:var(--shadow-gold); }
+.mf-item:hover::after { opacity:1; }
+@media(max-width:768px){ .masonry{column-count:2;} }
+@media(max-width:480px){ .masonry{column-count:1;} }
+```
+
+---
+
+### 51.4 Split Screen 分屏布局
+
+左右分屏布局，两侧各占50%，中间有金色垂直分割线，hover时一侧展开到55%另一侧收缩到45%，产品/服务对比展示风格。
+
+```html
+<div class="split-screen">
+  <div class="ss-left"><span class="ss-label">Collection</span><h2>Haute<br/>Couture</h2><a href="#" class="ss-cta">Explore →</a></div>
+  <div class="ss-divider"></div>
+  <div class="ss-right"><span class="ss-label">Maison</span><h2>Prêt-à-<br/>Porter</h2><a href="#" class="ss-cta">Discover →</a></div>
+</div>
+```
+```css
+.split-screen { display:flex; height:500px; border-radius:var(--r-lg); overflow:hidden; font-family:var(--font-sans); }
+.ss-left, .ss-right { flex:1; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding:3rem; transition:flex var(--t-slow); position:relative; cursor:pointer; }
+.ss-left { background:linear-gradient(135deg,var(--royal-800),var(--royal)); color:var(--cream); }
+.ss-right { background:linear-gradient(135deg,var(--wine-700),var(--wine)); color:var(--cream); }
+.ss-divider { width:2px; background:var(--gold); position:relative; z-index:1; }
+.split-screen:hover .ss-left { flex:0.55; }
+.split-screen:hover .ss-right { flex:0.45; }
+.ss-label { font-family:var(--font-mono); font-size:0.7rem; text-transform:uppercase; letter-spacing:0.25em; color:var(--gold); margin-bottom:1rem; display:block; }
+.ss-left h2, .ss-right h2 { font-family:var(--font-serif); font-size:clamp(2rem,4vw,3.5rem); margin:0 0 1.5rem; line-height:1.1; font-weight:700; }
+.ss-cta { font-family:var(--font-display); font-style:italic; color:var(--gold); text-decoration:none; font-size:1rem; border-bottom:1px solid var(--gold); padding-bottom:2px; transition:all var(--t-fast); }
+.ss-cta:hover { letter-spacing:0.1em; }
+@media(max-width:768px){ .split-screen{flex-direction:column;height:auto;} .ss-divider{height:2px;width:100%;} .split-screen:hover .ss-left,.split-screen:hover .ss-right{flex:1;} }
+```
+
+---
+
+### 51.5 Zigzag Narrative Z字布局
+
+Z字形叙事布局，图文交替左右排列，金色连接线穿过各节点，适合时间线/故事/流程展示，品牌故事页面风格。
+
+```html
+<div class="zigzag">
+  <div class="zz-item zz-left"><div class="zz-img" style="background:var(--royal)">01</div><div class="zz-text"><span class="zz-step">Step One</span><h3>Discovery</h3><p>We begin with deep listening — understanding your vision, values, and audience.</p></div></div>
+  <div class="zz-item zz-right"><div class="zz-text"><span class="zz-step">Step Two</span><h3>Design</h3><p>Crafting visual language that speaks with clarity, elegance, and intention.</p></div><div class="zz-img" style="background:var(--wine)">02</div></div>
+  <div class="zz-item zz-left"><div class="zz-img" style="background:var(--gold);color:var(--ink)">03</div><div class="zz-text"><span class="zz-step">Step Three</span><h3>Refinement</h3><p>Iterative polish — every pixel, every spacing, every word considered.</p></div></div>
+  <div class="zz-item zz-right"><div class="zz-text"><span class="zz-step">Step Four</span><h3>Delivery</h3><p>Handing over a system built to last, documented with care.</p></div><div class="zz-img" style="background:var(--royal-700)">04</div></div>
+</div>
+```
+```css
+.zigzag { max-width:800px; font-family:var(--font-sans); position:relative; }
+.zigzag::before { content:''; position:absolute; left:50%; top:60px; bottom:60px; width:1px; background:linear-gradient(to bottom,var(--gold-200),var(--gold),var(--gold-200)); transform:translateX(-50%); }
+.zz-item { display:flex; align-items:center; gap:2.5rem; margin-bottom:3rem; position:relative; }
+.zz-item.zz-right { flex-direction:row-reverse; }
+.zz-img { width:120px; height:120px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-style:italic; font-size:2rem; color:var(--gold); flex-shrink:0; border:3px solid var(--gold); box-shadow:0 0 0 8px var(--cream); position:relative; z-index:1; }
+.zz-text { flex:1; }
+.zz-step { font-family:var(--font-mono); font-size:0.65rem; text-transform:uppercase; letter-spacing:0.2em; color:var(--gold-700); display:block; margin-bottom:0.4rem; }
+.zz-text h3 { font-family:var(--font-serif); font-size:1.4rem; color:var(--royal); margin:0 0 0.5rem; }
+.zz-text p { font-size:0.9rem; color:var(--ink-300); line-height:1.7; margin:0; }
+@media(max-width:640px){ .zigzag::before{left:60px;} .zz-item,.zz-item.zz-right{flex-direction:column;text-align:center;} .zz-img{width:80px;height:80px;font-size:1.3rem;} }
+```
+
+---
+
+## Supplement: 16 Layout Patterns · 补充布局模式
+
+> 来自 layouts.md 的完整16种布局模式，提供页面级别的编排方案。
 
 ---
 

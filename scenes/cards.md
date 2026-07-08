@@ -2,7 +2,7 @@
 # 飞鸿品牌设计系统 · 场景规范：图文卡片 / 小红书场景
 
 > 本规范定义飞鸿品牌设计系统在「小红书图文卡片 / 社交分享卡片 / 竖版分页图」场景中的具体应用方式。
-> 所有规则建立在 `brand-dna.md`、`layouts.md`、`components.md` 基础之上，场景专属规则以本文件为准。
+> 所有规则建立在 `DNA.md`、`components/14-layouts.md`、`components/` 基础之上，场景专属规则以本文件为准。
 
 ---
 
@@ -976,4 +976,4 @@ document.getElementById('export-btn').addEventListener('click', exportCards);
 ---
 
 *Scene: Cards (小红书图文卡片) v1.0 · Feihong Design System*
-*基于 brand-dna.md v2.0 · 最后更新：2026-07-08*
+*基于 DNA.md v2.0 · 最后更新：2026-07-08*
