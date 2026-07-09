@@ -304,4 +304,4 @@ Before sealing the deliverable, ask yourself:
 
 ---
 
-*v7.0 · Feihong Design System*
+*v8.0 · Feihong Design System*

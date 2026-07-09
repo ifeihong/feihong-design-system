@@ -2,7 +2,7 @@
 # N°19 · 工具类
 > Helper classes: selection, focus, scrollbar, print styles, accessibility, spacing, flex/grid utilities, and truncation.
 > 辅助工具类：选中样式、焦点态、滚动条、打印样式、无障碍、间距、Flex/Grid工具和文本截断。
-> Part of Feihong Design System v7.0 · 所有组件遵循 DNA.md 色彩字体规范
+> Part of Feihong Design System v8.0 · 所有组件遵循 DNA.md 色彩字体规范
 ---
 
 ### Selection · 文本选中样式

@@ -2,7 +2,7 @@
 # N°03 · 动态文字标题
 > 22+ CSS text animation components: reveals, glitches, gradients, typewriters, and editorial effects.
 > 22种以上CSS文字动画组件：逐字揭示、故障艺术、渐变流动、打字机及编辑风格效果。
-> Part of Feihong Design System v7.0 · 所有组件遵循 DNA.md 色彩字体规范
+> Part of Feihong Design System v8.0 · 所有组件遵循 DNA.md 色彩字体规范
 ---
 
 ## 45. 动态文字标题组件 Animated Text & Title Components（22种新组件/变体）

@@ -2,7 +2,7 @@
 # N°13 · 高奢艺术组件
 > 25 high-luxury artistic components: art dividers, luxury badges, marquees, galleries, stamps, ribbons, and editorial ornaments.
 > 25种高奢艺术组件：艺术分隔线、奢华徽章、跑马灯、画廊、邮票、丝带、展览标签等。
-> Part of Feihong Design System v7.0 · 所有组件遵循 DNA.md 色彩字体规范
+> Part of Feihong Design System v8.0 · 所有组件遵循 DNA.md 色彩字体规范
 ---
 
 ## 44. 高奢艺术组件 Luxe Art Components（25种新组件/变体）

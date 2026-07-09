@@ -2,7 +2,7 @@
 # N°14 · 布局模式
 > Hero patterns, asymmetric grids, magazine spreads, masonry, split screens, zigzag narratives, and 16 editorial layout recipes.
 > 首屏布局、非对称网格、杂志双页、瀑布流、分屏、Z字叙事和16种编辑级布局方案。
-> Part of Feihong Design System v7.0 · 所有组件遵循 DNA.md 色彩字体规范
+> Part of Feihong Design System v8.0 · 所有组件遵循 DNA.md 色彩字体规范
 ---
 
 ## 17. Hero Patterns（首屏布局组件）

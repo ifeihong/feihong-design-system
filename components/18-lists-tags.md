@@ -2,7 +2,7 @@
 # N°18 · 列表与标签组
 > Gold dot lists, serif numbered lists, check lists, definition lists, timelines, reviews, icon lists, editorial numbered lists, table of contents, notifications, breadcrumbs, price lists, feature checklists, social links, and luxury tag groups for content organization.
 > 金色圆点列表、衬线数字列表、勾选列表、定义列表、时间线、评论、图标列表、编辑式编号列表、目录、通知、面包屑、价目表、功能清单、社交链接与奢华标签组，用于内容组织。
-> Part of Feihong Design System v7.0 · 所有组件遵循 DNA.md 色彩字体规范
+> Part of Feihong Design System v8.0 · 所有组件遵循 DNA.md 色彩字体规范
 
 ---
 

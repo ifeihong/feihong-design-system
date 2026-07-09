@@ -2,7 +2,7 @@
 # N°02 · 文字排版
 > Type scale, headings, body text, captions, and editorial title variants.
 > 字体层级、标题、正文、说明文字，以及编辑风格标题变体。
-> Part of Feihong Design System v7.0 · 所有组件遵循 DNA.md 色彩字体规范
+> Part of Feihong Design System v8.0 · 所有组件遵循 DNA.md 色彩字体规范
 ---
 
 ## 1. Typography 排版组件

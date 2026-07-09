@@ -2,7 +2,7 @@
 # N°01 · 品牌基础
 > Brand tokens, CSS reset, and utility classes — the foundation every page needs.
 > 品牌变量、基础重置和工具类——每个页面必备的基础层。
-> Part of Feihong Design System v7.0 · 所有组件遵循 DNA.md 色彩字体规范
+> Part of Feihong Design System v8.0 · 所有组件遵循 DNA.md 色彩字体规范
 ---
 
 ## 0. Brand Tokens（CSS 变量）

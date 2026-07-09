@@ -2,7 +2,7 @@
 # N°15 · 交互组件
 > Scroll reveal, modals, accordions, tabs, count-up, typewriter, scroll-spy, hover effects, tooltips, dropdowns, toggles, and sliders.
 > 滚动入场、模态框、手风琴、标签切换、数字递增、打字机、滚动高亮、悬停效果、工具提示、下拉、开关和滑块。
-> Part of Feihong Design System v7.0 · 所有组件遵循 DNA.md 色彩字体规范
+> Part of Feihong Design System v8.0 · 所有组件遵循 DNA.md 色彩字体规范
 ---
 
 ## 18. Scroll Reveal Animation（滚动入场动画）

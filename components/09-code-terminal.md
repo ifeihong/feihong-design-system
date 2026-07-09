@@ -2,7 +2,7 @@
 # N°09 · 代码/终端
 > Code blocks, terminal windows, file tabs, line-numbered code, copy buttons, and multi-file tabs.
 > 代码块、终端窗口、文件标签、行号代码、复制按钮和多文件标签栏。
-> Part of Feihong Design System v7.0 · 所有组件遵循 DNA.md 色彩字体规范
+> Part of Feihong Design System v8.0 · 所有组件遵循 DNA.md 色彩字体规范
 ---
 
 ## 10. Code Block（代码块）

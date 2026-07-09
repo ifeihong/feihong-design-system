@@ -617,8 +617,8 @@ Design output should evoke these feelings:
 *This document is the foundation of the Feihong Design System. All templates, components, and scene specifications are built upon it. For skill implementation guidance, see **FEIHONG.md**.*
 *本文件是 Feihong Design System 的基石。所有模板、组件、场景规范均在此基础上构建。技能实现指南参见 **FEIHONG.md**。*
 
-*Version: **v7.0** · Last updated: 2026-07-09*
-*版本：**v7.0** · 最后更新：2026-07-09*
+*Version: **v8.0** · Last updated: 2026-07-09*
+*版本：**v8.0** · 最后更新：2026-07-09*
 
 *Font Licensing: All fonts are SIL Open Font License 1.1 / Apache 2.0 open-source, free for commercial use.*
 *字体许可：所有字体均为 SIL Open Font License 1.1 / Apache 2.0 开源免费可商用*

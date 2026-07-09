@@ -2,7 +2,7 @@
 # N°11 · 分隔与装饰
 > Gold dividers, decorative numbers, avatars, IP characters, and hand-drawn pen stroke dividers.
 > 金色分隔线、装饰数字、头像、IP形象和手绘钢笔画分隔线。
-> Part of Feihong Design System v7.0 · 所有组件遵循 DNA.md 色彩字体规范
+> Part of Feihong Design System v8.0 · 所有组件遵循 DNA.md 色彩字体规范
 ---
 
 ## 9. Dividers & Decorative Elements（分隔与装饰）
