@@ -1,4 +1,4 @@
-# Feihong Design System · Scene: Email / EDM
+﻿# Feihong Design System · Scene: Email / EDM
 # 飞鸿品牌设计系统 · 场景规范：邮件 / EDM 排版
 
 > 本规范定义飞鸿品牌设计系统在「邮件 HTML / EDM / Newsletter」场景中的具体应用方式。

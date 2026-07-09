@@ -1,4 +1,4 @@
-# Feihong Design System · Scene: WeChat Official Account (公众号排版)
+﻿# Feihong Design System · Scene: WeChat Official Account (公众号排版)
 # 飞鸿品牌设计系统 · 场景规范：微信公众号排版
 
 > 本规范定义飞鸿品牌设计系统在「微信公众号图文排版」场景中的具体应用方式。

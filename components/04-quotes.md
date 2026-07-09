@@ -1,8 +1,8 @@
-# FEIHONG Design System — Quotes & Pull Quotes
+﻿# Feihong Design System — Quotes & Pull Quotes
 # N°04 · 引用/金句
 > Pull quotes, blockquotes, editorial quotations, poetry verses, and dialogue bubbles.
 > 引用块、拉引、杂志风金句、诗行引用和对话气泡。
-> Part of FEIHONG Design System v7.0 · 所有组件遵循 DNA.md 色彩字体规范
+> Part of Feihong Design System v7.0 · 所有组件遵循 DNA.md 色彩字体规范
 ---
 
 ## 2. Quote / Pull Quote（引用块）

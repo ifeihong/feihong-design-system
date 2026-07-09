@@ -1,8 +1,8 @@
-# FEIHONG Design System — Forms
+﻿# Feihong Design System — Forms
 # N°10 · 表单
 > Inputs, textareas, selects, and form groups with royal-blue focus states.
 > 输入框、文本域、下拉选择和表单组，配皇家蓝聚焦态。
-> Part of FEIHONG Design System v7.0 · 所有组件遵循 DNA.md 色彩字体规范
+> Part of Feihong Design System v7.0 · 所有组件遵循 DNA.md 色彩字体规范
 ---
 
 ## 7. Form Elements 表单

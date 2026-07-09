@@ -1,8 +1,8 @@
-# FEIHONG Design System — Feedback
+﻿# Feihong Design System — Feedback
 # N°17 · 反馈组件
 > Alerts, notifications, progress bars, and timelines for feedback and storytelling.
 > 提示框、通知、进度条和时间线，用于状态反馈与叙事。
-> Part of FEIHONG Design System v7.0 · 所有组件遵循 DNA.md 色彩字体规范
+> Part of Feihong Design System v7.0 · 所有组件遵循 DNA.md 色彩字体规范
 ---
 
 ## 12. Alert / Notification（提示框）

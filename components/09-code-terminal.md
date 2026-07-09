@@ -1,8 +1,8 @@
-# FEIHONG Design System — Code & Terminal
+﻿# Feihong Design System — Code & Terminal
 # N°09 · 代码/终端
 > Code blocks, terminal windows, file tabs, line-numbered code, copy buttons, and multi-file tabs.
 > 代码块、终端窗口、文件标签、行号代码、复制按钮和多文件标签栏。
-> Part of FEIHONG Design System v7.0 · 所有组件遵循 DNA.md 色彩字体规范
+> Part of Feihong Design System v7.0 · 所有组件遵循 DNA.md 色彩字体规范
 ---
 
 ## 10. Code Block（代码块）
@@ -46,9 +46,9 @@ macOS风格终端窗口，顶部红黄绿交通灯按钮，深色背景配绿色
 
 ```html
 <div class="term-window">
-  <div class="term-bar"><span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span><span class="term-title">zsh — feihong</span></div>
+  <div class="term-bar"><span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span><span class="term-title">zsh — Feihong</span></div>
   <div class="term-body">
-    <div class="term-line"><span class="term-prompt">$</span> npm install @feihong/ui</div>
+    <div class="term-line"><span class="term-prompt">$</span> npm install @Feihong/ui</div>
     <div class="term-line term-out">✓ Installed 42 packages in 3.2s</div>
     <div class="term-line"><span class="term-prompt">$</span> <span class="term-cursor"></span></div>
   </div>
@@ -97,7 +97,7 @@ macOS风格终端窗口，顶部红黄绿交通灯按钮，深色背景配绿色
 带行号的代码块，左侧金色渐变行号列，代码区域深色背景，语法高亮用品牌色系（金色关键字、酒红字符串、皇家蓝函数）。
 
 ```html
-<pre class="code-block"><code><span class="cl">1</span><span class="ck">import</span> { <span class="cf">Button</span> } <span class="ck">from</span> <span class="cs">'@feihong/ui'</span>;
+<pre class="code-block"><code><span class="cl">1</span><span class="ck">import</span> { <span class="cf">Button</span> } <span class="ck">from</span> <span class="cs">'@Feihong/ui'</span>;
 <span class="cl">2</span>
 <span class="cl">3</span><span class="ck">const</span> <span class="cv">App</span> = () => (
 <span class="cl">4</span>  &lt;<span class="ct">Button</span> <span class="cp">variant</span>=<span class="cs">"gold"</span>&gt;

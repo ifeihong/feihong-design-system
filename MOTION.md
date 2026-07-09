@@ -1,4 +1,4 @@
-# Feihong Design System — Motion Language
+﻿# Feihong Design System — Motion Language
 # 飞鸿品牌设计系统 · 动效规范
 
 > ⚠️ **本文件是 Feihong Design System 的「动效宪法」** — 所有组件、页面、场景中的动画行为均以此为唯一准绳。
@@ -12,7 +12,7 @@
 ## 📑 目录 / Table of Contents
 
 1. [设计哲学 / Design Philosophy](#-设计哲学--design-philosophy)
-2. [Feihong Easing — 统一缓动曲线](#-feihong-easing--统一缓动曲线)
+2. [Feihong Easing — 统一缓动曲线](#-Feihong-easing--统一缓动曲线)
 3. [Duration Scale — 时长层级](#-duration-scale--时长层级)
 4. [Three Motion Principles — 动效三原则](#-three-motion-principles--动效三原则)
 5. [Easing Variants — 缓动变体](#-easing-variants--缓动变体)
@@ -309,7 +309,7 @@ delay(n) = min(n * --stagger-step, 600ms)
 ```css
 :root {
   /* ============================================
-     FEIHONG MOTION TOKENS
+     Feihong MOTION TOKENS
      飞鸿动效系统变量 · v1.0
      ============================================ */
 
@@ -363,26 +363,26 @@ delay(n) = min(n * --stagger-step, 600ms)
 
 ```css
 /* 基础入场动效 */
-.feihong-reveal {
+.Feihong-reveal {
   opacity: 0;
   transform: translateY(var(--reveal-offset-y));
   transition: var(--transition-base);
   will-change: opacity, transform;
 }
-.feihong-reveal.is-visible {
+.Feihong-reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
 /* 按钮悬停/按压 */
-.feihong-interactive {
+.Feihong-interactive {
   transition: transform var(--duration-micro) var(--ease-out),
               box-shadow var(--duration-micro) var(--ease-out);
 }
-.feihong-interactive:hover {
+.Feihong-interactive:hover {
   transform: translateY(var(--hover-lift)) scale(var(--hover-scale));
 }
-.feihong-interactive:active {
+.Feihong-interactive:active {
   transform: scale(var(--press-scale));
 }
 
@@ -397,7 +397,7 @@ delay(n) = min(n * --stagger-step, 600ms)
     scroll-behavior: auto !important;
   }
 
-  .feihong-reveal {
+  .Feihong-reveal {
     opacity: 1;
     transform: none;
   }
@@ -444,7 +444,7 @@ delay(n) = min(n * --stagger-step, 600ms)
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│   FEIHONG MOTION · QUICK REFERENCE                  │
+│   Feihong MOTION · QUICK REFERENCE                  │
 │   飞鸿动效 · 速查卡                                  │
 ├─────────────────────────────────────────────────────┤
 │                                                     │
@@ -482,4 +482,4 @@ delay(n) = min(n * --stagger-step, 600ms)
 
 *本文件是 Feihong Design System 的动效基石。所有组件、模板、场景中的动画行为均在此规范之下。*
 *版本：v1.0 · 最后更新：2026-07-09*
-*与 `DNA.md`、`components/`、`QUALITY.md` 共同构成 FEIHONG Design System 的核心规范体系。*
+*与 `DNA.md`、`components/`、`QUALITY.md` 共同构成 Feihong Design System 的核心规范体系。*

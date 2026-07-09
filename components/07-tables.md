@@ -1,8 +1,8 @@
-# FEIHONG Design System — Tables
+﻿# Feihong Design System — Tables
 # N°07 · 表格
 > Brand table, magazine editorial tables, Art Deco tables, pricing tables, and schedules.
 > 品牌表格、杂志编辑风表格、装饰艺术表格、价格对比表和时间表。
-> Part of FEIHONG Design System v7.0 · 所有组件遵循 DNA.md 色彩字体规范
+> Part of Feihong Design System v7.0 · 所有组件遵循 DNA.md 色彩字体规范
 ---
 
 ## 11. Table（表格）

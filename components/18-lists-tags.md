@@ -1,8 +1,8 @@
-# FEIHONG Design System — Lists & Tags
+﻿# Feihong Design System — Lists & Tags
 # N°18 · 列表与标签组
 > Gold dot lists, serif numbered lists, check lists, and tag groups for content organization.
 > 金色圆点列表、衬线数字列表、勾选列表和标签组，用于内容组织。
-> Part of FEIHONG Design System v7.0 · 所有组件遵循 DNA.md 色彩字体规范
+> Part of Feihong Design System v7.0 · 所有组件遵循 DNA.md 色彩字体规范
 ---
 
 ## 6. Lists 列表

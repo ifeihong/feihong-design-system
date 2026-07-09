@@ -1,4 +1,4 @@
-# Feihong Design System · Scene: Tutorial
+﻿# Feihong Design System · Scene: Tutorial
 # 飞鸿品牌设计系统 · 场景规范：教程型页面
 
 > 本规范定义飞鸿品牌设计系统在「教程/科普/知识分享」类长文页面中的具体应用方式。

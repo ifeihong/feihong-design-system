@@ -646,12 +646,12 @@ subtitle: 22px  ●●●●● （中等，斜体衬线，一句话介绍）
   <h2>有好项目？<br>聊聊吧。</h2>
   <p>无论是品牌设计、UI设计还是创意合作，欢迎随时联系。</p>
   <div class="contact-info">
-    <a href="mailto:hello@feihong.art" class="contact-email">hello@feihong.art</a>
+    <a href="mailto:hello@Feihong.art" class="contact-email">hello@Feihong.art</a>
   </div>
   <div class="social-links" style="justify-content:center;margin-top:var(--sp-6);">
     <!-- 社交链接 -->
   </div>
-  <a href="mailto:hello@feihong.art" class="btn btn-gold btn-xl" style="margin-top:var(--sp-6);">发送邮件 →</a>
+  <a href="mailto:hello@Feihong.art" class="btn btn-gold btn-xl" style="margin-top:var(--sp-6);">发送邮件 →</a>
 </div>
 ```
 
@@ -1134,7 +1134,7 @@ Portfolio可支持暗色模式作为加分项，但需注意：
           <a href="#contact" class="btn btn-outline btn-lg">联系我</a>
         </div>
         <div class="social-links reveal reveal-delay-2">
-          <a href="mailto:hello@feihong.art" class="social-link" aria-label="Email">
+          <a href="mailto:hello@Feihong.art" class="social-link" aria-label="Email">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           </a>
           <a href="#" class="social-link" aria-label="Dribbble">

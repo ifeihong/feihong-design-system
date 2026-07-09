@@ -1,4 +1,4 @@
-# Feihong Design System · Scene: Cards (小红书图文卡片)
+﻿# Feihong Design System · Scene: Cards (小红书图文卡片)
 # 飞鸿品牌设计系统 · 场景规范：图文卡片 / 小红书场景
 
 > 本规范定义飞鸿品牌设计系统在「小红书图文卡片 / 社交分享卡片 / 竖版分页图」场景中的具体应用方式。

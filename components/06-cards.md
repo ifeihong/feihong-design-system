@@ -1,8 +1,8 @@
-# FEIHONG Design System — Cards
+﻿# Feihong Design System — Cards
 # N°06 · 卡片
 > Feature cards, project cards, stat cards, testimonials, editorial cards, and product cards.
 > 功能卡片、项目卡片、数据卡片、推荐卡片、杂志编辑卡和产品展示卡。
-> Part of FEIHONG Design System v7.0 · 所有组件遵循 DNA.md 色彩字体规范
+> Part of Feihong Design System v7.0 · 所有组件遵循 DNA.md 色彩字体规范
 ---
 
 ## 5. Cards 卡片

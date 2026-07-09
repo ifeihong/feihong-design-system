@@ -1,8 +1,8 @@
-# FEIHONG Design System — Signature Collection
+﻿# Feihong Design System — Signature Collection
 # N°12 · 签名组件（书卷气核心特色）
 > Book-inspired components: drop caps, marginalia, fleurons, wax seals, bookmarks, TOC, signatures, chapter openings, decorative frames, and footnotes.
 > 书卷气核心组件：首字下沉、旁注、花饰、火漆印、角贴、书签丝带、目录、手写签名、章节扉页、装饰引文框和脚注。
-> Part of FEIHONG Design System v7.0 · 所有组件遵循 DNA.md 色彩字体规范
+> Part of Feihong Design System v7.0 · 所有组件遵循 DNA.md 色彩字体规范
 ---
 
 ## 21. 首字下沉 Drop Cap（书卷气签名组件）

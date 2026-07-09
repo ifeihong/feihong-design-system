@@ -1,4 +1,4 @@
-# Feihong Design System · Scene: App
+﻿# Feihong Design System · Scene: App
 # 飞鸿品牌设计系统 · 场景规范：App型 / 功能型页面
 
 > 本规范定义飞鸿品牌设计系统在「App型页面 / 功能型工具页 / 看板 / 仪表盘 / Canvas工具」中的具体应用方式。

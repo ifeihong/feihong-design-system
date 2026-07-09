@@ -1,8 +1,8 @@
-# FEIHONG Design System — Comparison
+﻿# Feihong Design System — Comparison
 # N°16 · 对比组件
 > Before/after sliders, price tier comparison, feature matrices, version diffs, and pros/cons tables.
 > 前后对比滑块、价格层级对比、特性矩阵、版本差异对比和优缺点表。
-> Part of FEIHONG Design System v7.0 · 所有组件遵循 DNA.md 色彩字体规范
+> Part of Feihong Design System v7.0 · 所有组件遵循 DNA.md 色彩字体规范
 ---
 
 ## 53. Comparison 对比类

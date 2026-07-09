@@ -1,4 +1,4 @@
-# Feihong Design System · Scene: Landing
+﻿# Feihong Design System · Scene: Landing
 # 飞鸿品牌设计系统 · 场景规范：活动页 / Landing 页
 
 > 本规范定义飞鸿品牌设计系统在「活动页 / Landing 落地页 / 转化型页面」中的具体应用方式。

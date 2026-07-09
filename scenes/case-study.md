@@ -1,4 +1,4 @@
-# Feihong Design System · Scene: Case Study
+﻿# Feihong Design System · Scene: Case Study
 # 飞鸿品牌设计系统 · 场景规范：案例研究 / Case Study
 
 > 本规范定义飞鸿品牌设计系统在「项目复盘 / 案例研究 / 设计过程展示」中的具体应用方式。

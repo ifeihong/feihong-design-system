@@ -1,8 +1,8 @@
-# FEIHONG Design System — Buttons & Badges
+﻿# Feihong Design System — Buttons & Badges
 # N°05 · 按钮与徽章
 > CTA buttons, outline buttons, gold badges, tags, dot indicators, and numbered badges.
 > 行动按钮、描边按钮、金色徽章、标签、圆点指示器和编号徽章。
-> Part of FEIHONG Design System v7.0 · 所有组件遵循 DNA.md 色彩字体规范
+> Part of Feihong Design System v7.0 · 所有组件遵循 DNA.md 色彩字体规范
 ---
 
 ## 3. Buttons 按钮

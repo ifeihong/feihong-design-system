@@ -1,16 +1,16 @@
----
+﻿---
 name: feihong-design-system
-description: FEIHONG Design System — Premium personal brand design system for AI-assisted creation. 10 scene templates, 148 components, for portfolios, landing pages, case studies, tutorials, decks, apps, cards, resumes, emails, WeChat articles and any frontend design task. Signature palette: Royal Blue #0A2463 + Vintage Gold #F4D35E + Burgundy Wine #D8315B. Core principle: Anti-AI > Artistic Quality > Human Warmth > Designer's Eye.
+description: Feihong Design System — Premium personal brand design system for AI-assisted creation. 10 scene templates, 148 components, for portfolios, landing pages, case studies, tutorials, decks, apps, cards, resumes, emails, WeChat articles and any frontend design task. Signature palette: Royal Blue #0A2463 + Vintage Gold #F4D35E + Burgundy Wine #D8315B. Core principle: Anti-AI > Artistic Quality > Human Warmth > Designer's Eye.
 ---
 
-# FEIHONG Design System
+# Feihong Design System
 ## Premium Brand Design System · 工作流手册
 
-> This document is the operating system of FEIHONG Design System. It defines the complete process from requirement to delivery.
+> This document is the operating system of Feihong Design System. It defines the complete process from requirement to delivery.
 > 本文件是设计系统的「大脑」，规定了从需求到交付的完整工作流程。
 >
-> **Mission**: Produce work that is artistically refined, recognizably FEIHONG, and unmistakably human — never looking AI-generated.
-> **核心目标**：产出不像AI的、有FEIHONG品牌辨识度的、艺术且有品质的设计作品。
+> **Mission**: Produce work that is artistically refined, recognizably Feihong, and unmistakably human — never looking AI-generated.
+> **核心目标**：产出不像AI的、有Feihong品牌辨识度的、艺术且有品质的设计作品。
 
 ---
 
@@ -74,7 +74,7 @@ Process:
 
 ---
 
-## 📋 FEIHONG 8-Step Process · 完整8步工作流
+## 📋 Feihong 8-Step Process · 完整8步工作流
 
 ---
 
@@ -208,7 +208,7 @@ Before filling components, define 4 direction decisions:
 - Gold dots for list / timeline markers
 - Images overflowing containers
 - Deep blue panels breaking rhythm
-- FEIHONG Signature Collection elements (wax seal, photo corners, fleuron ❦, drop cap, large quotes)
+- Feihong Signature Collection elements (wax seal, photo corners, fleuron ❦, drop cap, large quotes)
 
 #### 5d. Rhythm Planning
 - Total screens/pages: ___
@@ -253,7 +253,7 @@ Specific zero-default-style requirements:
 - **Dividers**: Not simple `border-bottom`; use gold thin line + gradient fade or gold dot separators
 - **Animation** (if any): Light, slow, restrained, `cubic-bezier(0.16, 1, 0.3, 1)`, no bounce
 
-**FEIHONG Signature Collection — strongly recommended for all scenes**:
+**Feihong Signature Collection — strongly recommended for all scenes**:
 - Drop Cap (first paragraph of tutorials)
 - Marginalia (tutorial side notes)
 - Wax Seal (portfolio / certification feel)
@@ -315,7 +315,7 @@ Check against `QUALITY.md` + `DNA.md` quality gate standards item by item.
 - [ ] Decorative elements few and precise
 - [ ] Radial gradients instead of flat color
 - [ ] Avatar/IP appear naturally
-- [ ] FEIHONG Signature Collection elements used appropriately
+- [ ] Feihong Signature Collection elements used appropriately
 
 #### Scene Additional Checks
 - Deck → Confirm 16:9, keyboard navigation (←→/Space/F/Esc), fullscreen
@@ -416,6 +416,6 @@ Anti-AI strategies:
 
 ---
 
-*FEIHONG Design System v7.0*
+*Feihong Design System v7.0*
 *Anti-AI · Artistic Quality · Human Warmth*
 *10 Scenes · 148 Components · 19 Categories · 250+ Variants · v7.1*

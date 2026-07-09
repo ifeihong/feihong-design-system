@@ -1,8 +1,8 @@
-# FEIHONG Design System — Navigation
+﻿# Feihong Design System — Navigation
 # N°08 · 导航
 > Navbar, footer, social links, magazine nav, side drawer, breadcrumbs, pagination, and anchor nav.
 > 顶部导航、页脚、社交链接、杂志风导航、侧边抽屉、面包屑、分页器和锚点导航。
-> Part of FEIHONG Design System v7.0 · 所有组件遵循 DNA.md 色彩字体规范
+> Part of Feihong Design System v7.0 · 所有组件遵循 DNA.md 色彩字体规范
 ---
 
 ## 8. Navigation 导航
@@ -86,7 +86,7 @@
       </div>
       <div class="footer-col">
         <h4>联系</h4>
-        <a href="#">hello@feihong.art</a><a href="#">微信</a><a href="#">小红书</a>
+        <a href="#">hello@Feihong.art</a><a href="#">微信</a><a href="#">小红书</a>
       </div>
     </div>
   </div>

@@ -1,4 +1,4 @@
-# FEIHONG Design System — Brand DNA
+﻿# Feihong Design System — Brand DNA
 # 飞鸿品牌设计系统 · 品牌基因手册
 
 > **本文件是整个设计系统的「宪法」** — This document is the **Constitution** of the entire design system.
@@ -56,7 +56,7 @@
 
 ### Brand Name / 品牌名字
 
-- **Primary Name / 主名称**: **FEIHONG**（全大写 / ALL CAPS）
+- **Primary Name / 主名称**: **Feihong**（全大写 / ALL CAPS）
 - **Chinese Subtitle / 中文副标题**: 飞鸿
 - **Tagline**: **"Timeless Vision, Crafted with Precision"**（远见卓识，精工细作）
 
@@ -434,7 +434,7 @@ Design output should evoke these feelings:
 - **Warm & Human / 有温度、有人味** — Not cold, not mechanical, not templated. Like a cultivated person conversing with you, not a system outputting.
 - **Designer's Eye / 有设计师眼光** — Detail-conscious, spacing-precise, color-restrained, rhythmically typeset.
 - **Content with Depth / 有内容有深度** — Not empty decoration; form serves content; visual hierarchy clearly expresses information architecture.
-- **Personal Brand Identity / 个人品牌感** — Recognizable at a glance as "FEIHONG's," with a unique visual signature.
+- **Personal Brand Identity / 个人品牌感** — Recognizable at a glance as "Feihong's," with a unique visual signature.
 - 最高优先级：不像AI、艺术有品质、有温度有人味、有设计师眼光、有内容有深度、个人品牌感
 
 ### Core Essence — P1（Must achieve / 必须达成）
@@ -518,8 +518,8 @@ Design output should evoke these feelings:
 
 ## Quality Gate / 质量门槛
 
-> Before delivering any FEIHONG design, you **must** self-check against the following list. All P0 items must pass.
-> 完成任何 FEIHONG 设计之前，**必须**使用以下清单自检。P0 必须全部通过才能交付。
+> Before delivering any Feihong design, you **must** self-check against the following list. All P0 items must pass.
+> 完成任何 Feihong 设计之前，**必须**使用以下清单自检。P0 必须全部通过才能交付。
 > Detailed quality standards: see **QUALITY.md**.
 > 详细质量标准参见 **QUALITY.md**。
 
@@ -566,7 +566,7 @@ Design output should evoke these feelings:
 
 ### Self-Check Three Questions / 自检三问（Final pass before delivery / 交付前最后过一遍）
 
-1. **Distinctiveness / 辨识度**: If a screenshot of this page were posted on social media, would it be instantly recognizable as "FEIHONG's"? Or does it look like any random template?
+1. **Distinctiveness / 辨识度**: If a screenshot of this page were posted on social media, would it be instantly recognizable as "Feihong's"? Or does it look like any random template?
 2. **Essence / 气质**: Does it look composed, premium, warm, and trustworthy? Or does it come across as cheap, frivolous, AI-generated?
 3. **Details / 细节**: Are line-heights and letter-spacing comfortable? Is color contrast sufficient? Is there any element that makes you think "I've seen this a hundred times"?
 
@@ -614,8 +614,8 @@ Design output should evoke these feelings:
 
 ---
 
-*This document is the foundation of the FEIHONG Design System. All templates, components, and scene specifications are built upon it. For skill implementation guidance, see **FEIHONG.md**.*
-*本文件是 FEIHONG Design System 的基石。所有模板、组件、场景规范均在此基础上构建。技能实现指南参见 **FEIHONG.md**。*
+*This document is the foundation of the Feihong Design System. All templates, components, and scene specifications are built upon it. For skill implementation guidance, see **FEIHONG.md**.*
+*本文件是 Feihong Design System 的基石。所有模板、组件、场景规范均在此基础上构建。技能实现指南参见 **FEIHONG.md**。*
 
 *Version: **v7.0** · Last updated: 2026-07-09*
 *版本：**v7.0** · 最后更新：2026-07-09*

@@ -1,4 +1,4 @@
-# FEIHONG Design System — Quality Seal Standards
+﻿# Feihong Design System — Quality Seal Standards
 # 飞鸿品牌设计系统 · 品质封印标准
 
 > This checklist serves as the quality gate for all design deliverables. Every item includes a concrete verification method — no vague subjective judgment.
@@ -82,8 +82,8 @@
   - 装饰元素不是每页都有、不是等距出现，少而准
 - [ ] **Contrasting Whitespace / 留白有疏密对比**：Whitespace exhibits density/breath contrast — not mechanically uniform padding/margin throughout
   - 留白有疏密对比，不是机械等距padding/margin
-- [ ] **FEIHONG Signature Component Present / 必含Signature组件**：At least one FEIHONG Signature Collection component appears in the page — wax seal, corner sticker, ornament, drop cap, N° numbering, or gold signature
-  - 页面中至少使用1个FEIHONG Signature Collection组件（火漆印章/角贴/花饰/首字下沉/N°编号/金色签名）
+- [ ] **Feihong Signature Component Present / 必含Signature组件**：At least one Feihong Signature Collection component appears in the page — wax seal, corner sticker, ornament, drop cap, N° numbering, or gold signature
+  - 页面中至少使用1个Feihong Signature Collection组件（火漆印章/角贴/花饰/首字下沉/N°编号/金色签名）
 - [ ] **CTA Surface Area ≤ 10% / CTA面积受控**：Total CTA button surface area does not exceed 10% of the page
   - CTA按钮总面积不超过页面的10%
 - [ ] **Varied Image Treatment / 图片处理有变化**：Not all images share uniform border-radius or uniform shadow — treatment varies with intent
@@ -293,8 +293,8 @@ After completing the general P0/P1/P2 checks, perform additional verification ba
 Before sealing the deliverable, ask yourself:
 盖章之前，最后问自己三个问题：
 
-1. **Recognition / 辨识度**：Strip away all color — looking only at silhouette and typography, can you recognize this as FEIHONG? Or does it read as a generic template?
-   去掉所有颜色只看轮廓和排版，能认出是FEIHONG的吗？
+1. **Recognition / 辨识度**：Strip away all color — looking only at silhouette and typography, can you recognize this as Feihong? Or does it read as a generic template?
+   去掉所有颜色只看轮廓和排版，能认出是Feihong的吗？
 
 2. **Presence / 气质**：If this design were a person, would you want to be friends with them? (Does it carry warmth, humanity, and presence — or feel mechanical?)
    如果这个设计是一个人，你愿意跟他/她交朋友吗？
@@ -304,4 +304,4 @@ Before sealing the deliverable, ask yourself:
 
 ---
 
-*v7.0 · FEIHONG Design System*
+*v7.0 · Feihong Design System*
