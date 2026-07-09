@@ -590,35 +590,47 @@
     .avatar-wrap {
       position: relative;
       z-index: 1;
+      width: clamp(280px, 34vw, 400px);
+    }
+
+    /* Dark editorial panel behind avatar */
+    .avatar-panel {
+      position: absolute;
+      top: -16px;
+      right: -20px;
+      width: 100%;
+      height: 100%;
+      background: var(--royal);
+      border-radius: var(--r-lg);
+      z-index: 0;
+    }
+    .avatar-panel::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 40%;
+      background: linear-gradient(to top, rgba(10,36,99,0.3), transparent);
+      border-radius: 0 0 var(--r-lg) var(--r-lg);
     }
 
     .avatar-frame {
       position: relative;
-      padding: 12px;
-      background: var(--white);
+      z-index: 1;
+      border: 1px solid var(--gold);
       border-radius: var(--r-lg);
-      box-shadow: var(--shadow-xl);
-      transform: rotate(-2deg);
-    }
-
-    .avatar-frame::before {
-      content: '';
-      position: absolute;
-      inset: -20px;
-      border: 1px solid var(--gold-200);
-      border-radius: var(--r-xl);
-      transform: rotate(2deg);
-      pointer-events: none;
+      overflow: hidden;
     }
 
     .avatar {
-      border-radius: var(--r-md);
+      border-radius: var(--r-lg);
       overflow: hidden;
       position: relative;
     }
 
     .avatar-lg {
-      width: clamp(240px, 32vw, 360px);
+      width: 100%;
       aspect-ratio: 4/5;
     }
 
@@ -627,17 +639,59 @@
       height: 100%;
       object-fit: cover;
       display: block;
+      filter: contrast(1.03) saturate(0.97);
+    }
+
+    /* Gold gradient overlay on avatar */
+    .avatar::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        transparent 60%,
+        rgba(10,36,99,0.15) 100%
+      );
+      pointer-events: none;
     }
 
     /* Photo corners on avatar */
     .avatar .photo-corner {
-      width: 20px;
-      height: 20px;
+      width: 24px;
+      height: 24px;
+      z-index: 2;
     }
-    .avatar .photo-corner.tl { top: 6px; left: 6px; }
-    .avatar .photo-corner.tr { top: 6px; right: 6px; }
-    .avatar .photo-corner.bl { bottom: 6px; left: 6px; }
-    .avatar .photo-corner.br { bottom: 6px; right: 6px; }
+    .avatar .photo-corner.tl { top: 10px; left: 10px; }
+    .avatar .photo-corner.tr { top: 10px; right: 10px; }
+    .avatar .photo-corner.bl { bottom: 10px; left: 10px; }
+    .avatar .photo-corner.br { bottom: 10px; right: 10px; }
+
+    /* Thin gold accent line left of avatar */
+    .avatar-accent-line {
+      position: absolute;
+      left: -32px;
+      top: 20%;
+      bottom: 20%;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+      z-index: 0;
+    }
+
+    /* Luxury numbering */
+    .avatar-number {
+      position: absolute;
+      bottom: -10px;
+      left: -8px;
+      z-index: 3;
+      font-family: var(--font-serif);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      background: var(--cream);
+      padding: 4px 12px;
+      border-radius: 2px;
+    }
 
     /* Wax seal on avatar */
     .hero-wax-seal {
@@ -1632,6 +1686,20 @@
         width: clamp(200px, 55vw, 280px);
       }
 
+      .avatar-panel {
+        top: -10px;
+        right: -12px;
+      }
+
+      .avatar-accent-line {
+        left: -20px;
+      }
+
+      .avatar-number {
+        font-size: 0.65rem;
+        padding: 3px 8px;
+      }
+
       .stats-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--sp-4) 0;
@@ -1762,13 +1830,22 @@
       }
 
       .hero-wax-seal {
-        --size: 52px;
+        --size: 48px;
         font-size: 0.6rem;
         right: -10px;
         bottom: -10px;
       }
 
-      .avatar-frame::before {
+      .avatar-panel {
+        top: -6px;
+        right: -8px;
+      }
+
+      .avatar-accent-line {
+        display: none;
+      }
+
+      .avatar-number {
         display: none;
       }
 
@@ -1846,7 +1923,8 @@
         <div class="hero-visual reveal reveal-delay-1">
           <span class="hero-deco-number" aria-hidden="true">07</span>
           <div class="avatar-wrap">
-            <img src="character.png" alt="" class="ip-mascot" aria-hidden="true">
+            <div class="avatar-panel"></div>
+            <span class="avatar-accent-line"></span>
             <div class="avatar-frame">
               <div class="avatar avatar-lg">
                 <img src="avatar.jpg" alt="飞鸿 · 品牌设计师">
@@ -1856,9 +1934,11 @@
                 <span class="photo-corner br"></span>
               </div>
             </div>
+            <div class="avatar-number">N°01</div>
             <div class="wax-seal hero-wax-seal gold">
               飞鸿<br>设计
             </div>
+            <img src="character.png" alt="" class="ip-mascot" aria-hidden="true">
           </div>
         </div>
       </div>
