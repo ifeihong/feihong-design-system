@@ -1,18 +1,19 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>飞鸿 · 品牌设计师 | 创造有温度的设计</title>
-  <meta name="description" content="飞鸿，品牌设计师与品牌顾问。8年经验，专注于为品牌注入温度与记忆点。作品集展示品牌设计、设计系统、落地页等项目案例。">
+  <title>飞鸿 · 品牌设计师</title>
+  <meta name="description" content="飞鸿，品牌设计师与品牌顾问。专注于为品牌注入温度与记忆点。作品集展示品牌设计、设计系统、落地页等项目案例。">
   <meta name="keywords" content="飞鸿,品牌设计,个人品牌,设计系统,作品集,Feihong Design">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,500;1,600;1,700;1,900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     /* ============================================
-       Feihong Design System — Portfolio Template v2.0 (Stable)
+       Feihong Design System — Portfolio v3.0 (Editorial Luxury)
        Brand: Royal Blue #0A2463 · Gold #F4D35E · Wine #D8315B
+       Direction: Celine / Saint Laurent / Aesop editorial aesthetic
        ============================================ */
 
     /* === Design Tokens === */
@@ -76,7 +77,7 @@
       --r-xl: 20px;
       --r-pill: 999px;
 
-      /* Shadows — blue-tinted only */
+      /* Shadows */
       --shadow-sm: 0 2px 8px rgba(10,36,99,0.06);
       --shadow-md: 0 4px 16px rgba(10,36,99,0.08);
       --shadow-lg: 0 8px 32px rgba(10,36,99,0.12);
@@ -89,10 +90,10 @@
 
       /* Layout */
       --container-max: 1200px;
-      --section-gap: clamp(64px, 10vh, 120px);
+      --section-gap: clamp(80px, 14vh, 160px);
     }
 
-    /* === Reset — Zero Default Styles === */
+    /* === Reset === */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     html {
@@ -103,7 +104,7 @@
 
     body {
       font-family: var(--font-sans);
-      font-weight: 400;
+      font-weight: 300;
       background: var(--cream);
       color: var(--ink-100);
       line-height: 1.7;
@@ -112,16 +113,15 @@
       overflow-x: hidden;
     }
 
-    /* Radial gradient base layers for depth */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 10% 20%, rgba(10,36,99,0.03) 0%, transparent 70%),
-        radial-gradient(ellipse 60% 40% at 90% 80%, rgba(244,211,94,0.04) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 0;
+    ::selection {
+      background: var(--gold);
+      color: var(--royal);
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+      border-radius: var(--r-sm);
     }
 
     ul, ol { list-style: none; }
@@ -129,16 +129,7 @@
     a {
       color: inherit;
       text-decoration: none;
-      transition: color 250ms var(--ease);
-    }
-
-    button {
-      font-family: inherit;
-      font-size: inherit;
-      border: none;
-      background: none;
-      cursor: pointer;
-      color: inherit;
+      transition: color 350ms var(--ease);
     }
 
     img {
@@ -147,29 +138,8 @@
       height: auto;
     }
 
-    ::selection {
-      background: var(--gold);
-      color: var(--royal);
-    }
-
-    /* Focus visible for accessibility */
-    :focus-visible {
-      outline: 2px solid var(--gold);
-      outline-offset: 3px;
-      border-radius: var(--r-sm);
-    }
-
-    /* === Utility Container === */
-    .container {
-      max-width: var(--container-max);
-      margin: 0 auto;
-      padding: 0 clamp(20px, 4vw, 48px);
-      position: relative;
-      z-index: 1;
-    }
-
     /* ============================================
-       1. NAVBAR
+       NAVBAR — Minimal, editorial
        ============================================ */
     .navbar {
       position: fixed;
@@ -180,34 +150,35 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: var(--sp-3) clamp(20px, 4vw, 48px);
-      background: rgba(253,251,246,0.72);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      transition: all 350ms var(--ease);
-      border-bottom: 1px solid transparent;
+      padding: var(--sp-4) clamp(24px, 5vw, 64px);
+      background: transparent;
+      transition: all 500ms var(--ease);
     }
 
     .navbar.scrolled {
-      border-bottom-color: var(--cream-200);
-      box-shadow: 0 1px 12px rgba(10,36,99,0.06);
-      background: rgba(253,251,246,0.92);
+      background: rgba(10, 36, 99, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(244, 211, 94, 0.08);
     }
 
     .nav-logo {
       font-family: var(--font-serif);
-      font-size: clamp(1.25rem, 2vw, 1.5rem);
-      font-weight: 700;
-      color: var(--royal);
-      letter-spacing: -0.01em;
-      display: flex;
-      align-items: baseline;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--cream);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
     .nav-logo .gold-dot {
       color: var(--gold);
       font-style: normal;
-      margin-left: 1px;
+      margin-left: 2px;
+    }
+
+    .navbar.scrolled .nav-logo {
+      color: var(--cream);
     }
 
     .nav-links {
@@ -217,28 +188,31 @@
     }
 
     .nav-link {
-      font-size: 0.9375rem;
-      font-weight: 500;
-      color: var(--ink-200);
+      font-family: var(--font-sans);
+      font-size: 0.8125rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(253, 251, 246, 0.6);
       position: relative;
       padding: var(--sp-2) 0;
-      transition: color 250ms var(--ease);
+      transition: color 400ms var(--ease);
     }
 
     .nav-link::after {
       content: '';
       position: absolute;
-      bottom: 0;
+      bottom: -2px;
       left: 0;
       width: 0;
-      height: 2px;
+      height: 1px;
       background: var(--gold);
-      border-radius: 2px;
-      transition: width 300ms var(--ease);
+      transition: width 400ms var(--ease);
     }
 
-    .nav-link:hover {
-      color: var(--royal);
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--cream);
     }
 
     .nav-link:hover::after,
@@ -246,135 +220,11 @@
       width: 100%;
     }
 
-    /* === Buttons === */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: var(--sp-2);
-      font-family: var(--font-sans);
-      font-weight: 500;
-      border-radius: var(--r-md);
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 300ms var(--ease);
-      white-space: nowrap;
-      line-height: 1;
-    }
-
-    .btn-cta {
-      background: var(--wine);
-      color: #fff;
-      padding: var(--sp-3) var(--sp-5);
-      font-size: 0.9375rem;
-      box-shadow: var(--shadow-wine);
-    }
-
-    .btn-cta:hover {
-      background: var(--wine-700);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(216,49,91,0.35);
-    }
-
-    .btn-primary {
-      background: var(--royal);
-      color: #fff;
-      padding: var(--sp-3) var(--sp-5);
-      font-size: 0.9375rem;
-      box-shadow: var(--shadow-md);
-    }
-
-    .btn-primary:hover {
-      background: var(--royal-600);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--royal);
-      border: 1.5px solid var(--royal);
-      padding: calc(var(--sp-3) - 1.5px) calc(var(--sp-5) - 1.5px);
-      font-size: 0.9375rem;
-    }
-
-    .btn-outline:hover {
-      background: var(--royal);
-      color: #fff;
-      transform: translateY(-2px);
-    }
-
-    .btn-gold {
-      background: var(--gold);
-      color: var(--royal);
-      font-weight: 600;
-      padding: var(--sp-4) var(--sp-6);
-      font-size: 1.0625rem;
-      border-radius: var(--r-md);
-      box-shadow: var(--shadow-gold);
-    }
-
-    .btn-gold:hover {
-      background: var(--gold-600);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 36px rgba(244,211,94,0.35);
-    }
-
-    .btn-outline-light {
-      background: transparent;
-      color: #fff;
-      border: 1.5px solid rgba(255,255,255,0.4);
-      padding: calc(var(--sp-4) - 1.5px) calc(var(--sp-6) - 1.5px);
-      font-size: 1.0625rem;
-      border-radius: var(--r-md);
-    }
-
-    .btn-outline-light:hover {
-      border-color: var(--gold);
-      color: var(--gold);
-      background: rgba(244,211,94,0.08);
-      transform: translateY(-2px);
-    }
-
-    .btn-lg {
-      padding: var(--sp-4) var(--sp-6);
-      font-size: 1.0625rem;
-    }
-
-    .btn-sm {
-      padding: var(--sp-2) var(--sp-4);
-      font-size: 0.8125rem;
-    }
-
-    /* === Eyebrow === */
-    .eyebrow {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--royal);
-      background: rgba(10,36,99,0.06);
-      padding: var(--sp-2) var(--sp-3);
-      border-radius: var(--r-sm);
-      margin-bottom: var(--sp-4);
-    }
-
-    .eyebrow-gold {
-      color: var(--royal);
-      background: var(--gold);
-    }
-
-    .eyebrow-light {
-      color: var(--gold);
-      background: rgba(244,211,94,0.15);
-    }
-
     /* ============================================
-       书卷气签名组件 — Bookish Signature Components
+       EDITORIAL SIGNATURE COMPONENTS
        ============================================ */
 
-    /* 火漆印章 Wax Seal */
+    /* Wax Seal */
     .wax-seal {
       width: var(--size, 72px);
       height: var(--size, 72px);
@@ -395,25 +245,71 @@
       line-height: 1.1;
       letter-spacing: 0.02em;
       position: relative;
+      flex-shrink: 0;
     }
     .wax-seal.gold {
       background: radial-gradient(circle at 35% 35%, #FFE580, var(--gold) 50%, #B8860B);
       color: var(--royal);
     }
-    .wax-seal.royal {
-      background: radial-gradient(circle at 35% 35%, #3E6EC9, var(--royal) 50%, #040F2A);
+
+    /* Photo Corner */
+    .photo-corner {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      border-style: solid;
+      border-color: var(--gold);
+      border-width: 0;
+      pointer-events: none;
+      z-index: 3;
+    }
+    .photo-corner.tl { top: 10px; left: 10px; border-top-width: 2px; border-left-width: 2px; }
+    .photo-corner.tr { top: 10px; right: 10px; border-top-width: 2px; border-right-width: 2px; }
+    .photo-corner.bl { bottom: 10px; left: 10px; border-bottom-width: 2px; border-left-width: 2px; }
+    .photo-corner.br { bottom: 10px; right: 10px; border-bottom-width: 2px; border-right-width: 2px; }
+
+    /* Decorative Number */
+    .deco-number {
+      font-family: var(--font-display);
+      font-size: clamp(6rem, 12vw, 10rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--gold);
+      opacity: 0.12;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      pointer-events: none;
+      user-select: none;
     }
 
-    /* 花饰 Fleuron 分隔符 */
+    /* Gold Line */
+    .gold-line {
+      width: 48px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-600), transparent);
+    }
+    .gold-line-long {
+      width: 80px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.5;
+    }
+    .gold-line-vertical {
+      width: 1px;
+      height: 80px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      opacity: 0.5;
+    }
+
+    /* Fleuron */
     .fleuron {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: var(--sp-4);
-      color: var(--gold-700);
-      font-size: 1.5rem;
-      margin: var(--sp-8) 0;
-      opacity: 0.6;
+      color: var(--gold);
+      font-size: 1.25rem;
+      opacity: 0.5;
     }
     .fleuron::before,
     .fleuron::after {
@@ -421,64 +317,35 @@
       flex: 1;
       height: 1px;
       background: linear-gradient(90deg, transparent, var(--gold-200), transparent);
-      max-width: 120px;
-    }
-
-    /* 照片角贴 Photo Corner */
-    .photo-corner {
-      position: absolute;
-      width: 28px;
-      height: 28px;
-      border-style: solid;
-      border-color: var(--gold);
-      border-width: 0;
-      pointer-events: none;
-    }
-    .photo-corner.tl { top: 8px; left: 8px; border-top-width: 3px; border-left-width: 3px; }
-    .photo-corner.tr { top: 8px; right: 8px; border-top-width: 3px; border-right-width: 3px; }
-    .photo-corner.bl { bottom: 8px; left: 8px; border-bottom-width: 3px; border-left-width: 3px; }
-    .photo-corner.br { bottom: 8px; right: 8px; border-bottom-width: 3px; border-right-width: 3px; }
-
-    /* 金色手写签名 Signature */
-    .signature {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: clamp(1.5rem, 3vw, 2.2rem);
-      font-weight: 500;
-      color: var(--gold-700);
-      position: relative;
-      display: inline-block;
-    }
-    .signature::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(90deg, var(--gold) 0%, var(--gold-600) 60%, transparent 100%);
-      transform: skewX(-12deg);
-      border-radius: 2px;
+      max-width: 80px;
     }
 
     /* ============================================
-       2. HERO (非对称图文 + 书卷气装饰)
+       1. HERO — Full-viewport dark editorial panel
        ============================================ */
     .hero {
-      min-height: 90vh;
+      min-height: 100vh;
       display: flex;
       align-items: center;
-      padding: clamp(100px, 14vh, 140px) 0 clamp(48px, 6vh, 80px);
       position: relative;
       overflow: hidden;
+      background:
+        radial-gradient(ellipse 60% 50% at 85% 15%, rgba(244,211,94,0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 10% 85%, rgba(30,77,170,0.12) 0%, transparent 60%),
+        linear-gradient(160deg, var(--royal-900) 0%, var(--royal-800) 40%, var(--royal) 100%);
     }
 
-    .hero .container {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: clamp(32px, 5vw, 64px);
-      align-items: center;
+    .hero-inner {
       width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 120px clamp(24px, 5vw, 64px) 64px;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: clamp(40px, 6vw, 80px);
+      align-items: center;
+      position: relative;
+      z-index: 2;
     }
 
     .hero-text {
@@ -486,83 +353,62 @@
       z-index: 2;
     }
 
-    .hero-title {
+    .hero-eyebrow {
+      font-family: var(--font-sans);
+      font-size: 0.6875rem;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.7;
+      margin-bottom: var(--sp-6);
+      display: block;
+    }
+
+    .hero-name {
       font-family: var(--font-serif);
-      font-size: clamp(2.8rem, 7vw, 5rem);
+      font-size: clamp(4rem, 10vw, 8rem);
       font-weight: 700;
-      line-height: 1.05;
-      color: var(--ink);
-      margin: var(--sp-3) 0 var(--sp-5);
+      line-height: 0.95;
+      color: var(--cream);
       letter-spacing: -0.03em;
+      margin-bottom: var(--sp-5);
     }
 
-    .hero-title .highlight {
+    .hero-name .italic {
       font-style: italic;
-      color: var(--royal);
-      position: relative;
-      display: inline-block;
+      font-weight: 400;
+      color: var(--gold);
     }
 
-    .hero-title .highlight::after {
-      content: '';
-      position: absolute;
-      bottom: 0.05em;
-      left: 0;
-      width: 100%;
-      height: 0.12em;
-      background: var(--gold);
-      border-radius: 2px;
-      z-index: -1;
-    }
-
-    .hero-desc {
+    .hero-title-sub {
       font-family: var(--font-display);
+      font-size: clamp(1.25rem, 2vw, 1.75rem);
+      font-weight: 300;
       font-style: italic;
-      font-size: clamp(1.05rem, 1.5vw, 1.25rem);
-      line-height: 1.7;
-      color: var(--ink-200);
-      max-width: 520px;
-      margin-bottom: var(--sp-6);
+      color: rgba(253, 251, 246, 0.5);
+      line-height: 1.5;
+      margin-bottom: var(--sp-8);
+      max-width: 420px;
     }
 
-    .hero-actions {
-      display: flex;
-      gap: var(--sp-3);
-      flex-wrap: wrap;
-      margin-bottom: var(--sp-6);
-    }
-
-    /* Social Links */
-    .social-links {
-      display: flex;
-      gap: var(--sp-3);
-    }
-
-    .social-link {
-      width: 42px;
-      height: 42px;
+    .hero-meta {
       display: flex;
       align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background: rgba(10,36,99,0.06);
-      color: var(--royal);
-      transition: all 280ms var(--ease);
+      gap: var(--sp-6);
+      margin-top: var(--sp-8);
     }
 
-    .social-link:hover {
-      background: var(--gold);
-      color: var(--royal);
-      transform: translateY(-3px);
-      box-shadow: 0 6px 16px rgba(244,211,94,0.3);
+    .hero-meta-text {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(253, 251, 246, 0.35);
+      line-height: 1.8;
     }
 
-    .social-link svg {
-      width: 18px;
-      height: 18px;
-    }
-
-    /* Hero Visual with artistic framing */
     .hero-visual {
       position: relative;
       display: flex;
@@ -570,146 +416,48 @@
       align-items: center;
     }
 
-    .hero-deco-number {
+    .hero-visual-bg {
       position: absolute;
-      font-family: var(--font-serif);
-      font-size: clamp(10rem, 25vw, 20rem);
-      font-weight: 900;
-      color: var(--royal);
-      opacity: 0.04;
-      line-height: 1;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 0;
-      user-select: none;
-      pointer-events: none;
-      letter-spacing: -0.04em;
-    }
-
-    .avatar-wrap {
-      position: relative;
-      z-index: 1;
-      width: clamp(280px, 34vw, 400px);
-    }
-
-    /* Dark editorial panel behind avatar */
-    .avatar-panel {
-      position: absolute;
-      top: -16px;
-      right: -20px;
-      width: 100%;
-      height: 100%;
-      background: var(--royal);
-      border-radius: var(--r-lg);
+      top: -30px;
+      right: -30px;
+      width: 85%;
+      height: 105%;
+      background: linear-gradient(135deg, var(--royal-700), var(--royal-600));
       z-index: 0;
     }
-    .avatar-panel::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 40%;
-      background: linear-gradient(to top, rgba(10,36,99,0.3), transparent);
-      border-radius: 0 0 var(--r-lg) var(--r-lg);
-    }
 
-    .avatar-frame {
+    .hero-visual-frame {
       position: relative;
       z-index: 1;
       border: 1px solid var(--gold);
-      border-radius: var(--r-lg);
-      overflow: hidden;
+      padding: 8px;
     }
 
-    .avatar {
-      border-radius: var(--r-lg);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .avatar-lg {
+    .hero-visual-frame img {
       width: 100%;
-      aspect-ratio: 4/5;
-    }
-
-    .avatar img {
-      width: 100%;
-      height: 100%;
+      max-width: 380px;
+      aspect-ratio: 3/4;
       object-fit: cover;
+      filter: contrast(1.02) saturate(0.95);
       display: block;
-      filter: contrast(1.03) saturate(0.97);
     }
 
-    /* Gold gradient overlay on avatar */
-    .avatar::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        180deg,
-        transparent 60%,
-        rgba(10,36,99,0.15) 100%
-      );
-      pointer-events: none;
-    }
-
-    /* Photo corners on avatar */
-    .avatar .photo-corner {
-      width: 24px;
-      height: 24px;
-      z-index: 2;
-    }
-    .avatar .photo-corner.tl { top: 10px; left: 10px; }
-    .avatar .photo-corner.tr { top: 10px; right: 10px; }
-    .avatar .photo-corner.bl { bottom: 10px; left: 10px; }
-    .avatar .photo-corner.br { bottom: 10px; right: 10px; }
-
-    /* Thin gold accent line left of avatar */
-    .avatar-accent-line {
-      position: absolute;
-      left: -32px;
-      top: 20%;
-      bottom: 20%;
-      width: 1px;
-      background: linear-gradient(to bottom, transparent, var(--gold), transparent);
-      z-index: 0;
-    }
-
-    /* Luxury numbering */
-    .avatar-number {
-      position: absolute;
-      bottom: -10px;
-      left: -8px;
-      z-index: 3;
-      font-family: var(--font-serif);
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: var(--gold);
-      letter-spacing: 0.15em;
-      background: var(--cream);
-      padding: 4px 12px;
-      border-radius: 2px;
-    }
-
-    /* Wax seal on avatar */
     .hero-wax-seal {
       position: absolute;
-      bottom: -16px;
-      right: -20px;
-      z-index: 3;
+      bottom: -24px;
+      right: -24px;
+      z-index: 4;
       --size: 64px;
-      font-size: 0.7rem;
+      font-size: 0.65rem;
     }
 
-    .ip-mascot {
+    .hero-mascot {
       position: absolute;
-      width: clamp(90px, 12vw, 130px);
-      top: -20px;
-      left: -24px;
-      z-index: 2;
-      filter: drop-shadow(0 6px 16px rgba(10,36,99,0.15));
+      width: clamp(80px, 10vw, 120px);
+      top: -30px;
+      left: -30px;
+      z-index: 3;
+      filter: drop-shadow(0 6px 16px rgba(0,0,0,0.3));
       animation: float 5s ease-in-out infinite;
     }
 
@@ -718,922 +466,606 @@
       50% { transform: translateY(-10px) rotate(2deg); }
     }
 
-    /* ============================================
-       3. ABOUT 引言区
-       ============================================ */
-    .about-intro {
-      padding: var(--sp-12) 0;
-      position: relative;
-    }
-
-    .about-intro-inner {
-      max-width: 760px;
-      margin: 0 auto;
-      text-align: center;
-      position: relative;
-    }
-
-    .about-quote {
+    .hero-deco-number {
+      position: absolute;
+      top: -10%;
+      left: -5%;
       font-family: var(--font-display);
+      font-size: clamp(8rem, 18vw, 16rem);
+      font-weight: 300;
       font-style: italic;
-      font-size: clamp(1.4rem, 2.5vw, 2rem);
-      font-weight: 400;
-      line-height: 1.5;
-      color: var(--royal);
-      margin-bottom: var(--sp-6);
-    }
-
-    .about-quote-mark {
-      font-family: var(--font-serif);
-      font-size: 5rem;
       color: var(--gold);
-      opacity: 0.3;
-      line-height: 0.6;
-      display: block;
-      margin-bottom: -20px;
-    }
-
-    .about-signature {
-      margin-top: var(--sp-6);
-    }
-
-    /* ============================================
-       4. STATS BAR
-       ============================================ */
-    .stats-bar {
-      padding: var(--sp-8) 0;
-      background: #fff;
-      position: relative;
-      border-top: 1px solid var(--cream-200);
-      border-bottom: 1px solid var(--cream-200);
-    }
-
-    .stats-bar::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 3px;
-      background: linear-gradient(90deg, var(--royal), var(--gold), var(--wine));
-      border-radius: 0 0 3px 3px;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: var(--sp-4);
-      text-align: center;
-    }
-
-    .stat-item {
-      position: relative;
-      padding: var(--sp-4) var(--sp-2);
-    }
-
-    .stat-item:not(:last-child)::after {
-      content: '';
-      position: absolute;
-      right: 0;
-      top: 20%;
-      height: 60%;
-      width: 1px;
-      background: linear-gradient(180deg, transparent, var(--gold), transparent);
-    }
-
-    .stat-number {
-      font-family: var(--font-serif);
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 700;
-      color: var(--royal);
+      opacity: 0.06;
       line-height: 1;
-      margin-bottom: var(--sp-2);
-      letter-spacing: -0.02em;
-    }
-
-    .stat-label {
-      font-size: 0.875rem;
-      color: var(--ink-300);
-      font-weight: 500;
-      letter-spacing: 0.02em;
+      z-index: 0;
+      pointer-events: none;
+      user-select: none;
     }
 
     /* ============================================
-       Section Title (shared)
+       2. PROJECTS — Immersive gallery wall
        ============================================ */
-    .section-header {
+    .projects {
+      padding: var(--section-gap) 0;
+      position: relative;
+      background: var(--cream);
+    }
+
+    .projects-header {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 clamp(24px, 5vw, 64px);
+      margin-bottom: clamp(48px, 8vh, 80px);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: var(--sp-6);
+    }
+
+    .projects-header-left {
       display: flex;
       align-items: flex-start;
       gap: var(--sp-5);
-      margin-bottom: clamp(40px, 5vw, 64px);
     }
 
-    .section-number {
+    .projects-header .deco-number {
+      font-size: clamp(4rem, 7vw, 6rem);
+      opacity: 0.15;
+      flex-shrink: 0;
+      line-height: 0.85;
+    }
+
+    .projects-header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .projects-header p {
       font-family: var(--font-display);
-      font-size: clamp(3rem, 5vw, 4.5rem);
-      font-weight: 400;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--ink-300);
+      margin-top: var(--sp-2);
+    }
+
+    .project-showcase {
+      margin-bottom: clamp(80px, 12vh, 140px);
+      position: relative;
+    }
+
+    .project-showcase:last-child {
+      margin-bottom: 0;
+    }
+
+    .project-showcase-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(32px, 5vw, 64px);
+      align-items: center;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 clamp(24px, 5vw, 64px);
+    }
+
+    .project-showcase:nth-child(even) .project-showcase-inner {
+      direction: rtl;
+    }
+
+    .project-showcase:nth-child(even) .project-showcase-inner > * {
+      direction: ltr;
+    }
+
+    .project-image-wrap {
+      position: relative;
+    }
+
+    .project-image-wrap img,
+    .project-image-wrap .project-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+      transition: transform 800ms var(--ease);
+    }
+
+    .project-showcase:hover .project-image-wrap img,
+    .project-showcase:hover .project-image-wrap .project-placeholder {
+      transform: scale(1.02);
+    }
+
+    .project-image-border {
+      position: absolute;
+      inset: -12px;
+      border: 1px solid var(--gold-200);
+      z-index: 0;
+      opacity: 0.6;
+      transition: opacity 500ms var(--ease);
+    }
+
+    .project-showcase:hover .project-image-border {
+      opacity: 1;
+    }
+
+    .project-info-side {
+      padding: var(--sp-4) 0;
+    }
+
+    .project-number {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      font-weight: 300;
       font-style: italic;
       color: var(--gold);
+      opacity: 0.5;
       line-height: 1;
-      opacity: 0.7;
-      flex-shrink: 0;
+      margin-bottom: var(--sp-4);
     }
 
-    .section-title-group {
-      padding-top: var(--sp-3);
-    }
-
-    .section-title {
+    .project-title-large {
       font-family: var(--font-serif);
       font-size: clamp(1.75rem, 3.5vw, 2.75rem);
       font-weight: 700;
       color: var(--ink);
       line-height: 1.15;
       letter-spacing: -0.02em;
-      margin-bottom: var(--sp-2);
+      margin-bottom: var(--sp-4);
     }
 
-    .section-subtitle {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: 1rem;
+    .project-desc {
+      font-family: var(--font-sans);
+      font-size: 0.9375rem;
+      font-weight: 300;
+      color: var(--ink-200);
+      line-height: 1.8;
+      max-width: 400px;
+      margin-bottom: var(--sp-5);
+    }
+
+    .project-meta-row {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-5);
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
       color: var(--ink-300);
-      margin-top: var(--sp-2);
     }
 
-    .section-title-line {
-      width: 48px;
+    .project-meta-row span {
+      position: relative;
+    }
+
+    .project-meta-row span:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: -14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 3px;
       height: 3px;
+      border-radius: 50%;
       background: var(--gold);
-      border-radius: 2px;
-      margin-top: var(--sp-3);
     }
 
-    /* ============================================
-       5. FEATURED WORKS (Bento网格 + 照片角贴)
-       ============================================ */
-    .works {
-      padding: var(--section-gap) 0;
-      position: relative;
-    }
-
-    .bento-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: auto;
-      gap: clamp(16px, 2vw, 24px);
-    }
-
-    .card-project {
-      background: #fff;
-      border-radius: var(--r-lg);
-      overflow: hidden;
-      transition: all 400ms var(--ease);
-      border: 1px solid var(--cream-200);
-      cursor: pointer;
-      position: relative;
-    }
-
-    .card-project:nth-child(1) {
-      grid-column: span 2;
-      grid-row: span 2;
-    }
-
-    .card-project:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-xl);
-      border-color: var(--royal);
-    }
-
-    .project-image {
-      position: relative;
-      overflow: hidden;
-      background: var(--cream-100);
-    }
-
-    .card-project:nth-child(1) .project-image {
-      aspect-ratio: 16/10;
-    }
-
-    .card-project:not(:nth-child(1)) .project-image {
-      aspect-ratio: 4/3;
-    }
-
-    .project-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 600ms var(--ease);
-    }
-
-    .project-placeholder {
-      width: 100%;
-      height: 100%;
+    /* Placeholder backgrounds for projects */
+    .project-placeholder-1 {
+      background:
+        radial-gradient(ellipse at 30% 40%, rgba(10,36,99,0.2) 0%, transparent 60%),
+        linear-gradient(135deg, var(--royal-100) 0%, var(--cream-100) 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
-      overflow: hidden;
     }
-
-    .project-placeholder-1 {
-      background:
-        radial-gradient(ellipse at 30% 40%, rgba(10,36,99,0.15) 0%, transparent 60%),
-        linear-gradient(135deg, var(--royal-100) 0%, var(--cream-100) 100%);
-    }
-
     .project-placeholder-2 {
       background:
-        radial-gradient(ellipse at 70% 30%, rgba(244,211,94,0.2) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 30%, rgba(244,211,94,0.25) 0%, transparent 60%),
         linear-gradient(135deg, var(--gold-100) 0%, var(--cream-100) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-
     .project-placeholder-3 {
       background:
-        radial-gradient(ellipse at 40% 60%, rgba(216,49,91,0.1) 0%, transparent 60%),
+        radial-gradient(ellipse at 40% 60%, rgba(216,49,91,0.12) 0%, transparent 60%),
         linear-gradient(135deg, var(--wine-100) 0%, var(--cream-100) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-
     .project-placeholder-text {
       font-family: var(--font-serif);
       font-size: clamp(1.5rem, 3vw, 2.5rem);
       font-weight: 700;
       font-style: italic;
       color: var(--royal);
-      opacity: 0.15;
+      opacity: 0.12;
       text-align: center;
       padding: var(--sp-4);
       letter-spacing: -0.01em;
     }
 
-    /* Photo corners on project cards */
-    .card-project .photo-corner {
-      opacity: 0;
-      transition: opacity 300ms var(--ease);
-    }
-    .card-project:hover .photo-corner {
-      opacity: 1;
-    }
-
-    .project-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(10,36,99,0.85);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transition: opacity 350ms var(--ease);
-    }
-
-    .project-view-label {
-      font-family: var(--font-sans);
-      font-size: 0.9375rem;
-      font-weight: 500;
-      color: var(--gold);
-      padding: var(--sp-3) var(--sp-5);
-      border: 1.5px solid var(--gold);
-      border-radius: var(--r-pill);
-      transform: translateY(10px);
-      transition: transform 350ms var(--ease);
-    }
-
-    .card-project:hover .project-overlay {
-      opacity: 1;
-    }
-
-    .card-project:hover .project-view-label {
-      transform: translateY(0);
-    }
-
-    .card-project:hover .project-image img,
-    .card-project:hover .project-placeholder {
-      transform: scale(1.05);
-    }
-
-    .project-info {
-      padding: var(--sp-5);
-    }
-
-    .project-badge {
-      display: inline-block;
-      font-size: 0.6875rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: var(--sp-1) var(--sp-2);
-      border-radius: var(--r-sm);
-      margin-bottom: var(--sp-2);
-    }
-
-    .badge-wine {
-      background: var(--wine);
-      color: #fff;
-    }
-
-    .badge-gold {
-      background: var(--gold);
-      color: var(--royal);
-    }
-
-    .badge-royal {
-      background: var(--royal);
-      color: #fff;
-    }
-
-    .project-title {
-      font-family: var(--font-serif);
-      font-size: clamp(1.05rem, 1.8vw, 1.3rem);
-      font-weight: 600;
-      color: var(--ink);
-      line-height: 1.3;
-      margin-bottom: var(--sp-1);
-      transition: color 300ms var(--ease);
-    }
-
-    .project-category {
-      font-size: 0.8125rem;
-      color: var(--ink-300);
-      font-weight: 500;
-    }
-
-    .project-year {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--gold-700);
-      margin-top: var(--sp-2);
-    }
-
     /* ============================================
-       6. PHILOSOPHY 设计哲学
+       3. PHILOSOPHY — Dark pull-quote
        ============================================ */
     .philosophy {
-      padding: var(--section-gap) 0;
-      background: var(--cream-100);
+      padding: clamp(120px, 20vh, 200px) 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 20% 80%, rgba(244,211,94,0.04) 0%, transparent 60%),
+        linear-gradient(180deg, var(--royal-900) 0%, var(--royal-800) 100%);
       position: relative;
       overflow: hidden;
     }
 
     .philosophy::before {
-      content: 'PHILOSOPHY';
-      position: absolute;
-      top: 2rem;
-      right: -1rem;
-      font-family: var(--font-serif);
-      font-size: clamp(4rem, 10vw, 8rem);
-      font-weight: 900;
-      color: var(--royal);
-      opacity: 0.03;
-      letter-spacing: 0.05em;
-      pointer-events: none;
-    }
-
-    .philosophy-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(32px, 5vw, 64px);
-      align-items: center;
-    }
-
-    .philosophy-text h2 {
-      font-family: var(--font-serif);
-      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-      font-weight: 700;
-      color: var(--ink);
-      line-height: 1.2;
-      margin-bottom: var(--sp-5);
-    }
-
-    .philosophy-text p {
-      font-size: 1rem;
-      line-height: 1.8;
-      color: var(--ink-200);
-      margin-bottom: var(--sp-4);
-    }
-
-    .philosophy-values {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--sp-5);
-      margin-top: var(--sp-6);
-    }
-
-    .value-item {
-      position: relative;
-      padding-left: var(--sp-5);
-    }
-
-    .value-item::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0.5em;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--gold);
-    }
-
-    .value-item:nth-child(2)::before { background: var(--wine); }
-    .value-item:nth-child(3)::before { background: var(--royal); }
-    .value-item:nth-child(4)::before { background: var(--gold-700); }
-
-    .value-item h4 {
-      font-family: var(--font-serif);
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--ink);
-      margin-bottom: var(--sp-1);
-    }
-
-    .value-item p {
-      font-size: 0.875rem;
-      color: var(--ink-300);
-      margin-bottom: 0;
-      line-height: 1.6;
-    }
-
-    .philosophy-visual {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .philosophy-card {
-      background: var(--white);
-      border-radius: var(--r-lg);
-      padding: var(--sp-8);
-      box-shadow: var(--shadow-lg);
-      position: relative;
-      max-width: 400px;
-    }
-
-    .philosophy-card::before {
-      content: '';
-      position: absolute;
-      inset: -12px;
-      border: 1px solid var(--gold-200);
-      border-radius: var(--r-xl);
-      transform: rotate(1deg);
-      pointer-events: none;
-    }
-
-    .philosophy-card blockquote {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: 1.35rem;
-      line-height: 1.6;
-      color: var(--royal);
-      margin-bottom: var(--sp-5);
-    }
-
-    .philosophy-card .quote-mark {
-      font-family: var(--font-serif);
-      font-size: 4rem;
-      color: var(--gold);
-      opacity: 0.4;
-      line-height: 0.6;
-      display: block;
-      margin-bottom: -16px;
-    }
-
-    /* ============================================
-       7. SERVICES
-       ============================================ */
-    .services {
-      padding: var(--section-gap) 0;
-      position: relative;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: clamp(20px, 3vw, 32px);
-    }
-
-    .card-feature {
-      background: #fff;
-      border-radius: var(--r-lg);
-      padding: clamp(28px, 3.5vw, 40px);
-      border: 1px solid var(--cream-200);
-      transition: all 400ms var(--ease);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card-feature::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
-      height: 4px;
-      border-radius: var(--r-lg) var(--r-lg) 0 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(244,211,94,0.2), transparent);
     }
 
-    .card-feature:nth-child(1)::before {
-      background: linear-gradient(90deg, var(--royal), var(--royal-500));
+    .philosophy::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(244,211,94,0.2), transparent);
     }
 
-    .card-feature:nth-child(2)::before {
-      background: linear-gradient(90deg, var(--gold), var(--gold-600));
+    .philosophy-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 clamp(24px, 5vw, 64px);
+      text-align: center;
+      position: relative;
+      z-index: 2;
     }
 
-    .card-feature:nth-child(3)::before {
-      background: linear-gradient(90deg, var(--wine), var(--wine-700));
-    }
-
-    .card-feature:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-xl);
-      border-color: transparent;
-    }
-
-    .feature-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: var(--r-md);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: var(--sp-5);
-      transition: all 300ms var(--ease);
-    }
-
-    .card-feature:nth-child(1) .feature-icon {
-      background: rgba(10,36,99,0.06);
-      color: var(--royal);
-    }
-
-    .card-feature:nth-child(2) .feature-icon {
-      background: rgba(244,211,94,0.15);
-      color: var(--gold-700);
-    }
-
-    .card-feature:nth-child(3) .feature-icon {
-      background: rgba(216,49,91,0.08);
-      color: var(--wine);
-    }
-
-    .card-feature:hover .feature-icon {
-      transform: scale(1.08);
-    }
-
-    .feature-icon svg {
-      width: 26px;
-      height: 26px;
-    }
-
-    .feature-title {
+    .philosophy-quote-mark {
       font-family: var(--font-serif);
-      font-size: clamp(1.15rem, 1.8vw, 1.35rem);
-      font-weight: 600;
-      color: var(--ink);
-      line-height: 1.3;
-      margin-bottom: var(--sp-3);
-    }
-
-    .feature-desc {
-      font-size: 0.9375rem;
-      line-height: 1.7;
-      color: var(--ink-200);
+      font-size: clamp(5rem, 10vw, 8rem);
+      color: var(--gold);
+      opacity: 0.15;
+      line-height: 0.5;
+      display: block;
       margin-bottom: var(--sp-4);
     }
 
-    .feature-list {
-      display: flex;
-      flex-direction: column;
-      gap: var(--sp-2);
-    }
-
-    .feature-list li {
-      font-size: 0.875rem;
-      color: var(--ink-300);
-      padding-left: var(--sp-5);
-      position: relative;
-    }
-
-    .feature-list li::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0.6em;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--gold);
-    }
-
-    /* ============================================
-       8. TESTIMONIALS 客户评价
-       ============================================ */
-    .testimonials {
-      padding: var(--section-gap) 0;
-      background: var(--cream-100);
-    }
-
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--sp-5);
-    }
-
-    .testimonial-card {
-      background: var(--white);
-      border-radius: var(--r-lg);
-      padding: var(--sp-6);
-      border: 1px solid var(--cream-200);
-      position: relative;
-    }
-
-    .testimonial-card .quote-mark {
-      font-family: var(--font-serif);
-      font-size: 3.5rem;
-      color: var(--gold);
-      opacity: 0.3;
-      line-height: 0.6;
-      display: block;
-      margin-bottom: -8px;
-    }
-
-    .testimonial-text {
+    .philosophy-quote {
       font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      font-weight: 400;
       font-style: italic;
-      font-size: 1rem;
-      line-height: 1.7;
-      color: var(--ink-100);
-      margin-bottom: var(--sp-5);
-    }
-
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      gap: var(--sp-3);
-    }
-
-    .testimonial-avatar {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--royal-100), var(--gold-100));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-serif);
-      font-weight: 700;
-      color: var(--royal);
-      font-size: 1rem;
-      flex-shrink: 0;
-    }
-
-    .testimonial-info .name {
-      font-family: var(--font-serif);
-      font-weight: 600;
-      font-size: 0.9375rem;
-      color: var(--ink);
-    }
-
-    .testimonial-info .role {
-      font-size: 0.8125rem;
-      color: var(--ink-300);
-    }
-
-    /* ============================================
-       9. CTA Dark Panel
-       ============================================ */
-    .cta-section {
-      padding: var(--section-gap) 0;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .dark-panel {
-      background:
-        radial-gradient(ellipse 70% 60% at 80% 20%, rgba(244,211,94,0.08) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 50% at 20% 80%, rgba(30,77,170,0.15) 0%, transparent 60%),
-        linear-gradient(135deg, var(--royal-900) 0%, var(--royal-800) 50%, var(--royal) 100%);
-      border-radius: var(--r-xl);
-      padding: clamp(48px, 8vw, 80px) clamp(32px, 6vw, 72px);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .dark-panel::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -20%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(244,211,94,0.06) 0%, transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .dark-panel::after {
-      content: '';
-      position: absolute;
-      bottom: -30%;
-      left: -10%;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(216,49,91,0.08) 0%, transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .cta-content {
-      position: relative;
-      z-index: 1;
-    }
-
-    .cta-title {
-      font-family: var(--font-serif);
-      font-size: clamp(1.75rem, 4vw, 3rem);
-      font-weight: 700;
-      color: #fff;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      margin: var(--sp-4) 0 var(--sp-4);
-    }
-
-    .cta-desc {
-      font-size: 1.0625rem;
-      color: rgba(255,255,255,0.65);
-      line-height: 1.7;
-      max-width: 520px;
-      margin: 0 auto var(--sp-8);
-    }
-
-    .cta-actions {
-      display: flex;
-      gap: var(--sp-3);
-      justify-content: center;
-      flex-wrap: wrap;
+      color: var(--cream);
+      line-height: 1.6;
+      letter-spacing: -0.01em;
       margin-bottom: var(--sp-8);
     }
 
-    .cta-divider {
-      width: 48px;
-      height: 1px;
-      background: rgba(244,211,94,0.3);
-      margin: 0 auto var(--sp-6);
-    }
-
-    .cta-contact {
-      display: flex;
-      gap: var(--sp-6);
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .cta-contact-item {
-      font-size: 0.9375rem;
-      color: rgba(255,255,255,0.5);
-      display: flex;
-      align-items: center;
-      gap: var(--sp-2);
-      transition: color 280ms var(--ease);
-    }
-
-    .cta-contact-item:hover {
+    .philosophy-signature {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 600;
       color: var(--gold);
+      letter-spacing: 0.08em;
     }
 
-    .cta-contact-item svg {
-      width: 16px;
-      height: 16px;
-    }
-
-    /* Social links in dark panel */
-    .dark-panel .social-links {
-      justify-content: center;
-      margin-top: var(--sp-6);
-    }
-
-    .dark-panel .social-link {
-      background: rgba(255,255,255,0.08);
-      color: rgba(255,255,255,0.6);
-    }
-
-    .dark-panel .social-link:hover {
+    .philosophy-signature::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
       background: var(--gold);
-      color: var(--royal);
+      margin: 0 auto var(--sp-5);
+      opacity: 0.5;
+    }
+
+    .philosophy-deco-number {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--font-display);
+      font-size: clamp(12rem, 25vw, 20rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--gold);
+      opacity: 0.03;
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
     }
 
     /* ============================================
-       10. FOOTER
+       4. SKILLS — Horizontal scrollable strip
        ============================================ */
-    .footer {
-      background: var(--ink);
-      padding: clamp(48px, 7vw, 64px) 0 var(--sp-8);
+    .skills {
+      padding: var(--section-gap) 0;
+      background: var(--cream);
       position: relative;
     }
 
-    .footer::before {
+    .skills-header {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 clamp(24px, 5vw, 64px);
+      margin-bottom: var(--sp-8);
+      display: flex;
+      align-items: center;
+      gap: var(--sp-5);
+    }
+
+    .skills-header .deco-number {
+      font-size: clamp(3rem, 5vw, 4.5rem);
+      opacity: 0.15;
+      line-height: 0.85;
+    }
+
+    .skills-header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .skills-strip {
+      display: flex;
+      gap: var(--sp-4);
+      overflow-x: auto;
+      padding: var(--sp-4) clamp(24px, 5vw, 64px) var(--sp-6);
+      scrollbar-width: thin;
+      scrollbar-color: var(--gold-200) transparent;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .skills-strip::-webkit-scrollbar {
+      height: 2px;
+    }
+    .skills-strip::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .skills-strip::-webkit-scrollbar-thumb {
+      background: var(--gold);
+      border-radius: 2px;
+    }
+
+    .skill-tag {
+      flex-shrink: 0;
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-100);
+      padding: var(--sp-3) var(--sp-5);
+      border: 1px solid var(--cream-200);
+      transition: all 350ms var(--ease);
+      cursor: default;
+      position: relative;
+    }
+
+    .skill-tag::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width 400ms var(--ease);
+    }
+
+    .skill-tag:hover {
+      border-color: var(--gold-200);
+      color: var(--royal);
+    }
+
+    .skill-tag:hover::before {
+      width: 100%;
+    }
+
+    .skill-divider {
+      flex-shrink: 0;
+      width: 1px;
+      height: 24px;
+      background: linear-gradient(to bottom, transparent, var(--gold-200), transparent);
+      align-self: center;
+      margin: 0 var(--sp-2);
+    }
+
+    /* ============================================
+       5. CONTACT — Minimal, editorial
+       ============================================ */
+    .contact {
+      padding: clamp(100px, 16vh, 160px) 0;
+      background:
+        radial-gradient(ellipse 50% 50% at 80% 20%, rgba(244,211,94,0.05) 0%, transparent 60%),
+        linear-gradient(180deg, var(--royal-900) 0%, var(--royal-800) 100%);
+      position: relative;
+      text-align: center;
+    }
+
+    .contact::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-      opacity: 0.3;
+      background: linear-gradient(90deg, transparent, rgba(244,211,94,0.15), transparent);
     }
 
-    .footer .container {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
-      gap: clamp(32px, 5vw, 64px);
-      padding-bottom: var(--sp-8);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+    .contact-inner {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0 clamp(24px, 5vw, 64px);
+      position: relative;
+      z-index: 2;
     }
 
-    .footer-brand .nav-logo {
-      color: #fff;
-      margin-bottom: var(--sp-4);
-      font-size: 1.5rem;
-    }
-
-    .footer-brand-desc {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: 0.9375rem;
-      color: rgba(255,255,255,0.45);
-      line-height: 1.7;
-      max-width: 320px;
-      margin-bottom: var(--sp-5);
-    }
-
-    .footer-col h4 {
+    .contact-eyebrow {
       font-family: var(--font-sans);
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
+      font-size: 0.6875rem;
+      font-weight: 400;
+      letter-spacing: 0.25em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: var(--sp-4);
+      opacity: 0.6;
+      margin-bottom: var(--sp-6);
+      display: block;
     }
 
-    .footer-links {
-      display: flex;
-      flex-direction: column;
-      gap: var(--sp-3);
+    .contact-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--sp-6);
     }
 
-    .footer-link {
-      font-size: 0.9375rem;
-      color: rgba(255,255,255,0.5);
-      transition: all 250ms var(--ease);
-    }
-
-    .footer-link:hover {
+    .contact-email {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+      font-style: italic;
       color: var(--gold);
-      padding-left: var(--sp-2);
+      letter-spacing: 0.02em;
+      margin-bottom: var(--sp-8);
+      display: inline-block;
+      position: relative;
+      transition: color 350ms var(--ease);
     }
 
-    .footer-bottom {
-      padding-top: var(--sp-5);
+    .contact-email::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.4;
+      transition: opacity 350ms var(--ease);
+    }
+
+    .contact-email:hover {
+      color: var(--cream);
+    }
+
+    .contact-email:hover::after {
+      opacity: 0.8;
+      background: var(--cream);
+    }
+
+    .contact-location {
+      font-family: var(--font-sans);
+      font-size: 0.8125rem;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(253, 251, 246, 0.35);
+      margin-bottom: var(--sp-8);
+    }
+
+    .contact-socials {
+      display: flex;
+      justify-content: center;
+      gap: var(--sp-6);
+    }
+
+    .contact-social {
+      font-family: var(--font-sans);
+      font-size: 0.8125rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(253, 251, 246, 0.45);
+      transition: color 350ms var(--ease);
+      position: relative;
+    }
+
+    .contact-social::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width 400ms var(--ease);
+    }
+
+    .contact-social:hover {
+      color: var(--gold);
+    }
+
+    .contact-social:hover::after {
+      width: 100%;
+    }
+
+    /* ============================================
+       6. FOOTER — Minimal
+       ============================================ */
+    .footer {
+      background: var(--royal-900);
+      padding: var(--sp-8) 0;
+      border-top: 1px solid rgba(244, 211, 94, 0.06);
+    }
+
+    .footer-inner {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 clamp(24px, 5vw, 64px);
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: var(--sp-3);
+      gap: var(--sp-4);
     }
 
-    .footer-copyright {
-      font-size: 0.8125rem;
-      color: rgba(255,255,255,0.3);
+    .footer-brand {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--cream);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
-    .footer-copyright .gold-dot {
+    .footer-copy {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: rgba(253, 251, 246, 0.25);
+      letter-spacing: 0.05em;
+    }
+
+    .footer-back {
+      font-family: var(--font-sans);
+      font-size: 0.6875rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(253, 251, 246, 0.3);
+      transition: color 350ms var(--ease);
+    }
+
+    .footer-back:hover {
       color: var(--gold);
-    }
-
-    .back-to-top {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.06);
-      color: rgba(255,255,255,0.5);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 280ms var(--ease);
-    }
-
-    .back-to-top:hover {
-      background: var(--gold);
-      color: var(--royal);
-      transform: translateY(-3px);
-    }
-
-    .back-to-top svg {
-      width: 18px;
-      height: 18px;
     }
 
     /* ============================================
@@ -1641,8 +1073,8 @@
        ============================================ */
     .reveal {
       opacity: 0;
-      transform: translateY(32px);
-      transition: opacity 700ms var(--ease), transform 700ms var(--ease);
+      transform: translateY(40px);
+      transition: opacity 900ms var(--ease), transform 900ms var(--ease);
     }
 
     .reveal.visible {
@@ -1650,110 +1082,85 @@
       transform: translateY(0);
     }
 
-    .reveal-delay-1 { transition-delay: 100ms; }
-    .reveal-delay-2 { transition-delay: 200ms; }
-    .reveal-delay-3 { transition-delay: 300ms; }
-    .reveal-delay-4 { transition-delay: 400ms; }
+    .reveal-delay-1 { transition-delay: 120ms; }
+    .reveal-delay-2 { transition-delay: 240ms; }
+    .reveal-delay-3 { transition-delay: 360ms; }
 
     /* ============================================
        RESPONSIVE
        ============================================ */
     @media (max-width: 960px) {
-      .hero .container {
+      .hero-inner {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: var(--sp-8);
+        gap: var(--sp-12);
+        padding-top: 140px;
       }
 
       .hero-visual {
         order: -1;
       }
 
-      .hero-desc {
+      .hero-visual-bg {
+        right: -16px;
+        top: -16px;
+        width: 90%;
+      }
+
+      .hero-name {
+        font-size: clamp(3rem, 12vw, 5rem);
+      }
+
+      .hero-title-sub {
         margin-left: auto;
         margin-right: auto;
       }
 
-      .hero-actions {
+      .hero-meta {
         justify-content: center;
       }
 
-      .social-links {
+      .hero-deco-number {
+        left: 50%;
+        transform: translateX(-50%);
+        top: -5%;
+      }
+
+      .project-showcase-inner {
+        grid-template-columns: 1fr;
+        gap: var(--sp-6);
+      }
+
+      .project-showcase:nth-child(even) .project-showcase-inner {
+        direction: ltr;
+      }
+
+      .project-info-side {
+        text-align: center;
+      }
+
+      .project-desc {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .project-meta-row {
         justify-content: center;
       }
 
-      .avatar-lg {
-        width: clamp(200px, 55vw, 280px);
+      .skills-header {
+        flex-direction: column;
+        align-items: flex-start;
       }
 
-      .avatar-panel {
-        top: -10px;
-        right: -12px;
+      .contact-socials {
+        flex-wrap: wrap;
+        gap: var(--sp-4);
       }
 
-      .avatar-accent-line {
-        left: -20px;
-      }
-
-      .avatar-number {
-        font-size: 0.65rem;
-        padding: 3px 8px;
-      }
-
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--sp-4) 0;
-      }
-
-      .stat-item:nth-child(2)::after {
-        display: none;
-      }
-
-      .stat-item:nth-child(1)::after,
-      .stat-item:nth-child(3)::after {
-        right: 0;
-      }
-
-      .bento-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .card-project:nth-child(1) {
-        grid-column: span 2;
-        grid-row: span 1;
-      }
-
-      .card-project:nth-child(1) .project-image {
-        aspect-ratio: 16/9;
-      }
-
-      .services-grid {
-        grid-template-columns: 1fr;
-        max-width: 480px;
-        margin: 0 auto;
-      }
-
-      .philosophy-grid {
-        grid-template-columns: 1fr;
-        gap: var(--sp-8);
-      }
-
-      .philosophy-visual {
-        order: -1;
-      }
-
-      .testimonials-grid {
-        grid-template-columns: 1fr;
-        max-width: 480px;
-        margin: 0 auto;
-      }
-
-      .footer .container {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .footer-brand {
-        grid-column: span 2;
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
       }
     }
 
@@ -1762,95 +1169,34 @@
         display: none;
       }
 
-      .hero {
-        min-height: auto;
-        padding-top: clamp(90px, 12vh, 110px);
-      }
-
-      .hero-title {
-        font-size: clamp(2.2rem, 9vw, 3rem);
-      }
-
-      .hero-actions .btn {
-        width: 100%;
-      }
-
-      .bento-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .card-project:nth-child(1) {
-        grid-column: span 1;
-      }
-
-      .section-header {
-        flex-direction: column;
-        gap: var(--sp-2);
-      }
-
-      .section-number {
-        font-size: 2.5rem;
-      }
-
-      .philosophy-values {
-        grid-template-columns: 1fr;
-      }
-
-      .dark-panel {
-        padding: var(--sp-8) var(--sp-5);
-        border-radius: var(--r-lg);
-      }
-
-      .cta-actions .btn {
-        width: 100%;
-      }
-
-      .cta-contact {
-        flex-direction: column;
-        align-items: center;
-        gap: var(--sp-3);
-      }
-
-      .footer .container {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-brand {
-        grid-column: span 1;
-      }
-
-      .footer-bottom {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .ip-mascot {
-        width: 70px;
-        left: 0;
+      .hero-visual-frame img {
+        max-width: 260px;
       }
 
       .hero-wax-seal {
         --size: 48px;
-        font-size: 0.6rem;
-        right: -10px;
-        bottom: -10px;
+        font-size: 0.55rem;
+        right: -12px;
+        bottom: -12px;
       }
 
-      .avatar-panel {
-        top: -6px;
-        right: -8px;
+      .hero-mascot {
+        width: 60px;
+        left: -10px;
+        top: -20px;
       }
 
-      .avatar-accent-line {
-        display: none;
+      .project-image-wrap .project-placeholder {
+        aspect-ratio: 16/10;
       }
 
-      .avatar-number {
-        display: none;
+      .skills-strip {
+        gap: var(--sp-3);
       }
 
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .skill-tag {
+        font-size: 0.75rem;
+        padding: var(--sp-2) var(--sp-4);
       }
     }
 
@@ -1870,7 +1216,7 @@
         transform: none;
       }
 
-      .ip-mascot {
+      .hero-mascot {
         animation: none;
       }
     }
@@ -1878,472 +1224,261 @@
 </head>
 <body>
 
-  <!-- ====== 1. NAVBAR ====== -->
+  <!-- ====== NAVBAR ====== -->
   <nav class="navbar" id="navbar">
     <a href="#hero" class="nav-logo">Feihong<span class="gold-dot">.</span></a>
     <div class="nav-links">
       <a href="#works" class="nav-link">作品</a>
       <a href="#philosophy" class="nav-link">理念</a>
-      <a href="#services" class="nav-link">服务</a>
-      <a href="#contact" class="btn btn-primary btn-sm">联系</a>
+      <a href="#skills" class="nav-link">技能</a>
+      <a href="#contact" class="nav-link">联系</a>
     </div>
   </nav>
 
   <main>
-    <!-- ====== 2. HERO ====== -->
+    <!-- ====== HERO ====== -->
     <section class="hero" id="hero">
-      <div class="container">
+      <span class="hero-deco-number" aria-hidden="true">07</span>
+      <div class="hero-inner">
         <div class="hero-text">
-          <span class="eyebrow reveal">品牌设计师 · 独立顾问</span>
-          <h1 class="hero-title reveal reveal-delay-1">
-            创造<span class="highlight">有温度</span>的<br>设计
+          <span class="hero-eyebrow reveal">Brand Designer &middot; Independent Consultant</span>
+          <h1 class="hero-name reveal reveal-delay-1">
+            飞<span class="italic">鸿</span>
           </h1>
-          <p class="hero-desc reveal reveal-delay-2">
-            你好，我是飞鸿。八年品牌设计经验，我相信好的设计不是让东西看起来好看，而是让人感到被理解。每一个品牌背后都有一个值得被讲述的故事。
+          <p class="hero-title-sub reveal reveal-delay-2">
+            为品牌注入温度与记忆点<br>
+            八年，专注一事
           </p>
-          <div class="hero-actions reveal reveal-delay-2">
-            <a href="#works" class="btn btn-cta btn-lg">查看作品 →</a>
-            <a href="#contact" class="btn btn-outline btn-lg">联系我</a>
-          </div>
-          <div class="social-links reveal reveal-delay-3">
-            <a href="mailto:hello@Feihong.art" class="social-link" aria-label="Email">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </a>
-            <a href="#" class="social-link" aria-label="Dribbble">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
-            </a>
-            <a href="#" class="social-link" aria-label="Behance">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h6a2.5 2.5 0 0 1 0 5H2zm0 5h7a2.5 2.5 0 0 1 0 5H2zM14 8h7M14 14h7a3 3 0 0 0-6 0c0 1.66 1.34 3 3 3h1"/></svg>
-            </a>
-            <a href="#" class="social-link" aria-label="WeChat">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 11a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm5 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/><path d="M15.5 17c3.59 0 6.5-2.46 6.5-5.5S19.09 6 15.5 6 9 8.46 9 11.5c0 1.74.9 3.3 2.33 4.38l-.58 1.82 2.07-1.12c.86.26 1.76.42 2.68.42z"/><path d="M2 10.5C2 13.54 4.91 16 8.5 16c.92 0 1.82-.16 2.68-.42l2.07 1.12-.58-1.82C14.1 13.8 15 12.24 15 10.5 15 7.46 12.09 5 8.5 5S2 7.46 2 10.5z"/></svg>
-            </a>
+          <div class="hero-meta reveal reveal-delay-3">
+            <div class="gold-line-vertical"></div>
+            <div class="hero-meta-text">
+              上海 &middot; 远程合作<br>
+              2026
+            </div>
           </div>
         </div>
         <div class="hero-visual reveal reveal-delay-1">
-          <span class="hero-deco-number" aria-hidden="true">07</span>
-          <div class="avatar-wrap">
-            <div class="avatar-panel"></div>
-            <span class="avatar-accent-line"></span>
-            <div class="avatar-frame">
-              <div class="avatar avatar-lg">
-                <img src="avatar.jpg" alt="飞鸿 · 品牌设计师">
-                <span class="photo-corner tl"></span>
-                <span class="photo-corner tr"></span>
-                <span class="photo-corner bl"></span>
-                <span class="photo-corner br"></span>
-              </div>
-            </div>
-            <div class="avatar-number">N°01</div>
-            <div class="wax-seal hero-wax-seal gold">
-              飞鸿<br>设计
-            </div>
-            <img src="character.png" alt="" class="ip-mascot" aria-hidden="true">
+          <div class="hero-visual-bg"></div>
+          <div class="hero-visual-frame">
+            <img src="avatar.jpg" alt="飞鸿 · 品牌设计师">
+            <span class="photo-corner tl"></span>
+            <span class="photo-corner tr"></span>
+            <span class="photo-corner bl"></span>
+            <span class="photo-corner br"></span>
           </div>
+          <div class="wax-seal hero-wax-seal gold">飞鸿<br>设计</div>
+          <img src="character.png" alt="" class="hero-mascot" aria-hidden="true">
         </div>
       </div>
     </section>
 
-    <!-- ====== 3. ABOUT 引言 ====== -->
-    <section class="about-intro">
-      <div class="container">
-        <div class="about-intro-inner reveal">
-          <span class="about-quote-mark">&ldquo;</span>
-          <p class="about-quote">
-            设计不是让东西看起来好看，<br>而是让人感到被理解。
-          </p>
-          <div class="fleuron">❦</div>
-          <div class="about-signature">
-            <span class="signature">— 飞鸿</span>
+    <!-- ====== PROJECTS ====== -->
+    <section class="projects" id="works">
+      <div class="projects-header reveal">
+        <div class="projects-header-left">
+          <span class="deco-number" aria-hidden="true">01</span>
+          <div>
+            <h2>精选作品</h2>
+            <p>每个品牌都值得拥有独特的视觉语言</p>
           </div>
         </div>
+        <div class="gold-line" style="flex-shrink:0;"></div>
       </div>
+
+      <!-- Project 1 — Left image, right text -->
+      <article class="project-showcase reveal">
+        <div class="project-showcase-inner">
+          <div class="project-image-wrap">
+            <div class="project-image-border"></div>
+            <div class="project-placeholder project-placeholder-1">
+              <span class="project-placeholder-text">云栖茶舍<br>品牌重塑</span>
+            </div>
+            <span class="photo-corner tl"></span>
+            <span class="photo-corner br"></span>
+          </div>
+          <div class="project-info-side">
+            <div class="project-number">01</div>
+            <h3 class="project-title-large">云栖茶舍</h3>
+            <p class="project-desc">东方美学与现代商业的平衡。从品牌策略到视觉识别，为传统茶空间注入当代气质。</p>
+            <div class="project-meta-row">
+              <span>品牌设计</span>
+              <span>视觉识别</span>
+              <span>2025</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 2 — Right image, left text -->
+      <article class="project-showcase reveal">
+        <div class="project-showcase-inner">
+          <div class="project-image-wrap">
+            <div class="project-image-border"></div>
+            <div class="project-placeholder project-placeholder-2">
+              <span class="project-placeholder-text">观止<br>设计系统</span>
+            </div>
+            <span class="photo-corner tl"></span>
+            <span class="photo-corner br"></span>
+          </div>
+          <div class="project-info-side">
+            <div class="project-number">02</div>
+            <h3 class="project-title-large">观止设计系统</h3>
+            <p class="project-desc">企业级设计语言的构建。组件库、Token体系与规范文档，让团队协作更高效。</p>
+            <div class="project-meta-row">
+              <span>设计系统</span>
+              <span>组件库</span>
+              <span>2025</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 3 — Left image, right text -->
+      <article class="project-showcase reveal">
+        <div class="project-showcase-inner">
+          <div class="project-image-wrap">
+            <div class="project-image-border"></div>
+            <div class="project-placeholder project-placeholder-3">
+              <span class="project-placeholder-text">拾光<br>App设计</span>
+            </div>
+            <span class="photo-corner tl"></span>
+            <span class="photo-corner br"></span>
+          </div>
+          <div class="project-info-side">
+            <div class="project-number">03</div>
+            <h3 class="project-title-large">拾光阅读</h3>
+            <p class="project-desc">为阅读爱好者打造沉浸式体验。UI/UX设计与交互原型，让数字阅读回归纸质书的温度。</p>
+            <div class="project-meta-row">
+              <span>产品设计</span>
+              <span>移动端</span>
+              <span>2024</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 4 — Right image, left text -->
+      <article class="project-showcase reveal">
+        <div class="project-showcase-inner">
+          <div class="project-image-wrap">
+            <div class="project-image-border"></div>
+            <div class="project-placeholder project-placeholder-2">
+              <span class="project-placeholder-text">山海<br>文化节</span>
+            </div>
+            <span class="photo-corner tl"></span>
+            <span class="photo-corner br"></span>
+          </div>
+          <div class="project-info-side">
+            <div class="project-number">04</div>
+            <h3 class="project-title-large">山海文化节</h3>
+            <p class="project-desc">大型文化活动的视觉识别系统。从主视觉到周边延展，统一而富有变化。</p>
+            <div class="project-meta-row">
+              <span>活动视觉</span>
+              <span>品牌延展</span>
+              <span>2024</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 5 — Left image, right text -->
+      <article class="project-showcase reveal">
+        <div class="project-showcase-inner">
+          <div class="project-image-wrap">
+            <div class="project-image-border"></div>
+            <div class="project-placeholder project-placeholder-1">
+              <span class="project-placeholder-text">拙器<br>包装设计</span>
+            </div>
+            <span class="photo-corner tl"></span>
+            <span class="photo-corner br"></span>
+          </div>
+          <div class="project-info-side">
+            <div class="project-number">05</div>
+            <h3 class="project-title-large">拙器包装</h3>
+            <p class="project-desc">手工器物的包装设计。以克制的设计语言衬托器物本身的质感，少即是多。</p>
+            <div class="project-meta-row">
+              <span>包装设计</span>
+              <span>印刷品</span>
+              <span>2024</span>
+            </div>
+          </div>
+        </div>
+      </article>
     </section>
 
-    <!-- ====== 4. STATS BAR ====== -->
-    <section class="stats-bar">
-      <div class="container">
-        <div class="stats-grid">
-          <div class="stat-item reveal">
-            <div class="stat-number">8+</div>
-            <div class="stat-label">年设计经验</div>
-          </div>
-          <div class="stat-item reveal reveal-delay-1">
-            <div class="stat-number">50+</div>
-            <div class="stat-label">品牌项目</div>
-          </div>
-          <div class="stat-item reveal reveal-delay-2">
-            <div class="stat-number">100%</div>
-            <div class="stat-label">客户满意</div>
-          </div>
-          <div class="stat-item reveal reveal-delay-3">
-            <div class="stat-number">12</div>
-            <div class="stat-label">设计奖项</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====== 5. FEATURED WORKS ====== -->
-    <section class="works" id="works">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-number" aria-hidden="true">01</span>
-          <div class="section-title-group">
-            <h2 class="section-title">精选作品</h2>
-            <p class="section-subtitle">每个品牌都值得拥有独特的视觉语言</p>
-            <div class="section-title-line"></div>
-          </div>
-        </div>
-
-        <div class="bento-grid">
-          <!-- Project 1 — Large Featured -->
-          <article class="card-project reveal">
-            <div class="project-image">
-              <div class="project-placeholder project-placeholder-1">
-                <span class="project-placeholder-text">云栖茶舍<br>品牌重塑</span>
-              </div>
-              <span class="photo-corner tl"></span>
-              <span class="photo-corner tr"></span>
-              <span class="photo-corner bl"></span>
-              <span class="photo-corner br"></span>
-              <div class="project-overlay">
-                <span class="project-view-label">查看案例 →</span>
-              </div>
-            </div>
-            <div class="project-info">
-              <span class="project-badge badge-wine">精选</span>
-              <h3 class="project-title">云栖茶舍 · 东方美学品牌重塑</h3>
-              <span class="project-category">品牌设计 / 视觉识别</span>
-              <div class="project-year">2025</div>
-            </div>
-          </article>
-
-          <!-- Project 2 -->
-          <article class="card-project reveal reveal-delay-1">
-            <div class="project-image">
-              <div class="project-placeholder project-placeholder-2">
-                <span class="project-placeholder-text">观止<br>设计系统</span>
-              </div>
-              <span class="photo-corner tl"></span>
-              <span class="photo-corner br"></span>
-              <div class="project-overlay">
-                <span class="project-view-label">查看案例 →</span>
-              </div>
-            </div>
-            <div class="project-info">
-              <h3 class="project-title">观止 · 企业级设计系统</h3>
-              <span class="project-category">设计系统 / 组件库</span>
-              <div class="project-year">2025</div>
-            </div>
-          </article>
-
-          <!-- Project 3 -->
-          <article class="card-project reveal reveal-delay-2">
-            <div class="project-image">
-              <div class="project-placeholder project-placeholder-3">
-                <span class="project-placeholder-text">拾光<br>App设计</span>
-              </div>
-              <span class="photo-corner tr"></span>
-              <span class="photo-corner bl"></span>
-              <div class="project-overlay">
-                <span class="project-view-label">查看案例 →</span>
-              </div>
-            </div>
-            <div class="project-info">
-              <h3 class="project-title">拾光 · 阅读应用UI/UX</h3>
-              <span class="project-category">产品设计 / 移动端</span>
-              <div class="project-year">2024</div>
-            </div>
-          </article>
-
-          <!-- Project 4 -->
-          <article class="card-project reveal reveal-delay-1">
-            <div class="project-image">
-              <div class="project-placeholder project-placeholder-2">
-                <span class="project-placeholder-text">山海<br>文化节</span>
-              </div>
-              <span class="photo-corner tl"></span>
-              <span class="photo-corner br"></span>
-              <div class="project-overlay">
-                <span class="project-view-label">查看案例 →</span>
-              </div>
-            </div>
-            <div class="project-info">
-              <span class="project-badge badge-gold">视觉</span>
-              <h3 class="project-title">山海文化节 · 视觉识别系统</h3>
-              <span class="project-category">活动视觉 / 品牌延展</span>
-              <div class="project-year">2024</div>
-            </div>
-          </article>
-
-          <!-- Project 5 -->
-          <article class="card-project reveal reveal-delay-2">
-            <div class="project-image">
-              <div class="project-placeholder project-placeholder-1">
-                <span class="project-placeholder-text">拙器<br>包装设计</span>
-              </div>
-              <span class="photo-corner tr"></span>
-              <span class="photo-corner bl"></span>
-              <div class="project-overlay">
-                <span class="project-view-label">查看案例 →</span>
-              </div>
-            </div>
-            <div class="project-info">
-              <span class="project-badge badge-royal">包装</span>
-              <h3 class="project-title">拙器 · 手工器物包装设计</h3>
-              <span class="project-category">包装设计 / 印刷品</span>
-              <div class="project-year">2024</div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====== 6. PHILOSOPHY 设计哲学 ====== -->
+    <!-- ====== PHILOSOPHY ====== -->
     <section class="philosophy" id="philosophy">
-      <div class="container">
-        <div class="philosophy-grid">
-          <div class="philosophy-text reveal">
-            <span class="section-number" style="font-size:2rem;opacity:0.5;">02</span>
-            <h2>设计哲学</h2>
-            <p>我相信好的设计是"有温度的秩序"。它不是冰冷的规范，也不是随意的装饰，而是在严谨的体系中注入人文的关怀。当细节被认真对待，使用者会在某一瞬间意识到——"有人为我想过"。</p>
-            <p>在AI工具普及的今天，人人都能生成"看起来不错"的设计。但真正打动人的，永远是那些经过深思熟虑的判断、对细节的偏执、以及对受众的共情。</p>
-
-            <div class="philosophy-values">
-              <div class="value-item">
-                <h4>克制</h4>
-                <p>少即是多，用色不超过三种，装饰恰到好处</p>
-              </div>
-              <div class="value-item">
-                <h4>温度</h4>
-                <p>衬线字体的优雅，金色细节的质感，不冰冷</p>
-              </div>
-              <div class="value-item">
-                <h4>秩序</h4>
-                <p>网格、间距、层级，建立清晰的视觉逻辑</p>
-              </div>
-              <div class="value-item">
-                <h4>记忆点</h4>
-                <p>至少一个让人记住的签名细节</p>
-              </div>
-            </div>
-          </div>
-          <div class="philosophy-visual reveal reveal-delay-2">
-            <div class="philosophy-card">
-              <span class="quote-mark">&ldquo;</span>
-              <blockquote>
-                好的设计是隐形的。<br>当用户不需要思考"这怎么用"的时候，<br>设计就成功了。
-              </blockquote>
-              <div style="display:flex;align-items:center;gap:var(--sp-3);">
-                <div style="width:40px;height:40px;border-radius:50%;overflow:hidden;border:2px solid var(--gold);">
-                  <img src="avatar.jpg" alt="飞鸿" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                <div>
-                  <div style="font-family:var(--font-serif);font-weight:600;font-size:0.9375rem;color:var(--ink);">飞鸿</div>
-                  <div style="font-size:0.8125rem;color:var(--ink-300);">Feihong Design</div>
-                </div>
-              </div>
-            </div>
-          </div>
+      <span class="philosophy-deco-number" aria-hidden="true">02</span>
+      <div class="philosophy-inner">
+        <span class="philosophy-quote-mark reveal">&ldquo;</span>
+        <blockquote class="philosophy-quote reveal reveal-delay-1">
+          设计不是让东西看起来好看，<br>
+          而是让人感到被理解。
+        </blockquote>
+        <div class="fleuron reveal reveal-delay-2" style="margin-bottom:var(--sp-6);">&#10086;</div>
+        <div class="philosophy-signature reveal reveal-delay-2">
+          飞鸿 &middot; Feihong Design
         </div>
       </div>
     </section>
 
-    <!-- ====== 7. SERVICES ====== -->
-    <section class="services" id="services">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-number" aria-hidden="true">03</span>
-          <div class="section-title-group">
-            <h2 class="section-title">我的服务</h2>
-            <p class="section-subtitle">从策略到落地，陪伴品牌每一步成长</p>
-            <div class="section-title-line"></div>
-          </div>
+    <!-- ====== SKILLS ====== -->
+    <section class="skills" id="skills">
+      <div class="skills-header reveal">
+        <span class="deco-number" aria-hidden="true">03</span>
+        <div>
+          <h2>专业能力</h2>
         </div>
-
-        <div class="services-grid">
-          <!-- Service 1: Brand Design -->
-          <article class="card-feature reveal">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-            </div>
-            <h3 class="feature-title">品牌设计</h3>
-            <p class="feature-desc">从品牌核心价值出发，构建完整的视觉识别系统，让品牌有温度、有记忆点。</p>
-            <ul class="feature-list">
-              <li>品牌策略与定位</li>
-              <li>Logo与视觉识别系统</li>
-              <li>品牌应用与延展</li>
-            </ul>
-          </article>
-
-          <!-- Service 2: Design System -->
-          <article class="card-feature reveal reveal-delay-1">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-            </div>
-            <h3 class="feature-title">设计系统</h3>
-            <p class="feature-desc">为产品和团队构建可扩展、可复用的设计语言系统，提升协作效率与一致性。</p>
-            <ul class="feature-list">
-              <li>组件库与Token体系</li>
-              <li>设计规范文档</li>
-              <li>设计到开发落地</li>
-            </ul>
-          </article>
-
-          <!-- Service 3: Landing Page -->
-          <article class="card-feature reveal reveal-delay-2">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-            </div>
-            <h3 class="feature-title">落地页设计</h3>
-            <p class="feature-desc">高转化、有审美的落地页与品牌官网设计，让访客第一眼就记住你。</p>
-            <ul class="feature-list">
-              <li>品牌官网与落地页</li>
-              <li>交互原型与动效</li>
-              <li>响应式适配</li>
-            </ul>
-          </article>
-        </div>
+      </div>
+      <div class="skills-strip reveal reveal-delay-1">
+        <span class="skill-tag">品牌策略</span>
+        <span class="skill-divider"></span>
+        <span class="skill-tag">视觉识别</span>
+        <span class="skill-divider"></span>
+        <span class="skill-tag">Logo设计</span>
+        <span class="skill-divider"></span>
+        <span class="skill-tag">设计系统</span>
+        <span class="skill-divider"></span>
+        <span class="skill-tag">UI/UX</span>
+        <span class="skill-divider"></span>
+        <span class="skill-tag">落地页</span>
+        <span class="skill-divider"></span>
+        <span class="skill-tag">包装设计</span>
+        <span class="skill-divider"></span>
+        <span class="skill-tag">印刷品</span>
+        <span class="skill-divider"></span>
+        <span class="skill-tag">动效设计</span>
+        <span class="skill-divider"></span>
+        <span class="skill-tag">品牌咨询</span>
+        <span class="skill-divider"></span>
+        <span class="skill-tag">艺术指导</span>
       </div>
     </section>
 
-    <!-- ====== 8. TESTIMONIALS ====== -->
-    <section class="testimonials">
-      <div class="container">
-        <div class="section-header reveal" style="justify-content:center;text-align:center;">
-          <div class="section-title-group">
-            <span class="section-number" style="display:block;text-align:center;">04</span>
-            <h2 class="section-title">客户评价</h2>
-            <p class="section-subtitle">他们这样说</p>
-            <div class="section-title-line" style="margin-left:auto;margin-right:auto;"></div>
-          </div>
-        </div>
-
-        <div class="testimonials-grid">
-          <div class="testimonial-card reveal">
-            <span class="quote-mark">&ldquo;</span>
-            <p class="testimonial-text">飞鸿帮我们重新梳理了品牌定位，视觉出来的那一刻整个团队都很兴奋。不是那种"好看但说不出哪里好"的设计，而是真正传递了我们想表达的气质。</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar">林</div>
-              <div class="testimonial-info">
-                <div class="name">林远</div>
-                <div class="role">某科技公司 · 创始人</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="testimonial-card reveal reveal-delay-1">
-            <span class="quote-mark">&ldquo;</span>
-            <p class="testimonial-text">合作过程中最打动我的是他对细节的偏执。一个按钮的圆角、一行文字的字距，他都会反复斟酌。这种认真在当下太稀缺了。</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar" style="background:linear-gradient(135deg,var(--wine-100),var(--gold-100));">苏</div>
-              <div class="testimonial-info">
-                <div class="name">苏晚</div>
-                <div class="role">独立插画师</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="testimonial-card reveal reveal-delay-2">
-            <span class="quote-mark">&ldquo;</span>
-            <p class="testimonial-text">设计系统上线后，我们团队的协作效率提升了至少30%。更重要的是，产品终于有了统一的"语言"，不再是每个页面各做各的。</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar" style="background:linear-gradient(135deg,var(--gold-100),var(--royal-100));">周</div>
-              <div class="testimonial-info">
-                <div class="name">周明远</div>
-                <div class="role">产品设计负责人</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====== 9. CTA ====== -->
-    <section class="cta-section" id="contact">
-      <div class="container">
-        <div class="dark-panel reveal">
-          <div class="cta-content">
-            <span class="eyebrow eyebrow-light">开始合作</span>
-            <h2 class="cta-title">准备好创造有温度的设计了吗？</h2>
-            <p class="cta-desc">无论是品牌从零开始的构建，还是现有品牌的焕新升级，我都期待与你一起，让设计为品牌说话。</p>
-            <div class="cta-actions">
-              <a href="mailto:hello@Feihong.art" class="btn btn-gold btn-lg">开始合作 →</a>
-              <a href="#works" class="btn btn-outline-light btn-lg">先看作品</a>
-            </div>
-            <div class="fleuron" style="margin:var(--sp-6) auto;opacity:0.3;color:var(--gold);">❦</div>
-            <div class="cta-contact">
-              <a href="mailto:hello@Feihong.art" class="cta-contact-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                hello@Feihong.art
-              </a>
-              <span class="cta-contact-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                上海 · 远程合作
-              </span>
-            </div>
-            <div class="social-links">
-              <a href="mailto:hello@Feihong.art" class="social-link" aria-label="Email">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              </a>
-              <a href="#" class="social-link" aria-label="Dribbble">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
-              </a>
-              <a href="#" class="social-link" aria-label="Behance">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h6a2.5 2.5 0 0 1 0 5H2zm0 5h7a2.5 2.5 0 0 1 0 5H2zM14 8h7M14 14h7a3 3 0 0 0-6 0c0 1.66 1.34 3 3 3h1"/></svg>
-              </a>
-            </div>
-          </div>
+    <!-- ====== CONTACT ====== -->
+    <section class="contact" id="contact">
+      <div class="contact-inner">
+        <span class="contact-eyebrow reveal">Get in Touch</span>
+        <h2 class="contact-title reveal reveal-delay-1">开始对话</h2>
+        <a href="mailto:hello@Feihong.art" class="contact-email reveal reveal-delay-2">hello@Feihong.art</a>
+        <p class="contact-location reveal reveal-delay-2">上海 &middot; 远程合作</p>
+        <div class="fleuron reveal reveal-delay-3" style="margin-bottom:var(--sp-6);opacity:0.3;">&#10086;</div>
+        <div class="contact-socials reveal reveal-delay-3">
+          <a href="#" class="contact-social">Dribbble</a>
+          <a href="#" class="contact-social">Behance</a>
+          <a href="#" class="contact-social">WeChat</a>
+          <a href="#" class="contact-social">Instagram</a>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ====== 10. FOOTER ====== -->
+  <!-- ====== FOOTER ====== -->
   <footer class="footer">
-    <div class="container">
-      <div class="footer-brand">
-        <a href="#hero" class="nav-logo">Feihong<span class="gold-dot">.</span></a>
-        <p class="footer-brand-desc">品牌设计师与品牌顾问，专注于为品牌注入温度与记忆点。相信好的设计不是装饰，而是沟通。</p>
-        <div class="social-links">
-          <a href="mailto:hello@Feihong.art" class="social-link" aria-label="Email" style="background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.5);">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="footer-col">
-        <h4>导航</h4>
-        <ul class="footer-links">
-          <li><a href="#hero" class="footer-link">首页</a></li>
-          <li><a href="#works" class="footer-link">作品</a></li>
-          <li><a href="#philosophy" class="footer-link">理念</a></li>
-          <li><a href="#services" class="footer-link">服务</a></li>
-          <li><a href="#contact" class="footer-link">联系</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>服务</h4>
-        <ul class="footer-links">
-          <li><a href="#" class="footer-link">品牌设计</a></li>
-          <li><a href="#" class="footer-link">设计系统</a></li>
-          <li><a href="#" class="footer-link">落地页设计</a></li>
-          <li><a href="#" class="footer-link">个人品牌咨询</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="footer-bottom">
-        <p class="footer-copyright">
-          © 2026 Feihong<span class="gold-dot">.</span>  All rights reserved.
-        </p>
-        <a href="#hero" class="back-to-top" aria-label="回到顶部">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
-        </a>
-      </div>
+    <div class="footer-inner">
+      <div class="footer-brand">Feihong<span style="color:var(--gold);">.</span></div>
+      <div class="footer-copy">&copy; 2026 Feihong Design. All rights reserved.</div>
+      <a href="#hero" class="footer-back">回到顶部</a>
     </div>
   </footer>
 
@@ -2359,7 +1494,7 @@
       var sections = document.querySelectorAll('section[id]');
 
       function updateNavbar() {
-        if (window.scrollY > 20) {
+        if (window.scrollY > 40) {
           navbar.classList.add('scrolled');
         } else {
           navbar.classList.remove('scrolled');
@@ -2439,13 +1574,6 @@
               behavior: reduceMotion ? 'auto' : 'smooth'
             });
           }
-        });
-      });
-
-      // Project card click interaction
-      document.querySelectorAll('.card-project').forEach(function(card) {
-        card.addEventListener('click', function() {
-          console.log('Project card clicked');
         });
       });
     })();
