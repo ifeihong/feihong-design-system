@@ -7,11 +7,11 @@
 ### *Timeless Vision, Crafted with Precision*
 #### 不像AI的个人品牌设计系统 — 艺术有品质，有温度有人味
 
-[![Version](https://img.shields.io/badge/version-v7.0-0A2463?style=for-the-badge&labelColor=0A2463&color=F4D35E)](https://github.com/ifeihong/feihong-design-system)
+[![Version](https://img.shields.io/badge/version-v7.1-0A2463?style=for-the-badge&labelColor=0A2463&color=F4D35E)](https://github.com/ifeihong/feihong-design-system)
 [![License: MIT](https://img.shields.io/badge/License-MIT-D8315B.svg?style=for-the-badge&labelColor=D8315B&color=F4D35E)](https://opensource.org/licenses/MIT)
 [![Templates](https://img.shields.io/badge/Templates-10-0A2463?style=for-the-badge&labelColor=0A2463&color=F4D35E)](https://feihong.art/)
 [![Components](https://img.shields.io/badge/Components-148-D8315B?style=for-the-badge&labelColor=D8315B&color=F4D35E)](https://feihong.art/assets/showcase.html)
-[![Stable Scenes](https://img.shields.io/badge/Stable-4%20scenes-0A2463?style=for-the-badge&labelColor=0A2463&color=4ADE80)](https://feihong.art/)
+[![Scenes](https://img.shields.io/badge/Scenes-10-0A2463?style=for-the-badge&labelColor=0A2463&color=4ADE80)](https://feihong.art/)
 
 [View Demo](https://feihong.art/) · [Component Showcase](https://feihong.art/assets/showcase.html) · [GitHub](https://github.com/ifeihong/feihong-design-system)
 
@@ -28,8 +28,7 @@
 ## ◆ v7.0 Highlights
 
 - ◆ **FEIHONG Brand Identity** — 全大写品牌标识，高奢国际化视觉语言，Art Deco几何装饰语言
-- ◆ **4 Stable Scenes, Production Ready** — Portfolio / Landing / Tutorial / Deck，Signature Collection组件全面应用
-- ◇ **6 Beta Scenes, Continuously Iterating** — Case Study / App / Social Cards / Resume / WeChat / Email
+- ◆ **10 Production-Ready Scenes** — Portfolio / Landing / Tutorial / Deck / Case Study / App / Social Cards / Resume / WeChat / Email
 - ✦ **148 Components · 19 Categories · 250+ Variants** — 含42个动态文字标题、25个高奢艺术组件、10+签名组件
 - 📜 **Signature Collection** — Wax Seal火漆印章、Photo Corner照片角贴、Fleuron ❦花饰、Drop Cap首字下沉、Gold Signature金色签名
 - 🎬 **Motion Language** — 统一Feihong Easing缓动曲线，完整动效规范（见MOTION.md）
@@ -67,27 +66,20 @@
 
 ---
 
-## ◇ Scene Maturity · 场景成熟度
+## ◇ Ten Scenes · 十大场景
 
-### ◆ Stable — Production Ready · 核心场景
-
-| Scene | Template | Core Features | Signature Elements |
-|:---|:---|:---|:---|
-| **Portfolio / Personal Site** | [`portfolio.html`](assets/portfolio.html) | Asymmetric Hero, Bento grid, testimonials | Wax Seal, Photo Corner, Fleuron, Signature |
-| **Landing Page** | [`landing.html`](assets/landing.html) | Timeline, speakers, countdown, CTA forms | Fleuron, gold lines, pull quotes |
-| **Tutorial / Long-form** | [`tutorial.html`](assets/tutorial.html) | Drop cap, reading progress, TOC sidebar | Drop Cap, Fleuron, Pull Quote, Callout |
-| **Presentation Deck** | [`deck.html`](assets/deck.html) | 9 layouts, keyboard nav, F fullscreen, print | Big quotes, gold lines, Fleuron, chapter openings |
-
-### ◇ Beta — Iterating · 扩展场景
-
-| Scene | Template | Status | Notes |
-|:---|:---|:---:|:---|
-| Case Study | [`case-study.html`](assets/case-study.html) | ◇ Beta | Narrative complete, visual refinement ongoing |
-| App / Dashboard | [`app.html`](assets/app.html) | ◇ Beta | Terminal green + luxe components |
-| Social Cards (Xiaohongshu) | [`cards.html`](assets/cards.html) | ◇ Beta | html2canvas PNG export ready |
-| Resume / CV | [`resume.html`](assets/resume.html) | ◇ Beta | A4 print ready |
-| WeChat Article | [`wechat.html`](assets/wechat.html) | ◇ Beta | WeChat inline-style compatible |
-| Email / EDM | [`email.html`](assets/email.html) | ◇ Beta | Table layout, Outlook compatible |
+| N° | Scene | Template | Core Features |
+|:---:|:---|:---|:---|
+| 01 | **Portfolio / Personal Site** | [`portfolio.html`](assets/portfolio.html) | Asymmetric Hero, Bento grid, Wax Seal, Photo Corner, editorial feel |
+| 02 | **Landing Page** | [`landing.html`](assets/landing.html) | Timeline, speakers, countdown, CTA forms, conversion-driven |
+| 03 | **Tutorial / Long-form** | [`tutorial.html`](assets/tutorial.html) | Drop cap, reading progress, TOC sidebar, Fleuron ❦ dividers |
+| 04 | **Presentation Deck** | [`deck.html`](assets/deck.html) | 9 layouts, keyboard nav, F fullscreen, print mode, Keynote-level |
+| 05 | **Case Study** | [`case-study.html`](assets/case-study.html) | Narrative arc: problem→solution→result, data viz, dark panels |
+| 06 | **App / Dashboard** | [`app.html`](assets/app.html) | Sidebar nav, Terminal Green code blocks, functional UI, KPI cards |
+| 07 | **Social Cards (Xiaohongshu)** | [`cards.html`](assets/cards.html) | 3:4 portrait, pagination, html2canvas PNG export, 6 layouts |
+| 08 | **Resume / CV** | [`resume.html`](assets/resume.html) | A4 print ready, Ctrl+P PDF, single page, no animation |
+| 09 | **WeChat Article** | [`wechat.html`](assets/wechat.html) | Inline styles, table layout, WeChat editor compatible |
+| 10 | **Email / EDM** | [`email.html`](assets/email.html) | Table layout, inline styles, Outlook compatible, unsubscribe link |
 
 ---
 
@@ -195,16 +187,16 @@ feihong-design-system/
 │   ├── html2canvas.min.js        # Card-to-PNG export dependency
 │   ├── showcase.html             # Component visual showcase (148 components)
 │   │
-│   ├── portfolio.html      ◆ Stable  # Portfolio / Personal Site
-│   ├── landing.html        ◆ Stable  # Landing Page / Campaign
-│   ├── tutorial.html       ◆ Stable  # Tutorial / Long-form / Blog
-│   ├── deck.html           ◆ Stable  # Presentation / Deck / Slides
-│   ├── case-study.html     ◇ Beta    # Case Study / Project Retrospective
-│   ├── app.html            ◇ Beta    # App / Dashboard / Functional
-│   ├── cards.html          ◇ Beta    # Social Cards / Xiaohongshu (3:4 portrait)
-│   ├── resume.html         ◇ Beta    # Resume / CV (A4 print)
-│   ├── wechat.html         ◇ Beta    # WeChat Article (inline styles)
-│   └── email.html          ◇ Beta    # Email / EDM (Table layout)
+│   ├── portfolio.html              # N°01 Portfolio / 个人作品集
+│   ├── landing.html                # N°02 Landing Page / 活动页
+│   ├── tutorial.html               # N°03 Tutorial / 教程长文
+│   ├── deck.html                   # N°04 Deck / 演示文稿
+│   ├── case-study.html             # N°05 Case Study / 案例研究
+│   ├── app.html                    # N°06 App / 功能页/仪表盘
+│   ├── cards.html                  # N°07 Social Cards / 图文卡片
+│   ├── resume.html                 # N°08 Resume / 简历CV
+│   ├── wechat.html                 # N°09 WeChat / 公众号排版
+│   └── email.html                  # N°10 Email / 邮件EDM
 │
 ├── components/                   # Component library (19 categorized files)
 │   ├── 01-brand.md               # Brand Foundation (tokens, reset, utilities)
@@ -365,7 +357,7 @@ Issues and PRs are welcome. Suggested directions:
 
 <div align="center">
 
-**FEIHONG Design System v7.0**
+**FEIHONG Design System v7.1**
 
 *Timeless Vision, Crafted with Precision*
 *Anti-AI · Artistic Quality · Human Warmth*

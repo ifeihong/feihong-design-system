@@ -1,6 +1,6 @@
 ---
 name: feihong-design-system
-description: FEIHONG Design System — Premium personal brand design system for AI-assisted creation. For HTML pages, portfolios, landing pages, case studies, tutorials, decks, apps, cards, resumes, emails and any frontend design task. Signature palette: Royal Blue #0A2463 + Vintage Gold #F4D35E + Burgundy Wine #D8315B. Core principle: Anti-AI > Artistic Quality > Human Warmth > Designer's Eye.
+description: FEIHONG Design System — Premium personal brand design system for AI-assisted creation. 10 scene templates, 148 components, for portfolios, landing pages, case studies, tutorials, decks, apps, cards, resumes, emails, WeChat articles and any frontend design task. Signature palette: Royal Blue #0A2463 + Vintage Gold #F4D35E + Burgundy Wine #D8315B. Core principle: Anti-AI > Artistic Quality > Human Warmth > Designer's Eye.
 ---
 
 # FEIHONG Design System
@@ -14,30 +14,22 @@ description: FEIHONG Design System — Premium personal brand design system for 
 
 ---
 
-## Scene Maturity · 场景成熟度分级
+## Ten Scenes · 十大场景
 
-### ⭐ Stable Scenes (v2.0) — Production Ready · 核心场景
+All 10 scenes are production-ready, each with complete specification and template.
 
-| Scene · 场景 | Specification · 规范 | Template · 模板 | Maturity | Recommendation |
-|------|------|------|--------|--------|
-| Portfolio / Personal Site · 作品集 | `scenes/portfolio.md` | `assets/portfolio.html` | ✅ Stable | 🌟🌟🌟🌟🌟 |
-| Landing Page · 活动页 | `scenes/landing.md` | `assets/landing.html` | ✅ Stable | 🌟🌟🌟🌟🌟 |
-| Tutorial / Long-form · 教程 | `scenes/tutorial.md` | `assets/tutorial.html` | ✅ Stable | 🌟🌟🌟🌟🌟 |
-| Presentation Deck · 演示文稿 | `scenes/deck.md` | `assets/deck.html` | ✅ Stable | 🌟🌟🌟🌟🌟 |
-
-### 🧪 Beta Scenes — Iterating · Beta场景
-
-| Scene · 场景 | Specification · 规范 | Template · 模板 | Status | Notes |
-|------|------|------|------|----------|
-| Case Study · 案例研究 | `scenes/case-study.md` | `assets/case-study.html` | 🧪 Beta | Narrative complete, details refining |
-| App / Dashboard · 功能页 | `scenes/app.md` | `assets/app.html` | 🧪 Beta | Terminal green + luxe components |
-| Social Cards · 图文卡片 | `scenes/cards.md` | `assets/cards.html` | 🧪 Beta | Export ready, variants expanding |
-| Resume / CV · 简历 | `scenes/resume.md` | `assets/resume.html` | 🧪 Beta | A4 print ready |
-| WeChat Article · 公众号 | `scenes/wechat.md` | Inline HTML | 🧪 Beta | WeChat compatible |
-| Email / EDM · 邮件 | `scenes/email.md` | `assets/email.html` | 🧪 Beta | Outlook compatible |
-
-> **Usage Guide**: Recommend Stable scenes first. Beta scenes are usable; inform users they are under continuous refinement.
-> **使用建议**：优先推荐核心场景，Beta场景可使用但告知用户是持续迭代版本。
+| N° | Scene · 场景 | Specification · 规范 | Template · 模板 | Core Character |
+|:---:|:---|:---|:---|:---|
+| 01 | Portfolio / Personal Site · 作品集/个人主页 | `scenes/portfolio.md` | `assets/portfolio.html` | Asymmetric Hero, Bento grid, Wax Seal, editorial feel |
+| 02 | Landing Page · 活动页/落地页 | `scenes/landing.md` | `assets/landing.html` | Conversion-driven, timeline, speakers, CTA forms |
+| 03 | Tutorial / Long-form · 教程/长文/博客 | `scenes/tutorial.md` | `assets/tutorial.html` | Drop cap, reading progress, TOC, book-quality typography |
+| 04 | Presentation Deck · 演示文稿/Slides | `scenes/deck.md` | `assets/deck.html` | Fullscreen, 16:9, keyboard nav, 9 layouts, F fullscreen |
+| 05 | Case Study · 案例研究/项目复盘 | `scenes/case-study.md` | `assets/case-study.html` | Narrative arc, data visualization, dark panels |
+| 06 | App / Dashboard · 功能页/仪表盘 | `scenes/app.md` | `assets/app.html` | Functional UI, sidebar nav, Terminal Green, components |
+| 07 | Social Cards · 图文卡片/小红书 | `scenes/cards.md` | `assets/cards.html` | 3:4 portrait, pagination, html2canvas PNG export |
+| 08 | Resume / CV · 简历/履历 | `scenes/resume.md` | `assets/resume.html` | A4 print, single page, no animation, Ctrl+P PDF |
+| 09 | WeChat Article · 公众号/微信图文 | `scenes/wechat.md` | Inline HTML | WeChat inline styles, no external CSS/JS |
+| 10 | Email / EDM · 邮件营销 | `scenes/email.md` | `assets/email.html` | Table layout, inline styles, Outlook compatible |
 
 ---
 
@@ -45,19 +37,18 @@ description: FEIHONG Design System — Premium personal brand design system for 
 
 The system activates automatically when the request matches these scenarios:
 
-| Trigger Keywords · 触发关键词 | Scene Type · 场景 | Maturity |
-|----------------|-------------|--------|
-| 个人主页、个人网站、Portfolio | Portfolio | ⭐ Stable |
-| 作品集、作品展示、项目展示 | Portfolio | ⭐ Stable |
-| 教程、教学、科普、博客、文章页 | Tutorial | ⭐ Stable |
-| Landing Page、落地页、活动页、报名页 | Landing | ⭐ Stable |
-| 演示文稿、slides、幻灯片、deck、演讲 | Deck | ⭐ Stable |
-| 案例研究、Case Study、项目复盘 | Case Study | 🧪 Beta |
-| App、功能页、看板、仪表盘 | App | 🧪 Beta |
-| 简历、CV、履历 | Resume | 🧪 Beta |
-| 邮件模板、EDM、Newsletter | Email | 🧪 Beta |
-| 图文卡片、小红书图文、社交卡片 | Cards | 🧪 Beta |
-| 公众号排版、微信图文 | WeChat | 🧪 Beta |
+| Trigger Keywords · 触发关键词 | Scene Type · 场景 |
+|----------------|-------------|
+| 个人主页、个人网站、Portfolio、作品集、作品展示、项目展示 | Portfolio |
+| Landing Page、落地页、活动页、报名页、课程页、发布会 | Landing |
+| 教程、教学、科普、博客、文章页、长文、专栏 | Tutorial |
+| 演示文稿、slides、幻灯片、deck、演讲、分享会 | Deck |
+| 案例研究、Case Study、项目复盘、设计过程 | Case Study |
+| App、功能页、看板、仪表盘、工具页、后台 | App |
+| 图文卡片、小红书图文、社交卡片、朋友圈图 | Cards |
+| 简历、CV、履历 | Resume |
+| 邮件模板、EDM、Newsletter、订阅邮件 | Email |
+| 公众号排版、微信图文 | WeChat |
 
 > **Adaptive Judgment**: For simple modifications (e.g., "change a button color", "add a section"), use **Fast Track**. For new pages / complete designs, use the **Full 8-Step Process**.
 > **自适应判断**：需求简单时走快速路径；新建页面/完整设计走完整8步工作流。
@@ -91,7 +82,7 @@ Process:
 
 Before starting, quickly assess what is already known from the user input:
 
-- [ ] **Type** clear? (Which scene? Stable or Beta?)
+- [ ] **Type** clear? (Which of the 10 scenes?)
 - [ ] **Audience** clear? (Who is it for?)
 - [ ] **Scale** known? (How many screens/pages/cards/slides?)
 - [ ] **Assets** available? (Copy/images/data/avatar/IP character)
@@ -132,27 +123,20 @@ Core questions to confirm (select only what's missing):
   - 🔴 Key forbidden items
   - 🔴 Motion language from `MOTION.md` (easing, duration, principles)
 
-**Selective Reading** (by scene type):
+**Selective Reading** (by scene type) — read the corresponding scene spec before work:
 
-**⭐ Stable Scenes (read corresponding spec):**
-
-| Scene | Specification | Template |
-|----------|-------------|---------|
-| Tutorial / Long-form | `scenes/tutorial.md` | `assets/tutorial.html` |
-| Landing Page | `scenes/landing.md` | `assets/landing.html` |
-| Portfolio | `scenes/portfolio.md` | `assets/portfolio.html` |
-| Deck / Presentation | `scenes/deck.md` | `assets/deck.html` |
-
-**🧪 Beta Scenes (optional reading):**
-
-| Scene | Specification | Template |
-|----------|-------------|---------|
-| Case Study | `scenes/case-study.md` | `assets/case-study.html` |
-| App / Dashboard | `scenes/app.md` | `assets/app.html` |
-| Social Cards | `scenes/cards.md` | `assets/cards.html` |
-| WeChat Article | `scenes/wechat.md` | Inline HTML |
-| Resume / CV | `scenes/resume.md` | `assets/resume.html` |
-| Email / EDM | `scenes/email.md` | `assets/email.html` |
+| N° | Scene | Specification | Template |
+|:---:|:---|:---|:---|
+| 01 | Portfolio / Personal Site | `scenes/portfolio.md` | `assets/portfolio.html` |
+| 02 | Landing Page | `scenes/landing.md` | `assets/landing.html` |
+| 03 | Tutorial / Long-form | `scenes/tutorial.md` | `assets/tutorial.html` |
+| 04 | Deck / Presentation | `scenes/deck.md` | `assets/deck.html` |
+| 05 | Case Study | `scenes/case-study.md` | `assets/case-study.html` |
+| 06 | App / Dashboard | `scenes/app.md` | `assets/app.html` |
+| 07 | Social Cards | `scenes/cards.md` | `assets/cards.html` |
+| 08 | Resume / CV | `scenes/resume.md` | `assets/resume.html` |
+| 09 | WeChat Article | `scenes/wechat.md` | Inline HTML |
+| 10 | Email / EDM | `scenes/email.md` | `assets/email.html` |
 
 **After Reading, you must be clear on 5 things:**
 1. What is the typical structure / rhythm of this scene?
@@ -168,25 +152,20 @@ Core questions to confirm (select only what's missing):
 **Default strategy: Start from templates, never from zero.**
 **默认策略：从模板开始改，不从零写。**
 
-**⭐ Stable Scenes:**
+**All 10 scene templates — start from the appropriate one, never from zero:**
 
-| Scene | Template | Special Notes |
-|----------|---------|---------|
-| Tutorial | `assets/tutorial.html` | Long-form reading, TOC nav, progress bar |
-| Landing | `assets/landing.html` | CTA-driven, visual impact, form interaction |
-| Portfolio | `assets/portfolio.html` | Project grid, visual-first, dark Hero option |
-| Deck | `assets/deck.html` | Fullscreen slides, keyboard nav, 16:9, F for fullscreen |
-
-**🧪 Beta Scenes:**
-
-| Scene | Template | Special Notes |
-|----------|---------|---------|
-| Case Study | `assets/case-study.html` | Context→Challenge→Process→Result structure |
-| App | `assets/app.html` | Functional UI, components, Terminal Green available |
-| Social Cards | `assets/cards.html` | 3:4 portrait pagination, html2canvas export |
-| WeChat | Inline HTML | WeChat compatible, no external CSS/JS |
-| Resume | `assets/resume.html` | A4 single page, print-friendly, no animations |
-| Email | `assets/email.html` | Table layout, inline styles, Outlook compatible |
+| N° | Scene | Template | Special Notes |
+|:---:|:---|:---|:---|
+| 01 | Portfolio | `assets/portfolio.html` | Project grid, visual-first, asymmetric Hero, Wax Seal |
+| 02 | Landing | `assets/landing.html` | CTA-driven, visual impact, timeline, form interaction |
+| 03 | Tutorial | `assets/tutorial.html` | Long-form reading, TOC nav, progress bar, Drop Cap |
+| 04 | Deck | `assets/deck.html` | Fullscreen slides, keyboard nav, 16:9, F for fullscreen |
+| 05 | Case Study | `assets/case-study.html` | Context→Challenge→Process→Result narrative, data viz |
+| 06 | App | `assets/app.html` | Functional UI, sidebar nav, Terminal Green, components |
+| 07 | Social Cards | `assets/cards.html` | 3:4 portrait pagination, html2canvas PNG export |
+| 08 | Resume | `assets/resume.html` | A4 single page, print-friendly, Ctrl+P PDF |
+| 09 | WeChat | Inline HTML | WeChat compatible, inline styles, no external CSS/JS |
+| 10 | Email | `assets/email.html` | Table layout, inline styles, Outlook compatible |
 
 **When to deviate from templates:**
 - Template structure truly doesn't fit (but CSS variables, font imports, base reset must remain)
@@ -274,7 +253,7 @@ Specific zero-default-style requirements:
 - **Dividers**: Not simple `border-bottom`; use gold thin line + gradient fade or gold dot separators
 - **Animation** (if any): Light, slow, restrained, `cubic-bezier(0.16, 1, 0.3, 1)`, no bounce
 
-**FEIHONG Signature Collection — strongly recommended** (especially Stable scenes):
+**FEIHONG Signature Collection — strongly recommended for all scenes**:
 - Drop Cap (first paragraph of tutorials)
 - Marginalia (tutorial side notes)
 - Wax Seal (portfolio / certification feel)
@@ -364,7 +343,7 @@ Delivery standards:
 **When delivering**:
 - ✅ File link (computer:// path)
 - ✅ 1-2 sentences describing design signature (e.g., "Asymmetric Hero + gold signature line, deep blue panel with IP overflow on third screen creating editorial feel")
-- ✅ Notes (e.g., "Replace avatar in assets/avatar.jpg", "Press F11 for best fullscreen presentation", "Beta scene, continuously iterating")
+- ✅ Notes (e.g., "Replace avatar in assets/avatar.jpg", "Press F11 for best fullscreen presentation", "Ctrl+P to export PDF for resume")
 
 **When delivering, do NOT**:
 - ❌ "This was generated according to the specification"
@@ -373,33 +352,27 @@ Delivery standards:
 
 ---
 
-## 🗺️ Scene Quick Reference · 10种场景速查表
+## 🗺️ Scene Quick Reference · 十大场景速查表
 
-### ⭐ Stable Core Scenes
+| N° | Scene · 场景 | Spec | Template | Core Features | Interaction Type |
+|:---:|:---|:---|:---|:---|:---|
+| 01 | Portfolio / 作品集 | `scenes/portfolio.md` | `assets/portfolio.html` | Project showcase, visual-first, Bento grid, asymmetric Hero, Wax Seal | Long scroll |
+| 02 | Landing Page / 活动页 | `scenes/landing.md` | `assets/landing.html` | Conversion-driven, visual impact, timeline, clear CTA, forms | Long scroll |
+| 03 | Tutorial / 教程 | `scenes/tutorial.md` | `assets/tutorial.html` | Long reading, TOC, progress bar, Drop Cap, book-quality typography | Long scroll |
+| 04 | Deck / 演示文稿 | `scenes/deck.md` | `assets/deck.html` | Fullscreen, 16:9, keyboard nav, large type, minimal text | Slide navigation |
+| 05 | Case Study / 案例研究 | `scenes/case-study.md` | `assets/case-study.html` | Narrative arc: problem→solution→result, data viz, dark panels | Long scroll |
+| 06 | App / 功能页 | `scenes/app.md` | `assets/app.html` | Functional UI, sidebar nav, Terminal Green, components | Interactive |
+| 07 | Social Cards / 图文卡片 | `scenes/cards.md` | `assets/cards.html` | 3:4 portrait, pagination, html2canvas PNG export | Paged |
+| 08 | Resume / 简历 | `scenes/resume.md` | `assets/resume.html` | A4 single page, print-friendly, no animation, Ctrl+P PDF | Static/Print |
+| 09 | WeChat / 公众号 | `scenes/wechat.md` | Inline HTML | WeChat compatible, inline styles, no external CSS/JS | Long scroll |
+| 10 | Email / 邮件 | `scenes/email.md` | `assets/email.html` | Table layout, inline styles, Outlook compatible | Static |
 
-| N° | Scene | Spec | Template | Core Features | Interaction |
-|---|----------|---------|------|---------|---------|
-| 01 | Portfolio / 作品集 | `scenes/portfolio.md` | `assets/portfolio.html` | Project showcase, visual-first, grid, asymmetric | Long scroll |
-| 02 | Landing Page / 活动页 | `scenes/landing.md` | `assets/landing.html` | Conversion-driven, visual impact, clear CTA, forms | Long scroll |
-| 03 | Tutorial / 教程 | `scenes/tutorial.md` | `assets/tutorial.html` | Long reading, TOC, progress bar, drop cap | Long scroll |
-| 04 | Deck / 演示文稿 | `scenes/deck.md` | `assets/deck.html` | Fullscreen, 16:9, keyboard nav, large type minimal text | Slide navigation |
+### Interaction Classification · 交互类型分类
 
-### 🧪 Beta Scenes
-
-| N° | Scene | Spec | Template | Core Features | Status |
-|---|----------|---------|------|---------|------|
-| 05 | Case Study / 案例 | `scenes/case-study.md` | `assets/case-study.html` | Narrative: problem→solution→result | 🧪 Beta |
-| 06 | App / 功能页 | `scenes/app.md` | `assets/app.html` | Functional, interactive, Terminal Green available | 🧪 Beta |
-| 07 | Social Cards / 图文卡片 | `scenes/cards.md` | `assets/cards.html` | 3:4 portrait, pagination, html2canvas export | 🧪 Beta |
-| 08 | Resume / 简历 | `scenes/resume.md` | `assets/resume.html` | A4 single page, print-friendly, no animation | 🧪 Beta |
-| 09 | WeChat / 公众号 | `scenes/wechat.md` | Inline HTML | WeChat compatible, inline styles | 🧪 Beta |
-| 10 | Email / 邮件 | `scenes/email.md` | `assets/email.html` | Table layout, Outlook compatible | 🧪 Beta |
-
-### Scene Classification Memory
-
-**Long Scroll (6)**: Tutorial, Landing, Portfolio, Case Study, App, WeChat
-**Paged/Paginated (2)**: Deck (fullscreen slides), Cards (3:4 paged)
-**Single-page Static (2)**: Resume (A4 single), Email (table static)
+**Long Scroll (5)**: Portfolio, Landing, Tutorial, Case Study, WeChat
+**Paged/Paginated (2)**: Deck (fullscreen slides), Cards (3:4 portrait)
+**Interactive (1)**: App (dashboard UI)
+**Static/Print (2)**: Resume (A4 print), Email (table static)
 
 ---
 
@@ -407,7 +380,7 @@ Delivery standards:
 
 1. **8 Steps, no shortcuts** — Step 05 direction setting is the anti-AI key; never skip it
 2. **Start from templates, never from zero** — Templates have brand tokens built in
-3. **Stable scenes first** — 4 Stable scenes are primary, Beta scenes supplementary
+3. **Choose the right template** — All 10 scenes are production-ready; select the matching template
 4. **Every section layout must differ** — Avoid monotonous repetition
 5. **Checklist must pass** — P0 all clear before delivery
 6. **Brand colors exact to HEX** — `#0A2463` / `#F4D35E` / `#D8315B`, not "blue""gold""red"
@@ -445,4 +418,4 @@ Anti-AI strategies:
 
 *FEIHONG Design System v7.0*
 *Anti-AI · Artistic Quality · Human Warmth*
-*4 Stable Scenes · 6 Beta Scenes · 148 Components · 250+ Variants*
+*10 Scenes · 148 Components · 19 Categories · 250+ Variants · v7.1*

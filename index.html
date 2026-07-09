@@ -64,7 +64,7 @@
   "url": "https://feihong.art/",
   "license": "https://opensource.org/licenses/MIT",
   "keywords": "design system, personal brand, AI skill, HTML templates, CSS framework, brand design, luxury design",
-  "softwareVersion": "7.0",
+  "softwareVersion": "7.1",
   "audience": {
     "@type": "Audience",
     "audienceType": ["Designers", "Developers", "Content Creators", "Personal Brand Builders"]
@@ -882,6 +882,7 @@ code { font-family: var(--font-mono); }
   margin-top:3rem;
 }
 .tpl-card {
+  position:relative;
   background:#fff;
   border-radius:20px;
   overflow:hidden;
@@ -1007,23 +1008,21 @@ code { font-family: var(--font-mono); }
 .mini-badge.gold { background:var(--gold); color:var(--royal); }
 .mini-badge.wine { background:var(--wine); color:#fff; }
 .mini-badge.blue { background:var(--royal); color:var(--gold); }
-.mini-badge.stable {
-  background:linear-gradient(135deg,var(--royal),var(--royal-700));
-  color:var(--gold);
-  font-weight:700;
-  letter-spacing:0.06em;
-  position:relative;
-}
-.mini-badge.stable::before {
-  content:'◆';
-  margin-right:3px;
-  font-size:0.6em;
-}
-.mini-badge.beta {
-  background:var(--cream-200);
-  color:var(--ink-300);
-  font-style:italic;
+.mini-badge.green { background:var(--terminal); color:var(--ink); font-weight:700; }
+.tpl-num {
+  position:absolute;
+  top:10px;
+  right:12px;
   font-family:var(--font-display);
+  font-style:italic;
+  font-weight:600;
+  font-size:0.7rem;
+  color:var(--gold);
+  letter-spacing:0.1em;
+  z-index:2;
+  background:var(--royal);
+  padding:2px 8px;
+  border-radius:2px;
 }
 .tpl-group-label {
   grid-column:1/-1;
@@ -1701,18 +1700,14 @@ code { font-family: var(--font-mono); }
 <!-- HTML Templates -->
 <section class="templates-section" id="templates">
   <div class="templates-inner">
-    <div class="section-label reveal">HTML Templates</div>
-    <h2 class="section-h reveal"><em style="font-style:italic;color:var(--royal);">HTML 模板</em>，开箱即用</h2>
-    <p class="section-sub reveal">4 个核心 Stable 场景 + 6 个 Beta 场景 + 1 个组件库预览，每个模板都经过精心设计，复制即可修改使用。</p>
+    <div class="section-label reveal">◆ 10 Scene Templates</div>
+    <h2 class="section-h reveal"><em style="font-style:italic;color:var(--royal);">十大场景</em>，开箱即用</h2>
+    <p class="section-sub reveal">10个生产级场景模板 + 1个组件库预览，每个模板都经过精心设计，复制即可修改使用。</p>
 
     <div class="templates-grid">
 
-      <div class="tpl-group-label">
-        ◆ 核心场景
-        <span class="group-badge group-stable">Stable v7.0</span>
-      </div>
-
       <a href="assets/portfolio.html" target="_blank" class="tpl-card reveal">
+        <div class="tpl-num">N°01</div>
         <div class="tpl-preview portfolio">
           <div class="tpl-mock mock-portfolio">
             <div class="mp-hero"><span>FEIHONG</span></div>
@@ -1723,7 +1718,6 @@ code { font-family: var(--font-mono); }
         </div>
         <div class="tpl-body">
           <div class="tpl-badges">
-            <span class="mini-badge stable">Stable</span>
             <span class="mini-badge blue">个人主页</span>
           </div>
           <h3>作品集 / Portfolio</h3>
@@ -1733,6 +1727,7 @@ code { font-family: var(--font-mono); }
       </a>
 
       <a href="assets/landing.html" target="_blank" class="tpl-card reveal">
+        <div class="tpl-num">N°02</div>
         <div class="tpl-preview landing">
           <div class="tpl-mock mock-landing">
             <span class="ml-badge">免费报名</span>
@@ -1744,7 +1739,6 @@ code { font-family: var(--font-mono); }
         </div>
         <div class="tpl-body">
           <div class="tpl-badges">
-            <span class="mini-badge stable">Stable</span>
             <span class="mini-badge gold">Landing</span>
           </div>
           <h3>Landing Page</h3>
@@ -1754,12 +1748,13 @@ code { font-family: var(--font-mono); }
       </a>
 
       <a href="assets/tutorial.html" target="_blank" class="tpl-card reveal">
+        <div class="tpl-num">N°03</div>
         <div class="tpl-preview tutorial">
           <div class="tpl-mock mock-tutorial" style="padding:0;">
             <div style="padding:10px 10px 0;">
               <div style="font-family:var(--font-serif);font-size:10px;font-weight:700;color:var(--ink);line-height:1.2;margin-bottom:4px;">如何建立<br><em style="color:var(--royal);font-style:italic;">品牌辨识度</em></div>
               <div style="display:flex;gap:4px;font-size:5px;color:var(--ink-300);margin-bottom:6px;">
-                <span>2024.10</span><span>·</span><span>12min</span>
+                <span>2026</span><span>·</span><span>12min</span>
               </div>
             </div>
             <div style="height:40px;background:linear-gradient(135deg,var(--royal-50),var(--gold-50));margin:0 -10px;position:relative;">
@@ -1769,7 +1764,6 @@ code { font-family: var(--font-mono); }
         </div>
         <div class="tpl-body">
           <div class="tpl-badges">
-            <span class="mini-badge stable">Stable</span>
             <span class="mini-badge royal">长文阅读</span>
           </div>
           <h3>教程 / 文章页</h3>
@@ -1779,6 +1773,7 @@ code { font-family: var(--font-mono); }
       </a>
 
       <a href="assets/deck.html" target="_blank" class="tpl-card reveal">
+        <div class="tpl-num">N°04</div>
         <div class="tpl-preview deck">
           <div class="tpl-mock mock-deck">
             <span>设计不是<br>装饰<br><em>是表达</em></span>
@@ -1786,7 +1781,6 @@ code { font-family: var(--font-mono); }
         </div>
         <div class="tpl-body">
           <div class="tpl-badges">
-            <span class="mini-badge stable">Stable</span>
             <span class="mini-badge blue">全屏演示</span>
           </div>
           <h3>演示文稿 / Deck</h3>
@@ -1795,12 +1789,8 @@ code { font-family: var(--font-mono); }
         </div>
       </a>
 
-      <div class="tpl-group-label">
-        ◇ 扩展场景
-        <span class="group-badge group-beta">Beta</span>
-      </div>
-
       <a href="assets/case-study.html" target="_blank" class="tpl-card reveal">
+        <div class="tpl-num">N°05</div>
         <div class="tpl-preview case">
           <div class="tpl-mock mock-case">
             <div class="mc-label">Case Study</div>
@@ -1809,16 +1799,16 @@ code { font-family: var(--font-mono); }
         </div>
         <div class="tpl-body">
           <div class="tpl-badges">
-            <span class="mini-badge beta">Beta</span>
-            <span class="mini-badge blue">深色风格</span>
+            <span class="mini-badge wine">深色风格</span>
           </div>
           <h3>案例研究 / Case Study</h3>
-          <p>项目复盘、设计过程，深色背景+图片+数据可视化。</p>
+          <p>项目复盘、设计过程，深色背景+叙事弧线+数据可视化。</p>
           <span class="tpl-link">打开预览 →</span>
         </div>
       </a>
 
       <a href="assets/app.html" target="_blank" class="tpl-card reveal">
+        <div class="tpl-num">N°06</div>
         <div class="tpl-preview app">
           <div class="tpl-mock mock-app">
             <div class="ma-bar"></div>
@@ -1831,16 +1821,16 @@ code { font-family: var(--font-mono); }
         </div>
         <div class="tpl-body">
           <div class="tpl-badges">
-            <span class="mini-badge beta">Beta</span>
-            <span class="mini-badge royal">终端绿</span>
+            <span class="mini-badge green">终端绿</span>
           </div>
           <h3>App / 功能页</h3>
-          <p>看板、工具页、仪表盘，终端绿代码块风格，功能感强。</p>
+          <p>看板、工具页、仪表盘，侧边栏导航+终端绿代码块，功能感强。</p>
           <span class="tpl-link">打开预览 →</span>
         </div>
       </a>
 
       <a href="assets/cards.html" target="_blank" class="tpl-card reveal">
+        <div class="tpl-num">N°07</div>
         <div class="tpl-preview cards">
           <div class="tpl-mock" style="background:transparent;box-shadow:none;display:flex;gap:6px;">
             <div class="mock-cards">
@@ -1852,7 +1842,6 @@ code { font-family: var(--font-mono); }
         </div>
         <div class="tpl-body">
           <div class="tpl-badges">
-            <span class="mini-badge beta">Beta</span>
             <span class="mini-badge wine">3:4竖版</span>
           </div>
           <h3>图文卡片 / 小红书</h3>
@@ -1862,6 +1851,7 @@ code { font-family: var(--font-mono); }
       </a>
 
       <a href="assets/resume.html" target="_blank" class="tpl-card reveal">
+        <div class="tpl-num">N°08</div>
         <div class="tpl-preview resume">
           <div class="tpl-mock mock-resume">
             <div class="mr-l">
@@ -1880,7 +1870,6 @@ code { font-family: var(--font-mono); }
         </div>
         <div class="tpl-body">
           <div class="tpl-badges">
-            <span class="mini-badge beta">Beta</span>
             <span class="mini-badge royal">A4打印</span>
           </div>
           <h3>简历 / CV</h3>
@@ -1890,6 +1879,7 @@ code { font-family: var(--font-mono); }
       </a>
 
       <a href="assets/wechat.html" target="_blank" class="tpl-card reveal">
+        <div class="tpl-num">N°09</div>
         <div class="tpl-preview wechat">
           <div class="tpl-mock mock-wechat">
             <div class="mw-top">
@@ -1904,7 +1894,6 @@ code { font-family: var(--font-mono); }
         </div>
         <div class="tpl-body">
           <div class="tpl-badges">
-            <span class="mini-badge beta">Beta</span>
             <span class="mini-badge gold">微信</span>
           </div>
           <h3>公众号排版</h3>
@@ -1914,6 +1903,7 @@ code { font-family: var(--font-mono); }
       </a>
 
       <a href="assets/email.html" target="_blank" class="tpl-card reveal">
+        <div class="tpl-num">N°10</div>
         <div class="tpl-preview email">
           <div class="tpl-mock mock-email">
             <div style="font-family:Georgia,serif;font-style:italic;font-weight:bold;font-size:9px;color:var(--royal);margin-bottom:5px;letter-spacing:0.1em;">FEIHONG</div>
@@ -1928,7 +1918,6 @@ code { font-family: var(--font-mono); }
         </div>
         <div class="tpl-body">
           <div class="tpl-badges">
-            <span class="mini-badge beta">Beta</span>
             <span class="mini-badge royal">EDM</span>
           </div>
           <h3>邮件 / EDM</h3>
@@ -2220,7 +2209,7 @@ code { font-family: var(--font-mono); }
 <!-- Footer -->
 <footer class="footer">
   <div class="footer-logo">FEIHONG<span>飞鸿</span></div>
-  <p>FEIHONG Design System v7.0 · <a href="https://feihong.art" target="_blank">feihong.art</a></p>
+  <p>FEIHONG Design System v7.1 · <a href="https://feihong.art" target="_blank">feihong.art</a></p>
 </footer>
 
 <script>
