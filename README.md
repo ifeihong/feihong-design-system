@@ -49,7 +49,7 @@
 | Color precision | Approximate | Random | ✅ Exact HEX, 55-30-15 ratio, 9-level scales |
 | Quality gate | None | None | ✅ P0/P1/P2 three-tier seal standards |
 | 42 animated text components | ❌ | ❌ | ✅ Velvet Drip, Diamond Sparkle, Liquid Gold... |
-| 10 ready-to-use scene templates | Limited | Generic | ✅ 4 Stable + 6 Beta, production-ready |
+| 10 ready-to-use scene templates | Limited | Generic | ✅ 10 scenes, all production-ready |
 | Motion reduced-motion support | ❌ | ❌ | ✅ Full accessibility compliance |
 
 ---
@@ -246,7 +246,7 @@ feihong-design-system/
 1. **N°01 Discover · 洞察需求** — Assess information completeness, adaptive triage
 2. **N°02 Define · 定调定向** — Ask only the missing critical questions
 3. **N°03 Inject DNA · 品牌注入** — Read DNA.md + MOTION.md + corresponding scene spec
-4. **N°04 Structure · 架构搭建** — Start from appropriate Stable/Beta template (never from zero)
+4. **N°04 Structure · 架构搭建** — Start from the matching scene template (never from zero)
 5. **N°05 Compose · 组件编排** — Set emotional tone, Hero strategy, signature elements, rhythm plan
 6. **N°06 Signature · 签名点睛** — Select components, zero default browser styles
 7. **N°07 Refine · 精工细作** — Self-check against QUALITY.md: P0 must pass, P1 should pass
@@ -341,7 +341,7 @@ This project includes complete SEO optimization out of the box:
 
 Issues and PRs are welcome. Suggested directions:
 
-- Polishing Beta scenes toward Stable status
+- Polishing templates and components across all scenes
 - Adding new Signature Collection components
 - New scene templates (open an Issue for discussion first)
 - Documentation improvements and translations
