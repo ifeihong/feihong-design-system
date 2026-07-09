@@ -1024,6 +1024,296 @@ code { font-family: var(--font-mono); }
   padding:2px 8px;
   border-radius:2px;
 }
+
+/* ===== How It Works Section ===== */
+.how-section {
+  padding:100px 0;
+  background:var(--cream);
+}
+.how-inner {
+  max-width:1100px;
+  margin:0 auto;
+  padding:0 24px;
+}
+.arch-diagram {
+  margin:60px 0 70px;
+  display:flex;
+  flex-direction:column;
+  gap:0;
+}
+.arch-layer {
+  display:flex;
+  gap:28px;
+  align-items:flex-start;
+  padding:32px 36px;
+  border-radius:20px;
+  position:relative;
+  transition:transform 400ms var(--ease);
+}
+.arch-layer:hover {
+  transform:translateX(6px);
+}
+.arch-scene {
+  background:linear-gradient(135deg,var(--royal),var(--royal-700));
+  color:#fff;
+}
+.arch-template {
+  background:#fff;
+  border:1px solid var(--cream-200);
+  box-shadow:0 4px 24px rgba(10,36,99,0.06);
+}
+.arch-component {
+  background:linear-gradient(135deg,var(--royal-50),var(--gold-50));
+  border:1px solid var(--cream-200);
+}
+.arch-num {
+  font-family:var(--font-display);
+  font-style:italic;
+  font-size:2.4rem;
+  font-weight:600;
+  color:var(--gold);
+  line-height:1;
+  min-width:70px;
+  padding-top:4px;
+}
+.arch-template .arch-num {
+  color:var(--royal);
+}
+.arch-component .arch-num {
+  color:var(--wine);
+}
+.arch-content {
+  flex:1;
+}
+.arch-label {
+  font-family:var(--font-mono);
+  font-size:0.7rem;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:6px;
+  opacity:0.8;
+}
+.arch-template .arch-label {
+  color:var(--royal-400);
+}
+.arch-component .arch-label {
+  color:var(--wine);
+  opacity:0.7;
+}
+.arch-content h4 {
+  font-family:var(--font-serif);
+  font-size:1.5rem;
+  font-weight:700;
+  margin:0 0 10px;
+  line-height:1.3;
+}
+.arch-scene h4 { color:var(--gold); }
+.arch-template h4 { color:var(--ink); }
+.arch-component h4 { color:var(--royal); }
+.arch-content p {
+  font-size:0.95rem;
+  line-height:1.7;
+  margin:0 0 16px;
+  opacity:0.85;
+}
+.arch-template p { color:var(--ink-400); opacity:1; }
+.arch-component p { color:var(--ink-500); opacity:1; }
+.arch-tags {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.arch-tags span {
+  font-size:0.75rem;
+  padding:4px 12px;
+  border-radius:100px;
+  font-weight:500;
+}
+.arch-scene .arch-tags span {
+  background:rgba(244,211,94,0.15);
+  color:var(--gold);
+  border:1px solid rgba(244,211,94,0.25);
+}
+.arch-template .arch-tags span {
+  background:var(--cream);
+  color:var(--royal);
+  border:1px solid var(--cream-200);
+}
+.arch-component .arch-tags span {
+  background:#fff;
+  color:var(--ink-500);
+  border:1px solid var(--cream-200);
+}
+.arch-arrow {
+  text-align:center;
+  font-size:1.4rem;
+  color:var(--gold);
+  padding:8px 0;
+  line-height:1;
+  font-family:var(--font-display);
+}
+
+/* Usage Modes */
+.usage-modes {
+  margin:0 0 60px;
+}
+.modes-title {
+  font-family:var(--font-serif);
+  font-size:1.6rem;
+  font-weight:700;
+  text-align:center;
+  color:var(--ink);
+  margin:0 0 36px;
+}
+.modes-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+.mode-card {
+  background:#fff;
+  border:1px solid var(--cream-200);
+  border-radius:20px;
+  padding:32px 28px;
+  transition:all 400ms var(--ease);
+  position:relative;
+}
+.mode-card:hover {
+  transform:translateY(-4px);
+  box-shadow:0 12px 40px rgba(10,36,99,0.08);
+  border-color:var(--gold);
+}
+.mode-badge {
+  display:inline-block;
+  font-size:0.7rem;
+  font-weight:700;
+  letter-spacing:0.1em;
+  padding:4px 14px;
+  border-radius:100px;
+  margin-bottom:16px;
+}
+.mode-full {
+  background:var(--wine);
+  color:#fff;
+}
+.mode-smart {
+  background:var(--royal);
+  color:var(--gold);
+}
+.mode-demo {
+  background:var(--gold);
+  color:var(--royal);
+}
+.mode-card h4 {
+  font-family:var(--font-serif);
+  font-size:1.25rem;
+  font-weight:700;
+  margin:0 0 12px;
+  color:var(--ink);
+}
+.mode-desc {
+  font-size:0.9rem;
+  line-height:1.7;
+  color:var(--ink-400);
+  margin:0 0 16px;
+  padding:12px 16px;
+  background:var(--cream);
+  border-radius:10px;
+  font-style:italic;
+  font-family:var(--font-display);
+}
+.mode-result {
+  font-size:0.85rem;
+  color:var(--royal);
+  font-weight:600;
+  padding-top:12px;
+  border-top:1px solid var(--cream-200);
+}
+
+/* Flow Example */
+.flow-example {
+  background:linear-gradient(135deg,var(--royal),var(--royal-700));
+  border-radius:24px;
+  padding:48px 44px;
+  color:#fff;
+}
+.flow-label {
+  font-family:var(--font-mono);
+  font-size:0.7rem;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:16px;
+  opacity:0.8;
+}
+.flow-quote {
+  font-family:var(--font-display);
+  font-style:italic;
+  font-size:1.6rem;
+  font-weight:500;
+  color:var(--gold);
+  margin:0 0 36px;
+  padding-left:20px;
+  border-left:3px solid var(--gold);
+  line-height:1.4;
+}
+.flow-steps {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+.flow-step {
+  text-align:center;
+  padding:20px 12px;
+  background:rgba(255,255,255,0.06);
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,0.08);
+  transition:all 350ms var(--ease);
+}
+.flow-step:hover {
+  background:rgba(244,211,94,0.1);
+  border-color:var(--gold);
+  transform:translateY(-3px);
+}
+.flow-step-n {
+  font-family:var(--font-display);
+  font-style:italic;
+  font-size:2rem;
+  font-weight:700;
+  color:var(--gold);
+  line-height:1;
+  margin-bottom:10px;
+}
+.flow-step-t {
+  font-family:var(--font-serif);
+  font-size:1rem;
+  font-weight:600;
+  margin-bottom:8px;
+  color:#fff;
+}
+.flow-step-d {
+  font-size:0.8rem;
+  line-height:1.6;
+  color:rgba(255,255,255,0.6);
+}
+.flow-step-d strong {
+  color:var(--gold);
+  font-weight:600;
+}
+
+@media(max-width:768px) {
+  .arch-layer {
+    flex-direction:column;
+    gap:12px;
+    padding:24px;
+  }
+  .arch-num { min-width:auto; font-size:1.8rem; }
+  .modes-grid { grid-template-columns:1fr; }
+  .flow-steps { grid-template-columns:repeat(2,1fr); }
+  .flow-example { padding:32px 24px; }
+  .flow-quote { font-size:1.2rem; }
+}
 .tpl-group-label {
   grid-column:1/-1;
   display:flex;
@@ -1558,6 +1848,7 @@ code { font-family: var(--font-mono); }
     <a href="#workflow">工作流</a>
     <a href="#tokens">设计语言</a>
     <a href="#quality">质量门槛</a>
+    <a href="#how">使用指南</a>
     <a href="#docs">规范文档</a>
     <a href="https://github.com/ifeihong/feihong-design-system" target="_blank" class="nav-cta">GitHub 获取</a>
   </div>
@@ -2166,6 +2457,107 @@ code { font-family: var(--font-mono); }
         <p>148 Components · 19 Categories · 250+ Variants · 42 Animated Text，分19个科学分类的可视化展示页，可交互预览所有组件效果。</p>
         <span class="doc-tag">交互式预览</span>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- How It Works -->
+<section class="how-section" id="how">
+  <div class="how-inner">
+    <div class="section-label reveal">◆ How It Works</div>
+    <h2 class="section-h reveal"><em style="font-style:italic;color:var(--royal);">场景 · 模板 · 组件</em><br>三层协作，自然语言出设计</h2>
+    <p class="section-sub reveal">你不需要提供完整内容，只需描述需求。AI按照8步工作流，从场景判断到组件编排，像设计师一样思考和产出。</p>
+
+    <!-- Three-layer architecture -->
+    <div class="arch-diagram reveal">
+      <div class="arch-layer arch-scene">
+        <div class="arch-num">N°01</div>
+        <div class="arch-content">
+          <div class="arch-label">Scene · 场景</div>
+          <h4>决定"做什么菜"</h4>
+          <p>10种场景，每种有完整的结构规范、颜色比例、阅读节奏、技术约束。AI根据你的关键词自动匹配。</p>
+          <div class="arch-tags">
+            <span>Portfolio</span><span>Landing</span><span>Tutorial</span><span>Deck</span><span>Case Study</span><span>App</span><span>Cards</span><span>Resume</span><span>WeChat</span><span>Email</span>
+          </div>
+        </div>
+      </div>
+      <div class="arch-arrow">↓</div>
+      <div class="arch-layer arch-template">
+        <div class="arch-num">N°02</div>
+        <div class="arch-content">
+          <div class="arch-label">Template · 模板</div>
+          <h4>提供"半成品骨架"</h4>
+          <p>10个生产级HTML模板，CSS变量、字体、响应式都已配好。从模板开始改，不是从零写。</p>
+          <div class="arch-tags">
+            <span>字体引入</span><span>CSS变量</span><span>响应式</span><span>基础布局</span><span>示例内容</span>
+          </div>
+        </div>
+      </div>
+      <div class="arch-arrow">↓</div>
+      <div class="arch-layer arch-component">
+        <div class="arch-num">N°03</div>
+        <div class="arch-content">
+          <div class="arch-label">Component · 组件</div>
+          <h4>填充"精致零件"</h4>
+          <p>148个品牌组件分19类，按钮/卡片/引用/标题/动效/签名元素。按需挑选搭配，零默认样式。</p>
+          <div class="arch-tags">
+            <span>按钮</span><span>卡片</span><span>引用</span><span>动画标题</span><span>火漆印章</span><span>花饰❦</span><span>代码块</span><span>表单</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Three usage modes -->
+    <div class="usage-modes">
+      <h3 class="modes-title reveal">三种使用方式，信息多少都能做</h3>
+      <div class="modes-grid">
+        <div class="mode-card reveal">
+          <div class="mode-badge mode-full">精准模式</div>
+          <h4>你给完整内容</h4>
+          <p class="mode-desc">"这是我的课程：标题xxx，时间8月，讲师飞鸿，价格¥999，做个报名页"</p>
+          <div class="mode-result">→ AI直接填充排版，精确交付</div>
+        </div>
+        <div class="mode-card reveal">
+          <div class="mode-badge mode-smart">智能模式</div>
+          <h4>你给主题方向</h4>
+          <p class="mode-desc">"帮我做一个个人作品集，我是品牌设计师"</p>
+          <div class="mode-result">→ AI用合理占位内容生成，你替换文字即可</div>
+        </div>
+        <div class="mode-card reveal">
+          <div class="mode-badge mode-demo">演示模式</div>
+          <h4>你只说场景</h4>
+          <p class="mode-desc">"给我看看教程长文模板效果"</p>
+          <div class="mode-result">→ AI直接输出完整Demo，即开即用</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Example flow -->
+    <div class="flow-example reveal">
+      <div class="flow-label">◆ 举个例子</div>
+      <div class="flow-quote">"帮我做一个设计课程的报名页"</div>
+      <div class="flow-steps">
+        <div class="flow-step">
+          <div class="flow-step-n">1</div>
+          <div class="flow-step-t">识别场景</div>
+          <div class="flow-step-d">匹配到 <strong>Landing Page</strong>，读取landing.md规范</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-n">2</div>
+          <div class="flow-step-t">选模板</div>
+          <div class="flow-step-d">从 <strong>landing.html</strong> 开始，CSS变量/字体已就绪</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-n">3</div>
+          <div class="flow-step-t">挑组件</div>
+          <div class="flow-step-d">酒红CTA按钮 + 金色大引号 + 花饰分隔 + Timeline日程</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-n">4</div>
+          <div class="flow-step-t">质检交付</div>
+          <div class="flow-step-d">对照QUALITY检查P0，封印交付完整HTML</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
