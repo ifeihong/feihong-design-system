@@ -66,9 +66,9 @@
 
 ### Avatar Usage Rules / 头像使用规则
 
-- Place your avatar file at `assets/avatar.jpg`（recommended square, minimum 400×400px）。
+- Place your avatar file at `assets/avatar.png`（recommended square, minimum 400×400px）。
   - Currently configured: 使用附件图1作为品牌头像
-- Always prefer `assets/avatar.jpg` when an avatar is needed
+- Always prefer `assets/avatar.png` when an avatar is needed
 - Avatar presentation styles:
   - Circular avatar（导航栏、作者信息区 / nav, author info）: `border-radius: 50%`，可加 2px 金色描边
   - Square/rounded avatar（卡片、Hero区 / cards, Hero section）: `border-radius: 8-12px`

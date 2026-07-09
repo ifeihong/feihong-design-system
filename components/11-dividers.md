@@ -81,7 +81,7 @@
 
 ```html
 <div class="avatar avatar-lg">
-  <img src="assets/avatar.jpg" alt="飞鸿">
+  <img src="assets/avatar.png" alt="飞鸿">
 </div>
 ```
 ```css

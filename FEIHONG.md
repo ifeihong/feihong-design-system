@@ -343,7 +343,7 @@ Delivery standards:
 **When delivering**:
 - ✅ File link (computer:// path)
 - ✅ 1-2 sentences describing design signature (e.g., "Asymmetric Hero + gold signature line, deep blue panel with IP overflow on third screen creating editorial feel")
-- ✅ Notes (e.g., "Replace avatar in assets/avatar.jpg", "Press F11 for best fullscreen presentation", "Ctrl+P to export PDF for resume")
+- ✅ Notes (e.g., "Replace avatar in assets/avatar.png", "Press F11 for best fullscreen presentation", "Ctrl+P to export PDF for resume")
 
 **When delivering, do NOT**:
 - ❌ "This was generated according to the specification"

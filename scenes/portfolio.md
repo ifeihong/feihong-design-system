@@ -432,12 +432,12 @@ subtitle: 22px  ●●●●● （中等，斜体衬线，一句话介绍）
 ```html
 <!-- Hero首屏头像（大尺寸） -->
 <div class="avatar avatar-lg">
-  <img src="assets/avatar.jpg" alt="飞鸿">
+  <img src="assets/avatar.png" alt="飞鸿">
 </div>
 
 <!-- About区头像（中尺寸，可选） -->
 <div class="avatar avatar-md">
-  <img src="assets/avatar.jpg" alt="飞鸿">
+  <img src="assets/avatar.png" alt="飞鸿">
 </div>
 
 <!-- 推荐人头像（小尺寸） -->
@@ -472,7 +472,7 @@ subtitle: 22px  ●●●●● （中等，斜体衬线，一句话介绍）
 - **金色边框是硬性要求**：3px（大/中尺寸）或2px（小尺寸）`var(--gold)` 实线边框
 - **必须有柔和阴影**：金色光晕阴影 + 皇家蓝投影，让头像从背景中浮起
 - **圆形为标准形态**：Portfolio头像默认圆形，方形头像需加圆角（`border-radius: 16px`）
-- 头像图片路径：`assets/avatar.jpg`
+- 头像图片路径：`assets/avatar.png`
 - IP形象（`assets/character.png`）可在头像旁或About区自然出现，作为装饰/吉祥物
 
 #### 作品卡片（`card-project`）使用规范
@@ -686,7 +686,7 @@ subtitle: 22px  ●●●●● （中等，斜体衬线，一句话介绍）
 <!-- Hero区：头像旁边放置小尺寸IP形象 -->
 <div class="hero-visual">
   <div class="avatar avatar-lg">
-    <img src="assets/avatar.jpg" alt="飞鸿">
+    <img src="assets/avatar.png" alt="飞鸿">
   </div>
   <img src="assets/character.png" alt="飞鸿IP形象" class="ip-mascot">
 </div>
@@ -1147,7 +1147,7 @@ Portfolio可支持暗色模式作为加分项，但需注意：
       </div>
       <div class="hero-visual reveal reveal-delay-1">
         <div class="avatar avatar-lg">
-          <img src="assets/avatar.jpg" alt="飞鸿">
+          <img src="assets/avatar.png" alt="飞鸿">
         </div>
         <img src="assets/character.png" alt="飞鸿IP形象" class="ip-mascot">
       </div>
