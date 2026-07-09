@@ -84,19 +84,19 @@
     .hero {
       min-height: 100vh;
       display: flex;
-      align-items: flex-end;
+      align-items: center;
       position: relative;
       background: var(--royal-900);
       overflow: hidden;
-      padding: 0 clamp(24px, 5vw, 80px) clamp(60px, 10vh, 120px);
+      padding: 100px clamp(24px, 5vw, 80px) 60px;
     }
     .hero::before {
       content: '';
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 80% 60% at 20% 80%, rgba(244,211,94,0.04) 0%, transparent 70%),
-        radial-gradient(ellipse 60% 50% at 80% 20%, rgba(10,36,99,0.5) 0%, transparent 60%);
+        radial-gradient(ellipse 70% 50% at 30% 50%, rgba(244,211,94,0.04) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 80% 30%, rgba(10,36,99,0.3) 0%, transparent 50%);
       pointer-events: none;
     }
     .hero-deco {
@@ -110,6 +110,27 @@
       pointer-events: none;
       user-select: none;
       letter-spacing: -0.05em;
+    }
+    .hero-top-accent {
+      position: absolute;
+      top: 100px;
+      left: clamp(24px, 5vw, 80px);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      z-index: 2;
+    }
+    .hero-top-accent .line {
+      width: 40px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+    }
+    .hero-top-accent .num {
+      font-family: var(--font-serif);
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.15em;
     }
     .hero-inner {
       width: 100%;
@@ -193,17 +214,15 @@
     }
     .hero-visual-frame {
       position: relative;
-      width: clamp(220px, 26vw, 320px);
-      aspect-ratio: 1;
-      border-radius: 50%;
+      width: clamp(240px, 28vw, 360px);
+      aspect-ratio: 3/4;
       overflow: hidden;
     }
     .hero-visual-frame::before {
       content: '';
       position: absolute;
       inset: 0;
-      border-radius: 50%;
-      border: 1px solid rgba(244,211,94,0.25);
+      border: 1px solid rgba(244,211,94,0.2);
       z-index: 2;
       pointer-events: none;
     }
@@ -211,8 +230,11 @@
       content: '';
       position: absolute;
       inset: 0;
-      border-radius: 50%;
-      box-shadow: inset 0 0 60px 20px rgba(4,15,42,0.4);
+      background: linear-gradient(
+        180deg,
+        transparent 50%,
+        rgba(4,15,42,0.5) 100%
+      );
       z-index: 2;
       pointer-events: none;
     }
@@ -220,34 +242,45 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: contrast(1.02) saturate(0.85) brightness(0.95);
+      filter: contrast(1.02) saturate(0.8) brightness(0.9);
+      transition: transform 8s ease-out;
+    }
+    .hero-visual:hover .hero-visual-frame img {
+      transform: scale(1.05);
+    }
+    .hero-visual-panel {
+      position: absolute;
+      top: -20px;
+      right: -24px;
+      width: 100%;
+      height: 100%;
+      background: var(--royal-700);
+      z-index: -1;
     }
     .hero-visual-ring {
       position: absolute;
-      inset: -12px;
+      top: -36px;
+      right: -8px;
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
-      border: 1px solid rgba(244,211,94,0.08);
+      border: 1px solid rgba(244,211,94,0.1);
       pointer-events: none;
     }
-    .hero-visual-ring:nth-child(2) {
-      inset: -24px;
-      border-color: rgba(244,211,94,0.04);
-    }
-    .hero-mascot {
-      position: absolute;
-      width: clamp(70px, 9vw, 100px);
-      top: 0;
-      right: -20px;
-      z-index: 3;
-      filter: drop-shadow(0 4px 12px rgba(10,36,99,0.3));
-      animation: float 6s ease-in-out infinite;
+    .hero-visual-ring:nth-child(3) {
+      top: auto;
+      bottom: -24px;
+      right: -36px;
+      width: 60px;
+      height: 60px;
+      border-color: rgba(244,211,94,0.06);
     }
     .hero-seal {
       position: absolute;
-      bottom: 10px;
-      left: -10px;
-      width: 52px;
-      height: 52px;
+      bottom: 16px;
+      left: 16px;
+      width: 56px;
+      height: 56px;
       background: var(--gold);
       border-radius: 50%;
       display: flex;
@@ -261,6 +294,20 @@
       text-align: center;
       box-shadow: 0 4px 20px rgba(244,211,94,0.25);
       z-index: 3;
+    }
+    .hero-rotated-text {
+      position: absolute;
+      right: -60px;
+      top: 50%;
+      transform: rotate(90deg) translateX(-50%);
+      transform-origin: left center;
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(253,251,246,0.12);
+      white-space: nowrap;
+      pointer-events: none;
     }
 
     /* ===== SECTION LABELS ===== */
@@ -701,10 +748,12 @@
     @media (max-width: 640px) {
       .nav-links { display: none; }
       .hero-name { font-size: clamp(2.8rem, 12vw, 4rem); }
-      .hero-visual-frame { width: 160px; }
+      .hero-visual-frame { width: 180px; }
+      .hero-visual-panel { top: -12px; right: -16px; }
       .hero-visual-ring { display: none; }
-      .hero-mascot { width: 55px; top: -5px; right: -10px; }
-      .hero-seal { width: 44px; height: 44px; font-size: 0.5rem; bottom: 5px; left: -5px; }
+      .hero-rotated-text { display: none; }
+      .hero-seal { width: 44px; height: 44px; font-size: 0.5rem; bottom: 8px; left: 8px; }
+      .hero-top-accent { top: 80px; }
       .projects-header { flex-direction: column; align-items: flex-start; gap: 8px; margin-bottom: 48px; }
       .project-item { margin-bottom: 60px; }
       .skill-tag { padding: 16px 24px; font-size: 1.1rem; }
@@ -729,6 +778,10 @@
   <!-- ===== HERO ===== -->
   <section class="hero" id="hero">
     <div class="hero-deco" aria-hidden="true">07</div>
+    <div class="hero-top-accent">
+      <span class="line"></span>
+      <span class="num">N°01</span>
+    </div>
     <div class="hero-inner">
       <div class="hero-text">
         <span class="hero-eyebrow">Brand Designer &middot; Independent</span>
@@ -745,13 +798,14 @@
         </div>
       </div>
       <div class="hero-visual">
+        <div class="hero-visual-panel"></div>
         <div class="hero-visual-frame">
           <img src="avatar.jpg" alt="飞鸿">
         </div>
         <span class="hero-visual-ring"></span>
         <span class="hero-visual-ring"></span>
-        <img src="character.png" alt="" class="hero-mascot" aria-hidden="true">
         <div class="hero-seal">飞鸿<br>设计</div>
+        <div class="hero-rotated-text">Personal Portfolio</div>
       </div>
     </div>
   </section>
@@ -770,7 +824,7 @@
       <div class="project-img-wrap reveal">
         <span class="project-img-num">N°01</span>
         <div class="project-img-border"></div>
-        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80" alt="云栖茶舍">
+        <img src="https://images.unsplash.com/photo-1545239351-ef35f43d514b?w=800&q=80" alt="云栖茶舍">
       </div>
       <div class="project-info reveal">
         <div class="project-info-tag">Brand Identity / 2024</div>
@@ -784,7 +838,7 @@
       <div class="project-img-wrap reveal">
         <span class="project-img-num">N°02</span>
         <div class="project-img-border"></div>
-        <img src="https://images.unsplash.com/photo-1634942537034-2531766767d1?w=800&q=80" alt="观止设计系统">
+        <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=800&q=80" alt="观止设计系统">
       </div>
       <div class="project-info reveal">
         <div class="project-info-tag">Design System / 2024</div>
@@ -798,7 +852,7 @@
       <div class="project-img-wrap reveal">
         <span class="project-img-num">N°03</span>
         <div class="project-img-border"></div>
-        <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&q=80" alt="拾光阅读">
+        <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&q=80" alt="拾光阅读">
       </div>
       <div class="project-info reveal">
         <div class="project-info-tag">UI/UX / 2023</div>
@@ -812,7 +866,7 @@
       <div class="project-img-wrap reveal">
         <span class="project-img-num">N°04</span>
         <div class="project-img-border"></div>
-        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80" alt="山海文化节">
+        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80" alt="山海文化节">
       </div>
       <div class="project-info reveal">
         <div class="project-info-tag">Event Identity / 2023</div>
