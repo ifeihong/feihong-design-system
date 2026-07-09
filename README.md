@@ -13,6 +13,8 @@
 [![组件](https://img.shields.io/badge/组件-200+-D8315B?style=for-the-badge&labelColor=D8315B&color=F4D35E)](https://feihong.art/assets/showcase.html)
 [![场景](https://img.shields.io/badge/场景-10-0A2463?style=for-the-badge&labelColor=0A2463&color=4ADE80)](https://feihong.art/)
 
+🌐 **官方网站**：[Feihong.Art](https://feihong.art/)
+
 [在线预览](https://feihong.art/) · [组件展示](https://feihong.art/assets/showcase.html) · [GitHub](https://github.com/ifeihong/feihong-design-system)
 
 ---
@@ -25,12 +27,12 @@
 
 ---
 
-## ◆ 亮点特性
+## ✨ 亮点特性
 
-- ◆ **Feihong.Art 品牌焕新** — 统一品牌标识 Feihong.Art，国际化视觉语言
-- ◆ **后台控制台模板** — 全新后台控制台模板，品牌基因色为主，终端绿仅用于代码面板
-- ◆ **200+ 组件 · 19 分类 · 350+ 变体** — 新增奢华表单（14种）、反馈组件（12种）、列表标签（13种）
-- ◆ **社交卡片批量导出** — 小红书图文卡片支持ZIP批量导出，5种预设卡片可编辑
+- 🌟 **Feihong.Art 品牌焕新** — 统一品牌标识 Feihong.Art，国际化视觉语言
+- 🖥️ **后台控制台模板** — 全新后台控制台模板，品牌基因色为主，终端绿仅用于代码面板
+- 🧩 **200+ 组件 · 19 分类 · 350+ 变体** — 新增奢华表单（14种）、反馈组件（12种）、列表标签（13种）
+- 📸 **社交卡片批量导出** — 小红书图文卡片支持ZIP批量导出，5种预设卡片可编辑
 - 📜 **签名组件集** — 火漆印章、照片角贴、❦花饰、首字下沉、金色签名
 - 🎬 **动效语言** — 统一飞鸿缓动曲线，完整动效规范（见 MOTION.md）
 - ✅ **质量封印标准** — P0必过 / P1期望 / P2加分，含反AI检测专项检查
@@ -38,7 +40,7 @@
 
 ---
 
-## ◆ 为什么选择飞鸿 · 差异化优势
+## 💎 为什么选择飞鸿 · 差异化优势
 
 | 特性 | 通用模板 | AI生成页面 | **飞鸿设计系统** |
 |:---|:---:|:---:|:---:|
@@ -67,7 +69,7 @@
 
 ---
 
-## ◇ 十大场景
+## 🎭 十大场景
 
 | 编号 | 场景 | 模板文件 | 核心特色 |
 |:---:|:---|:---|:---|
@@ -84,7 +86,7 @@
 
 ---
 
-## ✦ 组件库
+## 🧩 组件库
 
 **200+ 组件 · 19 大分类 · 350+ 样式变体**
 
@@ -127,7 +129,7 @@
 
 ---
 
-## ◆ 场景 · 模板 · 组件
+## 🏗️ 场景 · 模板 · 组件
 
 三者的关系就像做菜：**场景决定菜系，模板提供半成品骨架，组件是精致食材**。
 
@@ -384,16 +386,16 @@ feihong-design-system/
 
 - **首页 / 系统介绍** → [Feihong.Art](https://feihong.art/)
 - **组件可视化展示** → [showcase.html](https://feihong.art/assets/showcase.html)
-- **◆ 个人作品集模板** → [portfolio.html](https://feihong.art/assets/portfolio.html)
-- **◆ 活动落地页模板** → [landing.html](https://feihong.art/assets/landing.html)
-- **◆ 教程长文模板** → [tutorial.html](https://feihong.art/assets/tutorial.html)
-- **◆ 演示文稿模板** → [deck.html](https://feihong.art/assets/deck.html)
-- **◆ 案例研究模板** → [case-study.html](https://feihong.art/assets/case-study.html)
-- **◆ 后台控制台模板** → [console.html](https://feihong.art/assets/console.html)
-- **◆ 图文卡片模板** → [cards.html](https://feihong.art/assets/cards.html)
-- **◆ 简历模板** → [resume.html](https://feihong.art/assets/resume.html)
-- **◆ 公众号模板** → [wechat.html](https://feihong.art/assets/wechat.html)
-- **◆ 邮件模板** → [email.html](https://feihong.art/assets/email.html)
+- **✨ 个人作品集模板** → [portfolio.html](https://feihong.art/assets/portfolio.html)
+- **✨ 活动落地页模板** → [landing.html](https://feihong.art/assets/landing.html)
+- **✨ 教程长文模板** → [tutorial.html](https://feihong.art/assets/tutorial.html)
+- **✨ 演示文稿模板** → [deck.html](https://feihong.art/assets/deck.html)
+- **✨ 案例研究模板** → [case-study.html](https://feihong.art/assets/case-study.html)
+- **✨ 后台控制台模板** → [console.html](https://feihong.art/assets/console.html)
+- **✨ 图文卡片模板** → [cards.html](https://feihong.art/assets/cards.html)
+- **✨ 简历模板** → [resume.html](https://feihong.art/assets/resume.html)
+- **✨ 公众号模板** → [wechat.html](https://feihong.art/assets/wechat.html)
+- **✨ 邮件模板** → [email.html](https://feihong.art/assets/email.html)
 
 > 所有模板可直接在浏览器中打开。通过 `index.html` 可浏览全部模板。
 
@@ -440,6 +442,6 @@ feihong-design-system/
 *Feihong.Art · Timeless Vision, Crafted with Precision*
 *反AI · 艺术品质 · 人文温度*
 
-Made with precision by [飞鸿](https://feihong.art/)
+🌐 [Feihong.Art](https://feihong.art/) · Made with precision by [飞鸿](https://feihong.art/)
 
 </div>
