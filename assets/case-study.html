@@ -734,6 +734,11 @@ section{padding:clamp(60px,8vw,140px) clamp(20px,5vw,80px);position:relative}
   .navbar{padding:12px 16px}
 }
 </style>
+<noscript>
+  <style>
+    .reveal { opacity: 1 !important; transform: none !important; }
+  </style>
+</noscript>
 </head>
 <body>
 
@@ -1100,7 +1105,7 @@ const observer=new IntersectionObserver((entries)=>{
       observer.unobserve(entry.target);
     }
   });
-},{threshold:0.12,rootMargin:'0px 0px -60px 0px'});
+},{threshold:0.05,rootMargin:'0px 0px -30px 0px'});
 
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
