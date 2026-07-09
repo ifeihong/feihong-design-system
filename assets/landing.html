@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>设计思维 · 品牌工作坊 | Feihong Design</title>
-  <meta name="description" content="飞鸿设计思维工作坊，帮助创业者和设计师建立有温度的品牌思维。2025年线下活动，上海站限时报名中。">
+  <meta name="description" content="飞鸿设计思维工作坊，帮助创业者和设计师建立有温度的品牌思维。2026年线下活动，上海站限时报名中。">
   <meta name="keywords" content="设计工作坊,品牌设计,设计思维,飞鸿,Feihong Design">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -694,7 +694,7 @@
       display: grid;
       grid-template-columns: 100px 1fr;
       gap: var(--sp-5);
-      padding: var(--sp-5) 0;
+      padding: var(--sp-6) 0;
       position: relative;
     }
     .schedule-time {
@@ -703,12 +703,12 @@
       font-weight: 500;
       color: var(--royal);
       text-align: right;
-      padding-top: var(--sp-1);
+      padding-top: var(--sp-2);
     }
     .schedule-dot {
       position: absolute;
       left: 96px;
-      top: calc(var(--sp-5) + 8px);
+      top: calc(var(--sp-6) + 8px);
       width: 9px;
       height: 9px;
       border-radius: 50%;
@@ -956,6 +956,7 @@
     }
     .countdown-item {
       text-align: center;
+      position: relative;
     }
     .countdown-num {
       font-family: var(--font-serif);
@@ -963,6 +964,22 @@
       font-weight: 700;
       color: var(--gold);
       line-height: 1;
+      min-width: 48px;
+      display: inline-block;
+      transition: transform 0.4s var(--ease);
+    }
+    .countdown-num.tick {
+      animation: tickFlip 0.5s var(--ease);
+    }
+    .countdown-sep {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      opacity: 0.4;
+      align-self: flex-start;
+      margin-top: 2px;
+      animation: blink 1s step-end infinite;
     }
     .countdown-label {
       font-size: 0.6875rem;
@@ -970,6 +987,17 @@
       text-transform: uppercase;
       letter-spacing: 0.1em;
       margin-top: var(--sp-1);
+    }
+
+    @keyframes tickFlip {
+      0% { transform: scaleY(1); }
+      30% { transform: scaleY(0.6); opacity: 0.5; }
+      60% { transform: scaleY(1.05); }
+      100% { transform: scaleY(1); opacity: 1; }
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.1; }
     }
 
     /* ============================================
@@ -1103,7 +1131,7 @@
         <div class="hero-ornament reveal">
           <span>A Design Workshop</span>
         </div>
-        <span class="eyebrow eyebrow-gold reveal reveal-delay-1">2025 · 上海站 · 限量席位</span>
+        <span class="eyebrow eyebrow-gold reveal reveal-delay-1">2026 · 上海站 · 限量席位</span>
         <h1 class="hero-title reveal reveal-delay-1">
           设计思维<br>
           <em>品牌工作坊</em>
@@ -1114,7 +1142,7 @@
         <div class="hero-meta reveal reveal-delay-2">
           <span class="hero-meta-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            2025年11月15日（周六）
+            2026年11月15日（周六）
           </span>
           <span class="hero-meta-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -1452,16 +1480,23 @@
 
             <div class="cta-countdown">
               <div class="countdown-item">
-                <div class="countdown-num" id="cdDays">28</div>
+                <div class="countdown-num" id="cdDays">---</div>
                 <div class="countdown-label">天</div>
               </div>
+              <span class="countdown-sep">:</span>
               <div class="countdown-item">
-                <div class="countdown-num" id="cdHours">14</div>
+                <div class="countdown-num" id="cdHours">--</div>
                 <div class="countdown-label">时</div>
               </div>
+              <span class="countdown-sep">:</span>
               <div class="countdown-item">
-                <div class="countdown-num" id="cdMins">32</div>
+                <div class="countdown-num" id="cdMins">--</div>
                 <div class="countdown-label">分</div>
+              </div>
+              <span class="countdown-sep">:</span>
+              <div class="countdown-item">
+                <div class="countdown-num" id="cdSecs">--</div>
+                <div class="countdown-label">秒</div>
               </div>
             </div>
           </div>
@@ -1480,7 +1515,7 @@
           <a href="#" class="footer-link">往期活动</a>
           <a href="#" class="footer-link">隐私政策</a>
         </div>
-        <p class="footer-copy">© 2025 Feihong Design. All rights reserved.</p>
+        <p class="footer-copy">© 2026 Feihong Design. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -1554,26 +1589,46 @@
         });
       }
 
-      // Simple countdown demo (target date)
+      // Countdown with tick animation
       function updateCountdown() {
-        var target = new Date('2025-11-15T09:30:00+08:00');
+        var target = new Date('2026-11-15T09:30:00+08:00');
         var now = new Date();
         var diff = target - now;
+        var elIds = ['cdDays', 'cdHours', 'cdMins', 'cdSecs'];
+        var prevVals = {};
+
+        elIds.forEach(function(id) {
+          prevVals[id] = document.getElementById(id).textContent;
+        });
+
         if (diff < 0) {
-          document.getElementById('cdDays').textContent = '0';
-          document.getElementById('cdHours').textContent = '0';
-          document.getElementById('cdMins').textContent = '0';
+          elIds.forEach(function(id) { document.getElementById(id).textContent = '0'; });
           return;
         }
         var days = Math.floor(diff / (1000 * 60 * 60 * 24));
         var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         var mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        document.getElementById('cdDays').textContent = days;
-        document.getElementById('cdHours').textContent = String(hours).padStart(2, '0');
-        document.getElementById('cdMins').textContent = String(mins).padStart(2, '0');
+        var secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+        var vals = {
+          cdDays: String(days),
+          cdHours: String(hours).padStart(2, '0'),
+          cdMins: String(mins).padStart(2, '0'),
+          cdSecs: String(secs).padStart(2, '0')
+        };
+
+        elIds.forEach(function(id) {
+          var el = document.getElementById(id);
+          if (vals[id] !== prevVals[id]) {
+            el.textContent = vals[id];
+            el.classList.remove('tick');
+            void el.offsetWidth;
+            el.classList.add('tick');
+          }
+        });
       }
       updateCountdown();
-      if (!reduceMotion) setInterval(updateCountdown, 60000);
+      if (!reduceMotion) setInterval(updateCountdown, 1000);
     })();
   </script>
 </body>
