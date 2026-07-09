@@ -2,15 +2,15 @@
 
 <div align="center">
 
-# **Feihong** Design System
+# **Feihong.Art** Design System
 
 ### *Timeless Vision, Crafted with Precision*
 #### 不像AI的个人品牌设计系统 — 艺术有品质，有温度有人味
 
-[![Version](https://img.shields.io/badge/version-v7.1-0A2463?style=for-the-badge&labelColor=0A2463&color=F4D35E)](https://github.com/ifeihong/feihong-design-system)
+[![Version](https://img.shields.io/badge/version-v8.0-0A2463?style=for-the-badge&labelColor=0A2463&color=F4D35E)](https://github.com/ifeihong/feihong-design-system)
 [![License: MIT](https://img.shields.io/badge/License-MIT-D8315B.svg?style=for-the-badge&labelColor=D8315B&color=F4D35E)](https://opensource.org/licenses/MIT)
 [![Templates](https://img.shields.io/badge/Templates-10-0A2463?style=for-the-badge&labelColor=0A2463&color=F4D35E)](https://feihong.art/)
-[![Components](https://img.shields.io/badge/Components-148-D8315B?style=for-the-badge&labelColor=D8315B&color=F4D35E)](https://feihong.art/assets/showcase.html)
+[![Components](https://img.shields.io/badge/Components-200+-D8315B?style=for-the-badge&labelColor=D8315B&color=F4D35E)](https://feihong.art/assets/showcase.html)
 [![Scenes](https://img.shields.io/badge/Scenes-10-0A2463?style=for-the-badge&labelColor=0A2463&color=4ADE80)](https://feihong.art/)
 
 [View Demo](https://feihong.art/) · [Component Showcase](https://feihong.art/assets/showcase.html) · [GitHub](https://github.com/ifeihong/feihong-design-system)
@@ -21,15 +21,16 @@
 
 > **Premium personal brand design system for AI-assisted creation.** Built on the signature palette of Royal Blue `#0A2463` + Vintage Gold `#F4D35E` + Burgundy Wine `#D8315B`, with a strict serif+sans-serif typography strategy. Produce pages that are artistically refined, recognizably yours, and unmistakably human — never looking AI-generated.
 >
-> **为 AI 编码助手打造的高端个人品牌设计 Skill。** 皇家蓝 + 复古金 + 酒红三色基因，衬线+无衬线字体混搭策略，148个品牌组件，19个科学分类，250+种样式变体，8步精工工作流。
+> **为 AI 编码助手打造的高端个人品牌设计 Skill。** 皇家蓝 + 复古金 + 酒红三色基因，衬线+无衬线字体混搭策略，200+品牌组件，19个科学分类，350+种样式变体，8步精工工作流。
 
 ---
 
-## ◆ v7.0 Highlights
+## ◆ v8.0 Highlights
 
-- ◆ **Feihong Brand Identity** — 纯字母标识，高奢国际化视觉语言，Art Deco几何装饰语言
-- ◆ **10 Production-Ready Scenes** — Portfolio / Landing / Tutorial / Deck / Case Study / App / Social Cards / Resume / WeChat / Email
-- ✦ **148 Components · 19 Categories · 250+ Variants** — 含42个动态文字标题、25个高奢艺术组件、10+签名组件
+- ◆ **Feihong.Art 品牌焕新** — 统一品牌标识 Feihong.Art，国际化视觉语言
+- ◆ **Admin Console 控制台模板** — 全新后台控制台模板，品牌基因色为主，终端绿仅用于代码面板
+- ◆ **200+ Components · 19 Categories · 350+ Variants** — 新增奢华表单（14种）、反馈组件（12种）、列表标签（13种）
+- ◆ **Social Cards 卡片导出** — 小红书图文卡片支持ZIP批量导出，5种预设卡片可编辑
 - 📜 **Signature Collection** — Wax Seal火漆印章、Photo Corner照片角贴、Fleuron ❦花饰、Drop Cap首字下沉、Gold Signature金色签名
 - 🎬 **Motion Language** — 统一Feihong Easing缓动曲线，完整动效规范（见MOTION.md）
 - ✅ **Quality Seal Standards** — P0 Seal Required / P1 Quality Expected / P2 Refinement Bonus，含Anti-AI Detection专项检查
@@ -75,8 +76,8 @@
 | 03 | **Tutorial / Long-form** | [`tutorial.html`](assets/tutorial.html) | Drop cap, reading progress, TOC sidebar, Fleuron ❦ dividers |
 | 04 | **Presentation Deck** | [`deck.html`](assets/deck.html) | 9 layouts, keyboard nav, F fullscreen, print mode, Keynote-level |
 | 05 | **Case Study** | [`case-study.html`](assets/case-study.html) | Narrative arc: problem→solution→result, data viz, dark panels |
-| 06 | **App / Dashboard** | [`app.html`](assets/app.html) | Sidebar nav, Terminal Green code blocks, functional UI, KPI cards |
-| 07 | **Social Cards (Xiaohongshu)** | [`cards.html`](assets/cards.html) | 3:4 portrait, pagination, html2canvas PNG export, 6 layouts |
+| 06 | **Console / Admin** | [`console.html`](assets/console.html) | Royal Blue sidebar nav, Gold-accented admin dashboard, KPI cards, SVG charts, system log panel |
+| 07 | **Social Cards (Xiaohongshu)** | [`cards.html`](assets/cards.html) | 3:4 portrait, 5 card types, editable text, PNG & ZIP export |
 | 08 | **Resume / CV** | [`resume.html`](assets/resume.html) | A4 print ready, Ctrl+P PDF, single page, no animation |
 | 09 | **WeChat Article** | [`wechat.html`](assets/wechat.html) | Inline styles, table layout, WeChat editor compatible |
 | 10 | **Email / EDM** | [`email.html`](assets/email.html) | Table layout, inline styles, Outlook compatible, unsubscribe link |
@@ -85,7 +86,7 @@
 
 ## ✦ Component Library · 组件库亮点
 
-**v7.0 — 148 Components · 19 Categories · 250+ Variants**
+**v8.0 — 200+ Components · 19 Categories · 350+ Variants**
 
 ### Data Overview · 数据总览
 
@@ -152,7 +153,7 @@
               ▼
 ┌─────────────────────────────┐
 │  N°03 Component · 组件       │  填充"精致零件"
-│  148个品牌组件分19类：        │  按需挑选搭配
+│  200+品牌组件分19类：        │  按需挑选搭配
 │  按钮/卡片/引用/动效/签名元素  │  零默认浏览器样式
 │  components/01-brand.md 等   │
 └─────────────────────────────┘
@@ -255,14 +256,14 @@ feihong-design-system/
 │   ├── avatar.jpg                # Your avatar (replace)
 │   ├── character.png             # Your IP character (replace)
 │   ├── html2canvas.min.js        # Card-to-PNG export dependency
-│   ├── showcase.html             # Component visual showcase (148 components)
+│   ├── showcase.html             # Component visual showcase (200+ components)
 │   │
 │   ├── portfolio.html              # N°01 Portfolio / 个人作品集
 │   ├── landing.html                # N°02 Landing Page / 活动页
 │   ├── tutorial.html               # N°03 Tutorial / 教程长文
 │   ├── deck.html                   # N°04 Deck / 演示文稿
 │   ├── case-study.html             # N°05 Case Study / 案例研究
-│   ├── app.html                    # N°06 App / 功能页/仪表盘
+│   ├── console.html                # N°06 Console / 后台控制台
 │   ├── cards.html                  # N°07 Social Cards / 图文卡片
 │   ├── resume.html                 # N°08 Resume / 简历CV
 │   ├── wechat.html                 # N°09 WeChat / 公众号排版
@@ -295,7 +296,7 @@ feihong-design-system/
     ├── tutorial.md               # Tutorial scene spec
     ├── deck.md                   # Deck scene spec
     ├── case-study.md             # Case study scene spec
-    ├── app.md                    # App scene spec
+    ├── console.md                # Console scene spec
     ├── cards.md                  # Social cards scene spec
     ├── resume.md                 # Resume scene spec
     ├── wechat.md                 # WeChat scene spec

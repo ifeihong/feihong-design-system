@@ -247,7 +247,7 @@ After completing the general P0/P1/P2 checks, perform additional verification ba
 - [ ] No crowded slides (one core idea per slide) / 每页信息不拥挤（一页一核心观点）
 - [ ] Page number / progress indicator / 页码/进度指示
 
-### App / Functional / App型/功能型
+### Console / Admin / 后台控制台/功能型
 - [ ] Clear functional layout (sidebar / top nav / content area) / 有明确的功能布局（侧边栏/顶部导航/内容区）
 - [ ] Interactive elements have state feedback (hover/active/disabled) / 交互元素有状态反馈（hover/active/disabled）
 - [ ] Forms have validation styling / 表单有验证样式

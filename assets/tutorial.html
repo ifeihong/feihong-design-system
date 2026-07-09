@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>如何打造有辨识度的个人品牌 | Feihong Design</title>
+  <title>如何打造有辨识度的个人品牌 | Feihong.Art</title>
   <meta name="description" content="个人品牌不是一个Logo，而是一整套一致的体验。本文从定位、视觉、声音三个维度，教你系统打造有温度、有记忆点的个人品牌。">
-  <meta name="keywords" content="个人品牌,品牌设计,品牌定位,视觉识别,Feihong Design,飞鸿">
+  <meta name="keywords" content="个人品牌,品牌设计,品牌定位,视觉识别,Feihong.Art,品牌设计师">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,500;1,600;1,700;1,900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     /* ============================================
-       Feihong Design System — Tutorial Template v2.0 (Stable)
+       Feihong.Art Design System — Tutorial Template v2.0 (Stable)
        Brand: Royal Blue #0A2463 · Gold #F4D35E · Wine #D8315B
        ============================================ */
 
@@ -992,7 +992,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
       返回首页
     </a>
-    <a href="#" class="nav-logo">Feihong<span class="gold-dot">.</span></a>
+    <a href="#" class="nav-logo">Feihong<span class="gold-dot">.</span>Art</a>
   </nav>
 
   <main class="article-wrap">
@@ -1189,7 +1189,7 @@
       </div>
       <div class="author-card-info">
         <div class="author-card-name">飞鸿</div>
-        <div class="author-card-role">品牌设计师 · Feihong Design 主理人</div>
+        <div class="author-card-role">品牌设计师 · Feihong.Art 主理人</div>
         <p class="author-card-bio">
           八年品牌设计经验，相信好的设计是"有温度的秩序"。在这里分享关于设计、品牌和创造的思考。
         </p>
@@ -1258,7 +1258,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-brand">Feihong<span class="gold-dot">.</span>Art</div>
-      <p class="footer-copy">© 2026 飞鸿 · 用设计传递温度</p>
+      <p class="footer-copy">© 2026 Feihong.Art · 用设计传递温度</p>
     </div>
   </footer>
 
@@ -1321,18 +1321,6 @@
 
       // Reveal
       if (!reduceMotion && 'IntersectionObserver' in window) {
-        document.querySelectorAll('.reveal').forEach(function(el) {
-          new IntersectionObserver(function(entries) {
-            entries.forEach(function(e) {
-              if (e.isIntersecting) {
-                e.target.classList.add('visible');
-                e.target._obs.unobserve(e.target);
-              }
-            });
-          }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }).observe(el);
-          el._obs = {};
-        });
-        // Fix: create observer properly
         var obs = new IntersectionObserver(function(entries) {
           entries.forEach(function(e) {
             if (e.isIntersecting) {
@@ -1340,7 +1328,7 @@
               obs.unobserve(e.target);
             }
           });
-        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
         document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
       } else {
         document.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('visible'); });

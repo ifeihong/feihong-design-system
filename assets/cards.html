@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>飞鸿品牌设计系统 · 小红书图文卡片模板</title>
+<title>Feihong.Art · 小红书图文卡片模板</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Noto+Serif+SC:wght@300;400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -148,20 +148,6 @@
     color: var(--ink-soft);
     letter-spacing: 1px;
     flex-shrink: 0;
-  }
-  .header-title .badge-beta {
-    display: inline-block;
-    font-family: var(--font-en);
-    font-size: 10px;
-    font-style: italic;
-    font-weight: 600;
-    color: var(--wine);
-    background: var(--wine-soft);
-    padding: 2px 8px;
-    border-radius: 20px;
-    margin-left: 8px;
-    letter-spacing: 1px;
-    vertical-align: middle;
   }
   .header-actions {
     margin-left: auto;
@@ -1193,14 +1179,13 @@
     <div class="brand-logo">
       <div class="brand-mark">Fh</div>
       <div class="brand-text">
-        <span class="cn">飞鸿设计</span>
-        <span class="en">Feihong Design System</span>
+        <span class="cn">Feihong.Art</span>
+        <span class="en">Design System</span>
       </div>
     </div>
     <div class="header-divider"></div>
     <div class="header-title">
       小红书图文卡片模板
-      <span class="badge-beta">BETA</span>
     </div>
     <div class="header-actions">
       <button class="btn btn-ghost" onclick="exportAllCards()">
@@ -1272,12 +1257,12 @@
         <div class="quote-author">
           <div class="author-line"></div>
           <div class="author-name" contenteditable="true">Feihong</div>
-          <div class="author-title" contenteditable="true">飞鸿 · 品牌设计师</div>
+          <div class="author-title" contenteditable="true">Feihong.Art · Brand Designer</div>
         </div>
 
         <!-- 页脚联系 -->
         <div class="card-footer on-dark">
-          <div class="foot-item"><span class="foot-label">小红书</span>@飞鸿设计</div>
+          <div class="foot-item"><span class="foot-label">小红书</span>@Feihong.Art</div>
           <div class="foot-sep"></div>
           <div class="foot-item">hello@Feihong.art</div>
         </div>
@@ -1336,7 +1321,7 @@
         </div>
 
         <div class="card-footer">
-          <div class="foot-item"><span class="foot-label">小红书</span>@飞鸿设计</div>
+          <div class="foot-item"><span class="foot-label">小红书</span>@Feihong.Art</div>
           <div class="foot-sep"></div>
           <div class="foot-item">hello@Feihong.art</div>
         </div>
@@ -1360,7 +1345,7 @@
         <div class="profile-avatar">
           <span class="avatar-initial" contenteditable="true">Fh</span>
         </div>
-        <div class="profile-name" contenteditable="true">飞鸿</div>
+        <div class="profile-name" contenteditable="true">Feihong</div>
         <div class="profile-name-en" contenteditable="true">Feihong</div>
         <div class="profile-title" contenteditable="true">品牌设计师 · 视觉创作者</div>
         <div class="profile-divider"><span class="fl">❦</span></div>
@@ -1375,7 +1360,7 @@
         </div>
 
         <div class="card-footer">
-          <div class="foot-item"><span class="foot-label">小红书</span>@飞鸿设计</div>
+          <div class="foot-item"><span class="foot-label">小红书</span>@Feihong.Art</div>
           <div class="foot-sep"></div>
           <div class="foot-item">hello@Feihong.art</div>
         </div>
@@ -1422,7 +1407,7 @@
         </div>
 
         <div class="card-footer">
-          <div class="foot-item"><span class="foot-label">小红书</span>@飞鸿设计</div>
+          <div class="foot-item"><span class="foot-label">小红书</span>@Feihong.Art</div>
           <div class="foot-sep"></div>
           <div class="foot-item">hello@Feihong.art</div>
         </div>
@@ -1473,7 +1458,7 @@
         </div>
 
         <div class="card-footer">
-          <div class="foot-item"><span class="foot-label">小红书</span>@飞鸿设计</div>
+          <div class="foot-item"><span class="foot-label">小红书</span>@Feihong.Art</div>
           <div class="foot-sep"></div>
           <div class="foot-item">hello@Feihong.art</div>
         </div>
@@ -1587,7 +1572,7 @@
       });
 
       const link = document.createElement('a');
-      link.download = '飞鸿设计_' + name + '.png';
+      link.download = 'Feihong.Art_' + name + '.png';
       link.href = canvas.toDataURL('image/png', 1.0);
       link.click();
       showToast('已导出「' + name + '」.png');
@@ -1611,6 +1596,9 @@
       showToast('JSZip 未加载，将逐张导出...');
       await ensureFonts();
       for (let i = 0; i < totalCards; i++) {
+        switchCard(i);
+        await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+        await new Promise(r => setTimeout(r, 300));
         await exportCard(i);
         await new Promise(r => setTimeout(r, 600));
       }
@@ -1626,10 +1614,20 @@
     viewport.style.transform = 'scale(1)';
     viewport.style.marginBottom = '0';
 
+    // 保存当前选中的卡片，导出完成后恢复
+    const savedIdx = currentIdx;
+
     const zip = new JSZip();
-    const folder = zip.folder('飞鸿设计_小红书卡片');
+    const folder = zip.folder('Feihong.Art_小红书卡片');
 
     for (let i = 0; i < totalCards; i++) {
+      // 关键修复：导出前先激活卡片，使其 display:flex 可见
+      // html2canvas 无法正确渲染 display:none 的元素
+      switchCard(i);
+      // 等待两帧让浏览器完成布局重绘
+      await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+      await new Promise(r => setTimeout(r, 250));
+
       const card = cards[i];
       const name = card.dataset.name || ('card-' + (i + 1));
       const fab = card.querySelector('.card-export-fab');
@@ -1644,30 +1642,35 @@
           width: 1080,
           height: 1440,
           logging: false,
+          imageTimeout: 15000,
+          removeContainer: false,
         });
         const dataUrl = canvas.toDataURL('image/png', 1.0);
         const base64 = dataUrl.split(',')[1];
-        folder.file('飞鸿设计_' + name + '.png', base64, { base64: true });
+        folder.file('Feihong.Art_' + name + '.png', base64, { base64: true });
       } catch (err) {
         console.error('导出失败:', err);
         showToast('第 ' + (i+1) + ' 张导出失败');
         if (fab) fab.style.display = fabDisplay || '';
         viewport.style.transform = origTransform;
         viewport.style.marginBottom = origMargin;
+        switchCard(savedIdx);
         return;
       } finally {
         if (fab) fab.style.display = fabDisplay || '';
       }
-      await new Promise(r => setTimeout(r, 400));
+      await new Promise(r => setTimeout(r, 300));
     }
 
+    // 恢复原来选中的卡片
+    switchCard(savedIdx);
     viewport.style.transform = origTransform;
     viewport.style.marginBottom = origMargin;
 
     try {
       const blob = await zip.generateAsync({ type: 'blob' });
       const link = document.createElement('a');
-      link.download = '飞鸿设计_小红书卡片合集.zip';
+      link.download = 'Feihong.Art_小红书卡片合集.zip';
       link.href = URL.createObjectURL(blob);
       link.click();
       setTimeout(() => URL.revokeObjectURL(link.href), 2000);

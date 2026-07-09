@@ -25,7 +25,7 @@ All 10 scenes are production-ready, each with complete specification and templat
 | 03 | Tutorial / Long-form · 教程/长文/博客 | `scenes/tutorial.md` | `assets/tutorial.html` | Drop cap, reading progress, TOC, book-quality typography |
 | 04 | Presentation Deck · 演示文稿/Slides | `scenes/deck.md` | `assets/deck.html` | Fullscreen, 16:9, keyboard nav, 9 layouts, F fullscreen |
 | 05 | Case Study · 案例研究/项目复盘 | `scenes/case-study.md` | `assets/case-study.html` | Narrative arc, data visualization, dark panels |
-| 06 | App / Dashboard · 功能页/仪表盘 | `scenes/app.md` | `assets/app.html` | Functional UI, sidebar nav, Terminal Green, components |
+| 06 | Console / Admin · 后台控制台/仪表盘 | `scenes/console.md` | `assets/console.html` | Admin dashboard, sidebar nav, Terminal Green, KPI cards, data charts |
 | 07 | Social Cards · 图文卡片/小红书 | `scenes/cards.md` | `assets/cards.html` | 3:4 portrait, pagination, html2canvas PNG export |
 | 08 | Resume / CV · 简历/履历 | `scenes/resume.md` | `assets/resume.html` | A4 print, single page, no animation, Ctrl+P PDF |
 | 09 | WeChat Article · 公众号/微信图文 | `scenes/wechat.md` | Inline HTML | WeChat inline styles, no external CSS/JS |
@@ -44,7 +44,7 @@ The system activates automatically when the request matches these scenarios:
 | 教程、教学、科普、博客、文章页、长文、专栏 | Tutorial |
 | 演示文稿、slides、幻灯片、deck、演讲、分享会 | Deck |
 | 案例研究、Case Study、项目复盘、设计过程 | Case Study |
-| App、功能页、看板、仪表盘、工具页、后台 | App |
+| 后台控制台、功能页、看板、仪表盘、工具页 | Console |
 | 图文卡片、小红书图文、社交卡片、朋友圈图 | Cards |
 | 简历、CV、履历 | Resume |
 | 邮件模板、EDM、Newsletter、订阅邮件 | Email |
@@ -132,7 +132,7 @@ Core questions to confirm (select only what's missing):
 | 03 | Tutorial / Long-form | `scenes/tutorial.md` | `assets/tutorial.html` |
 | 04 | Deck / Presentation | `scenes/deck.md` | `assets/deck.html` |
 | 05 | Case Study | `scenes/case-study.md` | `assets/case-study.html` |
-| 06 | App / Dashboard | `scenes/app.md` | `assets/app.html` |
+| 06 | Console / Admin | `scenes/console.md` | `assets/console.html` |
 | 07 | Social Cards | `scenes/cards.md` | `assets/cards.html` |
 | 08 | Resume / CV | `scenes/resume.md` | `assets/resume.html` |
 | 09 | WeChat Article | `scenes/wechat.md` | Inline HTML |
@@ -161,7 +161,7 @@ Core questions to confirm (select only what's missing):
 | 03 | Tutorial | `assets/tutorial.html` | Long-form reading, TOC nav, progress bar, Drop Cap |
 | 04 | Deck | `assets/deck.html` | Fullscreen slides, keyboard nav, 16:9, F for fullscreen |
 | 05 | Case Study | `assets/case-study.html` | Context→Challenge→Process→Result narrative, data viz |
-| 06 | App | `assets/app.html` | Functional UI, sidebar nav, Terminal Green, components |
+| 06 | Console | `assets/console.html` | Admin dashboard, sidebar nav, Terminal Green, KPI cards, data charts |
 | 07 | Social Cards | `assets/cards.html` | 3:4 portrait pagination, html2canvas PNG export |
 | 08 | Resume | `assets/resume.html` | A4 single page, print-friendly, Ctrl+P PDF |
 | 09 | WeChat | Inline HTML | WeChat compatible, inline styles, no external CSS/JS |
@@ -323,7 +323,7 @@ Check against `QUALITY.md` + `DNA.md` quality gate standards item by item.
 - Email → Confirm table layout, Outlook compatible, no external CSS
 - WeChat → Confirm inline styles, no external JS, WeChat-compatible tags
 - Resume → Confirm A4 print, single page, no animations, print-friendly
-- App / Terminal → Terminal Green `#4ADE80` restricted to code/terminal elements only
+- Console / Terminal → Terminal Green `#4ADE80` restricted to code/terminal elements only
 
 **Self-check failure handling**:
 - P0 failure → Fix immediately → Re-check all P0
@@ -361,7 +361,7 @@ Delivery standards:
 | 03 | Tutorial / 教程 | `scenes/tutorial.md` | `assets/tutorial.html` | Long reading, TOC, progress bar, Drop Cap, book-quality typography | Long scroll |
 | 04 | Deck / 演示文稿 | `scenes/deck.md` | `assets/deck.html` | Fullscreen, 16:9, keyboard nav, large type, minimal text | Slide navigation |
 | 05 | Case Study / 案例研究 | `scenes/case-study.md` | `assets/case-study.html` | Narrative arc: problem→solution→result, data viz, dark panels | Long scroll |
-| 06 | App / 功能页 | `scenes/app.md` | `assets/app.html` | Functional UI, sidebar nav, Terminal Green, components | Interactive |
+| 06 | Console / 控制台 | `scenes/console.md` | `assets/console.html` | Admin dashboard, sidebar nav, Terminal Green, KPI cards, data charts | Interactive |
 | 07 | Social Cards / 图文卡片 | `scenes/cards.md` | `assets/cards.html` | 3:4 portrait, pagination, html2canvas PNG export | Paged |
 | 08 | Resume / 简历 | `scenes/resume.md` | `assets/resume.html` | A4 single page, print-friendly, no animation, Ctrl+P PDF | Static/Print |
 | 09 | WeChat / 公众号 | `scenes/wechat.md` | Inline HTML | WeChat compatible, inline styles, no external CSS/JS | Long scroll |
@@ -371,7 +371,7 @@ Delivery standards:
 
 **Long Scroll (5)**: Portfolio, Landing, Tutorial, Case Study, WeChat
 **Paged/Paginated (2)**: Deck (fullscreen slides), Cards (3:4 portrait)
-**Interactive (1)**: App (dashboard UI)
+**Interactive (1)**: Console (admin dashboard UI)
 **Static/Print (2)**: Resume (A4 print), Email (table static)
 
 ---
