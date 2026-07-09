@@ -370,9 +370,16 @@
     /* Article Content */
     .article-content {
       max-width: var(--article-max);
-      margin: 0 auto;
+      margin: 0 auto 0 calc(100px + clamp(20px, 4vw, 48px) - 240px);
       font-size: 1.05rem;
       line-height: 1.85;
+    }
+    /* When sidebar visible, shift content right */
+    @media (min-width: 1101px) {
+      .article-content {
+        margin-left: 280px;
+        max-width: calc(var(--article-max) - 60px);
+      }
     }
 
     /* Drop Cap — 首字下沉 */
@@ -818,7 +825,7 @@
     .newsletter {
       max-width: var(--article-max);
       margin: 0 auto var(--sp-16);
-      padding: var(--sp-10) var(--sp-8);
+      padding: var(--sp-16) var(--sp-10);
       background:
         radial-gradient(ellipse at 80% 20%, rgba(244,211,94,0.1) 0%, transparent 60%),
         linear-gradient(135deg, var(--royal-900), var(--royal-800));
@@ -994,7 +1001,7 @@
           飞鸿
         </span>
         <span class="meta-sep"></span>
-        <span>2025年10月</span>
+        <span>2026年10月</span>
         <span class="meta-sep"></span>
         <span>阅读 12 分钟</span>
       </div>
@@ -1205,7 +1212,7 @@
           <div class="related-card-content">
             <div class="related-card-cat">设计技法</div>
             <h3 class="related-card-title">排版的秩序：为什么你的设计总觉得"乱"</h3>
-            <span class="related-card-date">2025年9月</span>
+            <span class="related-card-date">2026年9月</span>
           </div>
         </a>
         <a href="#" class="related-card">
@@ -1213,7 +1220,7 @@
           <div class="related-card-content">
             <div class="related-card-cat">设计思考</div>
             <h3 class="related-card-title">配色的底层逻辑：从抄色卡到创造色彩</h3>
-            <span class="related-card-date">2025年8月</span>
+            <span class="related-card-date">2026年8月</span>
           </div>
         </a>
         <a href="#" class="related-card">
@@ -1221,7 +1228,7 @@
           <div class="related-card-content">
             <div class="related-card-cat">职业思考</div>
             <h3 class="related-card-title">AI时代，设计师的核心竞争力是什么</h3>
-            <span class="related-card-date">2025年7月</span>
+            <span class="related-card-date">2026年7月</span>
           </div>
         </a>
       </div>
@@ -1244,8 +1251,8 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-inner">
-      <div class="footer-brand">Feihong<span class="gold-dot">.</span> Design</div>
-      <p class="footer-copy">© 2025 飞鸿 · 用设计传递温度</p>
+      <div class="footer-brand">Feihong<span class="gold-dot">.</span> Art</div>
+      <p class="footer-copy">© 2026 飞鸿 · 用设计传递温度</p>
     </div>
   </footer>
 
