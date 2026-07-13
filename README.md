@@ -181,11 +181,10 @@
 ```
 <skills-directory>/
 └── feihong-design-system/
-    ├── FEIHONG.md          ← 工作流手册（AI大脑）
+    ├── SKILL.md            ← Skill定义文件 & 工作流手册（AI大脑）
     ├── DNA.md              ← 品牌基因（色彩/字体/气质）
     ├── MOTION.md           ← 动效语言规范
     ├── QUALITY.md          ← 质量封印标准（P0/P1/P2）
-    ├── SKILL.md            ← Skill定义文件
     ├── index.html          ← 首页 & 模板索引
     ├── assets/             ← 模板 & 静态资源
     ├── components/         ← 组件库（19个文件）
@@ -228,11 +227,10 @@ AI会自动：识别场景 → 读取规范 → 从模板修改 → 选择组件
 
 ```
 feihong-design-system/
-├── FEIHONG.md                    # 工作流手册（AI大脑）
+├── SKILL.md                      # Skill定义文件 & 工作流手册（AI大脑）
 ├── DNA.md                        # 品牌基因（色彩/字体/气质/禁忌）
 ├── MOTION.md                     # 动效语言规范（缓动/时长/原则）
 ├── QUALITY.md                    # 质量封印标准（P0/P1/P2 + 反AI检测）
-├── SKILL.md                      # Skill定义文件
 ├── README.md                     # 本文件
 ├── index.html                    # 首页 / 模板索引 / 视觉入口
 ├── robots.txt                    # 搜索引擎爬虫规则
