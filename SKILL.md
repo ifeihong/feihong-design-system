@@ -1,6 +1,6 @@
 ---
 name: feihong-design-system
-description: Feihong Design System — Premium personal brand design system for AI-assisted creation, Feihong.Art brand identity. 10 scene templates, 200+ components, for portfolios, landing pages, case studies, tutorials, decks, admin consoles, social cards, resumes, emails, WeChat articles and any frontend design task. Signature palette: Royal Blue #0A2463 + Vintage Gold #F4D35E + Burgundy Wine #D8315B. Core principle: Anti-AI > Artistic Quality > Human Warmth > Designer's Eye.
+description: "Feihong Design System — Premium personal brand design system for AI-assisted creation, Feihong.Art brand identity. 10 scene templates, 200+ components, for portfolios, landing pages, case studies, tutorials, decks, admin consoles, social cards, resumes, emails, WeChat articles and any frontend design task. Signature palette: Royal Blue #0A2463 + Vintage Gold #F4D35E + Burgundy Wine #D8315B. Core principle: Anti-AI > Artistic Quality > Human Warmth > Designer's Eye."
 ---
 
 # Feihong Design System
