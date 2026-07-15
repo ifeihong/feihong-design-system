@@ -4,7 +4,7 @@
 
 # **Feihong Design System**
 
-### *Feihong.Art · Timeless Vision, Crafted with Precision*
+### *Timeless Vision, Crafted with Precision*
 #### 不像AI的个人品牌设计系统 — 艺术有品质，有温度有人味
 
 [![Version](https://img.shields.io/badge/version-v8.0-0A2463?style=for-the-badge&labelColor=0A2463&color=F4D35E)](https://github.com/ifeihong/feihong-design-system)
@@ -13,7 +13,7 @@
 <a href="https://feihong.art/skill/assets/showcase.html" target="_blank"><img src="https://img.shields.io/badge/组件-200+-D8315B?style=for-the-badge&labelColor=D8315B&color=F4D35E" alt="组件"></a>
 <a href="https://feihong.art/skill/" target="_blank"><img src="https://img.shields.io/badge/场景-10-0A2463?style=for-the-badge&labelColor=0A2463&color=4ADE80" alt="场景"></a>
 
-🌐 **官方网站**：<a href="https://feihong.art/skill/" target="_blank">Feihong.Art</a>
+🌐 **官方网站**：<a href="https://feihong.art/skill/" target="_blank">Feihong Design System</a>
 
 ---
 
@@ -21,13 +21,13 @@
 
 > **为 AI 编码助手打造的高端个人品牌设计 Skill。** 以皇家蓝 `#0A2463`、复古金 `#F4D35E`、酒红 `#D8315B` 三色基因为核心，严格遵循衬线+无衬线字体混搭策略，产出艺术精致、辨识度高、真实有人味的页面——绝不像AI生成。
 >
-> 个人品牌网址：<a href="https://feihong.art/skill/" target="_blank">Feihong.Art</a> · 200+品牌组件 · 19个科学分类 · 350+种样式变体 · 8步精工工作流。
+> 个人品牌设计系统：<a href="https://feihong.art/skill/" target="_blank">Feihong Design System</a> · 200+品牌组件 · 19个科学分类 · 350+种样式变体 · 8步精工工作流。
 
 ---
 
 ## ✨ 亮点特性
 
-- 🌟 **Feihong.Art 品牌焕新** — 统一品牌标识 Feihong.Art，国际化视觉语言
+- 🌟 **品牌焕新** — 统一品牌标识 Feihong Design System，国际化视觉语言
 - 🖥️ **后台控制台模板** — 全新后台控制台模板，品牌基因色为主，终端绿仅用于代码面板
 - 🧩 **200+ 组件 · 19 分类 · 350+ 变体** — 新增奢华表单（14种）、反馈组件（12种）、列表标签（13种）
 - 📸 **社交卡片批量导出** — 小红书图文卡片支持ZIP批量导出，5种预设卡片可编辑
@@ -420,9 +420,9 @@ feihong-design-system/
 
 **Feihong Design System v8.0**
 
-*Feihong.Art · Timeless Vision, Crafted with Precision*
+*Timeless Vision, Crafted with Precision*
 *反AI · 艺术品质 · 人文温度*
 
-🌐 <a href="https://feihong.art/skill/" target="_blank">Feihong.Art</a> · Made with precision by <a href="https://feihong.art/skill/" target="_blank">飞鸿</a>
+🌐 <a href="https://feihong.art/" target="_blank">Feihong.Art</a> · Made with precision by <a href="https://feihong.art/skill/" target="_blank">飞鸿</a>
 
 </div>
