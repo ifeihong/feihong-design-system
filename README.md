@@ -423,6 +423,6 @@ feihong-design-system/
 *Timeless Vision, Crafted with Precision*
 *反AI · 艺术品质 · 人文温度*
 
-🌐 <a href="https://feihong.art/" target="_blank">Feihong.Art</a> · Made with precision by <a href="https://feihong.art/skill/" target="_blank">飞鸿</a>
+🌐 <a href="https://feihong.art/" target="_blank">Feihong.Art</a> · Made with precision by 飞鸿
 
 </div>
