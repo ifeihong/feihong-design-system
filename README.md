@@ -9,11 +9,11 @@
 
 [![Version](https://img.shields.io/badge/version-v8.0-0A2463?style=for-the-badge&labelColor=0A2463&color=F4D35E)](https://github.com/ifeihong/feihong-design-system)
 [![License: MIT](https://img.shields.io/badge/License-MIT-D8315B.svg?style=for-the-badge&labelColor=D8315B&color=F4D35E)](https://opensource.org/licenses/MIT)
-[![模板](https://img.shields.io/badge/模板-10-0A2463?style=for-the-badge&labelColor=0A2463&color=F4D35E)](https://feihong.art/)
-[![组件](https://img.shields.io/badge/组件-200+-D8315B?style=for-the-badge&labelColor=D8315B&color=F4D35E)](https://feihong.art/assets/showcase.html)
-[![场景](https://img.shields.io/badge/场景-10-0A2463?style=for-the-badge&labelColor=0A2463&color=4ADE80)](https://feihong.art/)
+<a href="https://feihong.art/skill/" target="_blank"><img src="https://img.shields.io/badge/模板-10-0A2463?style=for-the-badge&labelColor=0A2463&color=F4D35E" alt="模板"></a>
+<a href="https://feihong.art/skill/assets/showcase.html" target="_blank"><img src="https://img.shields.io/badge/组件-200+-D8315B?style=for-the-badge&labelColor=D8315B&color=F4D35E" alt="组件"></a>
+<a href="https://feihong.art/skill/" target="_blank"><img src="https://img.shields.io/badge/场景-10-0A2463?style=for-the-badge&labelColor=0A2463&color=4ADE80" alt="场景"></a>
 
-🌐 **官方网站**：[Feihong.Art](https://feihong.art/)
+🌐 **官方网站**：<a href="https://feihong.art/skill/" target="_blank">Feihong.Art</a>
 
 ---
 
@@ -21,7 +21,7 @@
 
 > **为 AI 编码助手打造的高端个人品牌设计 Skill。** 以皇家蓝 `#0A2463`、复古金 `#F4D35E`、酒红 `#D8315B` 三色基因为核心，严格遵循衬线+无衬线字体混搭策略，产出艺术精致、辨识度高、真实有人味的页面——绝不像AI生成。
 >
-> 个人品牌网址：[Feihong.Art](https://feihong.art/) · 200+品牌组件 · 19个科学分类 · 350+种样式变体 · 8步精工工作流。
+> 个人品牌网址：<a href="https://feihong.art/skill/" target="_blank">Feihong.Art</a> · 200+品牌组件 · 19个科学分类 · 350+种样式变体 · 8步精工工作流。
 
 ---
 
@@ -365,18 +365,18 @@ feihong-design-system/
 
 ## 🌐 在线预览
 
-- **首页 / 系统介绍** → [Feihong.Art](https://feihong.art/)
-- **组件可视化展示** → [showcase.html](https://feihong.art/assets/showcase.html)
-- **✨ 个人作品集模板** → [portfolio.html](https://feihong.art/assets/portfolio.html)
-- **✨ 活动落地页模板** → [landing.html](https://feihong.art/assets/landing.html)
-- **✨ 教程长文模板** → [tutorial.html](https://feihong.art/assets/tutorial.html)
-- **✨ 演示文稿模板** → [deck.html](https://feihong.art/assets/deck.html)
-- **✨ 案例研究模板** → [case-study.html](https://feihong.art/assets/case-study.html)
-- **✨ 后台控制台模板** → [console.html](https://feihong.art/assets/console.html)
-- **✨ 图文卡片模板** → [cards.html](https://feihong.art/assets/cards.html)
-- **✨ 简历模板** → [resume.html](https://feihong.art/assets/resume.html)
-- **✨ 公众号模板** → [wechat.html](https://feihong.art/assets/wechat.html)
-- **✨ 邮件模板** → [email.html](https://feihong.art/assets/email.html)
+- **首页 / 系统介绍** → <a href="https://feihong.art/skill/" target="_blank">Feihong Design System</a>
+- **组件可视化展示** → <a href="https://feihong.art/skill/assets/showcase.html" target="_blank">showcase.html</a>
+- **✨ 个人作品集模板** → <a href="https://feihong.art/skill/assets/portfolio.html" target="_blank">portfolio.html</a>
+- **✨ 活动落地页模板** → <a href="https://feihong.art/skill/assets/landing.html" target="_blank">landing.html</a>
+- **✨ 教程长文模板** → <a href="https://feihong.art/skill/assets/tutorial.html" target="_blank">tutorial.html</a>
+- **✨ 演示文稿模板** → <a href="https://feihong.art/skill/assets/deck.html" target="_blank">deck.html</a>
+- **✨ 案例研究模板** → <a href="https://feihong.art/skill/assets/case-study.html" target="_blank">case-study.html</a>
+- **✨ 后台控制台模板** → <a href="https://feihong.art/skill/assets/console.html" target="_blank">console.html</a>
+- **✨ 图文卡片模板** → <a href="https://feihong.art/skill/assets/cards.html" target="_blank">cards.html</a>
+- **✨ 简历模板** → <a href="https://feihong.art/skill/assets/resume.html" target="_blank">resume.html</a>
+- **✨ 公众号模板** → <a href="https://feihong.art/skill/assets/wechat.html" target="_blank">wechat.html</a>
+- **✨ 邮件模板** → <a href="https://feihong.art/skill/assets/email.html" target="_blank">email.html</a>
 
 > 所有模板可直接在浏览器中打开。通过 `index.html` 可浏览全部模板。
 
@@ -423,6 +423,6 @@ feihong-design-system/
 *Feihong.Art · Timeless Vision, Crafted with Precision*
 *反AI · 艺术品质 · 人文温度*
 
-🌐 [Feihong.Art](https://feihong.art/) · Made with precision by [飞鸿](https://feihong.art/)
+🌐 <a href="https://feihong.art/skill/" target="_blank">Feihong.Art</a> · Made with precision by <a href="https://feihong.art/skill/" target="_blank">飞鸿</a>
 
 </div>
