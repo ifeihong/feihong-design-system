@@ -1,4 +1,4 @@
-﻿# Feihong Design System — Navigation
+# Feihong Design System — Navigation
 # N°08 · 导航
 > Navbar, footer, social links, magazine nav, side drawer, breadcrumbs, pagination, and anchor nav.
 > 顶部导航、页脚、社交链接、杂志风导航、侧边抽屉、面包屑、分页器和锚点导航。
@@ -314,4 +314,133 @@
 .anchor-nav a:hover .an-dot { background:var(--gold); transform:scale(1.3); }
 .anchor-nav a.an-active .an-dot { background:var(--gold); box-shadow:0 0 0 4px rgba(244,211,94,0.2); animation:anPulse 2s ease-in-out infinite; }
 @keyframes anPulse { 0%,100%{box-shadow:0 0 0 4px rgba(244,211,94,0.2);} 50%{box-shadow:0 0 0 8px rgba(244,211,94,0.08);} }
+```
+
+---
+
+### 47.6 Scroll-State Glass Navbar 滚动变色毛玻璃导航栏
+
+滚动变色毛玻璃导航栏，`backdrop-filter:blur(20px)`+半透明cream底色，`.scrolled`状态切换底边边框+缩小padding，金色下划线hover动画（从左展开），内嵌CTA皇家蓝按钮，滚动超过30px自动切换状态，高端landing page风格。
+
+```html
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo">Feihong<span>.</span>Art</a>
+  <div class="nav-links">
+    <a href="#philosophy">设计哲学</a>
+    <a href="#templates">HTML模板</a>
+    <a href="#workflow">精工流程</a>
+    <a href="#quality">质量门槛</a>
+    <a href="#docs">规范文档</a>
+    <a href="https://github.com/" target="_blank" class="nav-cta">GitHub 获取</a>
+  </div>
+</nav>
+```
+```css
+/* 导航栏基础 — 毛玻璃效果 */
+.nav {
+  position:fixed; top:0; left:0; right:0;
+  z-index:100;
+  padding:1.25rem 2.5rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:rgba(253,251,246,0.85);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid transparent;
+  transition:all 300ms var(--ease);
+  font-family:var(--font-sans);
+}
+/* 滚动后状态 — 底边边框+缩小padding */
+.nav.scrolled {
+  border-bottom-color:var(--cream-200);
+  padding:0.85rem 2.5rem;
+}
+/* Logo */
+.nav-logo {
+  font-family:var(--font-serif);
+  font-size:1.4rem;
+  font-weight:700;
+  color:var(--ink);
+  letter-spacing:-0.01em;
+  text-decoration:none;
+}
+.nav-logo span { color:var(--gold); font-style:italic; }
+/* 导航链接 */
+.nav-links { display:flex; gap:2rem; align-items:center; }
+.nav-links a {
+  font-size:0.85rem;
+  font-weight:500;
+  color:var(--ink-200);
+  text-decoration:none;
+  transition:color 200ms;
+  position:relative;
+}
+.nav-links a:hover { color:var(--royal); }
+/* 金色下划线hover动画 — 从左展开 */
+.nav-links a::after {
+  content:'';
+  position:absolute; bottom:-4px; left:0;
+  width:0; height:1.5px;
+  background:var(--gold);
+  transition:width 300ms var(--ease);
+}
+.nav-links a:hover::after { width:100%; }
+/* 内嵌CTA按钮 */
+.nav-cta {
+  background:var(--royal);
+  color:#fff !important;
+  padding:0.5rem 1.1rem;
+  border-radius:8px;
+  font-size:0.85rem !important;
+  font-weight:500;
+  transition:all 200ms var(--ease) !important;
+}
+.nav-cta:hover { background:var(--royal-700); transform:translateY(-1px); }
+.nav-cta::after { display:none !important; }
+```
+```javascript
+// 导航栏滚动状态切换 — scrollY > 30 时添加 .scrolled 类
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 30);
+});
+```
+
+---
+
+### 8.3 Minimal Centered Footer 极简居中页脚
+
+极简居中页脚，深色墨色底，居中衬线logo（金色句点），版权行+金色外链，顶部1px半透明白分隔线，简洁收尾风格。
+
+```html
+<footer class="footer">
+  <div class="footer-logo">Feihong<span>.</span>Art</div>
+  <p>Feihong Design System · <a href="https://feihong.art" target="_blank">Feihong.Art</a></p>
+</footer>
+```
+```css
+.footer {
+  background:var(--ink);
+  color:rgba(255,255,255,0.5);
+  padding:3rem 2.5rem;
+  text-align:center;
+  border-top:1px solid rgba(255,255,255,0.05);
+  font-family:var(--font-sans);
+}
+/* 居中衬线logo */
+.footer-logo {
+  font-family:var(--font-serif);
+  font-size:1.3rem;
+  font-weight:700;
+  color:#fff;
+  margin-bottom:0.5rem;
+  letter-spacing:-0.01em;
+}
+.footer-logo span { color:var(--gold); font-style:italic; }
+/* 版权行 */
+.footer p { font-size:0.82rem; margin:0; }
+/* 金色链接 */
+.footer a { color:var(--gold); text-decoration:none; transition:opacity var(--t-fast); }
+.footer a:hover { opacity:0.7; }
 ```

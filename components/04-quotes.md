@@ -1,4 +1,4 @@
-﻿# Feihong Design System — Quotes & Pull Quotes
+# Feihong Design System — Quotes & Pull Quotes
 # N°04 · 引用/金句
 > Pull quotes, blockquotes, editorial quotations, poetry verses, and dialogue bubbles.
 > 引用块、拉引、杂志风金句、诗行引用和对话气泡。
@@ -285,4 +285,37 @@
 .mg-quote { font-size:0.95rem; color:var(--royal); line-height:1.5; margin:0; font-weight:500; }
 .mg-note { display:block; font-size:0.7rem; color:var(--ink-300); font-style:normal; font-family:var(--font-sans); margin-top:0.5rem; letter-spacing:0.05em; }
 @media(max-width:768px){ .marginalia-wrap{padding-right:0;} .marginalia{position:static;transform:none;width:100%;margin-top:1rem;padding-left:1rem;border-left:2px solid var(--gold);} .mg-line{display:none;} }
+```
+
+---
+
+### 49.6 卡片式大引号引用块（Blockquote Card with Giant Quote Mark）
+
+白底圆角卡片式引用块，左上角使用 `::before` 伪元素放置 5rem 超大金色引号，正文为花体斜体皇家蓝引文，底部为大写小字出处署名，适合设计哲学/理念陈述。
+
+```html
+<blockquote class="philosophy-quote">
+  <p>好的设计让人感到被理解，而不是被炫技。每一个间距、每一处金色装饰线的长度，都是经过反复斟酌的决定。</p>
+  <cite>— Feihong Design System</cite>
+</blockquote>
+```
+```css
+.philosophy-quote { position:relative; padding:2.5rem; background:#fff; border-radius:20px; border:1px solid var(--cream-200); box-shadow:0 4px 24px rgba(10,36,99,0.05); }
+.philosophy-quote::before { content:'"'; position:absolute; top:0.5rem; left:1.5rem; font-family:var(--font-serif); font-size:5rem; font-weight:700; color:var(--gold); line-height:1; opacity:0.5; }
+.philosophy-quote p { font-family:var(--font-display); font-size:1.35rem; font-style:italic; font-weight:400; line-height:1.6; color:var(--royal); margin-bottom:1rem; padding-top:1.5rem; }
+.philosophy-quote cite { font-size:0.8rem; font-style:normal; color:var(--ink-300); letter-spacing:0.1em; text-transform:uppercase; }
+```
+
+---
+
+### 49.7 左边线金色引文（Left-Bordered Gold Pull Quote）
+
+深色背景区域使用的引文样式，3px 金色左边框（`border-left`），金色花体斜体大字，适合嵌入流程引导/深色板块中作为点睛金句。
+
+```html
+<div class="flow-quote">"帮我做一个设计课程的报名页"</div>
+```
+```css
+.flow-quote { font-family:var(--font-display); font-style:italic; font-size:1.6rem; font-weight:500; color:var(--gold); margin:0 0 36px; padding-left:20px; border-left:3px solid var(--gold); line-height:1.4; }
+@media(max-width:768px){ .flow-quote{font-size:1.2rem;} }
 ```

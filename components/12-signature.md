@@ -1,4 +1,4 @@
-﻿# Feihong Design System — Signature Collection
+# Feihong Design System — Signature Collection
 # N°12 · 签名组件（书卷气核心特色）
 > Book-inspired components: drop caps, marginalia, fleurons, wax seals, bookmarks, TOC, signatures, chapter openings, decorative frames, and footnotes.
 > 书卷气核心组件：首字下沉、旁注、花饰、火漆印、角贴、书签丝带、目录、手写签名、章节扉页、装饰引文框和脚注。
@@ -878,5 +878,140 @@
 
 .footnotes li a:hover {
   color: var(--wine);
+}
+```
+
+---
+
+## 32. 金色便签签名标签 Gold Sticky Signature Tag
+
+金色底+皇家蓝字圆角便签，默认旋转 -4 度，hover 回正并下移 4px，内含 Cormorant Garamond 衬线斜体签名名和大写小字 title。用于 IP 形象组合右下角签名区域。
+
+```html
+<div class="ip-composition">
+  <!-- ...其他装饰... -->
+  <div class="ip-signature">
+    <span class="sig-name">飞鸿</span>
+    <span class="sig-title">Designer · Writer</span>
+  </div>
+</div>
+```
+```css
+/* 金色便签签名标签 */
+.ip-signature {
+  position: absolute;
+  bottom: 8%; right: -2%;
+  background: var(--gold);
+  color: var(--royal);
+  padding: 0.7rem 1rem;
+  border-radius: 12px;
+  z-index: 5;
+  box-shadow: 0 8px 24px rgba(244, 211, 94, 0.35);
+  transform: rotate(-4deg);
+  transition: transform 400ms var(--ease);
+}
+.ip-composition:hover .ip-signature { transform: rotate(0deg) translateY(4px); }
+.ip-signature .sig-name {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1;
+  display: block;
+}
+.ip-signature .sig-title {
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 0.2rem;
+  opacity: 0.75;
+}
+```
+
+---
+
+## 33. 金环头像徽章 Gold-Ring Avatar Badge
+
+圆形白底头像徽章，4px 内边距，`::after` 伪元素绘制 2px 金色外环，使用 `animation: float 8s reverse` 反向浮动动画。用于 IP 形象组合左上角。
+
+```html
+<div class="ip-composition">
+  <div class="ip-avatar-badge">
+    <div class="ab-inner">
+      <img src="assets/avatar.png" alt="飞鸿头像">
+    </div>
+  </div>
+</div>
+```
+```css
+/* 金环头像徽章 */
+.ip-avatar-badge {
+  position: absolute;
+  top: 10%; left: 2%;
+  width: 24%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  z-index: 5;
+  background: #fff;
+  padding: 4px;
+  box-shadow: 0 12px 32px rgba(10, 36, 99, 0.18);
+  animation: float 8s ease-in-out infinite reverse;
+}
+.ip-avatar-badge .ab-inner {
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--royal-50);
+  position: relative;
+}
+.ip-avatar-badge .ab-inner img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+/* 金色外环 */
+.ip-avatar-badge::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  pointer-events: none;
+}
+```
+
+---
+
+## 34. ✦星号前缀品牌标签 Star Prefixed Brand Tag
+
+`::before` 伪元素插入 ✦ 星号，大字间距 uppercase，半透明皇家蓝色，用于 IP 形象组合上方品牌标识。
+
+```html
+<div class="ip-composition">
+  <span class="ip-tag">Design System</span>
+</div>
+```
+```css
+/* ✦星号前缀品牌标签 */
+.ip-tag {
+  position: absolute;
+  top: 5%; left: 30%;
+  z-index: 4;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--royal);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.6;
+}
+.ip-tag::before {
+  content: '✦';
+  color: var(--gold);
+  width: auto; height: auto;
+  background: none;
+  font-size: 0.7rem;
 }
 ```

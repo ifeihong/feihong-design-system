@@ -1,4 +1,4 @@
-﻿# Feihong Design System — Animated Text & Titles
+# Feihong Design System — Animated Text & Titles
 # N°03 · 动态文字标题
 > 22+ CSS text animation components: reveals, glitches, gradients, typewriters, and editorial effects.
 > 22种以上CSS文字动画组件：逐字揭示、故障艺术、渐变流动、打字机及编辑风格效果。
@@ -795,6 +795,56 @@ Art Deco风格，金色几何边框从四角生长包裹标题，入场时边框
 .split-hover .sh-reveal { position:absolute; top:50%;left:50%; transform:translate(-50%,-50%); font-family:var(--font-mono); font-size:0.4em; color:var(--gold); letter-spacing:0.2em; opacity:0; transition:opacity 0.3s var(--ease) 0.1s; z-index:1; }
 .split-hover:hover .sh-main { transform:scaleY(1.5); opacity:0.3; letter-spacing:0.1em; }
 .split-hover:hover .sh-reveal { opacity:1; }
+```
+
+---
+
+### 45.43 浮动呼吸动画 Float Bob Animation
+
+元素沿 Y 轴做轻柔的上下浮动（translateY 0 ↔ -10px），7s/8s  ease-in-out 无限循环。提供正向（float）和反向（float-reverse）两种应用方式，可同时赋予主体和装饰层形成错位呼吸感。适合人物形象、装饰元素、签名标签、徽章等需要"活着"感觉的组件。
+
+```html
+<!-- 正向浮动：主人物/主要元素 -->
+<div class="ip-character-float">
+  <img src="character.png" alt="IP形象">
+</div>
+
+<!-- 反向浮动：装饰层（与主体形成错位） -->
+<div class="ip-ring-group float-reverse">
+  <div class="ring r1"></div>
+  <div class="ring r2"></div>
+</div>
+
+<!-- 组合使用：主元素7s正向 + 装饰8s反向 -->
+<div class="composition">
+  <div class="float-reverse decor-ring"></div>
+  <div class="float-main character"></div>
+  <div class="float-reverse decor-dots"></div>
+</div>
+```
+```css
+/* 浮动呼吸关键帧 */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* 正向浮动 — 7s周期，用于主体元素 */
+.float-main,
+.ip-character-float {
+  animation: float 7s ease-in-out infinite;
+}
+
+/* 反向浮动 — 8s周期，用于装饰层，与主体错位 */
+.float-reverse,
+.ip-ring-group {
+  animation: float 8s ease-in-out infinite reverse;
+}
+
+/* 可组合应用到具体装饰元素 */
+.ip-ring, .ip-arc, .ip-dot, .ip-line {
+  animation: float 8s ease-in-out infinite reverse;
+}
 ```
 
 ---

@@ -1,4 +1,4 @@
-﻿# Feihong Design System — Interactions
+# Feihong Design System — Interactions
 # N°15 · 交互组件
 > Scroll reveal, modals, accordions, tabs, count-up, typewriter, scroll-spy, hover effects, tooltips, dropdowns, toggles, and sliders.
 > 滚动入场、模态框、手风琴、标签切换、数字递增、打字机、滚动高亮、悬停效果、工具提示、下拉、开关和滑块。
@@ -705,4 +705,277 @@ Art Deco风格下拉菜单，触发按钮带金色下边框，下拉面板从按
 .gilded-slider input::-webkit-slider-thumb { -webkit-appearance:none; appearance:none; width:20px; height:20px; border-radius:50%; background:var(--royal); border:2px solid var(--gold); cursor:pointer; transition:all var(--t-fast); box-shadow:0 0 0 0 rgba(244,211,94,0.4); }
 .gilded-slider input::-webkit-slider-thumb:hover { box-shadow:0 0 0 8px rgba(244,211,94,0.2); transform:scale(1.1); }
 .gilded-slider input::-moz-range-thumb { width:20px; height:20px; border-radius:50%; background:var(--royal); border:2px solid var(--gold); cursor:pointer; }
+```
+
+---
+
+### 52.6 Nav Scroll Shrink 导航栏滚动收缩变色
+
+导航栏滚动交互：页面向下滚动超过30px时，为导航栏添加`.scrolled`类，触发底边边框显现+padding缩小的状态切换。配合CSS transition实现平滑过渡，适用于固定顶部导航栏的滚动变色场景。
+
+```html
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo">Feihong<span>.</span></a>
+  <div class="nav-links">
+    <a href="#">首页</a>
+    <a href="#">作品</a>
+    <a href="#">关于</a>
+  </div>
+</nav>
+```
+```css
+.nav {
+  position:fixed; top:0; left:0; right:0;
+  z-index:100;
+  padding:1.25rem 2.5rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:rgba(253,251,246,0.85);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid transparent;
+  transition:all 300ms var(--ease);
+}
+/* 滚动后：显示底边分割线，缩小上下padding */
+.nav.scrolled {
+  border-bottom-color:var(--cream-200);
+  padding:0.85rem 2.5rem;
+}
+```
+```javascript
+// 监听滚动事件，scrollY > 30 时切换 .scrolled 类
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 30);
+});
+```
+
+---
+
+### 52.7 Signature Tag Tilt Reset 签名便签倾斜复位
+
+金色签名便签默认倾斜-4度（随意贴在角落的手写感），hover父容器时便签复位为0度并下移4px，呈现"被注意到、摆正"的互动趣味。适用于头像/作品卡片角落的签名标签。
+
+```html
+<div class="ip-composition">
+  <img src="avatar.png" alt="头像" class="ip-avatar">
+  <div class="ip-signature">
+    <span class="sig-name">飞鸿</span>
+    <span class="sig-title">Designer · Writer</span>
+  </div>
+</div>
+```
+```css
+/* 父容器 */
+.ip-composition {
+  position:relative;
+  display:inline-block;
+}
+/* 默认状态：倾斜-4度，营造随手贴的便签感 */
+.ip-signature {
+  position:absolute;
+  bottom:8%; right:-2%;
+  background:var(--gold);
+  color:var(--royal);
+  padding:0.7rem 1rem;
+  border-radius:12px;
+  z-index:5;
+  box-shadow:0 8px 24px rgba(244,211,94,0.35);
+  transform:rotate(-4deg);
+  transition:transform 400ms var(--ease);
+}
+/* hover父容器时：复位为正位+下移4px */
+.ip-composition:hover .ip-signature {
+  transform:rotate(0deg) translateY(4px);
+}
+.ip-signature .sig-name {
+  font-family:var(--font-serif);
+  font-weight:700;
+  font-style:italic;
+  font-size:1rem;
+  line-height:1;
+  display:block;
+}
+.ip-signature .sig-title {
+  font-size:0.58rem;
+  font-weight:500;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  margin-top:0.2rem;
+  opacity:0.75;
+}
+```
+
+---
+
+### 52.8 Top Border Scale Reveal 顶部边框展开动画
+
+元素顶部3px彩色装饰条默认通过`transform:scaleX(0)`隐藏，hover时从左侧展开到`scaleX(1)`，`transform-origin:left`确保展开方向从左到右。适用于卡片/链接的hover顶部线条装饰效果。
+
+```html
+<a href="#" class="border-reveal-card">
+  <h3>文档标题</h3>
+  <p>hover时顶部三色渐变条从左展开。</p>
+</a>
+```
+```css
+.border-reveal-card {
+  display:block;
+  background:#fff;
+  border:1px solid var(--cream-200);
+  border-radius:16px;
+  padding:1.5rem;
+  text-decoration:none;
+  color:inherit;
+  position:relative;
+  overflow:hidden;
+  transition:all 300ms var(--ease);
+}
+/* 默认状态：顶部条 scaleX(0) 隐藏 */
+.border-reveal-card::before {
+  content:'';
+  position:absolute;
+  top:0; left:0;
+  width:100%; height:3px;
+  background:linear-gradient(90deg, var(--royal), var(--gold), var(--wine));
+  transform:scaleX(0);
+  transform-origin:left; /* 从左展开 */
+  transition:transform 400ms var(--ease);
+}
+.border-reveal-card:hover {
+  transform:translateY(-4px);
+  box-shadow:0 16px 40px rgba(10,36,99,0.1);
+  border-color:var(--gold-200);
+}
+/* hover时：展开到完整宽度 */
+.border-reveal-card:hover::before {
+  transform:scaleX(1);
+}
+.border-reveal-card h3 {
+  font-family:var(--font-serif);
+  font-size:1.05rem;
+  font-weight:700;
+  margin:0 0 0.4rem;
+  color:var(--ink);
+}
+.border-reveal-card p {
+  font-size:0.82rem;
+  color:var(--ink-200);
+  line-height:1.55;
+  margin:0;
+}
+```
+
+---
+
+### 52.9 Link Arrow Slide 链接箭头右移
+
+文字链接右侧带箭头（→），hover时箭头向右平移4px同时文字颜色变为酒红，`gap`过渡也增加间距感。适用于卡片底部"查看更多/阅读全文"等链接操作。
+
+```html
+<a href="#" class="arrow-link">了解更多 <span class="arrow">→</span></a>
+```
+```css
+.arrow-link {
+  font-size:0.85rem;
+  font-weight:600;
+  color:var(--royal);
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  transition:color 200ms, gap 200ms var(--ease);
+  font-family:var(--font-sans);
+}
+.arrow-link .arrow {
+  display:inline-block;
+  transition:transform 200ms var(--ease);
+  color:var(--gold);
+}
+/* hover时：链接变酒红，箭头右移4px，间距增大 */
+.arrow-link:hover {
+  color:var(--wine);
+  gap:8px;
+}
+.arrow-link:hover .arrow {
+  transform:translateX(4px);
+}
+```
+
+---
+
+### 52.10 Mockup Tilt Scale Hover 缩略图微旋放大
+
+卡片内缩略图mockup默认静止，hover卡片时缩略图微微放大（scale 1.05）并轻微旋转（rotate -1deg），营造"拿起来细看"的立体翻起感。适用于模板预览卡/作品集卡中的缩略图交互。
+
+```html
+<div class="mockup-card">
+  <div class="mock-preview">
+    <div class="mock-thumb">
+      <div class="mock-title"></div>
+      <div class="mock-line"></div>
+      <div class="mock-line short"></div>
+    </div>
+  </div>
+  <div class="mock-body">
+    <h3>模板名称</h3>
+    <p>hover时缩略图微微放大旋转。</p>
+  </div>
+</div>
+```
+```css
+.mockup-card {
+  background:#fff;
+  border-radius:20px;
+  overflow:hidden;
+  border:1px solid var(--cream-200);
+  transition:all 350ms var(--ease);
+  max-width:280px;
+}
+.mockup-card:hover {
+  transform:translateY(-6px);
+  box-shadow:0 20px 48px rgba(10,36,99,0.12);
+  border-color:var(--gold-200);
+}
+.mock-preview {
+  height:160px;
+  background:linear-gradient(135deg, var(--cream), var(--royal-50));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+/* 缩略图默认状态 */
+.mock-thumb {
+  width:130px;
+  background:#fff;
+  padding:10px;
+  border-radius:6px;
+  box-shadow:0 8px 24px rgba(10,36,99,0.15);
+  transition:transform 350ms var(--ease);
+  position:relative;
+  z-index:1;
+}
+/* hover卡片时：微旋放大 scale(1.05) rotate(-1deg) */
+.mockup-card:hover .mock-thumb {
+  transform:scale(1.05) rotate(-1deg);
+}
+.mock-title { height:8px; width:60%; background:var(--royal); border-radius:2px; margin-bottom:6px; }
+.mock-line { height:3px; background:var(--cream-200); border-radius:2px; margin-bottom:4px; }
+.mock-line.short { width:40%; }
+.mock-body { padding:1rem 1.1rem 1.25rem; }
+.mock-body h3 {
+  font-family:var(--font-serif);
+  font-size:1rem;
+  font-weight:700;
+  color:var(--ink);
+  margin:0 0 0.3rem;
+}
+.mock-body p {
+  font-size:0.78rem;
+  color:var(--ink-200);
+  line-height:1.5;
+  margin:0;
+}
 ```

@@ -1,4 +1,4 @@
-﻿# Feihong Design System — Dividers & Decorations
+# Feihong Design System — Dividers & Decorations
 # N°11 · 分隔与装饰
 > Gold dividers, decorative numbers, avatars, IP characters, and hand-drawn pen stroke dividers.
 > 金色分隔线、装饰数字、头像、IP形象和手绘钢笔画分隔线。
@@ -230,4 +230,395 @@ hr.pen-divider.wave::before {
 hr.pen-divider.wave::after {
   display: none;
 }
+
+---
+
+### 9.6 Hero Background Watermark Number（首屏巨字水印）
+
+首屏背景装饰巨字，Cormorant Garamond 花体斜体，极低透明度 0.04，绝对定位不干扰内容，营造编辑级层次感。提供右上(dn1)和左下(dn2)两个变体。
+
+```html
+<section class="hero" style="position:relative;">
+  <span class="hero-decor-num dn1" aria-hidden="true">07</span>
+  <span class="hero-decor-num dn2" aria-hidden="true">2026</span>
+  <!-- 其余首屏内容 -->
+</section>
+```
+```css
+/* 首屏巨字水印 — 基础 */
+.hero-decor-num {
+  position: absolute;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--royal);
+  opacity: 0.04;
+  pointer-events: none;
+  user-select: none;
+}
+/* 右上变体 */
+.hero-decor-num.dn1 {
+  top: 5%; right: 2%;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  line-height: 1;
+  letter-spacing: 0.05em;
+}
+/* 左下变体 */
+.hero-decor-num.dn2 {
+  bottom: 10%; left: -2%;
+  font-size: clamp(4rem, 8vw, 7rem);
+  color: var(--royal);
+  line-height: 1;
+  letter-spacing: 0.05em;
+}
+```
+
+---
+
+### 9.7 Year Watermark（年份水印装饰）
+
+Cormorant Garamond 花体斜体年份水印，3.5rem 字号、opacity:0.06，用于 IP 形象组合或首屏视觉区左下角作为年代标记。
+
+```html
+<div class="ip-composition">
+  <span class="ip-year" aria-hidden="true">2026</span>
+  <!-- 其他装饰元素 -->
+</div>
+```
+```css
+/* 年份水印装饰 */
+.ip-year {
+  position: absolute;
+  bottom: 3%; left: 20%;
+  z-index: 2;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: var(--royal);
+  opacity: 0.06;
+  line-height: 1;
+  pointer-events: none;
+}
+```
+
+---
+
+### 9.8 Tricolor Gradient Connector（三色渐变连接线）
+
+工作流步骤之间的水平连接线，使用 `::before` 伪元素绘制，线性渐变依次经过皇家蓝→复古金→酒红→皇家蓝，1px 高度，仅桌面端显示。
+
+```html
+<div class="workflow-steps">
+  <div class="wf-step"><div class="wf-step-num">N°01</div><h5>Discover</h5><p>洞察需求</p></div>
+  <div class="wf-step"><div class="wf-step-num">N°02</div><h5>Define</h5><p>定调定向</p></div>
+  <div class="wf-step"><div class="wf-step-num">N°03</div><h5>Inject DNA</h5><p>品牌注入</p></div>
+  <div class="wf-step"><div class="wf-step-num">N°04</div><h5>Structure</h5><p>架构搭建</p></div>
+</div>
+```
+```css
+/* 工作流步骤容器 */
+.workflow-steps {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+}
+/* 三色渐变连接线 */
+.workflow-steps::before {
+  content: '';
+  position: absolute;
+  top: 28px; left: 6%; right: 6%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--royal-200), var(--gold), var(--wine), var(--royal-200));
+  opacity: 0.4;
+}
+.wf-step {
+  text-align: center;
+  padding: 1rem 0.75rem;
+  position: relative;
+}
+.wf-step-num {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 0.85rem;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1rem;
+  position: relative;
+  z-index: 1;
+  border: 1.5px solid var(--gold);
+  box-shadow: 0 0 0 4px var(--ink);
+  transition: all 300ms var(--ease);
+}
+.wf-step:hover .wf-step-num {
+  background: var(--gold);
+  color: var(--royal);
+  transform: scale(1.1);
+}
+@media (max-width: 768px) {
+  .workflow-steps { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .workflow-steps::before { display: none; }
+}
+```
+
+---
+
+### 9.9 Concentric Decorative Rings（同心装饰圆环）
+
+三层同心/偏心圆环装饰，r1 为皇家蓝实线大圆、r2 为金色虚线中圆、r3 为酒红半透明小圆，用于 IP 形象组合背景营造层次。
+
+```html
+<div class="ip-composition">
+  <span class="ip-ring r1" aria-hidden="true"></span>
+  <span class="ip-ring r2" aria-hidden="true"></span>
+  <span class="ip-ring r3" aria-hidden="true"></span>
+  <!-- 主图和其他装饰 -->
+</div>
+```
+```css
+/* 装饰圆环基础 */
+.ip-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid var(--cream-200);
+  pointer-events: none;
+}
+/* r1 — 皇家蓝实线大圆（右上） */
+.ip-ring.r1 {
+  top: 3%; right: 0;
+  width: 68%; aspect-ratio: 1;
+  border-color: var(--royal-100);
+}
+/* r2 — 金色虚线中圆（左下） */
+.ip-ring.r2 {
+  bottom: 5%; left: 0;
+  width: 45%; aspect-ratio: 1;
+  border-color: var(--gold-200);
+  border-style: dashed;
+}
+/* r3 — 酒红半透明小圆（右上偏下） */
+.ip-ring.r3 {
+  top: 15%; right: 8%;
+  width: 20%; aspect-ratio: 1;
+  border: 2px solid var(--wine);
+  opacity: 0.5;
+}
+```
+
+---
+
+### 9.10 Gold Arc Semi-Circle（金色半圆弧线）
+
+55% 直径的金色圆弧，隐藏左边和底边形成半圆，旋转 -20 度放置于右上角，为 IP 形象组合增加 Art Deco 几何感。
+
+```html
+<div class="ip-composition">
+  <span class="ip-arc" aria-hidden="true"></span>
+</div>
+```
+```css
+/* 金色半圆弧线 */
+.ip-arc {
+  position: absolute;
+  width: 55%; aspect-ratio: 1;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  transform: rotate(-20deg);
+  top: 8%; right: 5%;
+  pointer-events: none;
+}
+```
+
+---
+
+### 9.11 Scattered Color Dot Ornament（散落彩色圆点装饰）
+
+四个散落的彩色圆点（酒红/金/皇家蓝/浅金），尺寸从 6px 到 14px 不等，搭配 `box-shadow` 光晕效果，散布于 IP 形象组合四周增加灵动感。
+
+```html
+<div class="ip-composition">
+  <span class="ip-dot d1" aria-hidden="true"></span>
+  <span class="ip-dot d2" aria-hidden="true"></span>
+  <span class="ip-dot d3" aria-hidden="true"></span>
+  <span class="ip-dot d4" aria-hidden="true"></span>
+</div>
+```
+```css
+/* 散落圆点基础 */
+.ip-dot {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 4;
+}
+/* d1 — 酒红圆点 + 酒红光晕（左侧） */
+.ip-dot.d1 {
+  width: 10px; height: 10px;
+  background: var(--wine);
+  top: 20%; left: -2%;
+  box-shadow: 0 0 0 3px rgba(216, 49, 91, 0.15);
+}
+/* d2 — 金色圆点 + 金光晕（右下） */
+.ip-dot.d2 {
+  width: 14px; height: 14px;
+  background: var(--gold);
+  bottom: 22%; right: 6%;
+  box-shadow: 0 0 0 4px rgba(244, 211, 94, 0.2);
+}
+/* d3 — 皇家蓝圆点 + 蓝光晕（右中） */
+.ip-dot.d3 {
+  width: 6px; height: 6px;
+  background: var(--royal);
+  top: 45%; right: -2%;
+  box-shadow: 0 0 0 2px rgba(10, 36, 99, 0.15);
+}
+/* d4 — 浅金小圆点（左上） */
+.ip-dot.d4 {
+  width: 8px; height: 8px;
+  background: var(--gold-200);
+  top: 5%; left: 20%;
+}
+```
+
+---
+
+### 9.12 Art Deco Diamond & Corner（Art Deco菱形和角框）
+
+金色菱形（旋转45度）和 L 形角框线条，1920 年代装饰艺术风格几何元素，用于 IP 形象组合的角落点缀。菱形提供 3 种尺寸变体(dd1/dd2/dd3)，角框提供左上(tl)和右下(br)两个位置。
+
+```html
+<div class="ip-composition">
+  <span class="deco-diamond dd1" aria-hidden="true"></span>
+  <span class="deco-diamond dd2" aria-hidden="true"></span>
+  <span class="deco-diamond dd3" aria-hidden="true"></span>
+  <span class="deco-corner tl" aria-hidden="true"></span>
+  <span class="deco-corner br" aria-hidden="true"></span>
+</div>
+```
+```css
+/* Art Deco 金色菱形基础 */
+.deco-diamond {
+  position: absolute;
+  z-index: 4;
+  width: 18px; height: 18px;
+  border: 1.5px solid var(--gold);
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+.deco-diamond.dd1 { top: 8%; right: 12%; width: 14px; height: 14px; border-color: var(--gold-600); opacity: 0.6; }
+.deco-diamond.dd2 { bottom: 18%; left: 4%; width: 10px; height: 10px; border-color: var(--gold); opacity: 0.5; }
+.deco-diamond.dd3 { top: 42%; right: -1%; width: 8px; height: 8px; background: var(--gold); border: none; opacity: 0.4; }
+
+/* Art Deco L形角框 */
+.deco-corner {
+  position: absolute;
+  z-index: 4;
+  width: 28px; height: 28px;
+  pointer-events: none;
+}
+.deco-corner::before, .deco-corner::after {
+  content: '';
+  position: absolute;
+  background: var(--gold);
+  opacity: 0.5;
+}
+/* 左上角 */
+.deco-corner.tl { top: 2%; left: 0%; }
+.deco-corner.tl::before { top: 0; left: 0; width: 28px; height: 1px; }
+.deco-corner.tl::after { top: 0; left: 0; width: 1px; height: 28px; }
+/* 右下角 */
+.deco-corner.br { bottom: 2%; right: 0%; }
+.deco-corner.br::before { bottom: 0; right: 0; width: 28px; height: 1px; }
+.deco-corner.br::after { bottom: 0; right: 0; width: 1px; height: 28px; }
+```
+
+---
+
+### 9.13 Gold Gradient Thin Line（金色渐变细线）
+
+两端透明、中间金色的 1px 高渐变细线，倾斜放置于 IP 形象组合边缘，增加精致的几何装饰感。提供两个位置变体(gl1/gl2)。
+
+```html
+<div class="ip-composition">
+  <span class="deco-gold-line gl1" aria-hidden="true"></span>
+  <span class="deco-gold-line gl2" aria-hidden="true"></span>
+</div>
+```
+```css
+/* 金色渐变细线基础 */
+.deco-gold-line {
+  position: absolute;
+  z-index: 4;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  pointer-events: none;
+  opacity: 0.4;
+}
+/* 右上倾斜-30度 */
+.deco-gold-line.gl1 { width: 80px; top: 22%; right: -8%; transform: rotate(-30deg); }
+/* 左下倾斜20度 */
+.deco-gold-line.gl2 { width: 50px; bottom: 30%; left: -4%; transform: rotate(20deg); }
+```
+
+---
+
+### 9.14 N° Serial Number Decoration（N°编号装饰）
+
+Cormorant Garamond 花体斜体小字编号，0.65rem、gold-700 色、半透明，放置于 IP 形象组合的角落作为限量编号感装饰。提供两个位置(dn-a/dn-b)。
+
+```html
+<div class="ip-composition">
+  <span class="deco-num dn-a" aria-hidden="true">N° 001</span>
+  <span class="deco-num dn-b" aria-hidden="true">N° 2026</span>
+</div>
+```
+```css
+/* N°编号装饰 */
+.deco-num {
+  position: absolute;
+  z-index: 4;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.65rem;
+  color: var(--gold-700);
+  letter-spacing: 0.1em;
+  pointer-events: none;
+  opacity: 0.6;
+}
+.deco-num.dn-a { top: 0; right: 22%; }
+.deco-num.dn-b { bottom: 0; left: 2%; }
+```
+
+---
+
+### 9.15 Plus Cross Ornament（十字加号装饰）
+
+轻量 300 weight 的 `+` 号装饰，皇家蓝 200 浅色，两种尺寸(1.2rem/0.9rem)散布于 IP 形象组合中，增加编辑设计的呼吸感。
+
+```html
+<div class="ip-composition">
+  <span class="ip-plus p1" aria-hidden="true">+</span>
+  <span class="ip-plus p2" aria-hidden="true">+</span>
+</div>
+```
+```css
+/* 十字加号装饰 */
+.ip-plus {
+  position: absolute;
+  color: var(--royal-200);
+  font-size: 1.2rem;
+  font-weight: 300;
+  z-index: 2;
+  pointer-events: none;
+}
+.ip-plus.p1 { top: 15%; right: 25%; }
+.ip-plus.p2 { bottom: 25%; left: 18%; font-size: 0.9rem; }
+```
 ```

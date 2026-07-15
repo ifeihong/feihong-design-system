@@ -1,4 +1,4 @@
-﻿# Feihong Design System — Cards
+# Feihong Design System — Cards
 # N°06 · 卡片
 > Feature cards, project cards, stat cards, testimonials, editorial cards, and product cards.
 > 功能卡片、项目卡片、数据卡片、推荐卡片、杂志编辑卡和产品展示卡。
@@ -652,4 +652,618 @@
 .pm-val { font-family:var(--font-mono); font-size:0.8rem; color:var(--gold); letter-spacing:0.1em; }
 .pm-perks { display:flex; flex-wrap:wrap; gap:0.5rem 1rem; position:relative; }
 .pm-perk { font-size:0.72rem; color:var(--cream-100); }
+```
+
+---
+
+### 50.6 Template Preview Card 模板预览卡片
+
+模板预览卡片，白底圆角20px，hover时上移-6px并投射皇家蓝阴影+金色边框，顶部缩略图mock区域，右上角编号角标N°01（皇家蓝底金字），mini-badge组标签，底部链接箭头hover变酒红右移4px，模板库/作品集展示风格。
+
+```html
+<a href="#" class="tpl-card">
+  <div class="tpl-num">N°01</div>
+  <div class="tpl-preview portfolio">
+    <div class="tpl-mock mock-portfolio">
+      <div class="mp-hero"><span>Feihong</span></div>
+      <div class="mock-line title"></div>
+      <div class="mock-line short"></div>
+      <div class="mock-line tiny"></div>
+    </div>
+  </div>
+  <div class="tpl-body">
+    <div class="tpl-badges">
+      <span class="mini-badge blue">个人主页</span>
+    </div>
+    <h3>作品集 / Portfolio</h3>
+    <p>个人作品集主页，非对称Hero+Bento网格+火漆印章，书卷气十足。</p>
+    <span class="tpl-link">打开预览 →</span>
+  </div>
+</a>
+```
+```css
+.tpl-card {
+  position:relative;
+  background:#fff;
+  border-radius:20px;
+  overflow:hidden;
+  border:1px solid var(--cream-200);
+  text-decoration:none;
+  color:inherit;
+  transition:all 350ms var(--ease);
+  display:flex;
+  flex-direction:column;
+  box-shadow:0 2px 12px rgba(10,36,99,0.04);
+}
+.tpl-card:hover {
+  transform:translateY(-6px);
+  box-shadow:0 20px 48px rgba(10,36,99,0.12);
+  border-color:var(--gold-200);
+}
+/* 缩略图预览区 */
+.tpl-preview {
+  height:160px;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.tpl-preview::after {
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.02) 100%);
+}
+/* 不同主题色背景变体 */
+.tpl-preview.portfolio { background:linear-gradient(135deg, var(--cream) 0%, var(--royal-50) 100%); }
+.tpl-preview.landing { background:linear-gradient(135deg, var(--cream) 0%, var(--gold-50) 100%); }
+.tpl-preview.tutorial { background:linear-gradient(135deg, #fff 0%, var(--cream) 100%); }
+.tpl-preview.deck { background:var(--royal); }
+.tpl-preview.case { background:linear-gradient(135deg, var(--ink) 0%, var(--royal) 100%); }
+.tpl-preview.console { background:linear-gradient(135deg, #060d1f 0%, #0c1628 100%); }
+.tpl-preview.cards { background:var(--cream-100); }
+.tpl-preview.resume { background:#fff; }
+.tpl-preview.wechat { background:linear-gradient(135deg, #fff 0%, var(--wine-50) 100%); }
+.tpl-preview.email { background:var(--cream-100); }
+.tpl-preview.showcase { background:linear-gradient(135deg, var(--ink) 0%, var(--royal-700) 100%); }
+/* Mock缩略图 */
+.tpl-mock {
+  position:relative;
+  z-index:1;
+  box-shadow:0 8px 24px rgba(10,36,99,0.15);
+  border-radius:6px;
+  overflow:hidden;
+  transition:transform 350ms var(--ease);
+}
+.tpl-card:hover .tpl-mock { transform:scale(1.05) rotate(-1deg); }
+/* 编号角标 */
+.tpl-num {
+  position:absolute;
+  top:10px;
+  right:12px;
+  font-family:var(--font-display);
+  font-style:italic;
+  font-weight:600;
+  font-size:0.7rem;
+  color:var(--gold);
+  letter-spacing:0.1em;
+  z-index:2;
+  background:var(--royal);
+  padding:2px 8px;
+  border-radius:2px;
+}
+/* 内容区 */
+.tpl-body {
+  padding:1rem 1.1rem 1.25rem;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+}
+.tpl-body h3 {
+  font-family:var(--font-serif);
+  font-size:1rem;
+  font-weight:700;
+  color:var(--ink);
+  margin:0 0 0.3rem;
+}
+.tpl-body p {
+  font-size:0.78rem;
+  color:var(--ink-200);
+  line-height:1.5;
+  margin:0 0 auto;
+}
+/* Mini Badge标签组 */
+.tpl-badges { display:flex; gap:0.35rem; margin-bottom:0.5rem; flex-wrap:wrap; }
+.mini-badge {
+  font-size:0.6rem;
+  font-weight:600;
+  padding:0.12rem 0.45rem;
+  border-radius:999px;
+  letter-spacing:0.02em;
+}
+.mini-badge.royal { background:var(--royal-50); color:var(--royal); }
+.mini-badge.gold { background:var(--gold); color:var(--royal); }
+.mini-badge.wine { background:var(--wine); color:#fff; }
+.mini-badge.blue { background:var(--royal); color:var(--gold); }
+.mini-badge.green { background:var(--terminal); color:var(--ink); font-weight:700; }
+/* 链接箭头 */
+.tpl-link {
+  font-size:0.75rem;
+  font-weight:600;
+  color:var(--royal);
+  margin-top:0.75rem;
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  transition:transform 200ms var(--ease), color 200ms;
+}
+.tpl-card:hover .tpl-link { color:var(--wine); transform:translateX(4px); }
+/* Mock通用线条元素 */
+.mock-line { height:3px; background:var(--cream-200); border-radius:2px; margin-bottom:4px; }
+.mock-line.title { height:8px; width:60%; background:var(--royal); margin-bottom:6px; }
+.mock-line.gold { background:var(--gold); height:2px; }
+.mock-line.short { width:40%; }
+.mock-line.tiny { width:25%; height:2px; }
+```
+
+---
+
+### 50.7 Doc Resource Card 文档资源卡片
+
+文档资源卡片，白底圆角16px，顶部3px三色渐变条（皇家蓝→金→酒红）默认scaleX(0)隐藏，hover时scaleX(1)从左展开，方形衬线斜体图标，底部tag标签，文档/规范链接列表风格。
+
+```html
+<a href="#" class="doc-card">
+  <div class="doc-icon royal">S</div>
+  <h3>SKILL.md</h3>
+  <p>8步精工工作流：从洞察需求到封印交付，含快速路径、10种场景速查表、反AI底线、关键原则。AI助手的大脑。</p>
+  <span class="doc-tag">精工流程 · 必读</span>
+</a>
+```
+```css
+.doc-card {
+  background:#fff;
+  border:1px solid var(--cream-200);
+  border-radius:16px;
+  padding:1.5rem;
+  text-decoration:none;
+  color:inherit;
+  transition:all 300ms var(--ease);
+  display:flex;
+  flex-direction:column;
+  position:relative;
+  overflow:hidden;
+}
+/* 顶部三色渐变条 — 默认隐藏，hover展开 */
+.doc-card::before {
+  content:'';
+  position:absolute;
+  top:0; left:0;
+  width:100%; height:3px;
+  background:linear-gradient(90deg, var(--royal), var(--gold), var(--wine));
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform 400ms var(--ease);
+}
+.doc-card:hover {
+  transform:translateY(-4px);
+  box-shadow:0 16px 40px rgba(10,36,99,0.1);
+  border-color:var(--gold-200);
+}
+.doc-card:hover::before { transform:scaleX(1); }
+/* 方形衬线斜体图标 */
+.doc-icon {
+  width:44px; height:44px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--font-serif);
+  font-weight:700;
+  font-style:italic;
+  font-size:1.1rem;
+  margin-bottom:1rem;
+}
+.doc-icon.royal { background:var(--royal-50); color:var(--royal); }
+.doc-icon.gold { background:var(--gold); color:var(--royal); }
+.doc-icon.wine { background:var(--wine); color:#fff; }
+.doc-icon.ink { background:var(--ink); color:var(--gold); }
+/* 文字内容 */
+.doc-card h3 {
+  font-family:var(--font-serif);
+  font-size:1.05rem;
+  font-weight:700;
+  margin:0 0 0.4rem;
+}
+.doc-card p {
+  font-size:0.82rem;
+  color:var(--ink-200);
+  line-height:1.55;
+  margin:0;
+}
+/* 底部tag */
+.doc-card .doc-tag {
+  font-size:0.65rem;
+  font-weight:600;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--ink-300);
+  margin-top:auto;
+  padding-top:1rem;
+}
+```
+
+---
+
+### 50.8 Quality Tier Card 质量等级三卡
+
+质量等级卡片，三色变体：P0皇家蓝渐变配金字（最高级别）、P1白底蓝字（标准级别）、P2酒红渐变配酒红字（加分项），大级别字母衬线粗体，✓勾选列表按级别配色，质量门槛/检查清单风格。
+
+```html
+<div class="q-card p0">
+  <div class="q-level">P0</div>
+  <h4>必须通过</h4>
+  <p>涉及品牌识别、可读性和基本质量的硬性门槛。</p>
+  <ul>
+    <li>三色比例 55/30/15 明显</li>
+    <li>衬线+无衬线字体混搭</li>
+    <li>正文对比度达 WCAG AA</li>
+    <li>无浏览器默认样式痕迹</li>
+  </ul>
+</div>
+<div class="q-card p1">
+  <div class="q-level">P1</div>
+  <h4>应该通过</h4>
+  <p>体现设计品质和高级感的软门槛，拒绝模板化输出。</p>
+  <ul>
+    <li>金色下划线强调重点</li>
+    <li>装饰性大数字/英文</li>
+    <li>微妙径向渐变层次</li>
+    <li>微动画与hover反馈</li>
+  </ul>
+</div>
+<div class="q-card p2">
+  <div class="q-level">P2</div>
+  <h4>加分项</h4>
+  <p>提升惊艳度和完成度的高阶细节。</p>
+  <ul>
+    <li>scroll-reveal动画</li>
+    <li>IP形象/头像融入设计</li>
+    <li>黑暗模式支持</li>
+    <li>一键导出PNG功能</li>
+  </ul>
+</div>
+```
+```css
+.q-card {
+  padding:2rem;
+  border-radius:20px;
+  position:relative;
+  overflow:hidden;
+  font-family:var(--font-sans);
+}
+/* P0 — 皇家蓝渐变金字 */
+.q-card.p0 {
+  background:linear-gradient(135deg, var(--royal) 0%, var(--royal-700) 100%);
+  color:#fff;
+}
+/* P1 — 白底蓝字 */
+.q-card.p1 {
+  background:#fff;
+  border:1px solid var(--cream-200);
+}
+/* P2 — 酒红渐变酒红字 */
+.q-card.p2 {
+  background:linear-gradient(135deg, var(--wine-50) 0%, #fff 50%);
+  border:1px solid rgba(216,49,91,0.15);
+}
+/* 大级别字母 */
+.q-level {
+  font-family:var(--font-serif);
+  font-size:2.5rem;
+  font-weight:800;
+  line-height:1;
+  margin-bottom:0.5rem;
+}
+.q-card.p0 .q-level { color:var(--gold); }
+.q-card.p1 .q-level { color:var(--royal); }
+.q-card.p2 .q-level { color:var(--wine); }
+/* 标题 */
+.q-card h4 {
+  font-family:var(--font-serif);
+  font-size:1.1rem;
+  font-weight:600;
+  margin-bottom:0.75rem;
+}
+.q-card.p0 h4 { color:#fff; }
+.q-card.p1 h4, .q-card.p2 h4 { color:var(--ink); }
+/* 描述文字 */
+.q-card p {
+  font-size:0.85rem;
+  line-height:1.65;
+}
+.q-card.p0 p { color:rgba(255,255,255,0.7); }
+.q-card.p1 p, .q-card.p2 p { color:var(--ink-200); }
+/* ✓勾选列表 */
+.q-card ul {
+  list-style:none;
+  margin-top:0.75rem;
+  padding:0;
+}
+.q-card li {
+  font-size:0.8rem;
+  line-height:1.6;
+  padding:0.25rem 0;
+  padding-left:1.2rem;
+  position:relative;
+}
+.q-card.p0 li { color:rgba(255,255,255,0.8); }
+.q-card.p1 li, .q-card.p2 li { color:var(--ink-100); }
+.q-card li::before {
+  content:'✓';
+  position:absolute; left:0;
+  font-weight:700;
+}
+.q-card.p0 li::before { color:var(--gold); }
+.q-card.p1 li::before { color:var(--royal); }
+.q-card.p2 li::before { color:var(--wine); }
+```
+
+---
+
+### 50.9 Mode Usage Card 使用模式卡片
+
+使用模式卡片，白底圆角20px，顶部mode-badge彩色胶囊标签（酒红/皇家蓝/金三种变体），斜体引文描述区（米黄底cream色），顶部分隔线下方展示结果文字，hover时上移+金色边框，功能说明/使用指南风格。
+
+```html
+<div class="mode-card">
+  <div class="mode-badge mode-full">精准模式</div>
+  <h4>你给完整内容</h4>
+  <p class="mode-desc">"这是我的课程：标题xxx，时间8月，讲师飞鸿，价格¥999，做个报名页"</p>
+  <div class="mode-result">→ AI直接填充排版，精确交付</div>
+</div>
+```
+```css
+.mode-card {
+  background:#fff;
+  border:1px solid var(--cream-200);
+  border-radius:20px;
+  padding:32px 28px;
+  transition:all 400ms var(--ease);
+  position:relative;
+  font-family:var(--font-sans);
+}
+.mode-card:hover {
+  transform:translateY(-4px);
+  box-shadow:0 12px 40px rgba(10,36,99,0.08);
+  border-color:var(--gold);
+}
+/* 顶部彩色胶囊badge */
+.mode-badge {
+  display:inline-block;
+  font-size:0.7rem;
+  font-weight:700;
+  letter-spacing:0.1em;
+  padding:4px 14px;
+  border-radius:100px;
+  margin-bottom:16px;
+}
+.mode-full { background:var(--wine); color:#fff; }
+.mode-smart { background:var(--royal); color:var(--gold); }
+.mode-demo { background:var(--gold); color:var(--royal); }
+/* 标题 */
+.mode-card h4 {
+  font-family:var(--font-serif);
+  font-size:1.25rem;
+  font-weight:700;
+  margin:0 0 12px;
+  color:var(--ink);
+}
+/* 斜体引文描述区（米黄底） */
+.mode-desc {
+  font-size:0.9rem;
+  line-height:1.7;
+  color:var(--ink-400);
+  margin:0 0 16px;
+  padding:12px 16px;
+  background:var(--cream);
+  border-radius:10px;
+  font-style:italic;
+  font-family:var(--font-display);
+}
+/* 顶部分隔线结果文字 */
+.mode-result {
+  font-size:0.85rem;
+  color:var(--royal);
+  font-weight:600;
+  padding-top:12px;
+  border-top:1px solid var(--cream-200);
+}
+```
+
+---
+
+### 50.10 Glass Card on Dark 深色半透明玻璃卡片
+
+深色背景上的半透明玻璃卡片，`rgba(255,255,255,0.06)`背景+1px半透明白描边`rgba(255,255,255,0.08)`，hover时变金色半透明+金色边框+上移3px，花体斜体大数字编号，深色背景流程步骤/功能展示风格。
+
+```html
+<div class="flow-step">
+  <div class="flow-step-n">1</div>
+  <div class="flow-step-t">识别场景</div>
+  <div class="flow-step-d">匹配到 <strong>Landing Page</strong>，读取landing.md规范</div>
+</div>
+```
+```css
+.flow-step {
+  text-align:center;
+  padding:20px 12px;
+  /* 半透明玻璃效果 */
+  background:rgba(255,255,255,0.06);
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,0.08);
+  transition:all 350ms var(--ease);
+  font-family:var(--font-sans);
+}
+.flow-step:hover {
+  background:rgba(244,211,94,0.1);
+  border-color:var(--gold);
+  transform:translateY(-3px);
+}
+/* 花体斜体大数字 */
+.flow-step-n {
+  font-family:var(--font-display);
+  font-style:italic;
+  font-size:2rem;
+  font-weight:700;
+  color:var(--gold);
+  line-height:1;
+  margin-bottom:10px;
+}
+/* 步骤标题 */
+.flow-step-t {
+  font-family:var(--font-serif);
+  font-size:1rem;
+  font-weight:600;
+  margin-bottom:8px;
+  color:#fff;
+}
+/* 步骤描述 */
+.flow-step-d {
+  font-size:0.8rem;
+  line-height:1.6;
+  color:rgba(255,255,255,0.6);
+}
+.flow-step-d strong {
+  color:var(--gold);
+  font-weight:600;
+}
+```
+
+---
+
+### 50.11 Architecture Layer Card 架构层次卡片
+
+架构层次卡片，三种主题色变体：深蓝渐变（场景层，金色文字）、白底（模板层，皇家蓝文字）、蓝金渐变（组件层，酒红数字），大斜体花体编号N°01/02/03，mono等宽标签，hover时右移6px，架构图/分层说明风格。
+
+```html
+<div class="arch-layer arch-scene">
+  <div class="arch-num">N°01</div>
+  <div class="arch-content">
+    <div class="arch-label">Scene · 场景</div>
+    <h4>决定"做什么菜"</h4>
+    <p>10种场景，每种有完整的结构规范、颜色比例、阅读节奏、技术约束。AI根据你的关键词自动匹配。</p>
+    <div class="arch-tags">
+      <span>Portfolio</span><span>Landing</span><span>Tutorial</span>
+    </div>
+  </div>
+</div>
+```
+```css
+.arch-layer {
+  display:flex;
+  gap:28px;
+  align-items:flex-start;
+  padding:32px 36px;
+  border-radius:20px;
+  position:relative;
+  transition:transform 400ms var(--ease);
+  font-family:var(--font-sans);
+}
+/* hover右移6px */
+.arch-layer:hover {
+  transform:translateX(6px);
+}
+/* 三种主题色 */
+.arch-scene {
+  /* 深蓝渐变 */
+  background:linear-gradient(135deg,var(--royal),var(--royal-700));
+  color:#fff;
+}
+.arch-template {
+  /* 白底 */
+  background:#fff;
+  border:1px solid var(--cream-200);
+  box-shadow:0 4px 24px rgba(10,36,99,0.06);
+}
+.arch-component {
+  /* 蓝金渐变 */
+  background:linear-gradient(135deg,var(--royal-50),var(--gold-50));
+  border:1px solid var(--cream-200);
+}
+/* 大斜体花体编号 */
+.arch-num {
+  font-family:var(--font-display);
+  font-style:italic;
+  font-size:2.4rem;
+  font-weight:600;
+  color:var(--gold);
+  line-height:1;
+  min-width:70px;
+  padding-top:4px;
+}
+.arch-template .arch-num { color:var(--royal); }
+.arch-component .arch-num { color:var(--wine); }
+/* 内容区 */
+.arch-content { flex:1; }
+/* mono等宽标签 */
+.arch-label {
+  font-family:var(--font-mono);
+  font-size:0.7rem;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:6px;
+  opacity:0.8;
+}
+.arch-template .arch-label { color:var(--royal-400); }
+.arch-component .arch-label { color:var(--wine); opacity:0.7; }
+/* 标题 */
+.arch-content h4 {
+  font-family:var(--font-serif);
+  font-size:1.5rem;
+  font-weight:700;
+  margin:0 0 10px;
+  line-height:1.3;
+}
+.arch-scene h4 { color:var(--gold); }
+.arch-template h4 { color:var(--ink); }
+.arch-component h4 { color:var(--royal); }
+/* 描述 */
+.arch-content p {
+  font-size:0.95rem;
+  line-height:1.7;
+  margin:0 0 16px;
+  opacity:0.85;
+}
+.arch-template p { color:var(--ink-400); opacity:1; }
+.arch-component p { color:var(--ink-500); opacity:1; }
+/* 标签组 */
+.arch-tags {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.arch-tags span {
+  font-size:0.75rem;
+  padding:4px 12px;
+  border-radius:100px;
+  font-weight:500;
+}
+.arch-scene .arch-tags span {
+  background:rgba(244,211,94,0.15);
+  color:var(--gold);
+  border:1px solid rgba(244,211,94,0.25);
+}
+.arch-template .arch-tags span {
+  background:var(--cream);
+  color:var(--royal);
+  border:1px solid var(--cream-200);
+}
+.arch-component .arch-tags span {
+  background:#fff;
+  color:var(--ink-500);
+  border:1px solid var(--cream-200);
+}
 ```

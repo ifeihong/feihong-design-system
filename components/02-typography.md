@@ -254,3 +254,113 @@
   margin: 0;
 }
 ```
+
+---
+
+### 1.7 行内金色下划线强调（Inline Gold Underline Emphasis）
+
+Hero标题中 `<em>` 标签的样式，使用 `::after` 伪元素在文字下方垫一条金色下划线，`z-index:-1` 使下划线不遮挡文字，形成经典编辑风格强调效果。
+
+```html
+<h1 class="hero-title">
+  不像AI的<br>
+  <em>个人品牌</em><br>
+  设计系统
+</h1>
+```
+```css
+.hero-title em {
+  font-style: italic;
+  color: var(--royal);
+  position: relative;
+  display: inline-block;
+}
+.hero-title em::after {
+  content: '';
+  position: absolute;
+  bottom: 0.08em;
+  left: 0;
+  width: 100%;
+  height: 0.12em;
+  background: var(--gold);
+  z-index: -1;
+  border-radius: 2px;
+}
+```
+
+### 1.8 酒红斜体点缀（Wine Accent Italic）
+
+`.wine-accent` 类，酒红色斜体文字，用于标题中需要暖色点缀的关键词，与金色下划线强调形成冷暖对比。
+
+```html
+<h1 class="hero-title">
+  不像AI的<br>
+  <em>个人品牌</em><br>
+  <span class="wine-accent">设计系统</span>
+</h1>
+```
+```css
+.hero-title .wine-accent {
+  color: var(--wine);
+  font-style: italic;
+}
+```
+
+### 1.9 双侧金色短线装饰语（Flanked Gold Line Tagline）
+
+Hero副标题标语样式，使用 `::before` / `::after` 伪元素在文字两侧生成金色短线装饰，`display:flex` + `gap` 控制间距，典雅精致。
+
+```html
+<p class="hero-tagline">Crafted with devotion, designed for distinction</p>
+```
+```css
+.hero-tagline {
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  font-style: italic;
+  color: var(--gold-700);
+  letter-spacing: 0.04em;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.hero-tagline::before,
+.hero-tagline::after {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+}
+```
+
+---
+
+### 36.3 菱形前缀Eyebrow标签（Diamond Eyebrow Label）
+
+Hero区域的眉标样式，`::before` 伪元素插入 ◆ 菱形符号作为前缀，搭配大写字母间距（`0.22em`），形成品牌识别度极高的开篇标签。
+
+```html
+<div class="hero-eyebrow">Feihong Design System</div>
+```
+```css
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-700);
+  margin-bottom: 1.5rem;
+}
+.hero-eyebrow::before {
+  content: '◆';
+  color: var(--gold);
+  font-size: 0.6rem;
+  width: auto;
+  height: auto;
+  background: none;
+}
+```

@@ -1,4 +1,4 @@
-﻿# Feihong Design System — Lists & Tags
+# Feihong Design System — Lists & Tags
 # N°18 · 列表与标签组
 > Gold dot lists, serif numbered lists, check lists, definition lists, timelines, reviews, icon lists, editorial numbered lists, table of contents, notifications, breadcrumbs, price lists, feature checklists, social links, and luxury tag groups for content organization.
 > 金色圆点列表、衬线数字列表、勾选列表、定义列表、时间线、评论、图标列表、编辑式编号列表、目录、通知、面包屑、价目表、功能清单、社交链接与奢华标签组，用于内容组织。
@@ -1848,6 +1848,97 @@
 
 ---
 
+### 6.15 N°编号原则列表 Numbered Principle List with N° Prefix
+
+纵向 flex 布局，每条包含 N°01~04 编号（Cormorant 斜体金色）+ 衬线标题 + 正文。hover 时整行变为米白底 + 米色边框，编号与标题保持金色和墨色层次。适合设计理念、品牌原则、价值观展示。
+
+```html
+<div class="principle-list">
+  <div class="principle-item">
+    <span class="principle-num">N°01</span>
+    <div class="principle-body">
+      <h4>克制即高级</h4>
+      <p>拒绝花哨渐变、冷灰配色、无灵魂模板感。每个元素都要有明确的设计意图，宁缺毋滥。</p>
+    </div>
+  </div>
+  <div class="principle-item">
+    <span class="principle-num">N°02</span>
+    <div class="principle-body">
+      <h4>艺术且有品质</h4>
+      <p>高对比度衬线大字、金色下划线强调、微妙径向渐变制造深度，不做纯平色。</p>
+    </div>
+  </div>
+  <div class="principle-item">
+    <span class="principle-num">N°03</span>
+    <div class="principle-body">
+      <h4>有温度、有人味</h4>
+      <p>暖米白底色、手写感衬线斜体、不完美的间距节奏，像设计师亲手做的。</p>
+    </div>
+  </div>
+  <div class="principle-item">
+    <span class="principle-num">N°04</span>
+    <div class="principle-body">
+      <h4>精确到像素</h4>
+      <p>间距精确到8px网格、色彩克制不滥用、层级清晰有呼吸感，Crafted with Precision。</p>
+    </div>
+  </div>
+</div>
+```
+```css
+/* N°编号原则列表容器 */
+.principle-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+/* 单条原则项 */
+.principle-item {
+  display: flex;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  border-radius: 16px;
+  transition: all 250ms var(--ease);
+  border: 1px solid transparent;
+}
+.principle-item:hover {
+  background: var(--cream);
+  border-color: var(--cream-200);
+}
+/* N°编号 — Cormorant斜体金色 */
+.principle-num {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--gold-700);
+  line-height: 1.2;
+  flex-shrink: 0;
+  width: 56px;
+  letter-spacing: 0.05em;
+  padding-top: 0.15rem;
+}
+/* 内容区 */
+.principle-body { flex: 1; }
+/* 衬线标题 */
+.principle-body h4 {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 0.35rem;
+  line-height: 1.3;
+}
+/* 正文 */
+.principle-body p {
+  font-size: 0.875rem;
+  color: var(--ink-200);
+  line-height: 1.65;
+  margin: 0;
+}
+```
+
+---
+
 ## 8. Usage Guidelines 使用指南
 
 | 组件 | 使用场景 | 注意事项 |
@@ -1866,6 +1957,7 @@
 | Price List (6.12) | 菜单、价目表、定价页 | 金色引导点 + Garamond斜体价格 |
 | Feature Checklist (6.13) | 方案对比、功能清单 | 金勾=包含，灰叉=不含，酒红叹号=注意 |
 | Social Link List (6.14) | 社交链接、联系方式 | 金色悬停动画，箭头滑入效果 |
+| N°编号原则列表 (6.15) | 设计理念、品牌原则、价值观 | Cormorant斜体N°编号，hover米白底反馈 |
 | Tag Group (7.1) | 标签、筛选器、属性 | 四色变体对应不同语义：蓝=主类/金=奢华/酒红=警示/奶油=中性 |
 
 ---
