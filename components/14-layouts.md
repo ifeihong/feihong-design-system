@@ -2086,3 +2086,238 @@ Z字形叙事布局，图文交替左右排列，金色连接线穿过各节点�
 .type-sample-mono { font-family: var(--font-mono); font-size: 0.9rem; color: var(--ink-100); background: var(--royal-50); padding: 0.2rem 0.5rem; border-radius: 4px; }
 .type-label { font-size: 0.72rem; color: var(--ink-300); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.05em; flex-shrink: 0; }
 ```
+
+---
+
+## L24. 影院首屏布局 Cinematic Hero Layout（飞鸿专属 · 影院母题）
+
+**特征**：全视口高度深色背景，径向渐变+星点模拟影院银幕效果，取景框四角标记，时间码/技术标注在角落，主标题带旋转F字母，等宽字体副标题（打字光标效果），左侧金色斜贴标签，右侧垂直文字，玻璃毛玻璃效果CTA按钮。整体营造电影开场的仪式感。
+
+```html
+<section class="cine-hero" style="min-height:100vh;background:#000;position:relative;overflow:hidden;display:flex;align-items:center;padding:0;">
+  <!-- Background gradient + stars -->
+  <div class="cine-bg" style="position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse at 30% 20%,rgba(244,211,94,0.1) 0%,transparent 50%),radial-gradient(ellipse at 70% 80%,rgba(216,49,91,0.08) 0%,transparent 50%),linear-gradient(135deg,var(--royal-deep) 0%,#02050f 40%,#0a0612 70%,var(--wine-dark) 100%);"></div>
+  <!-- Star twinkle -->
+  <div class="cine-stars" style="position:absolute;inset:0;z-index:2;background-image:radial-gradient(2px 2px at 15% 25%,rgba(255,255,255,0.4),transparent),radial-gradient(1px 1px at 45% 15%,rgba(255,255,255,0.3),transparent),radial-gradient(2px 2px at 75% 35%,rgba(255,255,255,0.35),transparent),radial-gradient(1px 1px at 25% 65%,rgba(255,255,255,0.25),transparent),radial-gradient(1.5px 1.5px at 85% 75%,rgba(255,255,255,0.3),transparent);animation:starsTwinkle 6s ease-in-out infinite alternate;"></div>
+  <!-- Vignette -->
+  <div class="cine-vignette" style="position:absolute;inset:0;z-index:3;background:radial-gradient(ellipse at center,transparent 20%,rgba(0,0,0,0.75) 100%);pointer-events:none;"></div>
+  <!-- Grain overlay -->
+  <div class="cine-grain" style="position:absolute;inset:-100%;z-index:4;pointer-events:none;opacity:0.06;mix-blend-mode:overlay;background-image:url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E&quot;);"></div>
+  <!-- Viewfinder corners -->
+  <div class="cine-vf" style="position:absolute;inset:0;z-index:5;pointer-events:none;">
+    <div class="cvf-mark tl" style="position:absolute;top:20px;left:clamp(20px,3vw,50px);width:36px;height:36px;border-top:2px solid rgba(255,255,255,0.15);border-left:2px solid rgba(255,255,255,0.15);"></div>
+    <div class="cvf-mark tr" style="position:absolute;top:20px;right:clamp(20px,3vw,50px);width:36px;height:36px;border-top:2px solid rgba(255,255,255,0.15);border-right:2px solid rgba(255,255,255,0.15);"></div>
+    <div class="cvf-mark bl" style="position:absolute;bottom:20px;left:clamp(20px,3vw,50px);width:36px;height:36px;border-bottom:2px solid rgba(255,255,255,0.15);border-left:2px solid rgba(255,255,255,0.15);"></div>
+    <div class="cvf-mark br" style="position:absolute;bottom:20px;right:clamp(20px,3vw,50px);width:36px;height:36px;border-bottom:2px solid rgba(255,255,255,0.15);border-right:2px solid rgba(255,255,255,0.15);"></div>
+  </div>
+  <!-- Corner technical labels -->
+  <div class="cine-tc-tl" style="position:absolute;top:28px;left:clamp(28px,4vw,72px);z-index:12;color:rgba(255,255,255,0.5);font-family:var(--font-mono);font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;line-height:2;text-align:left;">
+    REEL 01 · SCENE 01<br>
+    TAKE 01 · 2026
+  </div>
+  <div class="cine-tc-tr" style="position:absolute;top:28px;right:clamp(28px,4vw,72px);z-index:12;color:rgba(255,255,255,0.5);font-family:var(--font-mono);font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;line-height:2;text-align:right;">
+    <span style="font-size:0.85rem;font-weight:700;color:#fff;letter-spacing:0.1em;">2.39:1</span><br>
+    SCOPE · ANAMORPHIC
+  </div>
+  <!-- Content -->
+  <div class="cine-inner" style="position:relative;z-index:10;max-width:1440px;margin:0 auto;padding:0 clamp(28px,4vw,72px);display:grid;grid-template-columns:1fr 420px;gap:70px;align-items:start;width:100%;">
+    <div class="cine-main" style="position:relative;">
+      <!-- Gold sticky note -->
+      <div class="cine-sticky" style="position:absolute;top:-30px;left:-32px;background:var(--gold);color:var(--royal);padding:12px 16px;font-family:var(--font-serif);font-style:italic;font-size:0.95rem;font-weight:700;transform:rotate(-6deg);box-shadow:3px 5px 16px rgba(244,211,94,0.35);z-index:2;line-height:1.3;">
+        二十八载不断线
+      </div>
+      <!-- REC badge -->
+      <div class="cine-rec" style="display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:0.68rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;padding:10px 20px;border:1px solid rgba(255,255,255,0.2);background:rgba(0,0,0,0.4);backdrop-filter:blur(8px);color:rgba(255,255,255,0.65);margin-bottom:36px;">
+        <span style="width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px rgba(244,211,94,0.8);animation:recBlink 1.2s infinite;"></span>
+        NOW BROADCASTING
+      </div>
+      <!-- Main title -->
+      <h1 class="cine-title" style="font-family:var(--font-serif);font-size:clamp(3.8rem,9.5vw,9rem);font-weight:900;line-height:0.88;letter-spacing:-0.04em;color:#fff;position:relative;margin-bottom:32px;">
+        <span style="display:inline-block;color:var(--wine);transform:rotate(-10deg) translateY(-5px);font-size:1.05em;">F</span>eihong<span style="color:var(--gold);">.</span><br>
+        <em style="font-family:var(--font-italic);font-style:italic;font-weight:400;color:var(--gold-dark);font-size:0.38em;display:block;letter-spacing:0.1em;margin-top:12px;transform:rotate(-1deg);padding-left:10px;">designer &amp; developer</em>
+      </h1>
+      <!-- Mono subtitle with cursor -->
+      <p class="cine-mono" style="font-family:var(--font-mono);font-size:clamp(0.9rem,1.25vw,1.1rem);font-weight:500;color:rgba(255,255,255,0.5);letter-spacing:0.08em;margin-top:32px;padding-left:4px;">
+        feihong@explorer:~$ echo &quot;design_code_create&quot;
+        <span style="display:inline-block;width:9px;height:18px;background:var(--wine);margin-left:3px;animation:blink 0.9s infinite;vertical-align:middle;"></span>
+      </p>
+      <!-- Description -->
+      <p class="cine-desc" style="font-family:var(--font-italic);font-style:italic;font-size:clamp(1.1rem,1.6vw,1.4rem);line-height:1.85;color:rgba(255,255,255,0.7);max-width:600px;border-left:3px solid var(--gold);padding:0 0 0 28px;margin-top:40px;">
+        <strong style="color:var(--gold);font-style:normal;font-weight:700;">以代码为笔，以设计为镜</strong>，<br>
+        从拨号时代到AIGC纪元，始终在线。
+      </p>
+      <!-- Traits pills -->
+      <div class="cine-traits" style="display:flex;gap:12px;margin-top:32px;flex-wrap:wrap;">
+        <span style="font-family:var(--font-mono);font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:8px 16px;border:1px solid var(--royal);color:var(--royal-200);background:rgba(10,36,99,0.3);backdrop-filter:blur(4px);">ISTJ</span>
+        <span style="font-family:var(--font-mono);font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:8px 16px;border:1px solid var(--wine);color:var(--wine);background:rgba(216,49,91,0.1);backdrop-filter:blur(4px);">28 YEARS</span>
+        <span style="font-family:var(--font-mono);font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:8px 16px;border:1px solid var(--gold);color:var(--gold);background:rgba(244,211,94,0.08);backdrop-filter:blur(4px);">DESIGN SYSTEM</span>
+      </div>
+      <!-- CTA -->
+      <div class="cine-cta" style="display:flex;gap:20px;margin-top:44px;flex-wrap:wrap;align-items:center;">
+        <a href="#" style="display:inline-flex;align-items:center;gap:12px;background:var(--royal);color:var(--gold);padding:18px 36px;font-family:var(--font-mono);font-size:0.78rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;transition:all 0.25s var(--ease);transform:rotate(-0.5deg);text-decoration:none;">
+          → 进入作品
+        </a>
+        <a href="#" style="font-family:var(--font-serif);font-style:italic;font-size:1.1rem;color:rgba(255,255,255,0.5);padding:18px 0;border-bottom:1px solid var(--gold);text-decoration:none;transition:all 0.25s var(--ease);">
+          了解更多
+        </a>
+      </div>
+    </div>
+    <!-- Terminal window (right side) -->
+    <div class="cine-term-wrap" style="position:relative;">
+      <div class="terminal-window" style="background:var(--royal-deep);border-radius:8px;overflow:hidden;box-shadow:0 28px 80px rgba(10,36,99,0.5),inset 0 1px 0 rgba(255,255,255,0.05);transform:rotate(2deg);font-family:var(--font-mono);border:1px solid rgba(255,255,255,0.06);">
+        <div style="background:linear-gradient(180deg,#1a2340,#0f1730);padding:12px 18px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,0.05);">
+          <span style="width:12px;height:12px;border-radius:50%;background:#ff5f57;"></span>
+          <span style="width:12px;height:12px;border-radius:50%;background:#febc2e;"></span>
+          <span style="width:12px;height:12px;border-radius:50%;background:#28c840;"></span>
+          <span style="flex:1;text-align:center;font-size:0.72rem;color:rgba(255,255,255,0.4);letter-spacing:0.1em;">feihong@explorer — zsh</span>
+        </div>
+        <div style="padding:26px;color:#c8d0e0;font-size:0.8rem;line-height:1.95;min-height:300px;position:relative;">
+          <div style="position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(244,211,94,0.1),transparent);animation:scanline 4s linear infinite;pointer-events:none;"></div>
+          <div><span style="color:var(--gold);">feihong@explorer</span> <span style="color:rgba(255,255,255,0.4);">~</span> <span style="color:#60a5fa;">whoami</span></div>
+          <div style="color:rgba(255,255,255,0.5);margin-bottom:12px;">frontend_designer · creative_developer</div>
+          <div><span style="color:var(--gold);">feihong@explorer</span> <span style="color:rgba(255,255,255,0.4);">~</span> <span style="color:#60a5fa;">cat status</span></div>
+          <div style="color:#4ADE80;margin-bottom:12px;">● Online · Available for projects</div>
+          <div><span style="color:var(--gold);">feihong@explorer</span> <span style="color:rgba(255,255,255,0.4);">~</span> <span style="display:inline-block;width:8px;height:16px;background:var(--gold);animation:blink 0.8s infinite;vertical-align:text-bottom;box-shadow:0 0 8px var(--gold);"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Bottom meta bar -->
+  <div style="position:absolute;bottom:24px;left:0;right:0;z-index:12;display:flex;justify-content:space-between;align-items:center;padding:0 clamp(28px,4vw,72px);">
+    <div style="font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.2);">SCROLL ↓</div>
+    <div style="display:flex;gap:20px;">
+      <span style="width:6px;height:6px;border-radius:50%;background:var(--gold);"></span>
+      <span style="width:6px;height:6px;border-radius:50%;background:var(--wine);"></span>
+      <span style="width:6px;height:6px;border-radius:50%;background:#4ADE80;"></span>
+    </div>
+    <div style="font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.2);">FEIHONG.ART © 2026</div>
+  </div>
+</section>
+```
+```css
+@keyframes starsTwinkle { 0%{opacity:0.4} 50%{opacity:1} 100%{opacity:0.5} }
+@keyframes recBlink { 0%,50%{opacity:1} 51%,100%{opacity:0.3} }
+@keyframes blink { 0%,50%{opacity:1} 51%,100%{opacity:0} }
+@keyframes scanline { 0%{top:0} 100%{top:100%} }
+.cine-sticky::after {
+  content: ''; position: absolute; top: -7px; left: 50%; transform: translateX(-50%);
+  width: 32px; height: 11px; background: rgba(0,0,0,0.15); border-radius: 2px;
+}
+.cine-cta a:first-child:hover {
+  background: var(--wine); color: #fff; transform: rotate(0.5deg) translateY(-3px);
+  box-shadow: 0 12px 30px rgba(216,49,91,0.3);
+}
+.cine-cta a:last-child:hover { color: var(--wine); border-color: var(--wine); }
+@media (max-width: 1000px) {
+  .cine-inner { grid-template-columns: 1fr !important; gap: 56px !important; }
+}
+```
+
+**使用场景**：个人网站首页Hero、作品集首屏、个人品牌落地页首屏
+**气质传达**：电影开场、仪式感、沉浸式、影院母题
+
+---
+
+## L25. 征途交错时间线 Journey Timeline（飞鸿专属 · 纪事母题）
+
+**特征**：中央金色渐变时间轴线，左右交错排列的事件卡片，节点有酒红/金色圆点（带脉冲动画），卡片带左侧渐变条（hover时展开），卡片右上角有圆形邮戳标签（斜旋转），支持featured深色高亮卡片。滚动进入时有滑入动画。
+
+```html
+<section class="journey-section" style="padding:100px 2.5rem;background:var(--cream);position:relative;overflow:hidden;">
+  <!-- Background watermark -->
+  <div class="journey-bg" style="position:absolute;font-family:var(--font-serif);font-style:italic;font-weight:900;font-size:clamp(12rem,26vw,26rem);color:var(--wine);opacity:0.02;bottom:-5%;left:-3%;line-height:0.9;pointer-events:none;letter-spacing:-0.05em;">JOURNEY</div>
+  <div style="max-width:1200px;margin:0 auto;position:relative;">
+    <!-- Header -->
+    <div style="margin-bottom:80px;max-width:700px;">
+      <div style="font-family:var(--font-italic);font-style:italic;font-size:0.95rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:16px;">The Chronicle</div>
+      <h2 style="font-family:var(--font-serif);font-size:clamp(2.8rem,6vw,5.5rem);font-weight:900;line-height:1;color:var(--royal);letter-spacing:-0.03em;margin:0;">
+        征途<em style="font-style:italic;color:var(--wine);">纪</em>
+      </h2>
+    </div>
+    <!-- Timeline -->
+    <div class="tl-wrap" style="position:relative;">
+      <!-- Center line -->
+      <div class="tl-line" style="position:absolute;left:50%;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,transparent,var(--gold) 5%,var(--gold) 95%,transparent);transform:translateX(-50%);"></div>
+      <!-- Row 1: Left -->
+      <div class="j-row left" style="display:grid;grid-template-columns:1fr 80px 1fr;gap:0;margin-bottom:50px;align-items:start;">
+        <div class="j-card" style="background:#fff;padding:40px 44px;box-shadow:0 12px 44px rgba(10,36,99,0.08);border-radius:6px;position:relative;grid-column:1;margin-right:44px;overflow:hidden;">
+          <div style="content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:linear-gradient(to bottom,var(--wine),var(--gold));"></div>
+          <div class="j-period" style="font-family:var(--font-mono);font-size:0.9rem;font-weight:700;letter-spacing:0.1em;color:var(--wine);margin-bottom:12px;display:flex;align-items:center;gap:12px;">
+            1998—2010
+            <span style="font-weight:500;color:var(--ink-mute);font-size:0.72rem;padding:4px 12px;background:rgba(10,36,99,0.05);border-radius:2px;">dur: 12 YEARS</span>
+          </div>
+          <h3 style="font-family:var(--font-serif);font-size:1.6rem;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.3;margin:0 0 8px 0;">拨号时代</h3>
+          <p style="font-family:var(--font-italic);font-style:italic;font-size:1.05rem;color:var(--gold-dark);line-height:1.5;margin:0;">FrontPage · Dreamweaver · 个人站长时代</p>
+          <div class="j-stamp" style="position:absolute;top:24px;right:28px;width:64px;height:64px;border:2px solid var(--wine);border-radius:50%;color:var(--wine);font-family:var(--font-serif);font-style:italic;font-weight:700;font-size:0.7rem;display:flex;align-items:center;justify-content:center;text-align:center;transform:rotate(-12deg);opacity:0.5;line-height:1.2;">
+            WEB<br>1.0
+          </div>
+        </div>
+        <div class="j-dot" style="grid-column:2;width:24px;height:24px;background:var(--wine);border:5px solid var(--cream);box-shadow:0 0 0 4px var(--wine),0 0 20px rgba(216,49,91,0.3);border-radius:50%;margin:28px auto 0;position:relative;z-index:2;"></div>
+        <div></div>
+      </div>
+      <!-- Row 2: Right (featured) -->
+      <div class="j-row right" style="display:grid;grid-template-columns:1fr 80px 1fr;gap:0;margin-bottom:50px;align-items:start;">
+        <div></div>
+        <div class="j-dot gold" style="grid-column:2;width:24px;height:24px;background:var(--gold);border:5px solid var(--cream);box-shadow:0 0 0 4px var(--gold-dark),0 0 20px rgba(244,211,94,0.4);border-radius:50%;margin:28px auto 0;position:relative;z-index:2;"></div>
+        <div class="j-card featured" style="background:linear-gradient(135deg,var(--royal-deep),var(--royal));color:#fff;padding:48px 52px;box-shadow:0 26px 70px rgba(10,36,99,0.3);border-radius:6px;grid-column:3;margin-left:44px;position:relative;overflow:hidden;">
+          <div style="content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:linear-gradient(to bottom,var(--gold),var(--wine));"></div>
+          <div class="j-period" style="font-family:var(--font-mono);font-size:0.9rem;font-weight:700;letter-spacing:0.1em;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:12px;">
+            2010—2022
+            <span style="font-weight:500;color:rgba(255,255,255,0.5);font-size:0.72rem;padding:4px 12px;background:rgba(255,255,255,0.1);border-radius:2px;">dur: 12 YEARS</span>
+          </div>
+          <h3 style="font-family:var(--font-serif);font-size:1.6rem;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.3;margin:0 0 8px 0;">黄金年代</h3>
+          <p style="font-family:var(--font-italic);font-style:italic;font-size:1.05rem;color:var(--gold);line-height:1.5;margin:0;">React · 移动端 · SaaS · 设计系统</p>
+          <div class="j-stamp" style="position:absolute;top:24px;right:28px;width:64px;height:64px;border:2px solid var(--gold);border-radius:50%;color:var(--gold);font-family:var(--font-serif);font-style:italic;font-weight:700;font-size:0.7rem;display:flex;align-items:center;justify-content:center;text-align:center;transform:rotate(-12deg);opacity:0.5;line-height:1.2;">
+            WEB<br>2.0
+          </div>
+        </div>
+      </div>
+      <!-- Row 3: Left (current) -->
+      <div class="j-row left" style="display:grid;grid-template-columns:1fr 80px 1fr;gap:0;margin-bottom:50px;align-items:start;">
+        <div class="j-card" style="background:#fff;padding:40px 44px;box-shadow:0 12px 44px rgba(10,36,99,0.08);border-radius:6px;grid-column:1;margin-right:44px;position:relative;overflow:hidden;">
+          <div style="content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:linear-gradient(to bottom,var(--wine),var(--gold));"></div>
+          <div class="j-period" style="font-family:var(--font-mono);font-size:0.9rem;font-weight:700;letter-spacing:0.1em;color:var(--wine);margin-bottom:12px;display:flex;align-items:center;gap:12px;">
+            2022—NOW
+            <span style="font-weight:500;color:var(--ink-mute);font-size:0.72rem;padding:4px 12px;background:rgba(10,36,99,0.05);border-radius:2px;">dur: 4+ YEARS</span>
+          </div>
+          <h3 style="font-family:var(--font-serif);font-size:1.6rem;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.3;margin:0 0 8px 0;">智能纪元</h3>
+          <p style="font-family:var(--font-italic);font-style:italic;font-size:1.05rem;color:var(--gold-dark);line-height:1.5;margin:0;">AIGC · LLM · Agent · 设计+代码+AI融合</p>
+          <div class="j-stamp" style="position:absolute;top:24px;right:28px;width:64px;height:64px;border:2px solid var(--wine);border-radius:50%;color:var(--wine);font-family:var(--font-serif);font-style:italic;font-weight:700;font-size:0.7rem;display:flex;align-items:center;justify-content:center;text-align:center;transform:rotate(-12deg);opacity:0.5;line-height:1.2;">
+            AIGC<br>NOW
+          </div>
+        </div>
+        <div class="j-dot start" style="grid-column:2;width:28px;height:28px;background:var(--wine);border:5px solid var(--cream);box-shadow:0 0 0 9px var(--wine),0 0 30px rgba(216,49,91,0.4);border-radius:50%;margin:28px auto 0;position:relative;z-index:2;"></div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+</section>
+```
+```css
+.j-card:hover { transform: translateY(-10px) !important; box-shadow: 0 30px 80px rgba(10,36,99,0.18); }
+.j-card.featured:hover { transform: rotate(0deg) scale(1.04) translateY(-10px) !important; box-shadow: 0 40px 100px rgba(10,36,99,0.4); }
+.j-row:hover .j-dot { transform: scale(1.4); box-shadow: 0 0 0 4px var(--wine), 0 0 40px rgba(216,49,91,0.6), 0 0 80px rgba(216,49,91,0.2); }
+.j-row:hover .j-dot.gold { box-shadow: 0 0 0 4px var(--gold-dark), 0 0 40px rgba(244,211,94,0.6), 0 0 80px rgba(244,211,94,0.2); }
+@keyframes pulseDot {
+  0%{transform:scale(0.8);opacity:1;border-color:var(--wine)}
+  100%{transform:scale(2.2);opacity:0;border-color:transparent}
+}
+.j-dot::after {
+  content: ''; position: absolute; inset: -10px; border-radius: 50%;
+  border: 2px solid transparent; animation: pulseDot 2.5s ease-out infinite;
+}
+.j-dot.gold::after { border-color: var(--gold); }
+@keyframes bgFloat {
+  0%,100%{transform:translate(0,0) rotate(0deg)}
+  50%{transform:translate(10px,-15px) rotate(-1deg)}
+}
+@media (max-width: 900px) {
+  .tl-line { left: 28px !important; }
+  .j-row { grid-template-columns: 56px 1fr !important; gap: 20px !important; margin-bottom: 36px !important; }
+  .j-dot { grid-column: 1 !important; margin: 30px 0 0 16px !important; }
+  .j-row.left .j-card, .j-row.right .j-card { grid-column: 2 !important; margin: 0 !important; }
+}
+```
+
+**使用场景**：个人履历、职业经历、项目历程、产品迭代时间线、成长故事
+**气质传达**：叙事感、历史纵深、邮戳复古、交错动感

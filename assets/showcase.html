@@ -4709,6 +4709,11 @@ hr.pen-divider.wave::after { display: none; }
 .project-card:hover, .hover-lift:hover, .mf-item:hover { transform: none !important; box-shadow: none !important; }
 }
 
+/* New component keyframes */
+@keyframes blink { 0%,50%{opacity:1} 51%,100%{opacity:0.3} }
+@keyframes decoBounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+@keyframes scanline { 0%{top:0} 100%{top:100%} }
+
 </style>
 </head>
 <body>
@@ -4732,6 +4737,7 @@ hr.pen-divider.wave::after { display: none; }
     <a href="#quotes">Quotes &amp; Pull Quotes 引用/金句</a>
     <a href="#giant-quote-card">Giant Quote Card 卡片大引号</a>
     <a href="#gold-border-quote">Gold Border Quote 金边引文</a>
+    <a href="#manifesto-block">宣言金句区 Manifesto Block</a>
 
     <div class="sidebar-cat">05 Buttons &amp; Badges</div>
     <a href="#buttons-badges">Buttons &amp; Badges 按钮与徽章</a>
@@ -4750,6 +4756,8 @@ hr.pen-divider.wave::after { display: none; }
     <a href="#mode-usage-card">Mode Usage 使用模式卡</a>
     <a href="#glass-card-dark">Glass Card Dark 玻璃卡片</a>
     <a href="#arch-layer-card">Arch Layer 架构层次卡</a>
+    <a href="#era-card">时代纪元卡 Era Card</a>
+    <a href="#skill-matrix-card">能力矩阵卡 Skill Matrix</a>
 
     <div class="sidebar-cat">07 Tables</div>
     <a href="#tables">Tables 表格</a>
@@ -4777,18 +4785,25 @@ hr.pen-divider.wave::after { display: none; }
     <a href="#gold-gradient-line">Gold Gradient Line 渐变细线</a>
     <a href="#serial-number">Serial Number N°编号</a>
     <a href="#plus-cross">Plus Cross 十字装饰</a>
+    <a href="#viewfinder-frame">取景框角标 Viewfinder</a>
+    <a href="#noise-overlay">胶片噪点纹理 Grain</a>
+    <a href="#slash-divider">斜切分隔线 Slash</a>
 
     <div class="sidebar-cat">12 Signature Collection</div>
     <a href="#signature">Signature Collection 签名组件</a>
     <a href="#gold-sticky-tag">Gold Sticky Tag 金色便签</a>
     <a href="#gold-ring-avatar">Gold Ring Avatar 金环头像</a>
     <a href="#star-brand-tag">Star Brand Tag 星号标签</a>
+    <a href="#rotated-f">旋转F标识 Rotated F</a>
+    <a href="#rec-badge">录制徽章 REC Badge</a>
+    <a href="#timecode-label">时间码标注 Timecode</a>
 
     <div class="sidebar-cat">16 Luxe Art Components</div>
     <a href="#luxe-art">Luxe Art Components 高奢艺术组件</a>
     <a href="#ip-composition">IP Composition IP形象组合</a>
     <a href="#css-mini-mockup">CSS Mini Mockup CSS缩略图</a>
     <a href="#tricolor-top-border">Tricolor Top Border 三色顶边</a>
+    <a href="#film-reel-gallery">35mm胶片卷轴 Film Reel</a>
 
     <div class="sidebar-cat">14 Layout Patterns</div>
     <a href="#layouts">Layout Patterns 布局模式</a>
@@ -4797,6 +4812,8 @@ hr.pen-divider.wave::after { display: none; }
     <a href="#type-specimen">Type Specimen 字体样例</a>
     <a href="#layout-cta-dark">Dark CTA 深色CTA</a>
     <a href="#layout-arch-stack">Arch Stack 架构堆叠</a>
+    <a href="#cinematic-hero">影院首屏 Cinematic Hero</a>
+    <a href="#journey-timeline">征途时间线 Journey Timeline</a>
 
     <div class="sidebar-cat">15 Interactions</div>
     <a href="#interactions">Interactions 交互组件</a>
@@ -4805,6 +4822,8 @@ hr.pen-divider.wave::after { display: none; }
     <a href="#top-border-reveal">Top Border Reveal 顶边展开</a>
     <a href="#link-arrow-slide">Link Arrow Slide 箭头滑动</a>
     <a href="#mockup-tilt-scale">Mockup Tilt Scale 缩略微旋</a>
+    <a href="#terminal-window">终端窗口 Terminal</a>
+    <a href="#rec-dot">录制呼吸灯 REC Dot</a>
 
     <div class="sidebar-cat">16 Comparison</div>
     <a href="#comparison">Comparison 对比组件</a>
@@ -4827,7 +4846,7 @@ hr.pen-divider.wave::after { display: none; }
 
     <header class="page-header">
       <h1>Component <em>Showcase</em></h1>
-      <p>Feihong.Art &#183; <strong style="color:var(--royal);">250+ Components</strong> &#183; <strong style="color:var(--royal);">19 Categories</strong> &#183; 400+ Variants. Every component follows the brand tri-color system, zero default styles, ready to copy and use.</p>
+      <p>Feihong.Art &#183; <strong style="color:var(--royal);">265+ Components</strong> &#183; <strong style="color:var(--royal);">19 Categories</strong> &#183; 420+ Variants. Every component follows the brand tri-color system, zero default styles, ready to copy and use.</p>
       <div class="color-strip"><span></span><span></span><span></span></div>
     </header>
     <div style="margin:3rem 0 1.5rem;padding-top:2rem;border-top:2px solid var(--gold);font-family:var(--font-display);font-style:italic;font-size:1.5rem;color:var(--royal);display:flex;align-items:center;gap:1rem;"><span style="font-family:var(--font-mono);font-size:0.75rem;font-style:normal;color:var(--gold);letter-spacing:0.2em;border:1px solid var(--gold);padding:0.2rem 0.5rem;border-radius:var(--r-sm);">01</span>Brand Foundation <span style="font-family:var(--font-sans);font-size:0.85rem;font-style:normal;color:var(--ink-300);letter-spacing:0.05em;">品牌基础</span></div>
@@ -9552,9 +9571,500 @@ window.addEventListener(<span style="color:var(--gold-700);">'scroll'</span>, ()
         </div>
       </div>
     </section>
+
+    <!-- ===== NEW COMPONENTS ===== -->
+
+    <section class="comp-section" id="manifesto-block">
+      <div class="comp-section-header">
+        <h2>宣言金句区 Manifesto Block</h2>
+        <span class="cat-tag">Quotes 引用 · 飞鸿专属</span>
+      </div>
+      <div class="comp-group">
+        <div class="comp-label">深色背景金句+关键词高亮+三色弹跳圆点</div>
+        <div class="comp-demo" style="background:var(--royal-deep);padding:4rem 2rem;position:relative;overflow:hidden;text-align:center;">
+          <div style="position:absolute;top:-30px;left:50%;transform:translateX(-50%);font-family:var(--font-serif);font-size:14rem;color:var(--gold);opacity:0.05;line-height:1;pointer-events:none;">"</div>
+          <p style="font-family:var(--font-serif);font-style:italic;font-size:clamp(1.5rem,3vw,2.5rem);color:#fff;line-height:1.5;font-weight:400;position:relative;z-index:1;max-width:700px;margin:0 auto;">
+            <strong style="font-style:normal;font-weight:900;color:var(--gold);position:relative;display:inline-block;">以代码为笔</strong>，以设计为镜，<br>
+            <strong style="font-style:normal;font-weight:900;color:var(--wine);position:relative;display:inline-block;">见证每一个时代</strong>
+          </p>
+          <p style="margin-top:2rem;font-family:var(--font-italic);font-style:italic;font-size:1rem;color:rgba(255,255,255,0.4);letter-spacing:0.1em;position:relative;z-index:1;">— Feihong, 2026</p>
+          <div style="display:flex;justify-content:center;gap:12px;margin-top:2rem;position:relative;z-index:1;">
+            <span style="width:8px;height:8px;border-radius:50%;background:var(--gold);display:inline-block;animation:decoBounce 2s ease-in-out infinite;"></span>
+            <span style="width:8px;height:8px;border-radius:50%;background:var(--wine);display:inline-block;animation:decoBounce 2s ease-in-out infinite 0.2s;"></span>
+            <span style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.3);display:inline-block;animation:decoBounce 2s ease-in-out infinite 0.4s;"></span>
+          </div>
+        </div>
+        <pre class="comp-code"><code class="language-html">&lt;!-- 关键词加 hl-gold 或 hl-wine class --&gt;
+&lt;section class="manifesto"&gt;
+  &lt;p class="manifesto-text"&gt;
+    &lt;span class="highlight hl-gold"&gt;以代码为笔&lt;/span&gt;，
+    以设计为镜，
+    &lt;span class="highlight hl-wine"&gt;见证每一个时代&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p class="manifesto-sig"&gt;— Feihong, 2026&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+      </div>
+    </section>
+
+    <section class="comp-section" id="era-card">
+      <div class="comp-section-header">
+        <h2>时代纪元卡 Era Card</h2>
+        <span class="cat-tag">Cards 卡片 · 飞鸿专属</span>
+      </div>
+      <div class="comp-group">
+        <div class="comp-label">三张旋转卡片（Web 1.0黑底绿字 / Web 2.0米白衬线 / AIGC酒红），中间上浮突出</div>
+        <div class="comp-demo" style="background:var(--royal-deep);padding:3rem 1rem;overflow-x:auto;">
+          <div style="display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:16px;max-width:900px;margin:0 auto;min-width:600px;">
+            <div style="position:relative;overflow:hidden;border-radius:6px;transform:rotate(-1.5deg);background:#000;border:2px solid var(--gold);">
+              <div style="min-height:160px;position:relative;background:linear-gradient(135deg,#0a0a0a,#1a1a1a);padding:20px;">
+                <div style="font-family:var(--font-mono);font-size:3rem;font-weight:800;line-height:1;color:#4ADE80;">1.0</div>
+              </div>
+              <div style="padding:20px;">
+                <div style="font-family:var(--font-mono);font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#4ADE80;margin-bottom:8px;">DIAL-UP ERA</div>
+                <h4 style="font-family:var(--font-mono);font-size:1rem;font-weight:800;color:var(--gold);margin:0 0 6px 0;">拨号时代</h4>
+                <p style="font-family:var(--font-mono);font-size:0.65rem;color:rgba(255,255,255,0.5);margin:0;line-height:1.5;">1998—2010</p>
+              </div>
+            </div>
+            <div style="position:relative;overflow:hidden;border-radius:6px;transform:translateY(-16px);z-index:2;box-shadow:0 20px 50px rgba(0,0,0,0.3);background:var(--cream);">
+              <div style="min-height:180px;position:relative;background:linear-gradient(135deg,#f5f0e0,#ebe3cc);padding:20px;">
+                <div style="font-family:var(--font-mono);font-size:3rem;font-weight:800;line-height:1;color:#fff;">2.0</div>
+              </div>
+              <div style="padding:20px;">
+                <div style="font-family:var(--font-italic);font-style:italic;font-size:0.7rem;letter-spacing:0.15em;color:var(--gold-dark);margin-bottom:8px;">The Golden Age</div>
+                <h4 style="font-family:var(--font-serif);font-size:1.2rem;font-weight:900;color:var(--royal);margin:0 0 6px 0;">黄金年代</h4>
+                <p style="font-family:var(--font-italic);font-style:italic;font-size:0.75rem;color:var(--ink-mute);margin:0;line-height:1.5;">2010—2022</p>
+              </div>
+            </div>
+            <div style="position:relative;overflow:hidden;border-radius:6px;transform:rotate(1.5deg);background:linear-gradient(135deg,var(--wine-dark),var(--wine));">
+              <div style="min-height:160px;position:relative;background:linear-gradient(135deg,#2a0a14,#4a1020);padding:20px;">
+                <div style="font-family:var(--font-mono);font-size:3rem;font-weight:800;line-height:1;color:var(--gold);">3.0</div>
+              </div>
+              <div style="padding:20px;">
+                <div style="font-family:var(--font-mono);font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">AIGC ERA</div>
+                <h4 style="font-family:var(--font-serif);font-size:1.2rem;font-weight:900;color:#fff;margin:0 0 6px 0;">智能纪元</h4>
+                <p style="font-family:var(--font-italic);font-style:italic;font-size:0.75rem;color:rgba(255,255,255,0.8);margin:0;line-height:1.5;">2022—NOW</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <pre class="comp-code"><code class="language-html">&lt;!-- 三张卡片：era-card e1(黑) / e2(米白,featured) / e3(酒红) --&gt;
+&lt;div class="era-card e1"&gt;...&lt;/div&gt;
+&lt;div class="era-card e2"&gt;...&lt;/div&gt;
+&lt;div class="era-card e3"&gt;...&lt;/div&gt;</code></pre>
+      </div>
+    </section>
+
+    <section class="comp-section" id="skill-matrix-card">
+      <div class="comp-section-header">
+        <h2>能力矩阵卡 Skill Matrix Card</h2>
+        <span class="cat-tag">Cards 卡片 · 飞鸿专属</span>
+      </div>
+      <div class="comp-group">
+        <div class="comp-label">三列三色卡片（白/深蓝/酒红），顶部渐变条+技能标签云</div>
+        <div class="comp-demo" style="padding:2rem 1rem;background:var(--cream);">
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:900px;margin:0 auto;">
+            <div style="background:#fff;border-radius:6px;overflow:hidden;box-shadow:0 4px 20px rgba(10,36,99,0.08);position:relative;">
+              <div style="height:4px;background:linear-gradient(90deg,var(--gold),var(--wine));"></div>
+              <div style="padding:20px;">
+                <div style="font-family:var(--font-mono);font-size:0.6rem;font-weight:700;letter-spacing:0.15em;color:var(--ink-mute);margin-bottom:8px;opacity:0.6;">/ 01</div>
+                <h4 style="font-family:var(--font-serif);font-size:1.1rem;font-weight:900;color:var(--royal);margin:0 0 6px 0;">设计与前端</h4>
+                <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;">
+                  <span style="font-size:0.7rem;padding:5px 10px;background:var(--royal-100);color:var(--ink-soft);border-radius:2px;">Figma</span>
+                  <span style="font-size:0.7rem;padding:5px 10px;background:var(--royal-100);color:var(--ink-soft);border-radius:2px;">React</span>
+                  <span style="font-size:0.7rem;padding:5px 10px;background:var(--royal-100);color:var(--ink-soft);border-radius:2px;">CSS</span>
+                </div>
+              </div>
+            </div>
+            <div style="background:var(--royal-deep);color:#fff;border-radius:6px;overflow:hidden;position:relative;">
+              <div style="height:4px;background:linear-gradient(90deg,var(--royal),var(--royal-bright));"></div>
+              <div style="padding:20px;">
+                <div style="font-family:var(--font-mono);font-size:0.6rem;font-weight:700;letter-spacing:0.15em;color:var(--gold);margin-bottom:8px;opacity:0.8;">/ 02</div>
+                <h4 style="font-family:var(--font-serif);font-size:1.1rem;font-weight:900;color:#fff;margin:0 0 6px 0;">系统与工程</h4>
+                <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;">
+                  <span style="font-size:0.7rem;padding:5px 10px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.85);border-radius:2px;">Node.js</span>
+                  <span style="font-size:0.7rem;padding:5px 10px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.85);border-radius:2px;">Python</span>
+                  <span style="font-size:0.7rem;padding:5px 10px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.85);border-radius:2px;">Docker</span>
+                </div>
+              </div>
+            </div>
+            <div style="background:linear-gradient(135deg,var(--wine-dark),var(--wine));color:#fff;border-radius:6px;overflow:hidden;position:relative;">
+              <div style="height:4px;background:linear-gradient(90deg,#4ADE80,var(--gold));"></div>
+              <div style="padding:20px;">
+                <div style="font-family:var(--font-mono);font-size:0.6rem;font-weight:700;letter-spacing:0.15em;color:var(--gold);margin-bottom:8px;opacity:0.8;">/ 03</div>
+                <h4 style="font-family:var(--font-serif);font-size:1.1rem;font-weight:900;color:#fff;margin:0 0 6px 0;">AI与创作</h4>
+                <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;">
+                  <span style="font-size:0.7rem;padding:5px 10px;background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.95);border-radius:2px;">LLM</span>
+                  <span style="font-size:0.7rem;padding:5px 10px;background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.95);border-radius:2px;">写作</span>
+                  <span style="font-size:0.7rem;padding:5px 10px;background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.95);border-radius:2px;">摄影</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <pre class="comp-code"><code class="language-html">&lt;!-- 三列卡片：白色(默认) / .dark(深蓝) / .wine(酒红) --&gt;
+&lt;div class="skill-section"&gt;...&lt;/div&gt;
+&lt;div class="skill-section dark"&gt;...&lt;/div&gt;
+&lt;div class="skill-section wine"&gt;...&lt;/div&gt;</code></pre>
+      </div>
+    </section>
+
+    <section class="comp-section" id="viewfinder-frame">
+      <div class="comp-section-header">
+        <h2>取景框角标 Viewfinder Frame</h2>
+        <span class="cat-tag">Dividers 装饰 · 飞鸿专属</span>
+      </div>
+      <div class="comp-group">
+        <div class="comp-label">四角L形线条，模拟相机/电影取景框</div>
+        <div class="comp-demo" style="position:relative;padding:3rem;min-height:180px;background:var(--royal-deep);">
+          <div style="position:absolute;top:20px;left:20px;width:30px;height:30px;border-top:2px solid rgba(255,255,255,0.3);border-left:2px solid rgba(255,255,255,0.3);"></div>
+          <div style="position:absolute;top:20px;right:20px;width:30px;height:30px;border-top:2px solid rgba(255,255,255,0.3);border-right:2px solid rgba(255,255,255,0.3);"></div>
+          <div style="position:absolute;bottom:20px;left:20px;width:30px;height:30px;border-bottom:2px solid rgba(255,255,255,0.3);border-left:2px solid rgba(255,255,255,0.3);"></div>
+          <div style="position:absolute;bottom:20px;right:20px;width:30px;height:30px;border-bottom:2px solid rgba(255,255,255,0.3);border-right:2px solid rgba(255,255,255,0.3);"></div>
+          <div style="display:flex;align-items:center;justify-content:center;height:100%;min-height:120px;">
+            <p style="font-family:var(--font-serif);font-size:1.3rem;color:#fff;text-align:center;">取景框内的内容<br><em style="color:var(--gold);font-size:0.7em;">Cinematic Viewfinder</em></p>
+          </div>
+        </div>
+        <pre class="comp-code"><code class="language-html">&lt;!-- 四个角标：vf-tl / vf-tr / vf-bl / vf-br --&gt;
+&lt;div class="vf-mark vf-tl"&gt;&lt;/div&gt;
+&lt;div class="vf-mark vf-tr"&gt;&lt;/div&gt;
+&lt;div class="vf-mark vf-bl"&gt;&lt;/div&gt;
+&lt;div class="vf-mark vf-br"&gt;&lt;/div&gt;</code></pre>
+      </div>
+    </section>
+
+    <section class="comp-section" id="noise-overlay">
+      <div class="comp-section-header">
+        <h2>胶片噪点纹理 Film Grain</h2>
+        <span class="cat-tag">Dividers 装饰 · 飞鸿专属</span>
+      </div>
+      <div class="comp-group">
+        <div class="comp-label">SVG分形噪声覆盖层，模拟胶片颗粒质感</div>
+        <div class="comp-demo" style="position:relative;padding:3rem;background:var(--royal-deep);min-height:150px;display:flex;align-items:center;justify-content:center;overflow:hidden;">
+          <div style="position:absolute;inset:0;opacity:0.08;mix-blend-mode:overlay;background-image:url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E&quot;);pointer-events:none;"></div>
+          <p style="font-family:var(--font-mono);font-size:0.8rem;color:rgba(255,255,255,0.5);text-align:center;position:relative;z-index:1;">胶片颗粒噪点纹理覆盖<br><span style="color:var(--gold);font-size:0.7rem;">opacity: 0.04-0.08 · mix-blend-mode: overlay</span></p>
+        </div>
+        <pre class="comp-code"><code class="language-css">.grain-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  pointer-events: none; opacity: 0.04;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,...fractalNoise...");
+}</code></pre>
+      </div>
+    </section>
+
+    <section class="comp-section" id="slash-divider">
+      <div class="comp-section-header">
+        <h2>斜切区块分隔 Slash Divider</h2>
+        <span class="cat-tag">Dividers 装饰 · 飞鸿专属</span>
+      </div>
+      <div class="comp-group">
+        <div class="comp-label">clip-path斜切边缘，非直角区块过渡</div>
+        <div class="comp-demo" style="padding:0;overflow:hidden;">
+          <div style="background:var(--royal-deep);padding:2rem;text-align:center;">
+            <p style="font-family:var(--font-serif);font-size:1.2rem;color:#fff;margin:0;">深色区块</p>
+          </div>
+          <div style="height:50px;background:var(--royal-deep);clip-path:polygon(0 0,100% 40%,100% 100%,0 100%);"></div>
+          <div style="background:var(--cream);padding:2rem;text-align:center;">
+            <p style="font-family:var(--font-serif);font-size:1.2rem;color:var(--royal);margin:0;">浅色区块（斜切过渡）</p>
+          </div>
+          <div style="height:50px;background:var(--cream);clip-path:polygon(0 0,100% 0,100% 60%,0 100%);"></div>
+          <div style="background:var(--wine);padding:2rem;text-align:center;">
+            <p style="font-family:var(--font-serif);font-size:1.2rem;color:#fff;margin:0;">酒红色区块</p>
+          </div>
+        </div>
+        <pre class="comp-code"><code class="language-css">.slash { clip-path: polygon(0 0, 100% 40%, 100% 100%, 0 100%); }
+.slash-alt { clip-path: polygon(0 0, 100% 0, 100% 60%, 0 100%); }</code></pre>
+      </div>
+    </section>
+
+    <section class="comp-section" id="rotated-f">
+      <div class="comp-section-header">
+        <h2>旋转F品牌标识 Rotated F Mark</h2>
+        <span class="cat-tag">Signature 签名 · 飞鸿专属</span>
+      </div>
+      <div class="comp-group">
+        <div class="comp-label">酒红色旋转-10度的首字母F，嵌入标题作为品牌锚点</div>
+        <div class="comp-demo" style="padding:3rem;background:var(--cream);text-align:center;">
+          <h1 style="font-family:var(--font-serif);font-size:3.5rem;font-weight:900;color:var(--royal);line-height:0.9;margin:0;display:inline-block;">
+            <span style="display:inline-block;color:var(--wine);transform:rotate(-10deg) translateY(-5px);font-size:1.05em;">F</span>eihong<span style="color:var(--gold);">.</span>
+          </h1>
+          <p style="font-family:var(--font-italic);font-style:italic;color:var(--gold-dark);font-size:1rem;margin-top:1rem;">designer &amp; developer</p>
+        </div>
+        <pre class="comp-code"><code class="language-html">&lt;h1&gt;
+  &lt;span class="f-mark" style="color:var(--wine);transform:rotate(-10deg);"&gt;F&lt;/span&gt;eihong
+&lt;/h1&gt;</code></pre>
+      </div>
+    </section>
+
+    <section class="comp-section" id="rec-badge">
+      <div class="comp-section-header">
+        <h2>录制指示灯徽章 REC Badge</h2>
+        <span class="cat-tag">Signature 签名 · 飞鸿专属</span>
+      </div>
+      <div class="comp-group">
+        <div class="comp-label">胶囊徽章+闪烁圆点，模拟摄像机REC指示灯</div>
+        <div class="comp-demo" style="padding:2rem;display:flex;gap:1rem;flex-wrap:wrap;align-items:center;background:var(--royal-deep);">
+          <div style="display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:0.65rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;padding:10px 18px;border:1px solid rgba(255,255,255,0.2);background:rgba(0,0,0,0.4);backdrop-filter:blur(8px);color:rgba(255,255,255,0.65);">
+            <span style="width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px rgba(244,211,94,0.8);display:inline-block;animation:blink 1.2s infinite;"></span>
+            NOW BROADCASTING
+          </div>
+          <div style="display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:0.65rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;padding:10px 18px;border:1px solid var(--wine);background:rgba(216,49,91,0.04);color:var(--wine);">
+            <span style="width:8px;height:8px;border-radius:50%;background:var(--wine);display:inline-block;animation:blink 1.2s infinite;"></span>
+            LIVE · 28 YEARS
+          </div>
+        </div>
+        <pre class="comp-code"><code class="language-html">&lt;!-- 深色背景用金色点，浅色背景用酒红点 --&gt;
+&lt;div class="rec-badge"&gt;
+  &lt;span class="rec-dot"&gt;&lt;/span&gt; NOW BROADCASTING
+&lt;/div&gt;</code></pre>
+      </div>
+    </section>
+
+    <section class="comp-section" id="timecode-label">
+      <div class="comp-section-header">
+        <h2>时间码技术标注 Timecode Label</h2>
+        <span class="cat-tag">Signature 签名 · 飞鸿专属</span>
+      </div>
+      <div class="comp-group">
+        <div class="comp-label">等宽字体极小字宽字距，角落技术元数据标注</div>
+        <div class="comp-demo" style="position:relative;min-height:160px;background:var(--royal-deep);border-radius:var(--r-md);padding:2rem;">
+          <div style="position:absolute;top:16px;left:20px;font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.5);line-height:2;text-align:left;">
+            TC 00:02:38:12<br>ISO 800 · f/2.8
+          </div>
+          <div style="position:absolute;top:16px;right:20px;font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.5);line-height:2;text-align:right;">
+            <span style="font-size:0.8rem;font-weight:700;color:#fff;">2.39:1</span><br>SCOPE
+          </div>
+          <div style="display:flex;align-items:center;justify-content:center;height:100%;min-height:100px;">
+            <p style="font-family:var(--font-serif);font-size:1.2rem;color:#fff;text-align:center;">时间码标注区域</p>
+          </div>
+        </div>
+        <pre class="comp-code"><code class="language-html">&lt;!-- 角落技术标注 --&gt;
+&lt;div class="tc-tl"&gt;TC 00:02:38 · ISO 800&lt;/div&gt;
+&lt;div class="tc-tr"&gt;&lt;strong&gt;2.39:1&lt;/strong&gt; SCOPE&lt;/div&gt;</code></pre>
+      </div>
+    </section>
+
+    <section class="comp-section" id="film-reel-gallery">
+      <div class="comp-section-header">
+        <h2>35mm胶片卷轴画廊 Film Reel Gallery</h2>
+        <span class="cat-tag">Luxe Art 高奢 · 飞鸿专属</span>
+      </div>
+      <div class="comp-group">
+        <div class="comp-label">深色胶片条+齿孔+划痕+旋转盘片，电影作品展示</div>
+        <div class="comp-demo" style="background:#000;padding:2rem 1rem;overflow:hidden;position:relative;">
+          <div style="background:#0a0a0a;border-top:2px solid #1a1a1a;border-bottom:2px solid #1a1a1a;padding:12px 0;position:relative;transform:rotate(-1deg);margin:0 -2%;border-radius:3px;">
+            <div style="position:absolute;top:5px;left:0;right:0;display:flex;justify-content:space-around;padding:0 6px;">
+              <span style="width:14px;height:9px;background:#000;border-radius:2px;display:inline-block;"></span><span style="width:14px;height:9px;background:#000;border-radius:2px;display:inline-block;"></span><span style="width:14px;height:9px;background:#000;border-radius:2px;display:inline-block;"></span><span style="width:14px;height:9px;background:#000;border-radius:2px;display:inline-block;"></span><span style="width:14px;height:9px;background:#000;border-radius:2px;display:inline-block;"></span><span style="width:14px;height:9px;background:#000;border-radius:2px;display:inline-block;"></span><span style="width:14px;height:9px;background:#000;border-radius:2px;display:inline-block;"></span><span style="width:14px;height:9px;background:#000;border-radius:2px;display:inline-block;"></span>
+            </div>
+            <div style="display:flex;gap:10px;padding:20px 24px;overflow-x:auto;">
+              <div style="min-width:160px;flex-shrink:0;border:1px solid #222;border-radius:3px;overflow:hidden;">
+                <div style="min-height:100px;background:linear-gradient(135deg,#1a1a2e,#16213e);display:flex;align-items:center;justify-content:center;"><span style="font-size:2rem;">🎨</span></div>
+                <div style="padding:10px;background:#0a0a0a;"><div style="font-family:var(--font-mono);font-size:0.5rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:3px;">DESIGN</div><div style="font-family:var(--font-serif);font-size:0.85rem;font-weight:700;color:#fff;">Feihong DS</div></div>
+              </div>
+              <div style="min-width:160px;flex-shrink:0;border:1px solid #222;border-radius:3px;overflow:hidden;">
+                <div style="min-height:100px;background:linear-gradient(135deg,#2d1b38,#1a0a14);display:flex;align-items:center;justify-content:center;"><span style="font-size:2rem;">💻</span></div>
+                <div style="padding:10px;background:#0a0a0a;"><div style="font-family:var(--font-mono);font-size:0.5rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--wine);margin-bottom:3px;">WEB</div><div style="font-family:var(--font-serif);font-size:0.85rem;font-weight:700;color:#fff;">Portfolio</div></div>
+              </div>
+              <div style="min-width:160px;flex-shrink:0;border:1px solid #222;border-radius:3px;overflow:hidden;">
+                <div style="min-height:100px;background:linear-gradient(135deg,#0a2a1a,#0f1f0a);display:flex;align-items:center;justify-content:center;"><span style="font-size:2rem;">🤖</span></div>
+                <div style="padding:10px;background:#0a0a0a;"><div style="font-family:var(--font-mono);font-size:0.5rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#4ADE80;margin-bottom:3px;">AI</div><div style="font-family:var(--font-serif);font-size:0.85rem;font-weight:700;color:#fff;">AI Agent</div></div>
+              </div>
+              <div style="min-width:160px;flex-shrink:0;border:1px solid #222;border-radius:3px;overflow:hidden;">
+                <div style="min-height:100px;background:linear-gradient(135deg,#0a1a2a,#102030);display:flex;align-items:center;justify-content:center;"><span style="font-size:2rem;">📝</span></div>
+                <div style="padding:10px;background:#0a0a0a;"><div style="font-family:var(--font-mono);font-size:0.5rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#60a5fa;margin-bottom:3px;">WRITING</div><div style="font-family:var(--font-serif);font-size:0.85rem;font-weight:700;color:#fff;">Articles</div></div>
+              </div>
+            </div>
+            <div style="position:absolute;bottom:5px;left:0;right:0;display:flex;justify-content:space-around;padding:0 6px;">
+              <span style="width:14px;height:9px;background:#000;border-radius:2px;display:inline-block;"></span><span style="width:14px;height:9px;background:#000;border-radius:2px;display:inline-block;"></span><span style="width:14px;height:9px;background:#000;border-radius:2px;display:inline-block;"></span><span style="width:14px;height:9px;background:#000;border-radius:2px;display:inline-block;"></span><span style="width:14px;height:9px;background:#000;border-radius:2px;display:inline-block;"></span><span style="width:14px;height:9px;background:#000;border-radius:2px;display:inline-block;"></span><span style="width:14px;height:9px;background:#000;border-radius:2px;display:inline-block;"></span><span style="width:14px;height:9px;background:#000;border-radius:2px;display:inline-block;"></span>
+            </div>
+          </div>
+        </div>
+        <pre class="comp-code"><code class="language-html">&lt;!-- 胶片画廊：film-strip + film-perfs(齿孔) + film-frame(画框) --&gt;
+&lt;section class="film-section"&gt;
+  &lt;div class="film-strip"&gt;
+    &lt;div class="film-perfs top"&gt;&lt;span&gt;&lt;/span&gt;...&lt;/div&gt;
+    &lt;div class="film-frames"&gt;
+      &lt;div class="film-frame"&gt;...&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+      </div>
+    </section>
+
+    <section class="comp-section" id="cinematic-hero">
+      <div class="comp-section-header">
+        <h2>影院首屏布局 Cinematic Hero</h2>
+        <span class="cat-tag">Layouts 布局 · 飞鸿专属</span>
+      </div>
+      <div class="comp-group">
+        <div class="comp-label">深色渐变+星点+取景框+时间码+旋转F标题+终端窗口</div>
+        <div class="comp-demo" style="background:#000;position:relative;overflow:hidden;padding:2.5rem 2rem;min-height:350px;">
+          <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(244,211,94,0.08) 0%,transparent 50%),radial-gradient(ellipse at 70% 80%,rgba(216,49,91,0.06) 0%,transparent 50%),linear-gradient(135deg,var(--royal-deep),#02050f);"></div>
+          <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 20%,rgba(0,0,0,0.6) 100%);pointer-events:none;"></div>
+          <div style="position:absolute;top:16px;left:20px;width:24px;height:24px;border-top:2px solid rgba(255,255,255,0.2);border-left:2px solid rgba(255,255,255,0.2);"></div>
+          <div style="position:absolute;top:16px;right:20px;width:24px;height:24px;border-top:2px solid rgba(255,255,255,0.2);border-right:2px solid rgba(255,255,255,0.2);"></div>
+          <div style="position:absolute;bottom:16px;left:20px;width:24px;height:24px;border-bottom:2px solid rgba(255,255,255,0.2);border-left:2px solid rgba(255,255,255,0.2);"></div>
+          <div style="position:absolute;bottom:16px;right:20px;width:24px;height:24px;border-bottom:2px solid rgba(255,255,255,0.2);border-right:2px solid rgba(255,255,255,0.2);"></div>
+          <div style="position:relative;z-index:10;display:grid;grid-template-columns:1fr 200px;gap:30px;align-items:start;">
+            <div>
+              <div style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:0.55rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;padding:6px 12px;border:1px solid rgba(255,255,255,0.2);background:rgba(0,0,0,0.4);color:rgba(255,255,255,0.6);margin-bottom:16px;">
+                <span style="width:6px;height:6px;border-radius:50%;background:var(--gold);display:inline-block;animation:blink 1.2s infinite;"></span> BROADCASTING
+              </div>
+              <h1 style="font-family:var(--font-serif);font-size:clamp(2rem,5vw,3.5rem);font-weight:900;line-height:0.88;color:#fff;margin:0;">
+                <span style="display:inline-block;color:var(--wine);transform:rotate(-10deg) translateY(-3px);font-size:1.05em;">F</span>eihong<span style="color:var(--gold);">.</span>
+              </h1>
+              <p style="font-family:var(--font-italic);font-style:italic;font-size:0.9rem;color:rgba(255,255,255,0.6);border-left:2px solid var(--gold);padding-left:16px;margin-top:16px;max-width:320px;line-height:1.6;">
+                <strong style="color:var(--gold);font-style:normal;">以代码为笔</strong>，从拨号时代到AIGC纪元
+              </p>
+            </div>
+            <div style="background:var(--royal-deep);border-radius:6px;overflow:hidden;transform:rotate(2deg);border:1px solid rgba(255,255,255,0.06);font-family:var(--font-mono);font-size:0.6rem;">
+              <div style="background:linear-gradient(180deg,#1a2340,#0f1730);padding:8px 12px;display:flex;align-items:center;gap:6px;">
+                <span style="width:8px;height:8px;border-radius:50%;background:#ff5f57;"></span>
+                <span style="width:8px;height:8px;border-radius:50%;background:#febc2e;"></span>
+                <span style="width:8px;height:8px;border-radius:50%;background:#28c840;"></span>
+              </div>
+              <div style="padding:14px;color:#c8d0e0;line-height:1.8;">
+                <div><span style="color:var(--gold);">feihong@explorer</span> <span style="color:rgba(255,255,255,0.4);">~</span> whoami</div>
+                <div style="color:rgba(255,255,255,0.5);">designer_developer</div>
+                <div><span style="display:inline-block;width:6px;height:12px;background:var(--gold);animation:blink 0.8s infinite;vertical-align:text-bottom;"></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <pre class="comp-code"><code class="language-html">&lt;!-- 影院首屏：渐变背景+星点+取景框+时间码+标题+终端 --&gt;
+&lt;section class="cine-hero"&gt;
+  &lt;div class="cine-bg"&gt;&lt;/div&gt;
+  &lt;div class="cine-vf"&gt;...四角标记...&lt;/div&gt;
+  &lt;div class="cine-inner"&gt;...标题+终端...&lt;/div&gt;
+&lt;/section&gt;</code></pre>
+      </div>
+    </section>
+
+    <section class="comp-section" id="journey-timeline">
+      <div class="comp-section-header">
+        <h2>征途交错时间线 Journey Timeline</h2>
+        <span class="cat-tag">Layouts 布局 · 飞鸿专属</span>
+      </div>
+      <div class="comp-group">
+        <div class="comp-label">中央金轴+左右交错卡片+脉冲圆点+邮戳标签</div>
+        <div class="comp-demo" style="padding:2.5rem 1rem;background:var(--cream);position:relative;overflow:hidden;">
+          <div style="max-width:700px;margin:0 auto;position:relative;">
+            <div style="position:absolute;left:50%;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,transparent,var(--gold) 10%,var(--gold) 90%,transparent);transform:translateX(-50%);"></div>
+            <div style="display:grid;grid-template-columns:1fr 40px 1fr;gap:0;margin-bottom:24px;align-items:start;">
+              <div style="background:#fff;padding:18px 20px;box-shadow:0 4px 20px rgba(10,36,99,0.08);border-radius:6px;grid-column:1;margin-right:20px;position:relative;overflow:hidden;">
+                <div style="position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(to bottom,var(--wine),var(--gold));"></div>
+                <div style="font-family:var(--font-mono);font-size:0.65rem;font-weight:700;letter-spacing:0.08em;color:var(--wine);margin-bottom:6px;">1998—2010</div>
+                <h4 style="font-family:var(--font-serif);font-size:1rem;font-weight:700;color:var(--ink);margin:0 0 4px 0;">拨号时代</h4>
+                <p style="font-family:var(--font-italic);font-style:italic;font-size:0.75rem;color:var(--gold-dark);margin:0;">FrontPage · Dreamweaver</p>
+              </div>
+              <div style="grid-column:2;width:16px;height:16px;background:var(--wine);border:3px solid var(--cream);box-shadow:0 0 0 3px var(--wine);border-radius:50%;margin:20px auto 0;position:relative;z-index:2;"></div>
+              <div></div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 40px 1fr;gap:0;margin-bottom:24px;align-items:start;">
+              <div></div>
+              <div style="grid-column:2;width:16px;height:16px;background:var(--gold);border:3px solid var(--cream);box-shadow:0 0 0 3px var(--gold-dark);border-radius:50%;margin:20px auto 0;position:relative;z-index:2;"></div>
+              <div style="background:linear-gradient(135deg,var(--royal-deep),var(--royal));color:#fff;padding:20px 22px;box-shadow:0 12px 30px rgba(10,36,99,0.2);border-radius:6px;grid-column:3;margin-left:20px;position:relative;overflow:hidden;">
+                <div style="position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(to bottom,var(--gold),var(--wine));"></div>
+                <div style="font-family:var(--font-mono);font-size:0.65rem;font-weight:700;letter-spacing:0.08em;color:var(--gold);margin-bottom:6px;">2010—2022</div>
+                <h4 style="font-family:var(--font-serif);font-size:1rem;font-weight:700;color:#fff;margin:0 0 4px 0;">黄金年代</h4>
+                <p style="font-family:var(--font-italic);font-style:italic;font-size:0.75rem;color:var(--gold);margin:0;">React · SaaS · 设计系统</p>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 40px 1fr;gap:0;align-items:start;">
+              <div style="background:#fff;padding:18px 20px;box-shadow:0 4px 20px rgba(10,36,99,0.08);border-radius:6px;grid-column:1;margin-right:20px;position:relative;overflow:hidden;">
+                <div style="position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(to bottom,var(--wine),var(--gold));"></div>
+                <div style="font-family:var(--font-mono);font-size:0.65rem;font-weight:700;letter-spacing:0.08em;color:var(--wine);margin-bottom:6px;">2022—NOW</div>
+                <h4 style="font-family:var(--font-serif);font-size:1rem;font-weight:700;color:var(--ink);margin:0 0 4px 0;">智能纪元</h4>
+                <p style="font-family:var(--font-italic);font-style:italic;font-size:0.75rem;color:var(--gold-dark);margin:0;">AIGC · LLM · Agent</p>
+              </div>
+              <div style="grid-column:2;width:18px;height:18px;background:var(--wine);border:4px solid var(--cream);box-shadow:0 0 0 5px var(--wine),0 0 15px rgba(216,49,91,0.4);border-radius:50%;margin:20px auto 0;position:relative;z-index:2;"></div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+        <pre class="comp-code"><code class="language-html">&lt;!-- 左右交错时间线：j-row left / j-row right --&gt;
+&lt;div class="tl-line"&gt;&lt;/div&gt; &lt;!-- 中央轴线 --&gt;
+&lt;div class="j-row left"&gt;
+  &lt;div class="j-card"&gt;...&lt;/div&gt;
+  &lt;div class="j-dot"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="j-row right"&gt;
+  &lt;div class="j-dot gold"&gt;&lt;/div&gt;
+  &lt;div class="j-card featured"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+    </section>
+
+    <section class="comp-section" id="terminal-window">
+      <div class="comp-section-header">
+        <h2>终端窗口展示 Terminal Window</h2>
+        <span class="cat-tag">Interactions 交互 · 飞鸿专属</span>
+      </div>
+      <div class="comp-group">
+        <div class="comp-label">macOS风格终端+红绿灯+扫描线+光标闪烁</div>
+        <div class="comp-demo" style="padding:2rem;background:var(--cream);display:flex;justify-content:center;">
+          <div style="background:var(--royal-deep);border-radius:8px;overflow:hidden;box-shadow:0 20px 50px rgba(10,36,99,0.25);max-width:420px;width:100%;font-family:var(--font-mono);border:1px solid rgba(255,255,255,0.06);transform:rotate(1.5deg);">
+            <div style="background:linear-gradient(180deg,#1a2340,#0f1730);padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,0.05);">
+              <span style="width:10px;height:10px;border-radius:50%;background:#ff5f57;"></span>
+              <span style="width:10px;height:10px;border-radius:50%;background:#febc2e;"></span>
+              <span style="width:10px;height:10px;border-radius:50%;background:#28c840;"></span>
+              <span style="flex:1;text-align:center;font-size:0.6rem;color:rgba(255,255,255,0.4);letter-spacing:0.08em;">feihong@explorer — zsh</span>
+            </div>
+            <div style="padding:20px;color:#c8d0e0;font-size:0.7rem;line-height:1.9;min-height:200px;position:relative;">
+              <div style="position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(244,211,94,0.1),transparent);animation:scanline 4s linear infinite;pointer-events:none;"></div>
+              <div><span style="color:var(--gold);">feihong@explorer</span> <span style="color:rgba(255,255,255,0.4);">~</span> <span style="color:#60a5fa;">whoami</span></div>
+              <div style="color:rgba(255,255,255,0.5);margin-bottom:8px;">frontend_designer · creative_developer</div>
+              <div><span style="color:var(--gold);">feihong@explorer</span> <span style="color:rgba(255,255,255,0.4);">~</span> <span style="color:#60a5fa;">cat status</span></div>
+              <div style="color:#4ADE80;margin-bottom:8px;">● Online · Available for projects</div>
+              <div><span style="color:var(--gold);">feihong@explorer</span> <span style="color:rgba(255,255,255,0.4);">~</span> <span style="display:inline-block;width:7px;height:13px;background:var(--gold);animation:blink 0.8s infinite;vertical-align:text-bottom;box-shadow:0 0 6px var(--gold);"></span></div>
+            </div>
+          </div>
+        </div>
+        <pre class="comp-code"><code class="language-html">&lt;!-- 终端窗口：term-bar(红绿灯) + term-body(内容) --&gt;
+&lt;div class="terminal-window"&gt;
+  &lt;div class="term-bar"&gt;
+    &lt;span class="term-dot r"&gt;&lt;/span&gt;
+    &lt;span class="term-dot y"&gt;&lt;/span&gt;
+    &lt;span class="term-dot g"&gt;&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="term-body"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+    </section>
+
+    <section class="comp-section" id="rec-dot">
+      <div class="comp-section-header">
+        <h2>录制呼吸灯 Blinking REC Dot</h2>
+        <span class="cat-tag">Interactions 交互 · 飞鸿专属</span>
+      </div>
+      <div class="comp-group">
+        <div class="comp-label">闪烁圆点+光晕，模拟录制指示灯</div>
+        <div class="comp-demo" style="padding:2rem;display:flex;gap:2rem;flex-wrap:wrap;align-items:center;justify-content:center;background:var(--cream);">
+          <div style="display:inline-flex;align-items:center;gap:8px;">
+            <span style="width:10px;height:10px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px rgba(244,211,94,0.8);display:inline-block;animation:blink 1.2s infinite;"></span>
+            <span style="font-family:var(--font-mono);font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold-dark);">ONLINE</span>
+          </div>
+          <div style="background:var(--royal-deep);padding:1rem 1.5rem;border-radius:var(--r-md);display:inline-flex;align-items:center;gap:10px;">
+            <span style="width:12px;height:12px;border-radius:50%;background:#ff3b30;box-shadow:0 0 12px rgba(255,59,48,0.6);display:inline-block;animation:blink 1s infinite;"></span>
+            <span style="font-family:var(--font-mono);font-size:0.65rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.7);">REC · 00:28:15</span>
+          </div>
+        </div>
+        <pre class="comp-code"><code class="language-css">@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.3; }
+}
+.rec-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--gold); /* 或 var(--wine), #ff3b30 */
+  box-shadow: 0 0 10px currentColor;
+  animation: blink 1.2s infinite;
+}</code></pre>
+      </div>
+    </section>
+
     <div style="text-align:center;padding:3rem 0;color:var(--ink-300);font-size:0.8125rem;border-top:1px solid var(--cream-200);margin-top:4rem;">
       <p style="font-family:var(--font-serif);font-size:1.1rem;color:var(--royal);margin-bottom:0.5rem;">Feihong<span style="color:var(--gold);">.</span></p>
-      <p>250+ Components &#183; 19 Categories &#183; 400+ Variants &#183; Feihong.Art</p>
+      <p>265+ Components &#183; 19 Categories &#183; 420+ Variants &#183; Feihong.Art</p>
     </div>
   </main>
 </div>

@@ -979,3 +979,84 @@ window.addEventListener('scroll', () => {
   margin:0;
 }
 ```
+
+---
+
+## I1. 终端窗口展示 Terminal Window（飞鸿专属 · 终端母题）
+
+**特征**：模拟macOS终端窗口，顶部有红绿灯按钮和标题栏，深色背景（royal-deep），等宽字体内容，扫描线动画效果，光标闪烁。hover时窗口回正上浮。用于展示代码、命令、技能列表、个人简介等。
+
+```html
+<div class="terminal-window" style="background:var(--royal-deep);border-radius:8px;overflow:hidden;box-shadow:0 28px 80px rgba(10,36,99,0.3),inset 0 1px 0 rgba(255,255,255,0.05);transform:rotate(2deg);max-width:520px;font-family:var(--font-mono);border:1px solid rgba(255,255,255,0.06);position:relative;transition:all 0.5s var(--ease);">
+  <!-- Title bar -->
+  <div class="term-bar" style="background:linear-gradient(180deg,#1a2340,#0f1730);padding:12px 18px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,0.05);">
+    <span class="term-dot r" style="width:12px;height:12px;border-radius:50%;background:#ff5f57;"></span>
+    <span class="term-dot y" style="width:12px;height:12px;border-radius:50%;background:#febc2e;"></span>
+    <span class="term-dot g" style="width:12px;height:12px;border-radius:50%;background:#28c840;"></span>
+    <span class="term-title" style="flex:1;text-align:center;font-size:0.72rem;color:rgba(255,255,255,0.4);letter-spacing:0.1em;">feihong@explorer — zsh</span>
+  </div>
+  <!-- Body -->
+  <div class="term-body" style="padding:26px;color:#c8d0e0;font-size:0.8rem;line-height:1.95;min-height:300px;position:relative;">
+    <!-- Scanline effect -->
+    <div class="term-scanline" style="position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(244,211,94,0.1),transparent);animation:scanline 4s linear infinite;pointer-events:none;"></div>
+    <!-- Terminal content -->
+    <div class="term-line"><span class="term-prompt" style="color:var(--gold);">feihong@explorer</span> <span style="color:rgba(255,255,255,0.4);">~</span> <span style="color:#60a5fa;">whoami</span></div>
+    <div class="term-line" style="color:rgba(255,255,255,0.5);margin-bottom:12px;">frontend_designer · creative_developer · ai_explorer</div>
+    <div class="term-line"><span class="term-prompt" style="color:var(--gold);">feihong@explorer</span> <span style="color:rgba(255,255,255,0.4);">~</span> <span style="color:#60a5fa;">cat about.txt</span></div>
+    <div class="term-line" style="color:rgba(255,255,255,0.7);margin-bottom:4px;">二十八载不断电 · ISTJ · 以代码为笔</div>
+    <div class="term-line" style="color:rgba(255,255,255,0.7);margin-bottom:12px;">设计系统 · 前端架构 · AIGC探索者</div>
+    <div class="term-line"><span class="term-prompt" style="color:var(--gold);">feihong@explorer</span> <span style="color:rgba(255,255,255,0.4);">~</span> <span style="color:#60a5fa;">ls skills/</span></div>
+    <div class="term-line" style="color:#4ADE80;">design_systems/  frontend/  ai/  writing/  photography/</div>
+    <div class="term-line" style="margin-top:12px;"><span class="term-prompt" style="color:var(--gold);">feihong@explorer</span> <span style="color:rgba(255,255,255,0.4);">~</span> <span class="term-cursor" style="display:inline-block;width:8px;height:16px;background:var(--gold);animation:blink 0.8s infinite;vertical-align:text-bottom;box-shadow:0 0 8px var(--gold);"></span></div>
+  </div>
+</div>
+```
+```css
+.terminal-window:hover {
+  transform: rotate(0deg) translateY(-6px) !important;
+  box-shadow: 0 36px 100px rgba(10,36,99,0.35);
+}
+@keyframes scanline {
+  0% { top: 0; } 100% { top: 100%; }
+}
+@keyframes blink {
+  0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; }
+}
+.term-dot:hover { transform: scale(1.2); transition: transform 0.2s; }
+.term-ok { color: #4ADE80; }
+.term-warn { color: var(--gold); }
+.term-err { color: var(--wine); }
+.term-info { color: #60a5fa; }
+```
+
+**使用场景**：个人简介展示、技能列表、代码片段展示、"关于我"区域、技术能力介绍
+**气质传达**：极客感、终端美学、技术身份、代码文化
+
+---
+
+## I2. 录制呼吸灯 Blinking REC Dot（飞鸿专属 · 影院母题）
+
+**特征**：红色/金色小圆点，带呼吸闪烁动画和光晕效果，模拟摄像机录制指示灯。极简但极具辨识度的微交互元素。
+
+```html
+<!-- Gold recording dot -->
+<span style="display:inline-flex;align-items:center;gap:8px;">
+  <span class="rec-dot-gold" style="width:10px;height:10px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px rgba(244,211,94,0.8);animation:recBlink 1.2s infinite;"></span>
+  <span style="font-family:var(--font-mono);font-size:0.75rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-dark);">ONLINE</span>
+</span>
+
+<!-- Red recording dot (dark bg) -->
+<div style="background:var(--royal-deep);padding:2rem;border-radius:var(--r-md);display:inline-flex;align-items:center;gap:10px;margin-top:1rem;">
+  <span class="rec-dot-red" style="width:12px;height:12px;border-radius:50%;background:#ff3b30;box-shadow:0 0 16px rgba(255,59,48,0.6);animation:recBlink 1s infinite;"></span>
+  <span style="font-family:var(--font-mono);font-size:0.7rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.7);">REC · 00:28:15</span>
+</div>
+```
+```css
+@keyframes recBlink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.3; }
+}
+```
+
+**使用场景**：状态指示（在线/离线）、"正在录制"概念、Hero徽章、实时状态
+**气质传达**：现场感、进行中、录制、紧迫感

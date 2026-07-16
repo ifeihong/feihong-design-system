@@ -1267,3 +1267,159 @@
   border:1px solid var(--cream-200);
 }
 ```
+
+---
+
+## C1. 时代纪元卡片 Era Card（飞鸿专属）
+
+**特征**：三张卡片（左-中-右）带不同旋转角度，中间卡片上浮突出。每张卡片上部是图片区，下部是信息区，三种风格变体：Web 1.0黑底金字、Web 2.0白底蓝字、AIGC酒红底白字。卡片角落有巨型年份数字和年代标签。
+
+```html
+<div class="eras-grid" style="display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:28px;max-width:1200px;margin:0 auto;">
+  <!-- Web 1.0 -->
+  <div class="era-card e1" style="position:relative;overflow:hidden;border-radius:6px;transform:rotate(-1.5deg);background:#000;border:2px solid var(--gold);transition:all 0.6s var(--ease);">
+    <div class="era-img" style="min-height:320px;position:relative;overflow:hidden;background:linear-gradient(135deg,#0a0a0a,#1a1a1a);">
+      <div class="era-num-big" style="position:absolute;top:28px;left:32px;font-family:var(--font-mono);font-size:5rem;font-weight:800;line-height:1;color:#4ADE80;text-shadow:0 0 40px rgba(74,222,128,0.5);">1.0</div>
+      <div class="era-year-range" style="position:absolute;top:36px;right:32px;font-family:var(--font-mono);font-size:0.8rem;font-weight:700;letter-spacing:0.15em;color:rgba(255,255,255,0.6);background:rgba(0,0,0,0.3);padding:8px 14px;backdrop-filter:blur(4px);">1998—2010</div>
+    </div>
+    <div class="era-body" style="padding:36px;">
+      <div class="era-tag" style="font-family:var(--font-mono);font-size:0.72rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:#4ADE80;margin-bottom:12px;">DIAL-UP ERA</div>
+      <h3 class="era-name" style="font-family:var(--font-mono);font-size:1.6rem;font-weight:800;letter-spacing:0.02em;color:var(--gold);margin-bottom:10px;">拨号时代</h3>
+      <p class="era-sub" style="font-family:var(--font-mono);font-size:0.8rem;letter-spacing:0.08em;color:rgba(255,255,255,0.5);line-height:1.6;">FrontPage · Dreamweaver · 表格布局 · Flash动画</p>
+    </div>
+  </div>
+  <!-- Web 2.0 (featured center) -->
+  <div class="era-card e2" style="position:relative;overflow:hidden;border-radius:6px;transform:translateY(-24px);z-index:2;box-shadow:0 36px 90px rgba(0,0,0,0.25);background:var(--cream);transition:all 0.6s var(--ease);">
+    <div class="era-img" style="min-height:380px;position:relative;overflow:hidden;background:linear-gradient(135deg,#f5f0e0,#ebe3cc);">
+      <div class="era-num-big" style="position:absolute;top:28px;left:32px;font-family:var(--font-mono);font-size:5rem;font-weight:800;line-height:1;color:#fff;">2.0</div>
+      <div class="era-year-range" style="position:absolute;top:36px;right:32px;font-family:var(--font-mono);font-size:0.8rem;font-weight:700;letter-spacing:0.15em;color:rgba(0,0,0,0.5);background:rgba(255,255,255,0.5);padding:8px 14px;backdrop-filter:blur(4px);">2010—2022</div>
+    </div>
+    <div class="era-body" style="padding:36px;">
+      <div class="era-tag" style="font-family:var(--font-italic);font-style:italic;font-size:0.88rem;letter-spacing:0.2em;color:var(--gold-dark);margin-bottom:12px;">The Golden Age</div>
+      <h3 class="era-name" style="font-family:var(--font-serif);font-size:2rem;font-weight:900;color:var(--royal);margin-bottom:10px;line-height:1.1;">黄金年代</h3>
+      <p class="era-sub" style="font-family:var(--font-italic);font-style:italic;font-size:1rem;color:var(--ink-mute);line-height:1.6;">响应式设计 · React · 移动端 · SaaS · 设计系统</p>
+    </div>
+  </div>
+  <!-- AIGC Era -->
+  <div class="era-card e3" style="position:relative;overflow:hidden;border-radius:6px;transform:rotate(1.5deg);background:linear-gradient(135deg,var(--wine-dark),var(--wine));transition:all 0.6s var(--ease);">
+    <div class="era-img" style="min-height:320px;position:relative;overflow:hidden;background:linear-gradient(135deg,#2a0a14,#4a1020);">
+      <div class="era-num-big" style="position:absolute;top:28px;left:32px;font-family:var(--font-mono);font-size:5rem;font-weight:800;line-height:1;color:var(--gold);text-shadow:0 0 40px rgba(244,211,94,0.5);">3.0</div>
+      <div class="era-year-range" style="position:absolute;top:36px;right:32px;font-family:var(--font-mono);font-size:0.8rem;font-weight:700;letter-spacing:0.15em;color:rgba(255,255,255,0.6);background:rgba(0,0,0,0.3);padding:8px 14px;backdrop-filter:blur(4px);">2022—NOW</div>
+    </div>
+    <div class="era-body" style="padding:36px;">
+      <div class="era-tag" style="font-family:var(--font-mono);font-size:0.72rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">AIGC ERA</div>
+      <h3 class="era-name" style="font-family:var(--font-serif);font-size:2.1rem;font-weight:900;color:#fff;margin-bottom:10px;line-height:1.1;text-shadow:2px 2px 0 rgba(0,0,0,0.2);">智能纪元</h3>
+      <p class="era-sub" style="font-family:var(--font-italic);font-style:italic;font-size:1rem;color:rgba(255,255,255,0.8);line-height:1.6;">AI辅助设计 · LLM · 生成式UI · 多模态 · Agent</p>
+    </div>
+  </div>
+</div>
+```
+```css
+.era-card:hover { transform: translateY(-14px) rotate(0deg) !important; box-shadow: 0 40px 100px rgba(0,0,0,0.55); }
+.era-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 20%, rgba(5,13,36,0.9) 100%); }
+```
+
+**使用场景**：时代展示、技术历程、职业阶段、产品迭代
+**气质传达**：叙事感、历史纵深、三个时代对比
+
+---
+
+## C2. 能力矩阵卡片 Skill Matrix Card（飞鸿专属）
+
+**特征**：三列卡片（白/深蓝/酒红），顶部有彩色渐变条，包含分类编号、分类名、描述，下方是技能标签云。白色卡片用于前端/设计，深色卡片用于后端/系统，酒红卡片用于AI/创作。
+
+```html
+<div class="skills-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1200px;margin:0 auto;">
+  <!-- Frontend/Design -->
+  <div class="skill-section" style="background:#fff;border-radius:6px;overflow:hidden;box-shadow:0 8px 40px rgba(10,36,99,0.08);position:relative;">
+    <div style="position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--gold),var(--wine));"></div>
+    <div class="skill-header" style="padding:36px 36px 28px;border-bottom:1px solid rgba(10,36,99,0.06);position:relative;">
+      <div class="skill-cat-num" style="font-family:var(--font-mono);font-size:0.72rem;font-weight:700;letter-spacing:0.2em;color:var(--ink-mute);margin-bottom:12px;opacity:0.6;">/ 01</div>
+      <h3 class="skill-cat-label" style="font-family:var(--font-serif);font-size:1.8rem;font-weight:900;color:var(--royal);line-height:1.2;margin-bottom:8px;">设计与前端</h3>
+      <p class="skill-cat-sub" style="font-family:var(--font-italic);font-style:italic;font-size:0.9rem;color:var(--ink-mute);opacity:0.6;">从像素到体验</p>
+    </div>
+    <div class="skill-body" style="padding:28px 36px 36px;">
+      <div class="skill-group" style="margin-bottom:24px;">
+        <div class="skill-group-name" style="font-family:var(--font-mono);font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--wine);margin-bottom:12px;">Design</div>
+        <div class="skill-tags" style="display:flex;flex-wrap:wrap;gap:8px;">
+          <span class="skill-tag" style="font-size:0.82rem;padding:7px 14px;font-weight:500;border-radius:2px;background:var(--royal-100);color:var(--ink-soft);">Figma</span>
+          <span class="skill-tag" style="font-size:0.82rem;padding:7px 14px;font-weight:500;border-radius:2px;background:var(--royal-100);color:var(--ink-soft);">Design System</span>
+          <span class="skill-tag" style="font-size:0.82rem;padding:7px 14px;font-weight:500;border-radius:2px;background:var(--royal-100);color:var(--ink-soft);">Typography</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-name" style="font-family:var(--font-mono);font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--wine);margin-bottom:12px;">Frontend</div>
+        <div class="skill-tags" style="display:flex;flex-wrap:wrap;gap:8px;">
+          <span class="skill-tag" style="font-size:0.82rem;padding:7px 14px;font-weight:500;border-radius:2px;background:var(--royal-100);color:var(--ink-soft);">React</span>
+          <span class="skill-tag" style="font-size:0.82rem;padding:7px 14px;font-weight:500;border-radius:2px;background:var(--royal-100);color:var(--ink-soft);">TypeScript</span>
+          <span class="skill-tag" style="font-size:0.82rem;padding:7px 14px;font-weight:500;border-radius:2px;background:var(--royal-100);color:var(--ink-soft);">CSS</span>
+          <span class="skill-tag" style="font-size:0.82rem;padding:7px 14px;font-weight:500;border-radius:2px;background:var(--royal-100);color:var(--ink-soft);">Next.js</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Backend/System (dark) -->
+  <div class="skill-section dark" style="background:var(--royal-deep);color:#fff;border-radius:6px;overflow:hidden;box-shadow:0 8px 40px rgba(10,36,99,0.15);position:relative;">
+    <div style="position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--royal),var(--royal-bright));"></div>
+    <div class="skill-header" style="padding:36px 36px 28px;border-bottom:1px solid rgba(255,255,255,0.08);position:relative;">
+      <div class="skill-cat-num" style="font-family:var(--font-mono);font-size:0.72rem;font-weight:700;letter-spacing:0.2em;color:var(--gold);margin-bottom:12px;opacity:0.8;">/ 02</div>
+      <h3 class="skill-cat-label" style="font-family:var(--font-serif);font-size:1.8rem;font-weight:900;color:#fff;line-height:1.2;margin-bottom:8px;">系统与工程</h3>
+      <p class="skill-cat-sub" style="font-family:var(--font-italic);font-style:italic;font-size:0.9rem;color:rgba(255,255,255,0.6);opacity:0.6;">从架构到部署</p>
+    </div>
+    <div class="skill-body" style="padding:28px 36px 36px;">
+      <div class="skill-group" style="margin-bottom:24px;">
+        <div class="skill-group-name" style="font-family:var(--font-mono);font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Backend</div>
+        <div class="skill-tags" style="display:flex;flex-wrap:wrap;gap:8px;">
+          <span class="skill-tag" style="font-size:0.82rem;padding:7px 14px;font-weight:500;border-radius:2px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.85);">Node.js</span>
+          <span class="skill-tag" style="font-size:0.82rem;padding:7px 14px;font-weight:500;border-radius:2px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.85);">Python</span>
+          <span class="skill-tag" style="font-size:0.82rem;padding:7px 14px;font-weight:500;border-radius:2px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.85);">PostgreSQL</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-name" style="font-family:var(--font-mono);font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">DevOps</div>
+        <div class="skill-tags" style="display:flex;flex-wrap:wrap;gap:8px;">
+          <span class="skill-tag" style="font-size:0.82rem;padding:7px 14px;font-weight:500;border-radius:2px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.85);">Docker</span>
+          <span class="skill-tag" style="font-size:0.82rem;padding:7px 14px;font-weight:500;border-radius:2px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.85);">AWS</span>
+          <span class="skill-tag" style="font-size:0.82rem;padding:7px 14px;font-weight:500;border-radius:2px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.85);">CI/CD</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- AI/Creation (wine) -->
+  <div class="skill-section wine" style="background:linear-gradient(135deg,var(--wine-dark),var(--wine));color:#fff;border-radius:6px;overflow:hidden;box-shadow:0 8px 40px rgba(216,49,91,0.2);position:relative;">
+    <div style="position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#4ADE80,var(--gold));"></div>
+    <div class="skill-header" style="padding:36px 36px 28px;border-bottom:1px solid rgba(255,255,255,0.15);position:relative;">
+      <div class="skill-cat-num" style="font-family:var(--font-mono);font-size:0.72rem;font-weight:700;letter-spacing:0.2em;color:var(--gold);margin-bottom:12px;opacity:0.8;">/ 03</div>
+      <h3 class="skill-cat-label" style="font-family:var(--font-serif);font-size:1.8rem;font-weight:900;color:#fff;line-height:1.2;margin-bottom:8px;">AI与创作</h3>
+      <p class="skill-cat-sub" style="font-family:var(--font-italic);font-style:italic;font-size:0.9rem;color:rgba(255,255,255,0.6);opacity:0.6;">从工具到表达</p>
+    </div>
+    <div class="skill-body" style="padding:28px 36px 36px;">
+      <div class="skill-group" style="margin-bottom:24px;">
+        <div class="skill-group-name" style="font-family:var(--font-mono);font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-light);margin-bottom:12px;">AI</div>
+        <div class="skill-tags" style="display:flex;flex-wrap:wrap;gap:8px;">
+          <span class="skill-tag" style="font-size:0.82rem;padding:7px 14px;font-weight:500;border-radius:2px;background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.95);">LLM</span>
+          <span class="skill-tag" style="font-size:0.82rem;padding:7px 14px;font-weight:500;border-radius:2px;background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.95);">Prompt Engineering</span>
+          <span class="skill-tag" style="font-size:0.82rem;padding:7px 14px;font-weight:500;border-radius:2px;background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.95);">RAG</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-name" style="font-family:var(--font-mono);font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-light);margin-bottom:12px;">Creation</div>
+        <div class="skill-tags" style="display:flex;flex-wrap:wrap;gap:8px;">
+          <span class="skill-tag" style="font-size:0.82rem;padding:7px 14px;font-weight:500;border-radius:2px;background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.95);">写作</span>
+          <span class="skill-tag" style="font-size:0.82rem;padding:7px 14px;font-weight:500;border-radius:2px;background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.95);">摄影</span>
+          <span class="skill-tag" style="font-size:0.82rem;padding:7px 14px;font-weight:500;border-radius:2px;background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.95);">品牌设计</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+```css
+.skill-section:hover { transform: translateY(-10px); box-shadow: 0 30px 80px rgba(10,36,99,0.15); }
+.skill-tag:hover { background: var(--royal); color: var(--gold); transform: translateY(-2px); transition: all 0.25s; }
+.skill-section.dark .skill-tag:hover { background: var(--gold); color: var(--royal); }
+.skill-section.wine .skill-tag:hover { background: var(--gold); color: var(--royal); }
+```
+
+**使用场景**：技能展示、能力矩阵、服务介绍、技术栈
+**气质传达**：专业、全面、三色区分、清晰分类

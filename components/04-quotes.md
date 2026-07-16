@@ -319,3 +319,41 @@
 .flow-quote { font-family:var(--font-display); font-style:italic; font-size:1.6rem; font-weight:500; color:var(--gold); margin:0 0 36px; padding-left:20px; border-left:3px solid var(--gold); line-height:1.4; }
 @media(max-width:768px){ .flow-quote{font-size:1.2rem;} }
 ```
+
+---
+
+## Q1. 宣言金句区 Manifesto Block（飞鸿专属）
+
+**特征**：深色背景（royal-deep），居中超大斜体金句，关键词高亮（金色/酒红）带色块下划线，巨型引号水印，底部签名+三色弹跳圆点装饰。个人品牌专属引用组件。
+
+```html
+<section class="manifesto" style="min-height:70vh;padding:120px 2.5rem;background:var(--royal-deep);position:relative;overflow:hidden;text-align:center;display:flex;align-items:center;justify-content:center;">
+  <div style="content:'"';position:absolute;top:-50px;left:50%;transform:translateX(-50%);font-family:var(--font-serif);font-size:28rem;color:var(--gold);opacity:0.05;line-height:1;pointer-events:none;">"</div>
+  <div class="manifesto-inner" style="position:relative;z-index:1;max-width:1100px;margin:0 auto;">
+    <p class="manifesto-text" style="font-family:var(--font-serif);font-style:italic;font-size:clamp(2rem,5vw,4.2rem);color:#fff;line-height:1.5;font-weight:400;">
+      <span class="highlight hl-gold" style="font-style:normal;font-weight:900;position:relative;display:inline-block;color:var(--gold);">以代码为笔</span>，
+      以设计为镜，<br>
+      <span class="highlight hl-wine" style="font-style:normal;font-weight:900;position:relative;display:inline-block;color:var(--wine);">见证每一个时代</span>
+    </p>
+    <p class="manifesto-sig" style="margin-top:64px;font-family:var(--font-italic);font-style:italic;font-size:1.3rem;color:rgba(255,255,255,0.4);letter-spacing:0.1em;">— Feihong, 2026</p>
+    <div class="manifesto-deco" style="display:flex;justify-content:center;gap:16px;margin-top:48px;">
+      <span style="width:8px;height:8px;border-radius:50%;background:var(--gold);animation:decoBounce 2s ease-in-out infinite;"></span>
+      <span style="width:8px;height:8px;border-radius:50%;background:var(--wine);animation:decoBounce 2s ease-in-out infinite 0.2s;"></span>
+      <span style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.3);animation:decoBounce 2s ease-in-out infinite 0.4s;"></span>
+    </div>
+  </div>
+</section>
+```
+```css
+.manifesto-text .highlight::after {
+  content: ''; position: absolute; bottom: 5%; left: -2%; right: -2%; height: 12%;
+  background: var(--gold); opacity: 0.2; z-index: -1; transform: rotate(-1deg);
+}
+.manifesto-text .hl-wine::after { background: var(--wine); }
+@keyframes decoBounce {
+  0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)}
+}
+```
+
+**使用场景**：个人宣言、核心价值观、金句页、深色章节过渡
+**气质传达**：深刻、坚定、品牌宣言、仪式感

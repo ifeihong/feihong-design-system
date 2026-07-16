@@ -418,4 +418,4 @@ Anti-AI strategies:
 
 *Feihong Design System v8.0*
 *Anti-AI · Artistic Quality · Human Warmth*
-*10 Scenes · 250+ Components · 19 Categories · 400+ Variants · v8.0*
+*10 Scenes · 265+ Components · 19 Categories · 420+ Variants · v8.0*

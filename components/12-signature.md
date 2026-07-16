@@ -1015,3 +1015,101 @@
   font-size: 0.7rem;
 }
 ```
+
+---
+
+## S1. 旋转F品牌标识 Rotated F Mark（飞鸿专属）
+
+**特征**：品牌名称中的首字母"F"旋转-8°到-12°，使用酒红色，比周围文字略大。可嵌入标题中作为品牌视觉锚点，是飞鸿最核心的签名式标识。
+
+```html
+<h1 style="font-family:var(--font-serif);font-size:4rem;font-weight:900;color:var(--royal);line-height:0.9;">
+  <span class="f-mark" style="display:inline-block;color:var(--wine);transform:rotate(-10deg) translateY(-5px);font-size:1.05em;">F</span>eihong
+</h1>
+```
+```css
+.f-mark {
+  display: inline-block;
+  color: var(--wine);
+  transform: rotate(-8deg) to (-12deg);
+  transition: transform 0.3s var(--ease);
+}
+.f-mark:hover {
+  transform: rotate(-5deg) scale(1.05);
+}
+```
+
+**使用场景**：Logo、Hero标题、品牌水印、签名区域
+**气质传达**：品牌识别、个性、不循规蹈矩
+
+---
+
+## S2. 录制指示灯徽章 REC Studio Badge（飞鸿专属 · 影院母题）
+
+**特征**：胶囊形状徽章，左侧有一个闪烁的红色/金色圆点（模拟摄像机REC指示灯），右侧是等宽字体大写文字。深色半透明背景+毛玻璃效果。
+
+```html
+<div class="rec-badge" style="display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:0.68rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;padding:10px 20px;border:1px solid rgba(255,255,255,0.2);background:rgba(0,0,0,0.4);backdrop-filter:blur(8px);color:rgba(255,255,255,0.65);">
+  <span class="rec-dot" style="width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px rgba(244,211,94,0.8);animation:recBlink 1.2s infinite;"></span>
+  NOW BROADCASTING
+</div>
+
+<!-- Light background variant -->
+<div class="rec-badge-light" style="display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:0.68rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;padding:10px 20px;border:1px solid var(--wine);background:rgba(216,49,91,0.04);color:var(--wine);margin-top:1rem;">
+  <span class="rec-dot" style="width:8px;height:8px;border-radius:50%;background:var(--wine);animation:blink 1.2s infinite;"></span>
+  LIVE · 28 YEARS ONLINE
+</div>
+```
+```css
+@keyframes recBlink {
+  0%, 50% { opacity: 1; box-shadow: 0 0 12px currentColor; }
+  51%, 100% { opacity: 0.3; box-shadow: none; }
+}
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+```
+
+**使用场景**：Hero区域状态指示、"正在录制/直播"概念、时间戳标记
+**气质传达**：现场感、影院/录制感、实时、进行中
+
+---
+
+## S3. 时间码技术标注 Timecode Technical Label（飞鸿专属 · 影院母题）
+
+**特征**：等宽字体、极小字号、宽字距、大写，包含时间码、画幅比、ISO等技术参数标注。放置在角落提供"技术元数据"感。
+
+```html
+<!-- Corner technical labels (like camera viewfinder info) -->
+<div style="position:relative;min-height:200px;border:1px solid var(--cream-200);border-radius:var(--r-md);padding:2rem;">
+  <!-- Top-left: timecode -->
+  <div class="tc-tl" style="position:absolute;top:16px;left:20px;font-family:var(--font-mono);font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--ink-300);line-height:2;">
+    TC 00:02:38:12<br>
+    ISO 800 · f/2.8
+  </div>
+  <!-- Top-right: aspect ratio -->
+  <div class="tc-tr" style="position:absolute;top:16px;right:20px;font-family:var(--font-mono);font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--ink-300);line-height:2;text-align:right;">
+    <span style="font-size:0.85rem;font-weight:700;color:var(--ink);">2.39:1</span><br>
+    SCOPE · ANAMORPHIC
+  </div>
+  <div style="display:flex;align-items:center;justify-content:center;height:100%;min-height:140px;">
+    <p style="font-family:var(--font-serif);font-size:1.3rem;color:var(--ink-200);text-align:center;">时间码标注的内容区域</p>
+  </div>
+</div>
+
+<!-- Dark background variant -->
+<div style="position:relative;background:var(--royal-deep);min-height:200px;padding:3rem;border-radius:var(--r-md);">
+  <div class="tc-dark" style="position:absolute;top:20px;left:clamp(20px,3vw,40px);font-family:var(--font-mono);font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.5);line-height:2;text-align:left;">
+    REEL 01 · SCENE 03<br>
+    TAKE 07 · 2026
+  </div>
+  <div class="tc-dark-r" style="position:absolute;top:20px;right:clamp(20px,3vw,40px);font-family:var(--font-mono);font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.5);line-height:2;text-align:right;">
+    <span style="font-size:0.85rem;font-weight:700;color:#fff;">4K</span><br>
+    HDR · DOLBY VISION
+  </div>
+</div>
+```
+
+**使用场景**：深色Hero角落、图片/视频展示区标注、技术参数展示、作品详情
+**气质传达**：电影技术感、专业拍摄、元数据、制作感

@@ -1134,3 +1134,167 @@ Cormorant 斜体页码 + 金色/皇家蓝激活态，含 `.roman` 罗马数字+�
 }
 .doc-card:hover::before { transform: scaleX(1); }
 ```
+
+---
+
+## LA1. 35mm胶片卷轴作品展示 Film Reel Gallery（飞鸿专属 · 影院母题）
+
+**特征**：深色背景上的横向胶片条，两侧带胶片齿孔（perforations），胶片盘（reel）旋转动画，每个画框有图标、标题、分类标签，画框间有片边码（edge codes）和划痕效果。画框hover时上浮放大，整体营造电影胶片放映的视觉体验。
+
+```html
+<section class="film-section" style="background:#000;padding:5rem 0;position:relative;overflow:hidden;">
+  <!-- Film reel decorations -->
+  <div class="film-reel film-reel-left" style="position:absolute;left:-30px;top:50%;transform:translateY(-50%);width:120px;height:120px;border-radius:50%;border:3px solid #1a1a1a;background:radial-gradient(circle,#0a0a0a 30%,#050505 70%);box-shadow:0 0 40px rgba(0,0,0,0.8),inset 0 0 20px rgba(0,0,0,0.5);z-index:4;animation:reelSpin 10s linear infinite;">
+    <span class="spoke-1" style="position:absolute;top:15px;left:50%;transform:translateX(-50%);width:12px;height:12px;border-radius:50%;background:#000;border:1px solid #1a1a1a;"></span>
+    <span class="spoke-2" style="position:absolute;bottom:15px;left:50%;transform:translateX(-50%);width:12px;height:12px;border-radius:50%;background:#000;border:1px solid #1a1a1a;"></span>
+    <span class="spoke-3" style="position:absolute;top:50%;left:15px;transform:translateY(-50%);width:12px;height:12px;border-radius:50%;background:#000;border:1px solid #1a1a1a;"></span>
+    <span class="spoke-4" style="position:absolute;top:50%;right:15px;transform:translateY(-50%);width:12px;height:12px;border-radius:50%;background:#000;border:1px solid #1a1a1a;"></span>
+  </div>
+  <div class="film-reel film-reel-right" style="position:absolute;right:-30px;top:50%;transform:translateY(-50%);width:120px;height:120px;border-radius:50%;border:3px solid #1a1a1a;background:radial-gradient(circle,#0a0a0a 30%,#050505 70%);box-shadow:0 0 40px rgba(0,0,0,0.8),inset 0 0 20px rgba(0,0,0,0.5);z-index:4;animation:reelSpin 10s linear infinite reverse;">
+    <span class="spoke-1" style="position:absolute;top:15px;left:50%;transform:translateX(-50%);width:12px;height:12px;border-radius:50%;background:#000;border:1px solid #1a1a1a;"></span>
+    <span class="spoke-2" style="position:absolute;bottom:15px;left:50%;transform:translateX(-50%);width:12px;height:12px;border-radius:50%;background:#000;border:1px solid #1a1a1a;"></span>
+    <span class="spoke-3" style="position:absolute;top:50%;left:15px;transform:translateY(-50%);width:12px;height:12px;border-radius:50%;background:#000;border:1px solid #1a1a1a;"></span>
+    <span class="spoke-4" style="position:absolute;top:50%;right:15px;transform:translateY(-50%);width:12px;height:12px;border-radius:50%;background:#000;border:1px solid #1a1a1a;"></span>
+  </div>
+  
+  <!-- Scratches -->
+  <div class="film-scratch s1" style="position:absolute;top:0;bottom:0;left:25%;width:1px;background:rgba(255,255,255,0.03);pointer-events:none;z-index:5;animation:scratchFlicker 4s ease-in-out infinite;"></div>
+  <div class="film-scratch s2" style="position:absolute;top:0;bottom:0;left:60%;width:1px;background:rgba(255,255,255,0.03);pointer-events:none;z-index:5;animation:scratchFlicker 6s ease-in-out infinite 1s;"></div>
+  
+  <!-- Film strip -->
+  <div class="film-strip" style="background:#0a0a0a;border-top:2px solid #1a1a1a;border-bottom:2px solid #1a1a1a;padding:16px 0;position:relative;z-index:2;transform:rotate(-1deg);margin:0 -2%;">
+    <!-- Top perforations -->
+    <div class="film-perfs top" style="position:absolute;top:6px;left:0;right:0;display:flex;justify-content:space-around;padding:0 8px;">
+      <!-- repeat perforations -->
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+    </div>
+    <!-- Bottom perforations -->
+    <div class="film-perfs bottom" style="position:absolute;bottom:6px;left:0;right:0;display:flex;justify-content:space-around;padding:0 8px;">
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+      <span style="width:18px;height:12px;background:#000;border-radius:2px;"></span>
+    </div>
+    <!-- Frames -->
+    <div class="film-frames" style="display:flex;gap:14px;padding:28px 32px;overflow-x:auto;scrollbar-width:none;">
+      <div class="film-frame ff-1" style="min-width:220px;flex-shrink:0;border:1px solid #222;border-radius:3px;overflow:hidden;cursor:pointer;transition:all 0.5s var(--ease);">
+        <div class="film-frame-art" style="min-height:160px;background:linear-gradient(135deg,#1a1a2e,#16213e);display:flex;align-items:center;justify-content:center;position:relative;">
+          <span class="film-icon" style="font-size:3rem;">🎨</span>
+        </div>
+        <div class="film-frame-info" style="padding:16px;background:linear-gradient(180deg,#0f0f0f,#080808);">
+          <div class="film-frame-cat" style="font-family:var(--font-mono);font-size:0.58rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:5px;">DESIGN SYSTEM</div>
+          <div class="film-frame-title" style="font-family:var(--font-serif);font-size:1.15rem;font-weight:700;color:#fff;line-height:1.2;margin-bottom:4px;">Feihong DS v8</div>
+          <div class="film-frame-desc" style="font-family:var(--font-italic);font-style:italic;font-size:0.72rem;color:rgba(255,255,255,0.35);line-height:1.4;">250+ Components</div>
+        </div>
+      </div>
+      <div class="film-frame ff-2" style="min-width:220px;flex-shrink:0;border:1px solid #222;border-radius:3px;overflow:hidden;cursor:pointer;transition:all 0.5s var(--ease);">
+        <div class="film-frame-art" style="min-height:160px;background:linear-gradient(135deg,#2d1b38,#1a0a14);display:flex;align-items:center;justify-content:center;position:relative;">
+          <span class="film-icon" style="font-size:3rem;">💻</span>
+        </div>
+        <div class="film-frame-info" style="padding:16px;background:linear-gradient(180deg,#0f0f0f,#080808);">
+          <div class="film-frame-cat" style="font-family:var(--font-mono);font-size:0.58rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--wine);margin-bottom:5px;">WEB APP</div>
+          <div class="film-frame-title" style="font-family:var(--font-serif);font-size:1.15rem;font-weight:700;color:#fff;line-height:1.2;margin-bottom:4px;">Portfolio 2026</div>
+          <div class="film-frame-desc" style="font-family:var(--font-italic);font-style:italic;font-size:0.72rem;color:rgba(255,255,255,0.35);line-height:1.4;">Cinematic Edition</div>
+        </div>
+      </div>
+      <div class="film-frame ff-3" style="min-width:220px;flex-shrink:0;border:1px solid #222;border-radius:3px;overflow:hidden;cursor:pointer;transition:all 0.5s var(--ease);">
+        <div class="film-frame-art" style="min-height:160px;background:linear-gradient(135deg,#0a2a1a,#0f1f0a);display:flex;align-items:center;justify-content:center;position:relative;">
+          <span class="film-icon" style="font-size:3rem;">🤖</span>
+        </div>
+        <div class="film-frame-info" style="padding:16px;background:linear-gradient(180deg,#0f0f0f,#080808);">
+          <div class="film-frame-cat" style="font-family:var(--font-mono);font-size:0.58rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:#4ADE80;margin-bottom:5px;">AI AGENT</div>
+          <div class="film-frame-title" style="font-family:var(--font-serif);font-size:1.15rem;font-weight:700;color:#fff;line-height:1.2;margin-bottom:4px;">AI Workflow</div>
+          <div class="film-frame-desc" style="font-family:var(--font-italic);font-style:italic;font-size:0.72rem;color:rgba(255,255,255,0.35);line-height:1.4;">LLM · RAG · Agent</div>
+        </div>
+      </div>
+      <div class="film-frame ff-4" style="min-width:220px;flex-shrink:0;border:1px solid #222;border-radius:3px;overflow:hidden;cursor:pointer;transition:all 0.5s var(--ease);">
+        <div class="film-frame-art" style="min-height:160px;background:linear-gradient(135deg,#0a1a2a,#102030);display:flex;align-items:center;justify-content:center;position:relative;">
+          <span class="film-icon" style="font-size:3rem;">📝</span>
+        </div>
+        <div class="film-frame-info" style="padding:16px;background:linear-gradient(180deg,#0f0f0f,#080808);">
+          <div class="film-frame-cat" style="font-family:var(--font-mono);font-size:0.58rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:#60a5fa;margin-bottom:5px;">WRITING</div>
+          <div class="film-frame-title" style="font-family:var(--font-serif);font-size:1.15rem;font-weight:700;color:#fff;line-height:1.2;margin-bottom:4px;">技术文章</div>
+          <div class="film-frame-desc" style="font-family:var(--font-italic);font-style:italic;font-size:0.72rem;color:rgba(255,255,255,0.35);line-height:1.4;">50+ Articles</div>
+        </div>
+      </div>
+      <div class="film-frame ff-5" style="min-width:220px;flex-shrink:0;border:1px solid #222;border-radius:3px;overflow:hidden;cursor:pointer;transition:all 0.5s var(--ease);">
+        <div class="film-frame-art" style="min-height:160px;background:linear-gradient(135deg,#1a1a2a,#0a1a20);display:flex;align-items:center;justify-content:center;position:relative;">
+          <span class="film-icon" style="font-size:3rem;">🎬</span>
+        </div>
+        <div class="film-frame-info" style="padding:16px;background:linear-gradient(180deg,#0f0f0f,#080808);">
+          <div class="film-frame-cat" style="font-family:var(--font-mono);font-size:0.58rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:#22d3ee;margin-bottom:5px;">MOTION</div>
+          <div class="film-frame-title" style="font-family:var(--font-serif);font-size:1.15rem;font-weight:700;color:#fff;line-height:1.2;margin-bottom:4px;">动效设计</div>
+          <div class="film-frame-desc" style="font-family:var(--font-italic);font-style:italic;font-size:0.72rem;color:rgba(255,255,255,0.35);line-height:1.4;">CSS Animation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+```
+```css
+@keyframes reelSpin {
+  from { transform: translateY(-50%) rotate(0deg); }
+  to { transform: translateY(-50%) rotate(360deg); }
+}
+@keyframes scratchFlicker {
+  0%,100%{opacity:0} 10%{opacity:0.3} 12%{opacity:0} 50%{opacity:0.1} 52%{opacity:0}
+}
+.film-frame:hover {
+  transform: translateY(-8px) scale(1.03);
+  border-color: var(--gold);
+  box-shadow: 0 20px 60px rgba(244,211,94,0.15);
+}
+.film-frame-art::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.05) 50%, transparent 70%);
+}
+.film-reel::before {
+  content: ''; position: absolute; inset: 15px;
+  border-radius: 50%; border: 2px solid #222;
+}
+.film-reel::after {
+  content: ''; position: absolute; top: 50%; left: 50%;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: #1a1a1a;
+  transform: translate(-50%, -50%);
+  box-shadow: inset 0 0 8px rgba(0,0,0,0.8);
+}
+```
+
+**使用场景**：作品集展示、作品画廊、产品展示、深色沉浸式章节
+**气质传达**：电影感、胶片质感、沉浸式浏览、高奢展示

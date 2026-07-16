@@ -621,4 +621,90 @@ Cormorant Garamond 花体斜体小字编号，0.65rem、gold-700 色、半透明
 .ip-plus.p1 { top: 15%; right: 25%; }
 .ip-plus.p2 { bottom: 25%; left: 18%; font-size: 0.9rem; }
 ```
+
+---
+
+## D1. 取景框角标 Viewfinder Frame（飞鸿专属 · 影院母题）
+
+**特征**：四角L形线条标记，模拟相机/电影取景框。可用于深色或浅色背景，角标颜色可调整。营造电影拍摄/取景的视觉暗示。
+
+```html
+<div class="viewfinder-wrap" style="position:relative;padding:3rem;min-height:200px;border:1px dashed rgba(10,36,99,0.1);border-radius:var(--r-md);">
+  <!-- Viewfinder corner marks -->
+  <div class="vf-mark vf-tl" style="position:absolute;top:20px;left:20px;width:36px;height:36px;border-top:2px solid var(--royal);border-left:2px solid var(--royal);"></div>
+  <div class="vf-mark vf-tr" style="position:absolute;top:20px;right:20px;width:36px;height:36px;border-top:2px solid var(--royal);border-right:2px solid var(--royal);"></div>
+  <div class="vf-mark vf-bl" style="position:absolute;bottom:20px;left:20px;width:36px;height:36px;border-bottom:2px solid var(--royal);border-left:2px solid var(--royal);"></div>
+  <div class="vf-mark vf-br" style="position:absolute;bottom:20px;right:20px;width:36px;height:36px;border-bottom:2px solid var(--royal);border-right:2px solid var(--royal);"></div>
+  <div style="display:flex;align-items:center;justify-content:center;height:100%;min-height:140px;">
+    <p style="font-family:var(--font-serif);font-size:1.5rem;color:var(--ink);text-align:center;">取景框内的内容<br><em style="color:var(--gold-dark);font-size:0.7em;">Viewfinder Frame</em></p>
+  </div>
+</div>
 ```
+```css
+/* For dark backgrounds, use white/gold corner marks */
+.vf-mark.gold { border-color: var(--gold); }
+.vf-mark.white { border-color: rgba(255,255,255,0.3); }
+/* Subtle hover animation */
+.viewfinder-wrap:hover .vf-mark { border-color: var(--wine); transition: border-color 0.5s; }
+```
+
+**使用场景**：Hero区域装饰、图片展示框、作品集封面、深色CTA区域
+**气质传达**：电影感、摄影感、专业取景、仪式感
+
+---
+
+## D2. 胶片噪点纹理层 Film Grain Noise Overlay（飞鸿专属）
+
+**特征**：全局SVG噪点纹理覆盖层，使用feTurbulence生成分形噪声，模拟胶片颗粒质感。透明度0.035-0.08，提供微妙的材质感。
+
+```html
+<!-- Add this as the first child of body or a section for grain texture -->
+<div class="grain-overlay" style="position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0.04;mix-blend-mode:overlay;background-image:url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\");"></div>
+```
+```css
+.grain-overlay {
+  animation: grainShift 0.8s steps(6) infinite;
+}
+@keyframes grainShift {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-2%, -2%); }
+  30% { transform: translate(3%, -1%); }
+  50% { transform: translate(-1%, 3%); }
+  70% { transform: translate(2%, 1%); }
+  90% { transform: translate(-3%, 2%); }
+}
+```
+
+**使用场景**：整个页面背景、深色区块上方、Hero区域、图片上方叠加
+**气质传达**：胶片质感、模拟感、温暖、非数字冰冷感
+
+---
+
+## D3. 斜切区块分隔线 Slash Divider（飞鸿专属）
+
+**特征**：使用clip-path创建的斜切边缘分隔，在深色和浅色区块之间创造非直角的有机过渡。两种方向：从左上到右下、从右上到左下。
+
+```html
+<!-- Slash divider: dark to light (slopes down from left to right) -->
+<div class="slash" style="height:60px;background:var(--royal-deep);clip-path:polygon(0 0,100% 40%,100% 100%,0 100%);margin-top:-1px;"></div>
+
+<!-- Light section content here -->
+<section style="background:var(--cream);padding:4rem 2.5rem;">
+  <p style="text-align:center;font-family:var(--font-serif);font-size:1.5rem;color:var(--royal);">斜切分隔后的浅色内容区</p>
+</section>
+
+<!-- Slash-alt divider: light to dark (slopes up from left to right) -->
+<div class="slash-alt" style="height:70px;background:var(--cream);clip-path:polygon(0 0,100% 0,100% 60%,0 100%);"></div>
+
+<!-- Dark section content here -->
+<section style="background:var(--royal-deep);padding:4rem 2.5rem;">
+  <p style="text-align:center;font-family:var(--font-serif);font-size:1.5rem;color:#fff;">斜切分隔后的深色内容区</p>
+</section>
+```
+```css
+.slash { height: 60px; clip-path: polygon(0 0, 100% 40%, 100% 100%, 0 100%); }
+.slash-alt { height: 70px; clip-path: polygon(0 0, 100% 0, 100% 60%, 0 100%); }
+```
+
+**使用场景**：深色→浅色区块过渡、章节之间的非水平分隔、营造动感
+**气质传达**：动感、非对称、编辑感、打破直角框架
