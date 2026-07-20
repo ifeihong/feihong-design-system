@@ -1,6 +1,19 @@
 ---
 name: feihong-design-system
-description: "Feihong Design System — Premium personal brand design system for AI-assisted creation, Feihong.Art brand identity. 10 scene templates, 250+ components, for portfolios, landing pages, case studies, tutorials, decks, admin consoles, social cards, resumes, emails, WeChat articles and any frontend design task. Signature palette: Royal Blue #0A2463 + Vintage Gold #F4D35E + Burgundy Wine #D8315B. Core principle: Anti-AI > Artistic Quality > Human Warmth > Designer's Eye."
+description: "飞鸿设计系统 — 为 AI 编码助手打造的高奢个人品牌设计系统。10 种场景模板，265+ 品牌组件，19 个科学分类，420+ 样式变体，含影院/终端/纪事三大视觉母题。三色基因：皇家蓝 #0A2463 + 复古金 #F4D35E + 酒红 #D8315B。核心原则：反AI感 > 艺术品质 > 人文温度 > 设计师眼光。"
+detail: |
+  飞鸿设计系统是 Feihong.Art 为 AI 编码助手量身打造的高奢个人品牌设计系统。
+
+  核心特色：
+  - 10 种场景模板：作品集、落地页、教程、演示文稿、案例研究、控制台、图文卡片、简历、邮件、公众号
+  - 265+ 品牌组件，19 个科学分类，420+ 样式变体
+  - 三大飞鸿专属视觉母题：影院母题（取景框、时间码、胶片卷轴）、终端母题（终端窗口、命令行美学）、纪事母题（征途时间线、时代纪元卡）
+  - 三色品牌基因：皇家蓝 #0A2463（55%）+ 复古金 #F4D35E（30%）+ 酒红 #D8315B（15%）
+  - 43 个动态文字组件，含故障风、渐变流动、光泽扫过、浮动呼吸等效果
+  - 8 步精工工作流：从需求洞察到封印交付的完整设计流程
+  - 零默认样式原则：所有组件均经过品牌化处理，拒绝浏览器默认样式
+
+  适用场景：个人品牌页面、作品集、落地页、教程、演示文稿、后台控制台、图文卡片、简历、邮件、公众号文章等任何前端设计任务。
 ---
 
 # Feihong Design System
