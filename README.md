@@ -15,6 +15,10 @@
 
 🌐 **官方网站**：<a href="https://feihong.art/skill/" target="_blank">Feihong Design System</a>
 
+<br>
+
+![Feihong Design System 概览](assets/intro.png)
+
 ---
 
 </div>
